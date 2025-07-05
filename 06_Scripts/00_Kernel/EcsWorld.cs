@@ -12,14 +12,23 @@ public partial class EcsWorld : Node
         Instance = World.Create();
 
         // Register components
+        Instance.Component<Components.Core.Transform>();
         Instance.Component<Components.Mesh.Static>();
         Instance.Component<Components.Core.MouseMode>();
+        Instance.Component<Components.Core.GameState>();
+        Instance.Component<Components.Camera.FreeCam>();
+        Instance.Component<Components.Camera.Settings>();
+        Instance.Component<Components.Camera.State>();
+        Instance.Component<Components.Camera.Tag>();
+        Instance.Component<Components.Camera.TopView>();
         // Create delta time entity
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new DeltaTime { Value = 0f });
 
         // Create systems
         Systems.Core.MouseMode.Setup(Instance);
+        Systems.Input.FreeCam.Setup(Instance);
+        Systems.Camera.FreeCam.Setup(Instance);
     }
 
     public override void _Process(double delta)
