@@ -305,4 +305,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="C3_FreeCam" parent="." instance=ExtResource("4_r1qyh")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 2, -10)
-current = true

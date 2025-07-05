@@ -15,9 +15,8 @@ public static class FreeCam
                 var singleton = world.Lookup("Singleton");
                 if (singleton.IsValid())
                 {
-                    GD.Print("fucker found");
-                    var gameState = singleton.Get<Components.Core.Unique.GameState>();
-                    if (gameState.CurrentGameState == Components.Core.Unique.GameStateEnum.Gameplay)
+                    var gameState = singleton.Get<GameState>();
+                    if (gameState.CurrentGameState == GameStateEnum.Gameplay)
                     {
                         // Keyboard input
                         cam.MovementDirection = new Vector3(
