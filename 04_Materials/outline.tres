@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://0x5amlsmkyhh"]
+
+[ext_resource type="Shader" uid="uid://b0hdbup5xr7nd" path="res://07_Shaders/outline.gdshader" id="1_myl1c"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_myl1c")
+shader_parameter/outline_thickness = 0.008
+shader_parameter/outline_color = Color(0.2, 1, 1, 1)

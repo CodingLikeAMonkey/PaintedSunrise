@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://oocxuq45306q"]
+
+[ext_resource type="Script" uid="uid://bslletpp1dpew" path="res://06_Scripts/01_Entities/Meshes/Selectable.cs" id="1_vkn3t"]
+[ext_resource type="Shader" uid="uid://b0hdbup5xr7nd" path="res://07_Shaders/outline.gdshader" id="2_6b535"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fms1c"]
+render_priority = 0
+shader = ExtResource("2_6b535")
+shader_parameter/outline_strength = 0.0
+shader_parameter/outline_thickness = 0.015
+shader_parameter/outline_color = Color(0.2, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciwiw"]
+render_priority = 1
+next_pass = SubResource("ShaderMaterial_fms1c")
+albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3yvu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkn3t"]
+
+[node name="SelectableMesh" type="RigidBody3D"]
+collision_layer = 0
+script = ExtResource("1_vkn3t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ciwiw")
+mesh = SubResource("BoxMesh_c3yvu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vkn3t")
