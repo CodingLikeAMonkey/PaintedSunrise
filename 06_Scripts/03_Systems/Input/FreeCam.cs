@@ -6,18 +6,18 @@ public static class FreeCam
 {
     public static void Setup(World world)
     {
-        world.System<Components.Camera.State>()
+        world.System<Components.Camera.FreeCam>()
             .Kind(Ecs.OnUpdate)
-            .Each((ref Components.Camera.State state) =>
+            .Each((ref Components.Camera.FreeCam cam) =>
             {
                 // Keyboard input
-                state.MovementDirection = new Vector3(
+                cam.MovementDirection = new Vector3(
                     Godot.Input.IsKeyPressed(Key.D) ? 1 : Godot.Input.IsKeyPressed(Key.A) ? -1 : 0,
                     Godot.Input.IsKeyPressed(Key.E) ? 1 : Godot.Input.IsKeyPressed(Key.Q) ? -1 : 0,
                     Godot.Input.IsKeyPressed(Key.S) ? 1 : Godot.Input.IsKeyPressed(Key.W) ? -1 : 0
                 ).Normalized();
 
-                state.IsBoosted = Godot.Input.IsKeyPressed(Key.Shift);
+                cam.IsBoosted = Godot.Input.IsKeyPressed(Key.Shift);
             });
     }
 }

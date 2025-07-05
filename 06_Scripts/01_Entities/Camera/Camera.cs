@@ -9,35 +9,32 @@ namespace Entities.Camera;
     public override void _Ready()
     {
         _cameraEntity = Kernel.EcsWorld.Instance.Entity()
-            .Add<Components.Camera.Tag>()
-            .Add<Components.Camera.FreeCam>()
             .Set(new Components.Core.Transform
             {
                 Position = GlobalPosition,
                 Rotation = GlobalRotation
             })
-            .Set(new Components.Camera.Settings
+            .Set(new Components.Camera.FreeCam
             {
                 Sensitivity = 3.0f,
                 DefaultVelocity = 5.0f,
                 SpeedScale = 1.17f,
                 BoostMultiplier = 3.0f,
                 MaxSpeed = 1000f,
-                MinSpeed = 0.2f
-            })
-            .Set(new Components.Camera.State
-            {
+                MinSpeed = 0.2f,
                 CurrentVelocity = 5.0f
-            })
-            .Set(new Components.Core.Raycast
-            {
-                Node = this,
-                Direction = Vector3.Forward,
-                Length = 20000000000.0f,
-                DebugDraw = true
 
-            })
-            .Add<Components.Camera.SelectRaycast>();
+            });
+           
+            // .Set(new Components.Core.Raycast
+            // {
+            //     Node = this,
+            //     Direction = Vector3.Forward,
+            //     Length = 20000000000.0f,
+            //     DebugDraw = true
+
+            // })
+            // .Add<Components.Camera.SelectRaycast>();
     }
 
     public override void _Process(double delta)

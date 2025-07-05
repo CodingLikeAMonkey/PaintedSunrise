@@ -17,9 +17,6 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Core.MouseMode>();
         Instance.Component<Components.Core.GameState>();
         Instance.Component<Components.Camera.FreeCam>();
-        Instance.Component<Components.Camera.Settings>();
-        Instance.Component<Components.Camera.State>();
-        Instance.Component<Components.Camera.Tag>();
         Instance.Component<Components.Camera.TopView>();
         // Create delta time entity
         _deltaTimeEntity = Instance.Entity("DeltaTime")

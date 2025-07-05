@@ -33,9 +33,9 @@ namespace Systems.Camera
 
         public static void Setup(World world)
         {
-            world.System<Components.Camera.Tag, Raycast>()
+            world.System<Components.Camera.FreeCam, Raycast>()
                  .Kind(Ecs.OnUpdate)
-                 .Each((ref Components.Camera.Tag camTag, ref Raycast ray) =>
+                 .Each((ref Components.Camera.FreeCam cam, ref Raycast ray) =>
             {
                 // defaults
                 if (ray.Length <= 0) ray.Length = 100f;
