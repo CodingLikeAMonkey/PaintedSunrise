@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://du8y0wjj467qp"]
+
+[ext_resource type="Script" uid="uid://dpvs1q4gna1xx" path="res://06_Scripts/01_Entities/Camera/ThirdPerson.cs" id="1_ygpsi"]
+
+[node name="SA_ThirdPersonCamera" type="Node3D"]
+script = ExtResource("1_ygpsi")
+
+[node name="ThirdPersonCamera__SpringArm" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+spring_length = 7.0
+
+[node name="ThirdPersonCamera__Camera" type="Camera3D" parent="ThirdPersonCamera__SpringArm"]

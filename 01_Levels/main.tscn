@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=6 format=3 uid="uid://b116w2w81lkkv"]
 
-[ext_resource type="PackedScene" uid="uid://cv627lee0cnqh" path="res://02_Assets/StaticBody/sm_wooden_floor.tscn" id="1_te6cw"]
+[ext_resource type="PackedScene" uid="uid://cv627lee0cnqh" path="res://02_Assets/StaticBody/wooden_floor.tscn" id="1_te6cw"]
+[ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/CharacterBody/player.tscn" id="2_bm2k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eo7o3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -292,3 +293,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
 
 [node name="SM_WoodenFloor90" parent="." instance=ExtResource("1_te6cw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
+
+[node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
