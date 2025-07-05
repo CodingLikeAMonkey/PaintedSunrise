@@ -1,13 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv627lee0cnqh"]
+[gd_scene load_steps=9 format=3 uid="uid://cv627lee0cnqh"]
 
 [ext_resource type="PackedScene" uid="uid://d0witfgo5t0d6" path="res://08_Imports/Meshes/Floors/WoodenFloor__Mesh.glb" id="1_q7msj"]
+[ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://06_Scripts/01_Entities/Meshes/Static.cs" id="2_cj8dr"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://07_Shaders/pbr_shader.gdshader" id="2_tgxqk"]
+[ext_resource type="Texture2D" uid="uid://bdeb5gbyc25rb" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_diff_4k.png" id="3_cj8dr"]
+[ext_resource type="Texture2D" uid="uid://btdvwka5mqum6" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_nor_gl_4k.png" id="4_wrnt0"]
+[ext_resource type="Texture2D" uid="uid://41tdpoynb2ew" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_rough_4k.png" id="5_88dm7"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aion8"]
 data = PackedVector3Array(2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbgrt"]
+render_priority = 0
+shader = ExtResource("2_tgxqk")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_cj8dr")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("5_88dm7")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("4_wrnt0")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
 [node name="SM_WoodenFloor" instance=ExtResource("1_q7msj")]
+script = ExtResource("2_cj8dr")
 
 [node name="WoodenFloor__StaticBody" type="StaticBody3D" parent="." index="0"]
 
 [node name="WoodenFloor__CollisionShape" type="CollisionShape3D" parent="WoodenFloor__StaticBody" index="0"]
 shape = SubResource("ConcavePolygonShape3D_aion8")
+
+[node name="WoodenFloor__Mesh" parent="." index="1"]
+material_override = SubResource("ShaderMaterial_sbgrt")

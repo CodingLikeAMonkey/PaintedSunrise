@@ -32,6 +32,7 @@ public partial class EcsWorld : Node
         // Systems.Shaders.ClearOutline.Setup(Instance);
         // Systems.Core.RaycastLifecycle.Setup(Instance);
         // Systems.Camera.SelectRaycast.Setup(Instance);
+        Systems.Debug.PrintStaticMeshes.Setup(Instance);
     }
 
     public override void _Process(double delta)
