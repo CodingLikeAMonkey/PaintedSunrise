@@ -2,13 +2,13 @@ using Flecs.NET.Core;
 using Godot;
 
 namespace Entities.Camera;
-    public partial class Camera : Camera3D
+    public partial class FreeCam : Camera3D
 {
-    private Entity _cameraEntity;
+    private Entity cameraEntity;
 
     public override void _Ready()
     {
-        _cameraEntity = Kernel.EcsWorld.Instance.Entity()
+        cameraEntity = Kernel.EcsWorld.Instance.Entity()
             .Set(new Components.Core.Transform
             {
                 Position = GlobalPosition,
@@ -39,10 +39,10 @@ namespace Entities.Camera;
 
     public override void _Process(double delta)
     {
-        if (!_cameraEntity.IsAlive()) return;
+        if (!cameraEntity.IsAlive()) return;
 
         // Get mutable reference to transform
-        ref Components.Core.Transform transform = ref _cameraEntity.GetMut<Components.Core.Transform>();
+        ref Components.Core.Transform transform = ref cameraEntity.GetMut<Components.Core.Transform>();
         GlobalPosition = transform.Position;
         GlobalRotation = transform.Rotation;
     }
