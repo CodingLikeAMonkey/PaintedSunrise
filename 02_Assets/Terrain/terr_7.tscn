@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://la4wrid0f5m0"]
+
+[ext_resource type="PackedScene" uid="uid://bfds6vg0e75ot" path="res://08_Imports/Meshes/Terrain/terr7.glb" id="1_7if7o"]
+
+[node name="terr7" instance=ExtResource("1_7if7o")]
