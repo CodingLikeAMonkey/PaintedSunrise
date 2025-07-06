@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd5niapvcw2wb"]
+
+[ext_resource type="PackedScene" uid="uid://yilu7j6677sy" path="res://08_Imports/Meshes/WoodKit/Floors/WoodenFloor__LOD1.glb" id="1_xkyyx"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_7skmo"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ly35"]
+data = PackedVector3Array(2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5paw"]
+render_priority = 0
+shader = ExtResource("2_7skmo")
+shader_parameter/albedo = Color(0.73, 0.3942, 0.64605, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="SM_WoodenFloor--LOD1" instance=ExtResource("1_xkyyx")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_8ly35")
+
+[node name="WoodenFloor__Mesh_LOD1" parent="." index="1"]
+material_override = SubResource("ShaderMaterial_w5paw")

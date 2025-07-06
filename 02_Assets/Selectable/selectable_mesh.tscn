@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://oocxuq45306q"]
 
-[ext_resource type="Script" uid="uid://bslletpp1dpew" path="res://06_Scripts/01_Entities/Meshes/Selectable.cs" id="1_vkn3t"]
-[ext_resource type="Shader" uid="uid://b0hdbup5xr7nd" path="res://07_Shaders/outline.gdshader" id="2_6b535"]
+[ext_resource type="Script" uid="uid://bslletpp1dpew" path="res://07_Scripts/01_Entities/Meshes/Selectable.cs" id="1_vkn3t"]
+[ext_resource type="Shader" uid="uid://b0hdbup5xr7nd" path="res://04_Shaders/outline.gdshader" id="2_6b535"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fms1c"]
 render_priority = 0
