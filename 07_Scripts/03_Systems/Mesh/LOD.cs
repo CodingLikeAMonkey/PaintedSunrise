@@ -32,14 +32,35 @@ public partial class LOD
             }
 
             float distanceSquared = trans.Position.DistanceSquaredTo(cameraTransform.Position);
-            if (distanceSquared > lod.CameraDistance)
+            
+            // LOD0 ➜ LOD1
+            if (lod.CurrentLod == 0 && distanceSquared > lod.CameraDistance * lod.CameraDistance)
             {
-                // GD.Print("be a low bob" + staticMesh.Node.Name);
+                if (lod.Lod1Packed != null)
+                {
+                    var parent = staticMesh.Node.GetParent();
+                    var oldTransform = staticMesh.Node.GlobalTransform;
+
+                    var lod1Instance = lod.Lod1Packed.Instantiate<Node3D>();
+                    lod1Instance.GlobalTransform = oldTransform;
+                    parent.AddChild(lod1Instance);
+
+                    staticMesh.Node.QueueFree();
+                    staticMesh.Node = lod1Instance;
+
+                    lod.CurrentLod = 1;
+
+                    GD.Print($"[LOD] Switched {lod1Instance.Name} to LOD1");
+                }
+                else
+                {
+                    GD.PrintErr($"[LOD] LOD1Packed was null for {staticMesh.Node.Name}");
+                }
             }
-            else
-            {
-                // GD.Print("highest fidelity" + staticMesh.Node.Name);
-            }
+            // else
+            // {
+            //     // GD.Print("highest fidelity" + staticMesh.Node.Name);
+            // }
 
         });
     }

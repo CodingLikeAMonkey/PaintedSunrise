@@ -14,9 +14,9 @@ public struct LOD
     public LOD()
     {
         CurrentLod = 0;
-        VariantName = "";
-        CameraDistance = 300.0f;
-        Lod1ScenePath = "";
+        VariantName = string.Empty;
+        CameraDistance = 50.0f;
+        Lod1ScenePath = string.Empty;
         Lod1Packed = null;
     }
 }

@@ -13,6 +13,8 @@ public partial class Static : Node3D
 
     public override void _Ready()
     {
+        string lod1Path = SceneFilePath.Replace(".tscn", "--LOD1.tscn");
+
         _entity = Kernel.EcsWorld.Instance.Entity()
             .Set(new global::Components.Mesh.Static
             {
@@ -33,6 +35,10 @@ public partial class Static : Node3D
                 Length = 20f,
                 DebugDraw = true
             })
-            .Set(new Components.Mesh.LOD{});
+            .Set(new Components.Mesh.LOD
+            {
+                Lod1ScenePath = lod1Path,
+                Lod1Packed = GD.Load<PackedScene>(lod1Path)
+            });
     }
 }
