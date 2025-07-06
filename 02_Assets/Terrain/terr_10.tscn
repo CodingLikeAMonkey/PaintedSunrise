@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8aac70v42627"]
+[gd_scene load_steps=3 format=3 uid="uid://b8aac70v42627"]
 
 [ext_resource type="PackedScene" uid="uid://dou2uq3a0ctly" path="res://08_Imports/Meshes/Terrain/terr10.glb" id="1_dd5cp"]
+[ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_0fqvq"]
 
 [node name="terr10" instance=ExtResource("1_dd5cp")]
+script = ExtResource("2_0fqvq")

@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://der1cki2nasia"]
+[gd_scene load_steps=3 format=3 uid="uid://der1cki2nasia"]
 
 [ext_resource type="PackedScene" uid="uid://bcbdcc47dsljp" path="res://08_Imports/Meshes/Terrain/terr17.glb" id="1_il23c"]
+[ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_wuj0j"]
 
 [node name="terr17" instance=ExtResource("1_il23c")]
+script = ExtResource("2_wuj0j")

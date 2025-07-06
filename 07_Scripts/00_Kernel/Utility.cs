@@ -5,13 +5,13 @@ namespace Kernel;
 
 public partial class Utility : Node
 {
-    public static string GetBaseLODPath(string scenePath)
-    {
-        string fileName = scenePath.GetFile();
-        string baseName = fileName.Split("--")[0];
-        string directory = scenePath.GetBaseDir();
-        return $"{directory}/{baseName}--LOD1.tscn";
-    }
+    // public static string GetBaseLODPath(string scenePath)
+    // {
+    //     string fileName = scenePath.GetFile();
+    //     string baseName = fileName.Split("--")[0];
+    //     string directory = scenePath.GetBaseDir();
+    //     return $"{directory}/LODs/{baseName}--LOD1.tscn";
+    // }
 
     public static string GetUnifiedLOD1Path(string scenePath)
     {
@@ -23,7 +23,7 @@ public partial class Utility : Node
 
         string directory = scenePath.GetBaseDir();
 
-        return $"{directory}/{baseName}--LOD1.tscn";
+        return $"{directory}/LODs/{baseName}--LOD1.tscn";
     }
 
 

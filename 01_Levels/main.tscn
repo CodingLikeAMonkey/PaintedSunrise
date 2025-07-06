@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=33 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/CharacterBody/player.tscn" id="2_bm2k4"]
 [ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="4_r1qyh"]
 [ext_resource type="PackedScene" uid="uid://bscqlvp7wqace" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--seam.tscn" id="5_ghv7w"]
 [ext_resource type="PackedScene" uid="uid://bbbb4rvjasrs" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--broken_planks.tscn" id="6_sl5kb"]
+[ext_resource type="PackedScene" uid="uid://d2l1xi4cbjbvx" path="res://02_Assets/Terrain/terr_0.tscn" id="7_sbbp5"]
 [ext_resource type="PackedScene" uid="uid://bsod8jthw8a81" path="res://02_Assets/Terrain/terr_1.tscn" id="8_ysjqr"]
 [ext_resource type="PackedScene" uid="uid://2k4cd2jrg6ar" path="res://02_Assets/Terrain/terr_2.tscn" id="9_ab6k4"]
 [ext_resource type="PackedScene" uid="uid://c1b1plvgaa5ds" path="res://02_Assets/Terrain/terr_3.tscn" id="10_3g42j"]
@@ -303,6 +304,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 
 [node name="SM_WoodenFloor--Broken-Planks6" parent="." instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+
+[node name="terr0" parent="." instance=ExtResource("7_sbbp5")]
 
 [node name="terr1" parent="." instance=ExtResource("8_ysjqr")]
 

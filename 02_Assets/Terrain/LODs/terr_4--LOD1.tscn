@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2jqmyoomls7"]
+
+[ext_resource type="PackedScene" uid="uid://cqfym353r3gnl" path="res://08_Imports/Meshes/Terrain/terr4--LOD1.glb" id="1_mvr17"]
+
+[node name="terr4--LOD1" instance=ExtResource("1_mvr17")]
