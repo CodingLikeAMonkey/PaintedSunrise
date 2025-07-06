@@ -6,15 +6,12 @@ public partial class InputHandler : Node
     public static Vector2 MouseDelta { get; private set; }
     public static Vector2 MousePosition { get; private set; }
     public static int MouseWheel { get; private set; }
-    public static bool LeftPressed = false;
-    public static bool LeftReleased = false;
-    public static bool RightPressed = false;
-    public static bool RightReleased = false;
-
-
-    public static bool EscapePressed = false;
-    public static bool EscapeReleased = false;
-
+    public static bool LeftPressed { get; private set; }
+    public static bool LeftReleased { get; private set; }
+    public static bool RightPressed { get; private set; }
+    public static bool RightReleased { get; private set; }
+    public static bool EscapePressed { get; private set; }
+    public static bool EscapeReleased { get; private set; }
 
     public override void _Input(InputEvent @event)
     {
@@ -30,55 +27,25 @@ public partial class InputHandler : Node
                     MouseWheel++;
                 else if (button.ButtonIndex == MouseButton.WheelDown)
                     MouseWheel--;
-                // else if (button.ButtonIndex == MouseButton.Right)
-                // {
-                //     if (button.Pressed)
-                //     {
-                //         // Capture mouse on right-click press
-                //         Input.MouseMode = Input.MouseModeEnum.Captured;
-                //     }
-                //     else
-                //     {
-                //         // Release mouse on right-click release
-                //         Input.MouseMode = Input.MouseModeEnum.Visible;
-                //     }
-                // }
+
                 break;
 
-            // Add escape key to release mouse
             case InputEventKey key when key.Keycode == Key.Escape && key.Pressed:
                 Input.MouseMode = Input.MouseModeEnum.Visible;
                 break;
-        }
-        if (Input.IsActionPressed("left_click"))
-        {
-            LeftPressed = true;
-        }
-        if (Input.IsActionJustReleased("left_click"))
-        {
-            LeftReleased = true;
-        }
-
-        if (Input.IsActionJustPressed("escape"))
-        {
-            EscapePressed = true;
-        }
-
-        if (Input.IsActionJustReleased("escape"))
-        {
-            EscapeReleased = true;
         }
     }
 
     public override void _Process(double delta)
     {
-        // Reset frame-specific values
+        // These checks run once per frame, avoiding spam from _Input
+        LeftPressed = Input.IsActionPressed("left_click");
+        LeftReleased = Input.IsActionJustReleased("left_click");
+        EscapePressed = Input.IsActionJustPressed("escape");
+        EscapeReleased = Input.IsActionJustReleased("escape");
+
+        // Reset delta & wheel
         MouseDelta = Vector2.Zero;
         MouseWheel = 0;
-        LeftPressed = false;
-        LeftReleased = false;
-        EscapePressed = false;
-        EscapeReleased = false;
-
     }
 }
