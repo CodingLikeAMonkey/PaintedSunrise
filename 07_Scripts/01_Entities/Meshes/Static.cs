@@ -32,6 +32,7 @@ public partial class Static : Node3D
                 Direction = Vector3.Up,
                 Length = 20f,
                 DebugDraw = true
-            });
+            })
+            .Set(new Components.Mesh.LOD{});
     }
 }

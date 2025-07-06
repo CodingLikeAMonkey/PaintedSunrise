@@ -15,7 +15,7 @@ namespace Systems.Camera
                 AlbedoColor = color
             };
 
-            lineMesh.SurfaceBegin(Mesh.PrimitiveType.Lines, mat);
+            // lineMesh.SurfaceBegin(Mesh.PrimitiveType.Lines, mat);
             lineMesh.SurfaceAddVertex(from);
             lineMesh.SurfaceAddVertex(to);
             lineMesh.SurfaceEnd();

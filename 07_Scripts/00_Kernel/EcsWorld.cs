@@ -18,7 +18,7 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Core.Unique.MouseMode>();
         Instance.Component<Components.Core.Unique.GameState>();
         Instance.Component<Components.Camera.FreeCam>();
-        Instance.Component<Components.Camera.TopView>();
+        Instance.Component<Components.Mesh.LOD>();
 
 
         // startup entities
@@ -36,6 +36,7 @@ public partial class EcsWorld : Node
         Systems.Input.FreeCam.Setup(Instance);
         Systems.Camera.FreeCam.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
+        Systems.Mesh.LOD.Setup(Instance);
     }
 
     public override void _Process(double delta)

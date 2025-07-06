@@ -24,7 +24,8 @@ namespace Entities.Camera;
                 MinSpeed = 0.2f,
                 CurrentVelocity = 5.0f
 
-            });
+            })
+            .Add<Components.Camera.Current>();
            
             // .Set(new Components.Core.Raycast
             // {
