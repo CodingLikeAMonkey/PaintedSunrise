@@ -4,4 +4,8 @@
 [ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_g2sii"]
 
 [node name="terr16" instance=ExtResource("1_hfkdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 55.1352, -400.001)
 script = ExtResource("2_g2sii")
+
+[node name="Terrain_Mesh_017" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

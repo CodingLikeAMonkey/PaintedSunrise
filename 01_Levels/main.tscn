@@ -313,11 +313,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
 
 [node name="terr3" parent="." instance=ExtResource("10_3g42j")]
 
-[node name="terr4" parent="." instance=ExtResource("11_a5nym")]
-
 [node name="terr5" parent="." instance=ExtResource("12_cqbo3")]
 
 [node name="terr6" parent="." instance=ExtResource("12_m814q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -2.32871, 99.9999)
 
 [node name="terr7" parent="." instance=ExtResource("13_amwt5")]
 
@@ -350,3 +349,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
 [node name="terr21" parent="." instance=ExtResource("27_tfay2")]
 
 [node name="terr22" parent="." instance=ExtResource("28_aekvx")]
+
+[node name="terr4" parent="." instance=ExtResource("11_a5nym")]

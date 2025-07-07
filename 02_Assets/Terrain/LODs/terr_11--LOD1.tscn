@@ -3,3 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2ofmuctnfv7g" path="res://08_Imports/Meshes/Terrain/terr11--LOD1.glb" id="1_oxfjj"]
 
 [node name="terr11--LOD1" instance=ExtResource("1_oxfjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 58.9166, -300)
+
+[node name="Terrain_Mesh_070" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj1esjrhuirug"]
+
+[ext_resource type="PackedScene" uid="uid://b8wih5rg1mp0d" path="res://08_Imports/Meshes/Terrain/terr25.glb" id="1_rt3ex"]
+
+[node name="terr25" instance=ExtResource("1_rt3ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, -0.000354767, -300)
+
+[node name="Terrain_Mesh_026" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
