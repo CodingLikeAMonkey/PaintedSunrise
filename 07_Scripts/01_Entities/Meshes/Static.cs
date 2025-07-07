@@ -6,6 +6,7 @@ namespace Entities.Meshes;
 public partial class Static : Node3D
 {
     // Base mesh properties
+    [Export] public float LOD1Distance { get; set; } = 60.0f;
     [Export] public string MeshType = "Environment";
     [Export] public bool CastShadows = true;
     [Export] public bool ReceiveShadows = true;
@@ -50,7 +51,8 @@ public partial class Static : Node3D
                 Lod1ScenePath = lod1Path,
                 Lod1Packed = GD.Load<PackedScene>(lod1Path),
                 OriginalScenePath = scenePath,
-                OriginalPacked = GD.Load<PackedScene>(scenePath)
+                OriginalPacked = GD.Load<PackedScene>(scenePath),
+                CameraDistance = LOD1Distance
             });
     }
 }

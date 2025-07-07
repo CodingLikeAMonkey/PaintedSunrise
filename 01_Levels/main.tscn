@@ -306,48 +306,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
 
 [node name="terr0" parent="." instance=ExtResource("7_sbbp5")]
+LOD1Distance = 100.0
 
 [node name="terr1" parent="." instance=ExtResource("8_ysjqr")]
+LOD1Distance = 100.0
 
 [node name="terr2" parent="." instance=ExtResource("9_ab6k4")]
+LOD1Distance = 100.0
 
 [node name="terr3" parent="." instance=ExtResource("10_3g42j")]
+LOD1Distance = 100.0
 
 [node name="terr5" parent="." instance=ExtResource("12_cqbo3")]
+LOD1Distance = 100.0
 
 [node name="terr6" parent="." instance=ExtResource("12_m814q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -2.32871, 99.9999)
+LOD1Distance = 100.0
 
 [node name="terr7" parent="." instance=ExtResource("13_amwt5")]
+LOD1Distance = 100.0
 
 [node name="terr8" parent="." instance=ExtResource("14_sewcs")]
+LOD1Distance = 100.0
 
 [node name="terr9" parent="." instance=ExtResource("15_5ffyk")]
+LOD1Distance = 100.0
 
 [node name="terr10" parent="." instance=ExtResource("16_okx7s")]
+LOD1Distance = 100.0
 
 [node name="terr11" parent="." instance=ExtResource("17_v8hhf")]
+LOD1Distance = 100.0
 
 [node name="terr12" parent="." instance=ExtResource("18_2w1di")]
+LOD1Distance = 100.0
 
 [node name="terr13" parent="." instance=ExtResource("19_sob1t")]
+LOD1Distance = 100.0
 
 [node name="terr14" parent="." instance=ExtResource("20_mtxqq")]
+LOD1Distance = 100.0
 
 [node name="terr15" parent="." instance=ExtResource("21_ol8x2")]
+LOD1Distance = 100.0
 
 [node name="terr16" parent="." instance=ExtResource("22_87kbg")]
+LOD1Distance = 100.0
 
 [node name="terr17" parent="." instance=ExtResource("23_ylk7x")]
+LOD1Distance = 100.0
 
 [node name="terr18" parent="." instance=ExtResource("24_bvm8o")]
+LOD1Distance = 100.0
 
 [node name="terr19" parent="." instance=ExtResource("25_mdbjj")]
+LOD1Distance = 100.0
 
 [node name="terr20" parent="." instance=ExtResource("26_0mqhs")]
+LOD1Distance = 100.0
 
 [node name="terr21" parent="." instance=ExtResource("27_tfay2")]
+LOD1Distance = 100.0
 
 [node name="terr22" parent="." instance=ExtResource("28_aekvx")]
+LOD1Distance = 100.0
 
 [node name="terr4" parent="." instance=ExtResource("11_a5nym")]
+LOD1Distance = 100.0
