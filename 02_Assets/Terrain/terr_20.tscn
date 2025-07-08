@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3r05ngwloibo"]
 
-[ext_resource type="PackedScene" uid="uid://4hkknt7121db" path="res://08_Imports/Meshes/Terrain/terr20.glb" id="1_cnu6c"]
+[ext_resource type="PackedScene" uid="uid://4hkknt7121db" path="res://09_Imports/Meshes/Terrain/terr20.glb" id="1_cnu6c"]
 [ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_emx3t"]
 
 [node name="terr20" instance=ExtResource("1_cnu6c")]

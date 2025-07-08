@@ -1,6 +1,8 @@
 using Components.Core.Unique;
 using Flecs.NET.Core;
 using Godot;
+using Kernel;
+using Kernel.Math;
 
 namespace Systems.Input;
 
@@ -19,11 +21,11 @@ public static class FreeCam
                     if (gameState.CurrentGameState == GameStateEnum.Gameplay)
                     {
                         // Keyboard input
-                        cam.MovementDirection = new Vector3(
-                            Godot.Input.IsKeyPressed(Key.D) ? 1 : Godot.Input.IsKeyPressed(Key.A) ? -1 : 0,
-                            Godot.Input.IsKeyPressed(Key.E) ? 1 : Godot.Input.IsKeyPressed(Key.Q) ? -1 : 0,
-                            Godot.Input.IsKeyPressed(Key.S) ? 1 : Godot.Input.IsKeyPressed(Key.W) ? -1 : 0
-                        ).Normalized();
+                        cam.MovementDirection = new Components.Math.Vec3(
+    Godot.Input.IsKeyPressed(Key.D) ? 1 : Godot.Input.IsKeyPressed(Key.A) ? -1 : 0,
+    Godot.Input.IsKeyPressed(Key.E) ? 1 : Godot.Input.IsKeyPressed(Key.Q) ? -1 : 0,
+    Godot.Input.IsKeyPressed(Key.S) ? 1 : Godot.Input.IsKeyPressed(Key.W) ? -1 : 0
+).Normalized();
 
                         cam.IsBoosted = Godot.Input.IsKeyPressed(Key.Shift);
                     }

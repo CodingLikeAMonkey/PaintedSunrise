@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://civ2lstfhdkbf"]
 
-[ext_resource type="PackedScene" uid="uid://dgaidsdwjfpvp" path="res://08_Imports/Meshes/Terrain/terr13.glb" id="1_lho3q"]
+[ext_resource type="PackedScene" uid="uid://dgaidsdwjfpvp" path="res://09_Imports/Meshes/Terrain/terr13.glb" id="1_lho3q"]
 [ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_6oyxl"]
 
 [node name="terr13" instance=ExtResource("1_lho3q")]

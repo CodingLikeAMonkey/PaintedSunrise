@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bscqlvp7wqace"]
 
-[ext_resource type="PackedScene" uid="uid://rjf4ugd5rluw" path="res://08_Imports/Meshes/WoodKit/Floors/WoodenFloor__Mesh--Seam.glb" id="1_v22gb"]
+[ext_resource type="PackedScene" uid="uid://rjf4ugd5rluw" path="res://09_Imports/Meshes/WoodKit/Floors/WoodenFloor__Mesh--Seam.glb" id="1_v22gb"]
 [ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_eiiio"]
 [ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_oighe"]
 [ext_resource type="Texture2D" uid="uid://bdeb5gbyc25rb" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_diff_4k.png" id="3_eiiio"]

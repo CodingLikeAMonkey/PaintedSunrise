@@ -34,7 +34,7 @@ public partial class EcsWorld : Node
         // Create systems
         Systems.Core.MouseMode.Setup(Instance);
         Systems.Input.FreeCam.Setup(Instance);
-        Systems.Camera.FreeCam.Setup(Instance);
+        Systems.Camera.FreeCamSystem.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
         Systems.Mesh.LOD.Setup(Instance);
     }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvhdtpo7seb2g"]
 
-[ext_resource type="PackedScene" uid="uid://bpfletfy84fcy" path="res://08_Imports/Meshes/Terrain/terr16--LOD1.glb" id="1_dw7fc"]
+[ext_resource type="PackedScene" uid="uid://bpfletfy84fcy" path="res://09_Imports/Meshes/Terrain/terr16--LOD1.glb" id="1_dw7fc"]
 
 [node name="terr16--LOD1" instance=ExtResource("1_dw7fc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 55.1352, -400.001)

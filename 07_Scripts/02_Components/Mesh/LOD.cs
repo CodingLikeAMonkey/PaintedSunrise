@@ -1,6 +1,4 @@
 using Godot;
-using System;
-
 namespace Components.Mesh;
 
 public struct LOD

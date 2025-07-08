@@ -1,7 +1,3 @@
-using Godot;
-using System;
-using Flecs.NET.Core;
-
 namespace Components.Core.Unique;
 
 public enum GameStateEnum
@@ -19,5 +15,4 @@ public partial class GameState
     {
         CurrentGameState = GameStateEnum.Debug;
     }
-
 }

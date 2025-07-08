@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bd5niapvcw2wb"]
 
-[ext_resource type="PackedScene" uid="uid://yilu7j6677sy" path="res://08_Imports/Meshes/WoodKit/Floors/WoodenFloor__LOD1.glb" id="1_xkyyx"]
+[ext_resource type="PackedScene" uid="uid://yilu7j6677sy" path="res://09_Imports/Meshes/WoodKit/Floors/WoodenFloor__LOD1.glb" id="1_xkyyx"]
 [ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_7skmo"]
 [ext_resource type="Texture2D" uid="uid://bdeb5gbyc25rb" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_diff_4k.png" id="3_ebn1k"]
 [ext_resource type="Texture2D" uid="uid://btdvwka5mqum6" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_nor_gl_4k.png" id="4_5vgcn"]

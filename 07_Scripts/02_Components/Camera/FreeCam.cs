@@ -1,8 +1,4 @@
-using Godot;
-using System;
-
 namespace Components.Camera;
-
 public struct FreeCam
 {
     public float Sensitivity;
@@ -12,9 +8,9 @@ public struct FreeCam
     public float MaxSpeed;
     public float MinSpeed;
 
-    public Vector3 LastPosition;
-    public Vector3 LastRotation;
+    public Math.Vec3 LastPosition;
+    public Math.Vec3 LastRotation;
     public float CurrentVelocity;
-    public Vector3 MovementDirection;
+    public Math.Vec3 MovementDirection;
     public bool IsBoosted;
 }
