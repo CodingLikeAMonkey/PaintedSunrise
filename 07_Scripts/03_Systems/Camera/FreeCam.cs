@@ -1,7 +1,6 @@
+// Systems/Camera/FreeCamSystem.cs
 using Flecs.NET.Core;
-using Godot;
-using Components.Core;
-using Components.Camera;
+using System;
 using Components.Math;
 
 namespace Systems.Camera
@@ -10,41 +9,54 @@ namespace Systems.Camera
     {
         public static void Setup(World world)
         {
-            world.System<Transform, FreeCam>()
+            world.System<Components.Core.Transform, Components.Camera.FreeCam>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref Transform t, ref FreeCam free) =>
+                .Each((ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
                 {
                     float delta = world.Entity("DeltaTime").Get<Kernel.DeltaTime>().Value;
 
+                    // Mouse look
                     if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
                     {
-                        t.Rotation.Y -= Kernel.InputHandler.MouseDelta.X / 1000f * free.Sensitivity;
-                        t.Rotation.X -= Kernel.InputHandler.MouseDelta.Y / 1000f * free.Sensitivity;
-
-                        t.Rotation.X = Mathf.Clamp(t.Rotation.X, -Mathf.Pi / 2, Mathf.Pi / 2);
+                        t.Rotation = new Vec3(
+                            Clamp(t.Rotation.X - Kernel.InputHandler.MouseDelta.Y / 1000f * free.Sensitivity, -MathF.PI / 2, MathF.PI / 2),
+                            t.Rotation.Y - Kernel.InputHandler.MouseDelta.X / 1000f * free.Sensitivity,
+                            t.Rotation.Z
+                        );
                     }
 
+                    // Zoom speed adjustments
                     if (Kernel.InputHandler.MouseWheel != 0)
                     {
-                        free.CurrentVelocity = Mathf.Clamp(
-                            free.CurrentVelocity * Mathf.Pow(free.SpeedScale, Kernel.InputHandler.MouseWheel),
+                        free.CurrentVelocity = Clamp(
+                            free.CurrentVelocity * MathF.Pow(free.SpeedScale, Kernel.InputHandler.MouseWheel),
                             free.MinSpeed,
-                            free.MaxSpeed);
+                            free.MaxSpeed
+                        );
                     }
 
-                    if (free.MovementDirection != new Vec3(0, 0, 0))
+                    // Movement
+                    if (free.MovementDirection != Vec3.Zero)
                     {
-                        Quaternion quat = Quaternion.FromEuler((Vector3)t.Rotation);
-                        Basis basis = new Basis(quat);
+                        // Build world-space basis
+                        Quaternion q       = Quaternion.FromEuler(t.Rotation);
+                        Vec3 forward        = Vec3.Transform(Vec3.Forward, q);
+                        Vec3 right          = Vec3.Transform(Vec3.Right, q);
+                        Vec3 up             = Vec3.Transform(Vec3.Up, q);
 
-                        float speed = free.CurrentVelocity * (free.IsBoosted ? free.BoostMultiplier : 1f);
-                        Vector3 moveDir = (Vector3)free.MovementDirection;
+                        // Desired movement including vertical input
+                        Vec3 md             = free.MovementDirection;
+                        Vec3 desired        = forward * md.Z + right * md.X + up * md.Y;
 
-                        Vector3 deltaMove = basis * moveDir * speed * delta;
-
-                        t.Position += (Vec3)deltaMove;
+                        float speed         = free.CurrentVelocity * (free.IsBoosted ? free.BoostMultiplier : 1f);
+                        t.Position         += desired * speed * delta;
                     }
                 });
+        }
+
+        private static float Clamp(float value, float min, float max)
+        {
+            return MathF.Max(min, MathF.Min(max, value));
         }
     }
 }

@@ -1,36 +1,36 @@
-using Components.Core.Unique;
+// Systems/Input/FreeCamInputSystem.cs
 using Flecs.NET.Core;
-using Godot;
-using Kernel;
-using Kernel.Math;
+using Components.Camera;
+using Components.Core.Unique;
 
-namespace Systems.Input;
-
-public static class FreeCam
+namespace Systems.Input
 {
-    public static void Setup(World world)
+    public static class FreeCamInputSystem
     {
-        world.System<Components.Camera.FreeCam>()
-            .Kind(Ecs.OnUpdate)
-            .Each((ref Components.Camera.FreeCam cam) =>
-            {
-                var singleton = world.Lookup("Singleton");
-                if (singleton.IsValid())
+        public static void Setup(World world)
+        {
+            world.System<FreeCam>()
+                .Kind(Ecs.OnUpdate)
+                .Each((ref FreeCam cam) =>
                 {
+                    var singleton = world.Lookup("Singleton");
+                    if (!singleton.IsValid()) return;
+
                     var gameState = singleton.Get<GameState>();
-                    if (gameState.CurrentGameState == GameStateEnum.Gameplay)
-                    {
-                        // Keyboard input
-                        cam.MovementDirection = new Components.Math.Vec3(
-    Godot.Input.IsKeyPressed(Key.D) ? 1 : Godot.Input.IsKeyPressed(Key.A) ? -1 : 0,
-    Godot.Input.IsKeyPressed(Key.E) ? 1 : Godot.Input.IsKeyPressed(Key.Q) ? -1 : 0,
-    Godot.Input.IsKeyPressed(Key.S) ? 1 : Godot.Input.IsKeyPressed(Key.W) ? -1 : 0
-).Normalized();
+                    if (gameState.CurrentGameState != GameStateEnum.Gameplay)
+                        return;
 
-                        cam.IsBoosted = Godot.Input.IsKeyPressed(Key.Shift);
-                    }
-                }
+                    // Build axis inputs
+                    int x =  (Kernel.InputHandler.MoveRight ?  1 : 0)
+                           - (Kernel.InputHandler.MoveLeft  ?  1 : 0);
+                    int y =  (Kernel.InputHandler.MoveUp    ?  1 : 0)
+                           - (Kernel.InputHandler.MoveDown  ?  1 : 0);
+                    int z =  (Kernel.InputHandler.MoveForward ? 1 : 0)
+                           - (Kernel.InputHandler.MoveBackward? 1 : 0);
 
-            });
+                    cam.MovementDirection = new Components.Math.Vec3(x, y, z).Normalized();
+                    cam.IsBoosted         = Kernel.InputHandler.Boost;
+                });
+        }
     }
 }

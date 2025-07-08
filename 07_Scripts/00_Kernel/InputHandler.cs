@@ -1,6 +1,7 @@
 using Godot;
 
 namespace Kernel;
+
 public partial class InputHandler : Node
 {
     public static Vector2 MouseDelta { get; private set; }
@@ -12,6 +13,13 @@ public partial class InputHandler : Node
     public static bool RightReleased { get; private set; }
     public static bool EscapePressed { get; private set; }
     public static bool EscapeReleased { get; private set; }
+    public static bool MoveForward { get; private set; }
+    public static bool MoveBackward { get; private set; }
+    public static bool MoveLeft { get; private set; }
+    public static bool MoveRight { get; private set; }
+    public static bool MoveUp { get; private set; }
+    public static bool MoveDown { get; private set; }
+    public static bool Boost { get; private set; }
 
     public override void _Input(InputEvent @event)
     {
@@ -38,6 +46,15 @@ public partial class InputHandler : Node
 
     public override void _Process(double delta)
     {
+
+        MoveForward = Input.IsKeyPressed(Key.W);
+        MoveBackward = Input.IsKeyPressed(Key.S);
+        MoveLeft = Input.IsKeyPressed(Key.A);
+        MoveRight = Input.IsKeyPressed(Key.D);
+        MoveUp = Input.IsKeyPressed(Key.E);
+        MoveDown = Input.IsKeyPressed(Key.Q);
+        Boost = Input.IsKeyPressed(Key.Shift);
+        
         // These checks run once per frame, avoiding spam from _Input
         LeftPressed = Input.IsActionPressed("left_click");
         LeftReleased = Input.IsActionJustReleased("left_click");
