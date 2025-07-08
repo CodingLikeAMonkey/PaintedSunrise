@@ -2,6 +2,8 @@ using Godot;
 using Flecs.NET.Core;
 using System.Collections.Generic;
 
+namespace Kernel;
+
 public static class CameraNodeRef
 {
     private static readonly Dictionary<Entity, Camera3D> map = new();

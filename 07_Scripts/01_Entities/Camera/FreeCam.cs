@@ -29,7 +29,7 @@ public partial class FreeCam : Camera3D
             })
             .Add<Components.Camera.Current>();
 
-        CameraNodeRef.Register(cameraEntity, this);
+        Kernel.CameraNodeRef.Register(cameraEntity, this);
     }
 
     public override void _Process(double delta)

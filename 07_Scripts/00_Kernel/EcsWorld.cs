@@ -37,6 +37,10 @@ public partial class EcsWorld : Node
         Systems.Camera.FreeCamSystem.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
         Systems.Mesh.LOD.Setup(Instance);
+
+        Log.Info = GD.Print;
+        Log.Warn = GD.Print;
+        Log.Error = GD.Print;
     }
 
     public override void _Process(double delta)

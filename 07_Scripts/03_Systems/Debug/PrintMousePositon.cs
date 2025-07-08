@@ -1,6 +1,6 @@
 using Flecs.NET.Core;
 using Godot;
-using System;
+using Kernel;
 
 namespace Systems.Debug;
 
@@ -12,7 +12,7 @@ public static class PrintMousePosition
             .Kind(Ecs.OnUpdate)
             .Iter((Iter iter) =>
             {
-                GD.Print(Kernel.InputHandler.MousePosition);
+                Log.Info(InputHandler.MousePosition.ToString());
             });
     }
 }
