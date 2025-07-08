@@ -1,18 +1,21 @@
 using Flecs.NET.Core;
 using Godot;
+using Components.Core;
+using Components.Math;
 
 namespace Entities.Camera;
-    public partial class FreeCam : Camera3D
+
+public partial class FreeCam : Camera3D
 {
     private Entity cameraEntity;
 
     public override void _Ready()
     {
         cameraEntity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new Components.Core.Transform
+            .Set(new Transform
             {
-                Position = GlobalPosition,
-                Rotation = GlobalRotation
+                Position = (Vec3)GlobalPosition,
+                Rotation = (Vec3)GlobalRotation
             })
             .Set(new Components.Camera.FreeCam
             {
@@ -23,27 +26,17 @@ namespace Entities.Camera;
                 MaxSpeed = 1000f,
                 MinSpeed = 0.2f,
                 CurrentVelocity = 5.0f
-
             })
             .Add<Components.Camera.Current>();
-           
-            // .Set(new Components.Core.Raycast
-            // {
-            //     Node = this,
-            //     Direction = Vector3.Forward,
-            //     Length = 20000000000.0f,
-            //     DebugDraw = true
 
-            // })
-            // .Add<Components.Camera.SelectRaycast>();
+        CameraNodeRef.Register(cameraEntity, this);
     }
 
     public override void _Process(double delta)
     {
         if (!cameraEntity.IsAlive()) return;
 
-        // Get mutable reference to transform
-        ref Components.Core.Transform transform = ref cameraEntity.GetMut<Components.Core.Transform>();
+        ref Transform transform = ref cameraEntity.GetMut<Transform>();
         GlobalPosition = transform.Position;
         GlobalRotation = transform.Rotation;
     }

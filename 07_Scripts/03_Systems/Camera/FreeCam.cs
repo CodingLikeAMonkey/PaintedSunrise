@@ -1,48 +1,50 @@
 using Flecs.NET.Core;
 using Godot;
+using Components.Core;
+using Components.Camera;
+using Components.Math;
 
-
-namespace Systems.Camera;
-
-public static class FreeCam
+namespace Systems.Camera
 {
-    public static void Setup(World world)
+    public static class FreeCamSystem
     {
-        world.System<Components.Core.Transform, Components.Camera.FreeCam>()
-            .Kind(Ecs.OnUpdate)
-            .Each((ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
-            {
-                // Get delta time
-                float delta = world.Entity("DeltaTime").Get<Kernel.DeltaTime>().Value;
-
-                // Handle rotation ONLY when mouse is captured
-                if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
+        public static void Setup(World world)
+        {
+            world.System<Transform, FreeCam>()
+                .Kind(Ecs.OnUpdate)
+                .Each((ref Transform t, ref FreeCam free) =>
                 {
-                    t.Rotation.Y -= Kernel.InputHandler.MouseDelta.X / 1000 * free.Sensitivity;
-                    t.Rotation.X -= Kernel.InputHandler.MouseDelta.Y / 1000 * free.Sensitivity;
-                    t.Rotation.X = Mathf.Clamp(t.Rotation.X, -Mathf.Pi / 2, Mathf.Pi / 2);
-                }
+                    float delta = world.Entity("DeltaTime").Get<Kernel.DeltaTime>().Value;
 
-                // Handle zoom regardless of capture state
-                if (Kernel.InputHandler.MouseWheel != 0)
-                {
-                    free.CurrentVelocity = Mathf.Clamp(
-                        free.CurrentVelocity * Mathf.Pow(free.SpeedScale, Kernel.InputHandler.MouseWheel),
-                        free.MinSpeed,
-                        free.MaxSpeed
-                    );
-                }
+                    if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
+                    {
+                        t.Rotation.Y -= Kernel.InputHandler.MouseDelta.X / 1000f * free.Sensitivity;
+                        t.Rotation.X -= Kernel.InputHandler.MouseDelta.Y / 1000f * free.Sensitivity;
 
-                // Movement - always enabled when keys are pressed
-                if (free.MovementDirection != Vector3.Zero)
-                {
-                    // Convert Euler angles to Quaternion for basis creation
-                    var quat = Quaternion.FromEuler(t.Rotation);
-                    var basis = new Basis(quat);
+                        t.Rotation.X = Mathf.Clamp(t.Rotation.X, -Mathf.Pi / 2, Mathf.Pi / 2);
+                    }
 
-                    var speed = free.CurrentVelocity * (free.IsBoosted ? free.BoostMultiplier : 1f);
-                    t.Position += basis * free.MovementDirection * speed * delta;
-                }
-            });
+                    if (Kernel.InputHandler.MouseWheel != 0)
+                    {
+                        free.CurrentVelocity = Mathf.Clamp(
+                            free.CurrentVelocity * Mathf.Pow(free.SpeedScale, Kernel.InputHandler.MouseWheel),
+                            free.MinSpeed,
+                            free.MaxSpeed);
+                    }
+
+                    if (free.MovementDirection != new Vec3(0, 0, 0))
+                    {
+                        Quaternion quat = Quaternion.FromEuler((Vector3)t.Rotation);
+                        Basis basis = new Basis(quat);
+
+                        float speed = free.CurrentVelocity * (free.IsBoosted ? free.BoostMultiplier : 1f);
+                        Vector3 moveDir = (Vector3)free.MovementDirection;
+
+                        Vector3 deltaMove = basis * moveDir * speed * delta;
+
+                        t.Position += (Vec3)deltaMove;
+                    }
+                });
+        }
     }
 }

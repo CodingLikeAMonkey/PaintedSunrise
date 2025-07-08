@@ -1,6 +1,5 @@
 using Godot;
 using Flecs.NET.Core;
-using System;
 
 namespace Systems.Core;
 
@@ -12,31 +11,20 @@ public partial class MouseMode
         .Kind(Ecs.OnUpdate)
         .Each((ref Components.Core.Unique.MouseMode mousemode) =>
         {
-            if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.Visible)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.Visible;
-            }
-            else if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.Hidden)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.Captured;
-            }
-            else if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.Captured)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.Captured;
-            }
-            else if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.Confined)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.Confined;
-            }
-            else if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.ConfinedHidden)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.ConfinedHidden;
-            }
-            else if (mousemode.CurrentMouseMode == Components.Core.Unique.MouseModeEnum.Max)
-            {
-                Godot.Input.MouseMode = Godot.Input.MouseModeEnum.Max;
-            }
-
+            Godot.Input.MouseMode = ConvertToGodot(mousemode.CurrentMouseMode);
         });
+    }
+
+    private static Godot.Input.MouseModeEnum ConvertToGodot(Components.Core.Unique.MouseModeEnum mode)
+    {
+        return mode switch
+        {
+            Components.Core.Unique.MouseModeEnum.Visible => Godot.Input.MouseModeEnum.Visible,
+            Components.Core.Unique.MouseModeEnum.Hidden => Godot.Input.MouseModeEnum.Hidden,
+            Components.Core.Unique.MouseModeEnum.Captured => Godot.Input.MouseModeEnum.Captured,
+            Components.Core.Unique.MouseModeEnum.Confined => Godot.Input.MouseModeEnum.Confined,
+            Components.Core.Unique.MouseModeEnum.ConfinedHidden => Godot.Input.MouseModeEnum.ConfinedHidden,
+            _ => Godot.Input.MouseModeEnum.Visible
+        };
     }
 }

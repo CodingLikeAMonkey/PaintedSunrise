@@ -11,16 +11,15 @@ public partial class ThirdPerson : Node3D
     public override void _Ready()
     {
         entity = Kernel.EcsWorld.Instance.Entity()
-        .Set(new Components.Camera.ThirdPerson
-        {
-            Node = this,
-        })
-        .Set(new Components.Core.Transform
-        {
-            Position = GlobalPosition,
-            Rotation = GlobalRotation,
-            Scale = Scale
-        });
+            .Set(new Components.Camera.ThirdPerson
+            {
+                Node = this,
+            })
+            .Set(new Components.Core.Transform
+            {
+                Position = (Components.Math.Vec3)GlobalPosition,   // <-- cast here
+                Rotation = (Components.Math.Vec3)GlobalRotation,   // <-- and here
+                Scale = (Components.Math.Vec3)Scale                 // <-- and here if Scale uses Vec3
+            });
     }
-
 }

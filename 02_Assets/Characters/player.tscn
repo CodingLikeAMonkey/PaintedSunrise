@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://fafdjk43iv12"]
+[gd_scene load_steps=6 format=3 uid="uid://fafdjk43iv12"]
 
 [ext_resource type="PackedScene" uid="uid://du8y0wjj467qp" path="res://02_Assets/third_person_camera.tscn" id="1_0l27k"]
+[ext_resource type="Script" uid="uid://70xkvgoxsdwo" path="res://07_Scripts/01_Entities/Character/Character.cs" id="1_an7tn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wguda"]
 radius = 0.35
@@ -13,6 +14,7 @@ height = 1.9
 [sub_resource type="PrismMesh" id="PrismMesh_wguda"]
 
 [node name="CB_Player" type="CharacterBody3D"]
+script = ExtResource("1_an7tn")
 
 [node name="Player__CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)

@@ -1,6 +1,7 @@
 using Flecs.NET.Core;
 using Godot;
 using System;
+using Components.Math;
 
 namespace Entities.Meshes;
 
@@ -22,9 +23,9 @@ public partial class Selectable : RigidBody3D
             //.Set(new Components.Shaders.Outline())
             .Set(new Components.Core.Transform
             {
-                Position = GlobalPosition,
-                Rotation = GlobalRotation,
-                Scale = Scale
+                Position = (Vec3)GlobalPosition,
+                Rotation = (Vec3)GlobalRotation,
+                Scale = (Vec3)Scale,
             });
     }
 }

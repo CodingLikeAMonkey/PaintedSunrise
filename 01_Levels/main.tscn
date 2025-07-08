@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://b116w2w81lkkv"]
 
-[ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/CharacterBody/player.tscn" id="2_bm2k4"]
+[ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
 [ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
 [ext_resource type="PackedScene" uid="uid://bi8poisav4nwi" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor.tscn" id="4_08m6l"]
 [ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="4_r1qyh"]
@@ -63,313 +63,317 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 2, -10)
 current = true
 
-[node name="SB_WoodenFloor" parent="." instance=ExtResource("4_08m6l")]
+[node name="Terrain" type="Node3D" parent="."]
 
-[node name="SB_WoodenFloor2" parent="." instance=ExtResource("4_08m6l")]
+[node name="terr0" parent="Terrain" instance=ExtResource("7_sbbp5")]
+LOD1Distance = 100.0
+
+[node name="terr1" parent="Terrain" instance=ExtResource("8_ysjqr")]
+LOD1Distance = 100.0
+
+[node name="terr2" parent="Terrain" instance=ExtResource("9_ab6k4")]
+LOD1Distance = 100.0
+
+[node name="terr3" parent="Terrain" instance=ExtResource("10_3g42j")]
+LOD1Distance = 100.0
+
+[node name="terr5" parent="Terrain" instance=ExtResource("12_cqbo3")]
+LOD1Distance = 100.0
+
+[node name="terr6" parent="Terrain" instance=ExtResource("12_m814q")]
+LOD1Distance = 100.0
+
+[node name="terr7" parent="Terrain" instance=ExtResource("13_amwt5")]
+LOD1Distance = 100.0
+
+[node name="terr8" parent="Terrain" instance=ExtResource("14_sewcs")]
+LOD1Distance = 100.0
+
+[node name="terr9" parent="Terrain" instance=ExtResource("15_5ffyk")]
+LOD1Distance = 100.0
+
+[node name="terr10" parent="Terrain" instance=ExtResource("16_okx7s")]
+LOD1Distance = 100.0
+
+[node name="terr11" parent="Terrain" instance=ExtResource("17_v8hhf")]
+LOD1Distance = 100.0
+
+[node name="terr12" parent="Terrain" instance=ExtResource("18_2w1di")]
+LOD1Distance = 100.0
+
+[node name="terr13" parent="Terrain" instance=ExtResource("19_sob1t")]
+LOD1Distance = 100.0
+
+[node name="terr14" parent="Terrain" instance=ExtResource("20_mtxqq")]
+LOD1Distance = 100.0
+
+[node name="terr15" parent="Terrain" instance=ExtResource("21_ol8x2")]
+LOD1Distance = 100.0
+
+[node name="terr16" parent="Terrain" instance=ExtResource("22_87kbg")]
+LOD1Distance = 100.0
+
+[node name="terr17" parent="Terrain" instance=ExtResource("23_ylk7x")]
+LOD1Distance = 100.0
+
+[node name="terr18" parent="Terrain" instance=ExtResource("24_bvm8o")]
+LOD1Distance = 100.0
+
+[node name="terr19" parent="Terrain" instance=ExtResource("25_mdbjj")]
+LOD1Distance = 100.0
+
+[node name="terr20" parent="Terrain" instance=ExtResource("26_0mqhs")]
+LOD1Distance = 100.0
+
+[node name="terr21" parent="Terrain" instance=ExtResource("27_tfay2")]
+LOD1Distance = 100.0
+
+[node name="terr22" parent="Terrain" instance=ExtResource("28_aekvx")]
+LOD1Distance = 100.0
+
+[node name="terr4" parent="Terrain" instance=ExtResource("11_a5nym")]
+LOD1Distance = 100.0
+
+[node name="WoodenFloor" type="Node3D" parent="."]
+
+[node name="SB_WoodenFloor" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
+
+[node name="SB_WoodenFloor2" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="SB_WoodenFloor3" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor3" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
-[node name="SB_WoodenFloor4" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor4" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
-[node name="SB_WoodenFloor7" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor7" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="SB_WoodenFloor8" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor8" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
 
-[node name="SB_WoodenFloor10" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor10" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
-[node name="SB_WoodenFloor11" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor11" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 
-[node name="SB_WoodenFloor12" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor12" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
-[node name="SB_WoodenFloor14" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor14" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -16)
 
-[node name="SB_WoodenFloor15" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor15" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
 
-[node name="SB_WoodenFloor16" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor16" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
 
-[node name="SB_WoodenFloor17" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor17" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
 
-[node name="SB_WoodenFloor18" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor18" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
 
-[node name="SB_WoodenFloor20" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor20" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
-[node name="SB_WoodenFloor21" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor21" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 
-[node name="SB_WoodenFloor22" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor22" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12)
 
-[node name="SB_WoodenFloor23" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor23" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
 
-[node name="SB_WoodenFloor26" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor26" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 8)
 
-[node name="SB_WoodenFloor27" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor27" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 16)
 
-[node name="SB_WoodenFloor29" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor29" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)
 
-[node name="SB_WoodenFloor31" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor31" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12)
 
-[node name="SB_WoodenFloor32" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor32" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
 
-[node name="SB_WoodenFloor33" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor33" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 16)
 
-[node name="SB_WoodenFloor34" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor34" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 12)
 
-[node name="SB_WoodenFloor35" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor35" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 8)
 
-[node name="SB_WoodenFloor36" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor36" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
 
-[node name="SB_WoodenFloor37" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor37" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 
-[node name="SB_WoodenFloor38" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor38" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
 
-[node name="SB_WoodenFloor39" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor39" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 4)
 
-[node name="SB_WoodenFloor41" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor41" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
 
-[node name="SB_WoodenFloor42" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor42" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
 
-[node name="SB_WoodenFloor45" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor45" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 4)
 
-[node name="SB_WoodenFloor46" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor46" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -12)
 
-[node name="SB_WoodenFloor47" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor47" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -16)
 
-[node name="SB_WoodenFloor48" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor48" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -8)
 
-[node name="SB_WoodenFloor49" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor49" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12)
 
-[node name="SB_WoodenFloor52" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor52" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -12)
 
-[node name="SB_WoodenFloor53" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor53" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
 
-[node name="SB_WoodenFloor54" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor54" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
 
-[node name="SB_WoodenFloor56" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor56" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -16)
 
-[node name="SB_WoodenFloor58" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor58" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
-[node name="SB_WoodenFloor59" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor59" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)
 
-[node name="SB_WoodenFloor60" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor60" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8)
 
-[node name="SB_WoodenFloor61" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor61" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
 
-[node name="SB_WoodenFloor62" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor62" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -16)
 
-[node name="SB_WoodenFloor63" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor63" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
 
-[node name="SB_WoodenFloor65" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor65" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4)
 
-[node name="SB_WoodenFloor66" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor66" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 4)
 
-[node name="SB_WoodenFloor67" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor67" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
 
-[node name="SB_WoodenFloor68" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor68" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -4)
 
-[node name="SB_WoodenFloor69" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor69" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 4)
 
-[node name="SB_WoodenFloor70" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor70" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
-[node name="SB_WoodenFloor71" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor71" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
 
-[node name="SB_WoodenFloor72" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor72" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
 
-[node name="SB_WoodenFloor73" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor73" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
 
-[node name="SB_WoodenFloor74" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor74" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
 
-[node name="SB_WoodenFloor76" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor76" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 12)
 
-[node name="SB_WoodenFloor77" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor77" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 8)
 
-[node name="SB_WoodenFloor78" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor78" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 
-[node name="SB_WoodenFloor79" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor79" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
 
-[node name="SB_WoodenFloor80" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor80" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
 
-[node name="SB_WoodenFloor81" parent="." instance=ExtResource("4_08m6l")]
+[node name="SB_WoodenFloor81" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 16)
 
-[node name="SM_WoodenFloor--Seam" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
-[node name="SM_WoodenFloor--Seam2" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam2" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
 
-[node name="SM_WoodenFloor--Seam3" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam3" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
 
-[node name="SM_WoodenFloor--Seam4" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam4" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
 
-[node name="SM_WoodenFloor--Seam5" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam5" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
 
-[node name="SM_WoodenFloor--Seam6" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam6" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 16)
 
-[node name="SM_WoodenFloor--Seam7" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam7" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 12)
 
-[node name="SM_WoodenFloor--Seam8" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam8" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
-[node name="SM_WoodenFloor--Seam9" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam9" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 16)
 
-[node name="SM_WoodenFloor--Seam10" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam10" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
 
-[node name="SM_WoodenFloor--Seam11" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam11" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -12)
 
-[node name="SM_WoodenFloor--Seam12" parent="." instance=ExtResource("5_ghv7w")]
+[node name="SM_WoodenFloor--Seam12" parent="WoodenFloor" instance=ExtResource("5_ghv7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -16)
 
-[node name="SM_WoodenFloor--Broken-Planks" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 16)
 
-[node name="SM_WoodenFloor--Broken-Planks2" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks2" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12)
 
-[node name="SM_WoodenFloor--Broken-Planks3" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks3" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -4)
 
-[node name="SM_WoodenFloor--Broken-Planks4" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks4" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
 
-[node name="SM_WoodenFloor--Broken-Planks5" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks5" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 
-[node name="SM_WoodenFloor--Broken-Planks6" parent="." instance=ExtResource("6_sl5kb")]
+[node name="SM_WoodenFloor--Broken-Planks6" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
-
-[node name="terr0" parent="." instance=ExtResource("7_sbbp5")]
-LOD1Distance = 100.0
-
-[node name="terr1" parent="." instance=ExtResource("8_ysjqr")]
-LOD1Distance = 100.0
-
-[node name="terr2" parent="." instance=ExtResource("9_ab6k4")]
-LOD1Distance = 100.0
-
-[node name="terr3" parent="." instance=ExtResource("10_3g42j")]
-LOD1Distance = 100.0
-
-[node name="terr5" parent="." instance=ExtResource("12_cqbo3")]
-LOD1Distance = 100.0
-
-[node name="terr6" parent="." instance=ExtResource("12_m814q")]
-LOD1Distance = 100.0
-
-[node name="terr7" parent="." instance=ExtResource("13_amwt5")]
-LOD1Distance = 100.0
-
-[node name="terr8" parent="." instance=ExtResource("14_sewcs")]
-LOD1Distance = 100.0
-
-[node name="terr9" parent="." instance=ExtResource("15_5ffyk")]
-LOD1Distance = 100.0
-
-[node name="terr10" parent="." instance=ExtResource("16_okx7s")]
-LOD1Distance = 100.0
-
-[node name="terr11" parent="." instance=ExtResource("17_v8hhf")]
-LOD1Distance = 100.0
-
-[node name="terr12" parent="." instance=ExtResource("18_2w1di")]
-LOD1Distance = 100.0
-
-[node name="terr13" parent="." instance=ExtResource("19_sob1t")]
-LOD1Distance = 100.0
-
-[node name="terr14" parent="." instance=ExtResource("20_mtxqq")]
-LOD1Distance = 100.0
-
-[node name="terr15" parent="." instance=ExtResource("21_ol8x2")]
-LOD1Distance = 100.0
-
-[node name="terr16" parent="." instance=ExtResource("22_87kbg")]
-LOD1Distance = 100.0
-
-[node name="terr17" parent="." instance=ExtResource("23_ylk7x")]
-LOD1Distance = 100.0
-
-[node name="terr18" parent="." instance=ExtResource("24_bvm8o")]
-LOD1Distance = 100.0
-
-[node name="terr19" parent="." instance=ExtResource("25_mdbjj")]
-LOD1Distance = 100.0
-
-[node name="terr20" parent="." instance=ExtResource("26_0mqhs")]
-LOD1Distance = 100.0
-
-[node name="terr21" parent="." instance=ExtResource("27_tfay2")]
-LOD1Distance = 100.0
-
-[node name="terr22" parent="." instance=ExtResource("28_aekvx")]
-LOD1Distance = 100.0
-
-[node name="terr4" parent="." instance=ExtResource("11_a5nym")]
-LOD1Distance = 100.0

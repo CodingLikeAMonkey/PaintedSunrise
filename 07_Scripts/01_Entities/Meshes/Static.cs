@@ -20,6 +20,7 @@ public partial class Static : Node3D
         if (string.IsNullOrEmpty(SceneFilePath))
         {
             GD.PrintErr("Static entity has no scene file path!");
+            GD.Print("I can record antthing heree!!!");
             return;
         }
         string scenePath = SceneFilePath;
@@ -35,9 +36,9 @@ public partial class Static : Node3D
             //.Set(new Outline())
             .Set(new Components.Core.Transform
             {
-                Position = GlobalPosition,
-                Rotation = GlobalRotation,
-                Scale = Scale
+                Position = (Components.Math.Vec3)GlobalPosition,  
+                Rotation = (Components.Math.Vec3)GlobalRotation,
+                Scale = (Components.Math.Vec3)Scale  
             })
             .Set(new Components.Core.Raycast
             {
