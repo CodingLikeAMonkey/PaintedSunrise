@@ -13,7 +13,7 @@ public static class FreeCamera
             .Kind(Ecs.OnUpdate)
             .Each((Entity entity, ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
             {
-                if (!CameraNodeRef.TryGet(entity, out var node)) 
+                if (!Kernel.CameraNodeRef.TryGet(entity, out var node)) 
                     return;
 
                 node.GlobalPosition = t.Position.ToGodot();
