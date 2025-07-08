@@ -17,9 +17,9 @@ public static class FreeCam
                     var gameState = singleton.Get<GameState>();
                     if (gameState.CurrentGameState == GameStateEnum.Gameplay)
                     {
-                        int x = Kernel.InputHandler.MoveRight ? 1 : Kernel.InputHandler.MoveLeft ? -1 : 0;
+                        int x = Kernel.InputHandler.MoveRight ? -1 : Kernel.InputHandler.MoveLeft ? 1 : 0;
                         int y = Kernel.InputHandler.MoveUp ? 1 : Kernel.InputHandler.MoveDown ? -1 : 0;
-                        int z = Kernel.InputHandler.MoveBackward ? 1 : Kernel.InputHandler.MoveForward ? -1 : 0;
+                        int z = Kernel.InputHandler.MoveBackward ? -1 : Kernel.InputHandler.MoveForward ? 1 : 0;
 
                         cam.MovementDirection = new Components.Math.Vec3(x, y, z).Normalized();
                         cam.IsBoosted = Kernel.InputHandler.Boost;
