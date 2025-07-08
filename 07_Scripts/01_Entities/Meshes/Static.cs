@@ -40,13 +40,6 @@ public partial class Static : Node3D
                 Rotation = (Components.Math.Vec3)GlobalRotation,
                 Scale = (Components.Math.Vec3)Scale  
             })
-            .Set(new Components.Core.Raycast
-            {
-                Node = this,
-                Direction = Vector3.Up,
-                Length = 20f,
-                DebugDraw = true
-            })
             .Set(new Components.Mesh.LOD
             {
                 Lod1ScenePath = lod1Path,

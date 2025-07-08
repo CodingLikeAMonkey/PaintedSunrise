@@ -1,5 +1,3 @@
-using Godot;
-using System;
 namespace Components.Core;
 public struct Transform
 {

@@ -1,6 +1,4 @@
-using Godot;
 using Flecs.NET.Core;
-using System;
 
 namespace Systems.Camera;
 

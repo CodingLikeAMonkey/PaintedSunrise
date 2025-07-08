@@ -13,7 +13,6 @@ public partial class ThirdPerson : Node3D
         entity = Kernel.EcsWorld.Instance.Entity()
             .Set(new Components.Camera.ThirdPerson
             {
-                Node = this,
             })
             .Set(new Components.Core.Transform
             {

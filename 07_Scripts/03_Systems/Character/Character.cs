@@ -1,10 +1,8 @@
-using Godot;
-using System;
 using Flecs.NET.Core;
 
 namespace Systems.Character;
 
-public partial class Character : Node
+public partial class Character
 {
     public void Setup(World world)
     {

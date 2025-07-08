@@ -20,7 +20,6 @@ public partial class Character : CharacterBody3D
             .Add<Components.Character.Player>()
             .Set(new Components.Character.Character
             {
-                Node = this
             })
             .Set(new Components.Character.State
             {
