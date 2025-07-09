@@ -1,5 +1,8 @@
+// Systems/Debug/PrintStaticMeshes.cs
 using Flecs.NET.Core;
 using Kernel;
+using Components.Mesh;
+using Components.Core;
 
 namespace Systems.Debug;
 
@@ -26,13 +29,13 @@ public static class PrintStaticMeshes
 
     private static void PrintSM(World world)
     {
-        var query = world.Query<Components.Mesh.Static, Components.Core.Transform>();
+        var query = world.Query<Static, Transform>();
         Log.PrintInfo("===== Static Meshes =====");
 
-        query.Each((Entity e, ref Components.Mesh.Static mesh, ref Components.Core.Transform t) =>
+        query.Each((Entity e, ref Static mesh, ref Transform t) =>
         {
-            string name = mesh.Node?.Name ?? "Unnamed Mesh";
-            Log.PrintInfo($"- {name}:");
+            // Fixed: Use e.Id property instead of method
+            Log.PrintInfo($"- Entity {e.Id}:");
             Log.PrintInfo($"  Position: {t.Position}");
             Log.PrintInfo($"  Rotation: {t.Rotation}");
             Log.PrintInfo($"  Scale: {t.Scale}");

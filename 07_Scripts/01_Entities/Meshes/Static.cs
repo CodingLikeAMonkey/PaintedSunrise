@@ -17,36 +17,31 @@ public partial class Static : Node3D
     public override void _Ready()
     {
         if (SkipEntityCreation) return;
-        if (string.IsNullOrEmpty(SceneFilePath))
-        {
-            GD.PrintErr("Static entity has no scene file path!");
-            GD.Print("I can record antthing heree!!!");
-            return;
-        }
-        string scenePath = SceneFilePath;
-        string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(scenePath);
-        // GD.Print(lod1Path);
-
+        
         _entity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new global::Components.Mesh.Static
-            {
-                Node = this,
-                MeshType = MeshType
-            })
-            //.Set(new Outline())
+            .Set(new Components.Mesh.Static { MeshType = MeshType })
             .Set(new Components.Core.Transform
             {
-                Position = (Components.Math.Vec3)GlobalPosition,  
+                Position = (Components.Math.Vec3)GlobalPosition,
                 Rotation = (Components.Math.Vec3)GlobalRotation,
-                Scale = (Components.Math.Vec3)Scale  
+                Scale = (Components.Math.Vec3)Scale
             })
             .Set(new Components.Mesh.LOD
             {
-                Lod1ScenePath = lod1Path,
-                Lod1Packed = GD.Load<PackedScene>(lod1Path),
-                OriginalScenePath = scenePath,
-                OriginalPacked = GD.Load<PackedScene>(scenePath),
+                Lod1ScenePath = Kernel.Utility.GetUnifiedLOD1Path(SceneFilePath),
+                OriginalScenePath = SceneFilePath,
                 CameraDistance = LOD1Distance
             });
+
+        // Register node reference
+        Kernel.NodeRef.Register(_entity, this);
+    }
+
+    public override void _ExitTree()
+    {
+        if (!SkipEntityCreation && _entity.IsAlive())
+        {
+            Kernel.NodeRef.Unregister(_entity);
+        }
     }
 }
