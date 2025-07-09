@@ -14,34 +14,39 @@ public partial class Static : Node3D
 
     private Entity _entity;
 
-    public override void _Ready()
+     public override void _Ready()
     {
+        // ALWAYS register the node, even if skipping entity creation
+        if (!Kernel.NodeRef.TryGetFromNode(this, out _))
+        {
+            _entity = Kernel.EcsWorld.Instance.Entity();
+            Kernel.NodeRef.Register(_entity, this);
+            GD.Print($"Registered node {Name} with entity {_entity.Id}");
+        }
+
         if (SkipEntityCreation) return;
         
-        _entity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new Components.Mesh.Static { MeshType = MeshType })
-            .Set(new Components.Core.Transform
-            {
-                Position = (Components.Math.Vec3)GlobalPosition,
-                Rotation = (Components.Math.Vec3)GlobalRotation,
-                Scale = (Components.Math.Vec3)Scale
-            })
-            .Set(new Components.Mesh.LOD
-            {
-                Lod1ScenePath = Kernel.Utility.GetUnifiedLOD1Path(SceneFilePath),
-                OriginalScenePath = SceneFilePath,
-                CameraDistance = LOD1Distance
-            });
-
-        // Register node reference
-        Kernel.NodeRef.Register(_entity, this);
+        // Set components only for primary entities
+        _entity.Set(new Static { MeshType = MeshType })
+               .Set(new Components.Core.Transform
+               {
+                   Position = (Components.Math.Vec3)GlobalPosition,
+                   Rotation = (Components.Math.Vec3)GlobalRotation,
+                   Scale = (Components.Math.Vec3)Scale
+               })
+               .Set(new Components.Mesh.LOD
+               {
+                   OriginalScenePath = SceneFilePath,
+                   CameraDistance = LOD1Distance
+               });
     }
 
     public override void _ExitTree()
     {
-        if (!SkipEntityCreation && _entity.IsAlive())
+        if (Kernel.NodeRef.TryGetFromNode(this, out Entity entity))
         {
-            Kernel.NodeRef.Unregister(_entity);
+            Kernel.NodeRef.Unregister(entity);
+            GD.Print($"Unregistered entity {entity.Id}");
         }
     }
 }
