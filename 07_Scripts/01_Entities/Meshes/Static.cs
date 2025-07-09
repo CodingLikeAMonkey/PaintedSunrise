@@ -14,39 +14,39 @@ public partial class Static : Node3D
 
     private Entity _entity;
 
-    public override void _Ready()
+     public override void _Ready()
     {
-        if (SkipEntityCreation) return;
-        if (string.IsNullOrEmpty(SceneFilePath))
+        // ALWAYS register the node, even if skipping entity creation
+        if (!Kernel.NodeRef.TryGetFromNode(this, out _))
         {
-            GD.PrintErr("Static entity has no scene file path!");
-            GD.Print("I can record antthing heree!!!");
-            return;
+            _entity = Kernel.EcsWorld.Instance.Entity();
+            Kernel.NodeRef.Register(_entity, this);
+            GD.Print($"Registered node {Name} with entity {_entity.Id}");
         }
-        string scenePath = SceneFilePath;
-        string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(scenePath);
-        // GD.Print(lod1Path);
 
-        _entity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new global::Components.Mesh.Static
-            {
-                Node = this,
-                MeshType = MeshType
-            })
-            //.Set(new Outline())
-            .Set(new Components.Core.Transform
-            {
-                Position = (Components.Math.Vec3)GlobalPosition,  
-                Rotation = (Components.Math.Vec3)GlobalRotation,
-                Scale = (Components.Math.Vec3)Scale  
-            })
-            .Set(new Components.Mesh.LOD
-            {
-                Lod1ScenePath = lod1Path,
-                Lod1Packed = GD.Load<PackedScene>(lod1Path),
-                OriginalScenePath = scenePath,
-                OriginalPacked = GD.Load<PackedScene>(scenePath),
-                CameraDistance = LOD1Distance
-            });
+        if (SkipEntityCreation) return;
+        
+        // Set components only for primary entities
+        _entity.Set(new Static { MeshType = MeshType })
+               .Set(new Components.Core.Transform
+               {
+                   Position = (Components.Math.Vec3)GlobalPosition,
+                   Rotation = (Components.Math.Vec3)GlobalRotation,
+                   Scale = (Components.Math.Vec3)Scale
+               })
+               .Set(new Components.Mesh.LOD
+               {
+                   OriginalScenePath = SceneFilePath,
+                   CameraDistance = LOD1Distance
+               });
+    }
+
+    public override void _ExitTree()
+    {
+        if (Kernel.NodeRef.TryGetFromNode(this, out Entity entity))
+        {
+            Kernel.NodeRef.Unregister(entity);
+            GD.Print($"Unregistered entity {entity.Id}");
+        }
     }
 }

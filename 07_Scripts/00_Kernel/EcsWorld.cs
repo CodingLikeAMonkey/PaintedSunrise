@@ -36,8 +36,8 @@ public partial class EcsWorld : Node
         Systems.Input.FreeCamInputSystem.Setup(Instance);
         Systems.Camera.FreeCamSystem.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
-        Systems.Mesh.LOD.Setup(Instance);
-
+        Systems.Bridge.LODSystem.Setup(Instance);
+        Systems.Debug.PrintStaticMeshes.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;

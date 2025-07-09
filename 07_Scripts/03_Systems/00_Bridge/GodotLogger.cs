@@ -1,6 +1,7 @@
 using Godot;
 using Kernel;
 
+namespace Systems.Bridge;
 public partial class GodotLogger : Node
 {
     public override void _Ready()
