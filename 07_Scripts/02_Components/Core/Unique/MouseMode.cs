@@ -9,7 +9,6 @@ public enum MouseModeEnum
     ConfinedHidden,
     Max
 }
-
 public struct MouseMode
 {
     public MouseModeEnum CurrentMouseMode;

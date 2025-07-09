@@ -1,4 +1,3 @@
-// Systems/Debug/PrintStaticMeshes.cs
 using Flecs.NET.Core;
 using Kernel;
 using Components.Mesh;
