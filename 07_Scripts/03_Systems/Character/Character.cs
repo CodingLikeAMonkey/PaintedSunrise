@@ -2,9 +2,9 @@ using Flecs.NET.Core;
 
 namespace Systems.Character;
 
-public partial class Character
+public static class Character
 {
-    public void Setup(World world)
+    public static void Setup(World world)
     {
         world.System<Components.Core.Transform, Components.Character.Character>()
         .Kind(Ecs.OnUpdate)
