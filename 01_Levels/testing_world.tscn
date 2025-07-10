@@ -1,0 +1,123 @@
+[gd_scene load_steps=17 format=3 uid="uid://cbygktrtql47s"]
+
+[ext_resource type="PackedScene" uid="uid://bopqbh8cxbpbm" path="res://02_Assets/Greyblock/arch--point.tscn" id="1_0stw3"]
+[ext_resource type="PackedScene" uid="uid://dglju1y20of1q" path="res://02_Assets/Greyblock/arch--round.tscn" id="2_1c08x"]
+[ext_resource type="PackedScene" uid="uid://dr83b81oao6uy" path="res://02_Assets/Greyblock/floor.tscn" id="3_puh78"]
+[ext_resource type="PackedScene" uid="uid://cpvxvj351r3pj" path="res://02_Assets/Greyblock/pillar.tscn" id="4_mfklv"]
+[ext_resource type="PackedScene" uid="uid://dlt4j46rtvjpg" path="res://02_Assets/Greyblock/railing--end_pillar.tscn" id="5_30eek"]
+[ext_resource type="PackedScene" uid="uid://fddujx4g5imc" path="res://02_Assets/Greyblock/railing--stairs.tscn" id="6_jlkgq"]
+[ext_resource type="PackedScene" uid="uid://s3x3l3kbmm0" path="res://02_Assets/Greyblock/railing--stairs_ends.tscn" id="7_gdwvj"]
+[ext_resource type="PackedScene" uid="uid://8poto0jk3jip" path="res://02_Assets/Greyblock/railing.tscn" id="8_mvqf0"]
+[ext_resource type="PackedScene" uid="uid://vxchqq7faktk" path="res://02_Assets/Greyblock/roof--edge.tscn" id="9_chfo1"]
+[ext_resource type="PackedScene" uid="uid://cdkkh3wpd8lut" path="res://02_Assets/Greyblock/roof--middle.tscn" id="10_ra5b0"]
+[ext_resource type="PackedScene" uid="uid://cviq8ddyiyqig" path="res://02_Assets/Greyblock/roof.tscn" id="11_s1i67"]
+[ext_resource type="PackedScene" uid="uid://dkt82unf0tmjn" path="res://02_Assets/Greyblock/stairs.tscn" id="12_unc6f"]
+[ext_resource type="PackedScene" uid="uid://c8fc1yc850bkw" path="res://02_Assets/Greyblock/wall.tscn" id="13_kc0us"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gqf2t"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_e822c"]
+sky_material = SubResource("ProceduralSkyMaterial_gqf2t")
+
+[sub_resource type="Environment" id="Environment_h5kda"]
+background_mode = 2
+sky = SubResource("Sky_e822c")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestingWorld" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h5kda")
+
+[node name="SM_Arch--Point" parent="." instance=ExtResource("1_0stw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="SM_Arch--Point2" parent="." instance=ExtResource("1_0stw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -2)
+
+[node name="SM_Arch--Round" parent="." instance=ExtResource("2_1c08x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9)
+
+[node name="SM_Arch--Round2" parent="." instance=ExtResource("2_1c08x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10)
+
+[node name="SM_Arch--Round3" parent="." instance=ExtResource("2_1c08x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
+
+[node name="SM_Arch--Round4" parent="." instance=ExtResource("2_1c08x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 12)
+
+[node name="SM_Arch--Round5" parent="." instance=ExtResource("2_1c08x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 13)
+
+[node name="SM_Floor" parent="." instance=ExtResource("3_puh78")]
+
+[node name="SM_Floor2" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="SM_Floor3" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="SM_Floor4" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="SM_Floor5" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="SM_Floor7" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="SM_Floor6" parent="." instance=ExtResource("3_puh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+
+[node name="SM_Pillar" parent="." instance=ExtResource("4_mfklv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Railing--End-Pillar" parent="." instance=ExtResource("5_30eek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Railing--Stairs" parent="." instance=ExtResource("6_jlkgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Railing--Stairs-Ends" parent="." instance=ExtResource("7_gdwvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Railing" parent="." instance=ExtResource("8_mvqf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Roof--Edge" parent="." instance=ExtResource("9_chfo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="SM_Roof--Middle" parent="." instance=ExtResource("10_ra5b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Roof" parent="." instance=ExtResource("11_s1i67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Stairs" parent="." instance=ExtResource("12_unc6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="SM_Wall5" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="SM_Wall9" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -2)
+
+[node name="SM_Wall10" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -2)
+
+[node name="SM_Wall6" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -2)
+
+[node name="SM_Wall7" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -2)
+
+[node name="SM_Wall8" parent="." instance=ExtResource("13_kc0us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, -2)

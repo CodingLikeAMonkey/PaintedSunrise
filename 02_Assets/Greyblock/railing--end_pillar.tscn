@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlt4j46rtvjpg"]
+
+[ext_resource type="PackedScene" uid="uid://8fckbes03jb" path="res://09_Imports/Meshes/Greyblock/Railing--End-Pillar.glb" id="1_xbeox"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xbeox"]
+data = PackedVector3Array(-0.35, 0.5, 0.35, -0.35, 1.7, -0.35, -0.35, 1.7, 0.35, -0.35, 0.5, 0.35, -0.35, 0.5, -0.35, -0.35, 1.7, -0.35, -0.35, 0.5, -0.35, 0.35, 1.7, -0.35, -0.35, 1.7, -0.35, -0.35, 0.5, -0.35, 0.35, 0.5, -0.35, 0.35, 1.7, -0.35, 0.35, 0.5, -0.35, 0.35, 1.7, 0.35, 0.35, 1.7, -0.35, 0.35, 0.5, -0.35, 0.35, 0.5, 0.35, 0.35, 1.7, 0.35, 0.35, 0.5, 0.35, -0.35, 1.7, 0.35, 0.35, 1.7, 0.35, 0.35, 0.5, 0.35, -0.35, 0.5, 0.35, -0.35, 1.7, 0.35, -0.35, 0.5, -0.35, 0.35, 0.5, 0.35, 0.35, 0.5, -0.35, -0.35, 0.5, -0.35, -0.35, 0.5, 0.35, 0.35, 0.5, 0.35, 0.35, 1.7, -0.35, -0.35, 1.7, 0.35, -0.35, 1.7, -0.35, 0.35, 1.7, -0.35, 0.35, 1.7, 0.35, -0.35, 1.7, 0.35)
+
+[node name="SM_Railing--End-Pillar" instance=ExtResource("1_xbeox")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_xbeox")
