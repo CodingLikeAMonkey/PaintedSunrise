@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=34 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
 [ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bscqlvp7wqace" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--seam.tscn" id="5_ghv7w"]
 [ext_resource type="PackedScene" uid="uid://bbbb4rvjasrs" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--broken_planks.tscn" id="6_sl5kb"]
 [ext_resource type="PackedScene" uid="uid://d2l1xi4cbjbvx" path="res://02_Assets/Terrain/terr_0.tscn" id="7_sbbp5"]
+[ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
 [ext_resource type="PackedScene" uid="uid://bsod8jthw8a81" path="res://02_Assets/Terrain/terr_1.tscn" id="8_ysjqr"]
 [ext_resource type="PackedScene" uid="uid://2k4cd2jrg6ar" path="res://02_Assets/Terrain/terr_2.tscn" id="9_ab6k4"]
 [ext_resource type="PackedScene" uid="uid://c1b1plvgaa5ds" path="res://02_Assets/Terrain/terr_3.tscn" id="10_3g42j"]
@@ -73,6 +74,8 @@ LOD1Distance = 100.0
 
 [node name="terr2" parent="Terrain" instance=ExtResource("9_ab6k4")]
 LOD1Distance = 100.0
+
+[node name="TestingWorld" parent="Terrain/terr2" instance=ExtResource("7_sewcs")]
 
 [node name="terr3" parent="Terrain" instance=ExtResource("10_3g42j")]
 LOD1Distance = 100.0
