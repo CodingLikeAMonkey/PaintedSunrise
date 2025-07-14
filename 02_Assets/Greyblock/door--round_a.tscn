@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://egajqkkj4ysp"]
+
+[ext_resource type="PackedScene" uid="uid://b8xtur66ooj34" path="res://09_Imports/Meshes/Greyblock/Door--Round-A.glb" id="1_61xw2"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_t2n8s"]
+[ext_resource type="Texture2D" uid="uid://b2s6n512hvxas" path="res://03_Textures/stonewall_24-4K/stonewall_24_basecolor-4K.png" id="3_yac3x"]
+[ext_resource type="Texture2D" uid="uid://cireir4thpmk5" path="res://03_Textures/stonewall_24-4K/stonewall_24_normal-4K.png" id="4_rborg"]
+[ext_resource type="Texture2D" uid="uid://dxki6nho0ndw3" path="res://03_Textures/stonewall_24-4K/stonewall_24_roughness-4K.png" id="5_slsit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07myg"]
+render_priority = 0
+shader = ExtResource("2_t2n8s")
+shader_parameter/render_backfaces = true
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_yac3x")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("5_slsit")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("4_rborg")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_rotate_degrees = 90.0
+
+[node name="SM_Door--Round-A" instance=ExtResource("1_61xw2")]
+
+[node name="Door--Round-A" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_07myg")

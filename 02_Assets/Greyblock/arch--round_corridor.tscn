@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpcwnrte4haf0"]
+
+[ext_resource type="PackedScene" uid="uid://bvjqcutdx3ghy" path="res://09_Imports/Meshes/Greyblock/Arch--RoundCorridor.glb" id="1_5kv40"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_incht"]
+[ext_resource type="Texture2D" uid="uid://b2s6n512hvxas" path="res://03_Textures/stonewall_24-4K/stonewall_24_basecolor-4K.png" id="3_sisen"]
+[ext_resource type="Texture2D" uid="uid://cireir4thpmk5" path="res://03_Textures/stonewall_24-4K/stonewall_24_normal-4K.png" id="4_q6gav"]
+[ext_resource type="Texture2D" uid="uid://dxki6nho0ndw3" path="res://03_Textures/stonewall_24-4K/stonewall_24_roughness-4K.png" id="5_t43o2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h12l4"]
+render_priority = 0
+shader = ExtResource("2_incht")
+shader_parameter/render_backfaces = true
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_sisen")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("5_t43o2")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("4_q6gav")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_rotate_degrees = 90.0
+
+[node name="SM_Arch--RoundCorridor" instance=ExtResource("1_5kv40")]
+
+[node name="Arch--RoundCorridor" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_h12l4")
