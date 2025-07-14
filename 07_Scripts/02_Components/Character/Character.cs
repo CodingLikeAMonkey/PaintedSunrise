@@ -4,5 +4,5 @@ namespace Components.Character;
 
 public struct Character
 {
-    public bool Enabled;
+    public bool IsGrounded;
 }

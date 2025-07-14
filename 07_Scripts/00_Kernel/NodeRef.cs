@@ -16,7 +16,7 @@ namespace Kernel
             {
                 EntityToNode[entity] = node;
                 NodeToEntity[node] = entity;
-                GD.Print($"NodeRef: Registered entity {entity.Id} with {node.Name}");
+                // GD.Print($"NodeRef: Registered entity {entity.Id} with {node.Name}");
             }
         }
         
@@ -26,7 +26,7 @@ namespace Kernel
             {
                 EntityToNode.Remove(entity);
                 NodeToEntity.Remove(node);
-                GD.Print($"NodeRef: Unregistered entity {entity.Id}");
+                // GD.Print($"NodeRef: Unregistered entity {entity.Id}");
             }
         }
         

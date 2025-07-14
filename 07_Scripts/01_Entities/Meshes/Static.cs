@@ -21,7 +21,7 @@ public partial class Static : Node3D
         {
             _entity = Kernel.EcsWorld.Instance.Entity();
             Kernel.NodeRef.Register(_entity, this);
-            GD.Print($"Registered node {Name} with entity {_entity.Id}");
+            // GD.Print($"Registered node {Name} with entity {_entity.Id}");
         }
 
         if (SkipEntityCreation) return;
@@ -46,7 +46,7 @@ public partial class Static : Node3D
         if (Kernel.NodeRef.TryGetFromNode(this, out Entity entity))
         {
             Kernel.NodeRef.Unregister(entity);
-            GD.Print($"Unregistered entity {entity.Id}");
+            // GD.Print($"Unregistered entity {entity.Id}");
         }
     }
 }

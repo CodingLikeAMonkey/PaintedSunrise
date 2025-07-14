@@ -54,14 +54,14 @@ transform = Transform3D(1, 0, 0, 0, 0.481065, 0.876685, 0, -0.876685, 0.481065, 
 shadow_enabled = true
 
 [node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_8rkqs")]
 
 [node name="C3_FreeCam" parent="." instance=ExtResource("4_r1qyh")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 2, -10)
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 15, -12)
 current = true
 
 [node name="Terrain" type="Node3D" parent="."]

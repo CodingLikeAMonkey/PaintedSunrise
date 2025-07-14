@@ -19,6 +19,8 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Core.Unique.GameState>();
         Instance.Component<Components.Camera.FreeCam>();
         Instance.Component<Components.Mesh.LOD>();
+        Instance.Component<Components.Physics.Gravity>();
+        Instance.Component<Components.Physics.Velocity>();
 
 
         // startup entities
@@ -29,7 +31,7 @@ public partial class EcsWorld : Node
 
         // Create delta time entity
         _deltaTimeEntity = Instance.Entity("DeltaTime")
-            .Set(new DeltaTime { Value = 0f });
+            .Set(new Components.Core.Unique.DeltaTime { Value = 0f });
 
         // Create systems
         Systems.Core.MouseMode.Setup(Instance);
@@ -37,7 +39,10 @@ public partial class EcsWorld : Node
         Systems.Camera.FreeCamSystem.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
         Systems.Bridge.LODSystem.Setup(Instance);
-        Systems.Debug.PrintStaticMeshes.Setup(Instance);
+        // Systems.Debug.PrintStaticMeshes.Setup(Instance);
+        Systems.Physics.Gravity.Setup(Instance);
+        Systems.Physics.Movement.Setup(Instance);
+        Systems.Bridge.TransformSync.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;
@@ -46,14 +51,9 @@ public partial class EcsWorld : Node
     public override void _Process(double delta)
     {
         // Update delta time
-        _deltaTimeEntity.Set(new DeltaTime { Value = (float)delta });
+        _deltaTimeEntity.Set(new Components.Core.Unique.DeltaTime { Value = (float)delta });
 
         // Run ECS pipeline
         Instance.Progress();
     }
-}
-
-public struct DeltaTime
-{
-    public float Value;
 }
