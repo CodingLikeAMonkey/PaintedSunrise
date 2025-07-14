@@ -25,10 +25,10 @@ Thumbs.db
 *.godot.ignore
 
 # Mono/C# related (if you use C# in Godot)
-*.csproj
-*.sln
-*.userprefs
-*.mono/
+# *.csproj
+# *.sln
+# *.userprefs
+# *.mono/
 
 # Backup files
 *.bak
