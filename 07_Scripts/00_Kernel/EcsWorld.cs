@@ -13,7 +13,6 @@ public partial class EcsWorld : Node
         Instance = World.Create();
 
         // Register components
-        Instance.Component<Components.Core.DeltaTime>(); // Only register once!
         Instance.Component<Components.Core.Transform>();
         Instance.Component<Components.Mesh.Static>();
         Instance.Component<Components.Core.Unique.MouseMode>();
@@ -46,9 +45,8 @@ public partial class EcsWorld : Node
 
     public override void _Process(double delta)
     {
-        // Update delta time - CORRECT METHOD
-        ref DeltaTime dt = ref _deltaTimeEntity.GetMut<DeltaTime>();
-        dt.Value = (float)delta;
+        // Update delta time
+        _deltaTimeEntity.Set(new DeltaTime { Value = (float)delta });
 
         // Run ECS pipeline
         Instance.Progress();
