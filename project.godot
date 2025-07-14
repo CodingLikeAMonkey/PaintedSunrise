@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="PaintedSunrise"
+run/main_scene="uid://b116w2w81lkkv"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/icon="res://03_Textures/icon.svg"
+
+[autoload]
+
+EcsWorld="*res://07_Scripts/00_Kernel/EcsWorld.cs"
+InputHandler="*res://07_Scripts/00_Kernel/InputHandler.cs"
+Utility="*res://07_Scripts/00_Kernel/Utility.cs"
+
+[dotnet]
+
+project/assembly_name="PaintedSunrise"
+
+[file_customization]
+
+folder_colors={
+"res://01_Levels/": "red",
+"res://02_Assets/": "green",
+"res://03_Textures/": "yellow",
+"res://04_Shaders/": "pink",
+"res://05_Materials/": "purple",
+"res://06_Audio/": "teal",
+"res://07_Scripts/": "orange",
+"res://07_Scripts/00_Kernel/": "orange",
+"res://07_Scripts/01_Entities/": "orange",
+"res://07_Scripts/02_Components/": "orange",
+"res://07_Scripts/03_Systems/": "orange",
+"res://09_Imports/": "gray"
+}
+
+[input]
+
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+left_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+escape={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+3d_physics/layer_2="selectable"

@@ -21,8 +21,8 @@
 Thumbs.db
 
 # User-specific files
-*.godot
-*.godot.ignore
+# *.godot
+# *.godot.ignore
 
 # Mono/C# related (if you use C# in Godot)
 # *.csproj
