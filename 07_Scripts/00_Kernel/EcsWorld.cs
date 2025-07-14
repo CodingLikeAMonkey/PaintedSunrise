@@ -11,6 +11,7 @@ public partial class EcsWorld : Node
     public override void _Ready()
     {
         Instance = World.Create();
+        Instance.SetThreads(4);
 
         // Register components
         Instance.Component<Components.Core.Transform>();

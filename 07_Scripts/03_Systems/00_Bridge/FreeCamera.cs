@@ -10,7 +10,7 @@ public static class FreeCamera
     {
         // ECS → Godot sync
         world.System<Components.Core.Transform, Components.Camera.FreeCam>()
-            .Kind(Ecs.OnUpdate)
+            .Kind(Ecs.PostUpdate)
             .Each((Entity entity, ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
             {
                 if (!Kernel.CameraNodeRef.TryGet(entity, out var node)) 
@@ -22,7 +22,7 @@ public static class FreeCamera
 
         // Godot input → ECS update
         world.System<Components.Camera.FreeCam>()
-            .Kind(Ecs.OnUpdate)
+            .Kind(Ecs.PostUpdate)
             .Each((ref Components.Camera.FreeCam cam) =>
             {
                 var direction = new Components.Math.Vec3(

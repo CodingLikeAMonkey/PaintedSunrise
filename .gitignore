@@ -93,10 +93,10 @@ export_presets.cfg
 *.gz
 
 # Ignore user/editor configs (optional)
-*.cfg
-*.ini
-*.user
-*.editor
+# *.cfg
+# *.ini
+# *.user
+# *.editor
 
 # Ignore Godot 4 cache
 .godot/

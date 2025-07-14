@@ -5,7 +5,7 @@ namespace Systems.Bridge;
 public static class TransformSync {
     public static void Setup(World world) {
         world.System<Components.Core.Transform>()
-            .Kind(Ecs.OnUpdate)
+            .Kind(Ecs.PostUpdate)
             .Each((Entity entity, ref Components.Core.Transform transform) =>
             {
                 if (Kernel.NodeRef.TryGet(entity, out Node3D node))
