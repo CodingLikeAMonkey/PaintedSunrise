@@ -14,7 +14,7 @@ public partial class Character : CharacterBody3D
             {
                 Position = (Components.Math.Vec3)GlobalPosition,
                 Rotation = (Components.Math.Vec3)GlobalRotation,
-                Scale = (Components.Math.Vec3)Scale  
+                Scale = (Components.Math.Vec3)Scale
 
             })
             .Add<Components.Character.Player>()
@@ -27,7 +27,16 @@ public partial class Character : CharacterBody3D
             })
             .Set(new Components.Character.MovementStats
             {
-                
+
+            })
+            .Set(new Components.Physics.Velocity
+            {
+                Value = new Components.Math.Vec3(0f, 0f, 0f)
+            })
+            .Set(new Components.Physics.Gravity
+            {
+                Acceleration = -9.81f
             });
+            Kernel.NodeRef.Register(characterEntity, this);
     }
 }

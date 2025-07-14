@@ -13,7 +13,7 @@ namespace Systems.Camera
                 .Kind(Ecs.OnUpdate)
                 .Each((ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
                 {
-                    float delta = world.Entity("DeltaTime").Get<Kernel.DeltaTime>().Value;
+                    float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
                     // Mouse look
                     if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)

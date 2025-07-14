@@ -10,7 +10,7 @@ public partial class ThirdPerson
         .Kind(Ecs.OnUpdate)
         .Each((ref Components.Core.Transform trans, ref Components.Camera.ThirdPerson thirdPerson) =>
         {
-            float delta = world.Entity("DeltaTime").Get<Kernel.DeltaTime>().Value;
+            float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
 
             if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured) {
