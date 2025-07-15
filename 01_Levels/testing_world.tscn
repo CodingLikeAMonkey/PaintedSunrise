@@ -338,6 +338,16 @@ polygon = PackedVector2Array(-13.355, 0, -6.9, 4.01, -6.1, 4.17, 1, 0)
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="CSGPolygon3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jlkgq")
 
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2, 8.5, -3)
+material_override = SubResource("ShaderMaterial_kc0us")
+polygon = PackedVector2Array(-13.355, 0, -6.9, 4.01, -6.1, 4.17, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGPolygon3D2"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="CSGPolygon3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jlkgq")
+
 [node name="SM_Wall--Roof-Thirty" parent="." instance=ExtResource("18_unc6f")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 13, 8.5, -4)
 visible = false

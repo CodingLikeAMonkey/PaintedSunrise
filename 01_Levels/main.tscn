@@ -75,8 +75,6 @@ LOD1Distance = 100.0
 [node name="terr2" parent="Terrain" instance=ExtResource("9_ab6k4")]
 LOD1Distance = 100.0
 
-[node name="TestingWorld" parent="Terrain/terr2" instance=ExtResource("7_sewcs")]
-
 [node name="terr3" parent="Terrain" instance=ExtResource("10_3g42j")]
 LOD1Distance = 100.0
 
@@ -380,3 +378,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 
 [node name="SM_WoodenFloor--Broken-Planks6" parent="WoodenFloor" instance=ExtResource("6_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+
+[node name="TestingWorld" parent="." instance=ExtResource("7_sewcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50033e-06, -7.3026, 6.02314e-05)
