@@ -1,42 +1,64 @@
 using Flecs.NET.Core;
 using Godot;
-using System;
 
-namespace Entities.Character;
-
-public partial class Character : CharacterBody3D
+namespace Entities.Character
 {
-    private Entity characterEntity;
-    public override void _Ready()
+    public partial class Character : CharacterBody3D
     {
-        characterEntity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new Components.Core.Transform
-            {
-                Position = (Components.Math.Vec3)GlobalPosition,
-                Rotation = (Components.Math.Vec3)GlobalRotation,
-                Scale = (Components.Math.Vec3)Scale
+        private Entity _characterEntity;
 
-            })
-            .Add<Components.Character.Player>()
-            .Set(new Components.Character.Character
-            {
-            })
-            .Set(new Components.Character.State
-            {
+        public override void _Ready()
+        {
+            _characterEntity = Kernel.EcsWorld.Instance
+                .Entity()
+                .Set(new Components.Core.Transform
+                {
+                    Position = (Components.Math.Vec3)GlobalPosition,
+                    Rotation = (Components.Math.Vec3)GlobalRotation,
+                    Scale = (Components.Math.Vec3)Scale
+                })
+                .Add<Components.Character.Player>()
+                .Set(new Components.Character.Character())
+                .Set(new Components.Character.State())
+                .Set(new Components.Character.MovementStats())
+                .Set(new Components.Physics.Velocity
+                {
+                    Value = new Components.Math.Vec3(0f, 0f, 0f)
+                })
+                .Set(new Components.Physics.Gravity
+                {
+                    Acceleration = -9.81f
+                });
 
-            })
-            .Set(new Components.Character.MovementStats
-            {
+            Kernel.NodeRef.Register(_characterEntity, this);
+        }
 
-            })
-            .Set(new Components.Physics.Velocity
+        public override void _PhysicsProcess(double delta)
+        {
+
+            var veloComp = _characterEntity.Get<Components.Physics.Velocity>();
+            Vector3 currentVel = (Vector3)veloComp.Value;
+
+            float gravityAccel = _characterEntity.Get<Components.Physics.Gravity>().Acceleration;
+            currentVel.Y += gravityAccel * (float)delta;
+
+            Velocity = currentVel;
+            MoveAndSlide();
+            Vector3 postVel = Velocity;
+
+            _characterEntity.Set(new Components.Physics.Velocity
             {
-                Value = new Components.Math.Vec3(0f, 0f, 0f)
-            })
-            .Set(new Components.Physics.Gravity
-            {
-                Acceleration = -9.81f
+                Value = (Components.Math.Vec3)postVel
             });
-            Kernel.NodeRef.Register(characterEntity, this);
+            var tx = _characterEntity.Get<Components.Core.Transform>();
+            tx.Position = (Components.Math.Vec3)GlobalPosition;
+            tx.Rotation = (Components.Math.Vec3)GlobalRotation;
+            _characterEntity.Set(tx);
+
+            var state = _characterEntity.Get<Components.Character.Character>();
+            state.IsGrounded = IsOnFloor();
+            _characterEntity.Set(state);
+        }
+
     }
 }
