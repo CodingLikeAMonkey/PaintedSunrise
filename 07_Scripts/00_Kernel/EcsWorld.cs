@@ -41,9 +41,9 @@ public partial class EcsWorld : Node
         Systems.Core.Fsm.GameState.Setup(Instance);
         Systems.Bridge.LODSystem.Setup(Instance);
         // Systems.Debug.PrintStaticMeshes.Setup(Instance);
-        Systems.Physics.Gravity.Setup(Instance);
-        Systems.Physics.Movement.Setup(Instance);
-        Systems.Bridge.TransformSync.Setup(Instance);
+        // Systems.Physics.Gravity.Setup(Instance);
+        // Systems.Physics.Movement.Setup(Instance);
+        // Systems.Bridge.TransformSync.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;
