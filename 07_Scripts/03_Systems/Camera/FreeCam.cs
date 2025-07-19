@@ -11,45 +11,55 @@ namespace Systems.Camera
         {
             world.System<Components.Core.Transform, Components.Camera.FreeCam>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref Components.Core.Transform t, ref Components.Camera.FreeCam free) =>
+                .MultiThreaded()
+                .Iter((Iter it, Field<Components.Core.Transform> t, Field<Components.Camera.FreeCam> free) =>
                 {
+                    // Fetch delta and input ONCE per frame, not per entity
                     float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
-                    // Mouse look
-                    if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
+                    bool mouseCaptured = Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured;
+                    var mouseDelta = Kernel.InputHandler.MouseDelta;
+                    int mouseWheel = Kernel.InputHandler.MouseWheel;
+
+                    for (int i = 0; i < it.Count(); i++)
                     {
-                        t.Rotation = new Vec3(
-                            Clamp(t.Rotation.X - Kernel.InputHandler.MouseDelta.Y / 1000f * free.Sensitivity, -MathF.PI / 2, MathF.PI / 2),
-                            t.Rotation.Y - Kernel.InputHandler.MouseDelta.X / 1000f * free.Sensitivity,
-                            t.Rotation.Z
-                        );
-                    }
+                        ref var transform = ref t[i];
+                        ref var freeCam = ref free[i];
 
-                    // Zoom speed adjustments
-                    if (Kernel.InputHandler.MouseWheel != 0)
-                    {
-                        free.CurrentVelocity = Clamp(
-                            free.CurrentVelocity * MathF.Pow(free.SpeedScale, Kernel.InputHandler.MouseWheel),
-                            free.MinSpeed,
-                            free.MaxSpeed
-                        );
-                    }
+                        // Mouse look
+                        if (mouseCaptured)
+                        {
+                            transform.Rotation = new Vec3(
+                                Clamp(transform.Rotation.X - mouseDelta.Y / 1000f * freeCam.Sensitivity, -MathF.PI / 2, MathF.PI / 2),
+                                transform.Rotation.Y - mouseDelta.X / 1000f * freeCam.Sensitivity,
+                                transform.Rotation.Z
+                            );
+                        }
 
-                    // Movement
-                    if (free.MovementDirection != Vec3.Zero)
-                    {
-                        // Build world-space basis
-                        Quaternion q       = Quaternion.FromEuler(t.Rotation);
-                        Vec3 forward        = Vec3.Transform(Vec3.Forward, q);
-                        Vec3 right          = Vec3.Transform(Vec3.Right, q);
-                        Vec3 up             = Vec3.Transform(Vec3.Up, q);
+                        // Zoom speed adjustments
+                        if (mouseWheel != 0)
+                        {
+                            freeCam.CurrentVelocity = Clamp(
+                                freeCam.CurrentVelocity * MathF.Pow(freeCam.SpeedScale, mouseWheel),
+                                freeCam.MinSpeed,
+                                freeCam.MaxSpeed
+                            );
+                        }
 
-                        // Desired movement including vertical input
-                        Vec3 md             = free.MovementDirection;
-                        Vec3 desired        = forward * md.Z + right * md.X + up * md.Y;
+                        // Movement
+                        if (freeCam.MovementDirection != Vec3.Zero)
+                        {
+                            Quaternion q = Quaternion.FromEuler(transform.Rotation);
+                            Vec3 forward = Vec3.Transform(Vec3.Forward, q);
+                            Vec3 right = Vec3.Transform(Vec3.Right, q);
+                            Vec3 up = Vec3.Transform(Vec3.Up, q);
 
-                        float speed         = free.CurrentVelocity * (free.IsBoosted ? free.BoostMultiplier : 1f);
-                        t.Position         += desired * speed * delta;
+                            Vec3 md = freeCam.MovementDirection;
+                            Vec3 desired = forward * md.Z + right * md.X + up * md.Y;
+
+                            float speed = freeCam.CurrentVelocity * (freeCam.IsBoosted ? freeCam.BoostMultiplier : 1f);
+                            transform.Position += desired * speed * delta;
+                        }
                     }
                 });
         }

@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c3r05ngwloibo" path="res://02_Assets/Terrain/terr_20.tscn" id="26_0mqhs"]
 [ext_resource type="PackedScene" uid="uid://cima5oy1s22t6" path="res://02_Assets/Terrain/terr_21.tscn" id="27_tfay2"]
 [ext_resource type="PackedScene" uid="uid://cb6gwms8e4jg4" path="res://02_Assets/Terrain/terr_22.tscn" id="28_aekvx"]
-[ext_resource type="PackedScene" uid="uid://bv7jvs28i2kq0" path="res://02_Assets/Characters/character.tscn" id="31_5ffyk"]
+[ext_resource type="PackedScene" uid="uid://binum1ak3gvs5" path="res://02_Assets/Characters/character.tscn" id="31_5ffyk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eo7o3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -63,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 
 [node name="C3_FreeCam" parent="." instance=ExtResource("4_r1qyh")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 15, -12)
+current = true
 
 [node name="Terrain" type="Node3D" parent="."]
 

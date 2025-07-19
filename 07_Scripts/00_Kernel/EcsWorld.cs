@@ -11,7 +11,7 @@ public partial class EcsWorld : Node
     public override void _Ready()
     {
         Instance = World.Create();
-        Instance.SetThreads(4);
+        Instance.SetThreads(System.Environment.ProcessorCount);
 
         // Register components
         Instance.Component<Components.Core.Transform>();
