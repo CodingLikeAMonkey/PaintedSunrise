@@ -7,26 +7,25 @@ namespace Systems.Camera
 {
     public static class FreeCamSystem
     {
-        public static void Setup(World world)
+        public static void Setup(World world, Entity inputEntity)
         {
             world.System<Components.Core.Transform, Components.Camera.FreeCam>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
                 .Iter((Iter it, Field<Components.Core.Transform> t, Field<Components.Camera.FreeCam> free) =>
                 {
-                    // Fetch delta and input ONCE per frame, not per entity
+                    var inputState = inputEntity.Get<Components.Input.InputState>();
                     float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
                     bool mouseCaptured = Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured;
-                    var mouseDelta = Kernel.InputHandler.MouseDelta;
-                    int mouseWheel = Kernel.InputHandler.MouseWheel;
+                    var mouseDelta = inputState.MouseDelta;
+                    int mouseWheel = inputState.MouseWheel;
 
                     for (int i = 0; i < it.Count(); i++)
                     {
                         ref var transform = ref t[i];
                         ref var freeCam = ref free[i];
 
-                        // Mouse look
                         if (mouseCaptured)
                         {
                             transform.Rotation = new Vec3(
@@ -36,7 +35,6 @@ namespace Systems.Camera
                             );
                         }
 
-                        // Zoom speed adjustments
                         if (mouseWheel != 0)
                         {
                             freeCam.CurrentVelocity = Clamp(
@@ -46,7 +44,6 @@ namespace Systems.Camera
                             );
                         }
 
-                        // Movement
                         if (freeCam.MovementDirection != Vec3.Zero)
                         {
                             Quaternion q = Quaternion.FromEuler(transform.Rotation);
