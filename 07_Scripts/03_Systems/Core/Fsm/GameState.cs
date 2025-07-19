@@ -8,20 +8,26 @@ public partial class GameState
     {
         world.System<Components.Core.Unique.GameState, Components.Core.Unique.MouseMode>()
         .Kind(Ecs.OnUpdate)
-        .Each((ref Components.Core.Unique.GameState gameState, ref Components.Core.Unique.MouseMode mouseMode) =>
+        .MultiThreaded()
+        .Iter((Iter it, Field<Components.Core.Unique.GameState> gs, Field<Components.Core.Unique.MouseMode> mm) =>
         {
-            if (Kernel.InputHandler.LeftPressed)
+            for (int i = 0; i < it.Count(); i++)
             {
-                gameState.CurrentGameState = Components.Core.Unique.GameStateEnum.Gameplay;
-                mouseMode.CurrentMouseMode = Components.Core.Unique.MouseModeEnum.Captured;
-            }
+                var gameState = gs[i];
+                ref var mouseMode = ref mm[i];
 
-            if (Kernel.InputHandler.EscapePressed)
-            {
-                gameState.CurrentGameState = Components.Core.Unique.GameStateEnum.Debug;
-                mouseMode.CurrentMouseMode = Components.Core.Unique.MouseModeEnum.Visible;
-            }
+                if (Kernel.InputHandler.LeftPressed)
+                {
+                    gameState.CurrentGameState = Components.Core.Unique.GameStateEnum.Gameplay;
+                    mouseMode.CurrentMouseMode = Components.Core.Unique.MouseModeEnum.Captured;
+                }
 
+                if (Kernel.InputHandler.EscapePressed)
+                {
+                    gameState.CurrentGameState = Components.Core.Unique.GameStateEnum.Debug;
+                    mouseMode.CurrentMouseMode = Components.Core.Unique.MouseModeEnum.Visible;
+                }
+            }
         });
     }
 }

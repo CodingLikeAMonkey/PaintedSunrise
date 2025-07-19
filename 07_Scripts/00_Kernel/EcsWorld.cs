@@ -11,7 +11,7 @@ public partial class EcsWorld : Node
     public override void _Ready()
     {
         Instance = World.Create();
-        Instance.SetThreads(4);
+        Instance.SetThreads(System.Environment.ProcessorCount);
 
         // Register components
         Instance.Component<Components.Core.Transform>();
@@ -42,7 +42,7 @@ public partial class EcsWorld : Node
         Systems.Bridge.LODSystem.Setup(Instance);
         Systems.Bridge.PhysicsBridge.Setup(Instance);
         Systems.Character.Movement.Setup(Instance);
-        Systems.Debug.PrintPlayerData.Setup(Instance);
+        // Systems.Debug.PrintPlayerData.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;

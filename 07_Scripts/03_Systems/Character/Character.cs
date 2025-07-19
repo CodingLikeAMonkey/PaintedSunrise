@@ -8,9 +8,9 @@ public static class Character
     {
         world.System<Components.Core.Transform, Components.Character.Character>()
         .Kind(Ecs.OnUpdate)
-        .Each((ref Components.Core.Transform transform, ref Components.Character.Character character) => {
+        .MultiThreaded()
+        .Iter((Iter it, Field<Components.Core.Transform> transform, Field<Components.Character.Character> character) => {
 
         });
     }
-
 }

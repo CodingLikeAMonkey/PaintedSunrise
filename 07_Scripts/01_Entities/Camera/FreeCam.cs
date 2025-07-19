@@ -26,8 +26,8 @@ public partial class FreeCam : Camera3D
                 MaxSpeed = 1000f,
                 MinSpeed = 0.2f,
                 CurrentVelocity = 5.0f
-            });
-            // .Add<Components.Camera.Current>();
+            })
+            .Add<Components.Camera.Current>();
 
         Kernel.CameraNodeRef.Register(cameraEntity, this);
     }

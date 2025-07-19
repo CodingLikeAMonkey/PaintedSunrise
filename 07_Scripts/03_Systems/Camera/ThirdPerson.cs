@@ -8,7 +8,8 @@ public partial class ThirdPerson
     {
         world.System<Components.Core.Transform, Components.Camera.ThirdPerson>()
         .Kind(Ecs.OnUpdate)
-        .Each((ref Components.Core.Transform trans, ref Components.Camera.ThirdPerson thirdPerson) =>
+        .MultiThreaded()
+        .Iter((Iter it, Field<Components.Core.Transform> transform, Field<Components.Camera.ThirdPerson> thirdPerson) =>
         {
             float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 

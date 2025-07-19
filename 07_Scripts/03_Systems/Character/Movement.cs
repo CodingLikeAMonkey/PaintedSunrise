@@ -8,24 +8,28 @@ namespace Systems.Character
         {
             world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref Components.Character.Player player, ref Components.Physics.Velocity velocity, ref Components.Character.MovementStats stats, ref Components.Character.Character character) =>
+                .MultiThreaded()
+                .Iter((Iter it, Field<Components.Character.Player> player, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
-                    if (character.IsGrounded == true)
+                    for (int i = 0; i < it.Count(); i++)
                     {
-                        // Get normalized input direction
-                    var inputDir = new Components.Math.Vec2(
-                        Kernel.InputHandler.MoveRight ? 1 : Kernel.InputHandler.MoveLeft ? -1 : 0,
-                        Kernel.InputHandler.MoveBackward ? 1 : Kernel.InputHandler.MoveForward ? -1 : 0
-                    ).Normalized();
+                        ref var velocity = ref v[i];
+                        ref var character = ref c[i];
+                        var stats = s[i];
 
-                    // Convert to 3D movement (relative to camera)
-                    var moveDir = new Components.Math.Vec3(inputDir.X, 0, inputDir.Y);
+                        if (character.IsGrounded == true)
+                        {
+                            var inputDir = new Components.Math.Vec2(
+                                Kernel.InputHandler.MoveRight ? 1 : Kernel.InputHandler.MoveLeft ? -1 : 0,
+                                Kernel.InputHandler.MoveBackward ? 1 : Kernel.InputHandler.MoveForward ? -1 : 0
+                            ).Normalized();
 
-                    // Apply movement speed (preserve vertical velocity)
-                    velocity.Value.X = moveDir.X * stats.Speed;
-                    velocity.Value.Z = moveDir.Z * stats.Speed;
+                            var moveDir = new Components.Math.Vec3(inputDir.X, 0, inputDir.Y);
+
+                            velocity.Value.X = moveDir.X * stats.Speed;
+                            velocity.Value.Z = moveDir.Z * stats.Speed;
+                        }
                     }
-                    
                 });
         }
     }
