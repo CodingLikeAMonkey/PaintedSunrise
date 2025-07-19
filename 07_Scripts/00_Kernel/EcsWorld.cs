@@ -42,6 +42,7 @@ public partial class EcsWorld : Node
         Systems.Bridge.LODSystem.Setup(Instance);
         Systems.Bridge.PhysicsBridge.Setup(Instance);
         Systems.Character.Movement.Setup(Instance);
+        Systems.Debug.PrintPlayerData.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;
