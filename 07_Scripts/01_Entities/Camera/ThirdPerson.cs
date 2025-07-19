@@ -16,10 +16,22 @@ public partial class ThirdPerson : Node3D
             })
             .Set(new Components.Core.Transform
             {
-                Position = (Components.Math.Vec3)GlobalPosition,   // <-- cast here
-                Rotation = (Components.Math.Vec3)GlobalRotation,   // <-- and here
-                Scale = (Components.Math.Vec3)Scale                 // <-- and here if Scale uses Vec3
+                Position = (Components.Math.Vec3)GlobalPosition,
+                Rotation = (Components.Math.Vec3)GlobalRotation,   
+                Scale = (Components.Math.Vec3)Scale
+            })
+            .Set(new Components.Camera.Camera
+            {
+                IsPreferred = true
             });
-            // .Add<Components.Camera.Current>();
+            Kernel.NodeRef.Register(entity, this);
+
+            // Find Camera3D child and register it with same entity
+            var camNode = GetNodeOrNull<Camera3D>("ThirdPersonCamera__SpringArm/ThirdPersonCamera__Camera"); // adjust path as needed
+            if (camNode != null)
+            {
+                GD.Print(camNode.Name);
+                Kernel.CameraNodeRef.Register(entity, camNode); // You need a CameraNodeRef similar to NodeRef, or reuse NodeRef if you want
+            };
     }
 }

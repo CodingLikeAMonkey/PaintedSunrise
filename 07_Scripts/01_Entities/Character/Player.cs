@@ -17,7 +17,7 @@ namespace Entities.Character
                     Rotation = (Components.Math.Vec3)GlobalRotation,
                     Scale = (Components.Math.Vec3)Scale
                 })
-                .Add<Components.Character.Player>()
+                // .Add<Components.Character.Player>()
                 .Set(new Components.Character.Character())
                 .Set(new Components.Character.State())
                 .Set(new Components.Character.MovementStats())
