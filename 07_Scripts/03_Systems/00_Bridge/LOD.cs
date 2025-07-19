@@ -1,12 +1,12 @@
+using System.Collections.Generic;
+using Godot;
+using Flecs.NET.Core;
+using Kernel;
+using Components.Mesh;
+using Components.Core;
+
 namespace Systems.Bridge
 {
-    using System.Collections.Generic;
-    using Godot;
-    using Flecs.NET.Core;
-    using Kernel;
-    using Components.Mesh;
-    using Components.Core;
-
     public static class LODSystem
     {
         // Static cache to store loaded PackedScenes
@@ -34,26 +34,30 @@ namespace Systems.Bridge
                  .Kind(Ecs.PostUpdate)
                  .Iter((Iter it, Field<Transform> transField, Field<LOD> lodField) =>
                  {
-                     // Pre-fetch active camera transform
-                     Entity? cameraEntity = null;
-                     Transform cameraTransform = default;
+                     Entity? cachedCameraEntity = null;
+                     Transform cachedCameraTransform = default;
 
-                     var cameraQuery = it.World().QueryBuilder<Transform>()
-                         .With<Components.Camera.Current>()
-                         .Build();
-
-                     cameraQuery.Each((Entity entity, ref Transform transform) =>
+                     // Cache active camera entity & transform once per system iteration
+                     if (cachedCameraEntity == null)
                      {
-                         cameraEntity = entity;
-                         cameraTransform = transform;
-                     });
+                         var cameraQuery = it.World().QueryBuilder<Transform>()
+                             .With<Components.Camera.Current>()
+                             .Build();
 
-                     if (cameraEntity == null)
-                     {
-                         Log.PrintError("LOD System: No active camera found.");
-                         return;
+                         cameraQuery.Each((Entity entity, ref Transform transform) =>
+                         {
+                             cachedCameraEntity = entity;
+                             cachedCameraTransform = transform;
+                         });
+
+                         if (cachedCameraEntity == null)
+                         {
+                             Log.PrintError("LOD System: No active camera found.");
+                             return;
+                         }
                      }
 
+                     // Iterate over all entities with Transform and LOD components
                      foreach (int i in it)
                      {
                          ref Transform trans = ref transField[i];
@@ -66,10 +70,10 @@ namespace Systems.Bridge
                              continue;
                          }
 
-                         float distanceSquared = trans.Position.DistanceSquaredTo(cameraTransform.Position);
+                         float distanceSquared = trans.Position.DistanceSquaredTo(cachedCameraTransform.Position);
                          float thresholdSquared = lod.CameraDistance * lod.CameraDistance;
 
-                         // Switch to LOD1
+                         // Switch to LOD1 if too far
                          if (lod.CurrentLod == 0 && distanceSquared > thresholdSquared)
                          {
                              string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(lod.OriginalScenePath);
@@ -79,24 +83,21 @@ namespace Systems.Bridge
                                  var oldNode = currentNode;
                                  var oldTransform = oldNode.GlobalTransform;
 
-                                 // Use cached PackedScene
                                  var packed = GetCachedScene(lod1Path);
                                  var lod1Instance = packed.Instantiate<Node3D>();
-                                 
-                                 // Prevent entity creation in new node
+
                                  if (lod1Instance is Entities.Meshes.Static staticScript)
                                      staticScript.SkipEntityCreation = true;
 
                                  lod1Instance.GlobalTransform = oldTransform;
                                  parent.AddChild(lod1Instance);
 
-                                 // Update node reference
                                  NodeRef.Update(entity, lod1Instance);
                                  lod.CurrentLod = 1;
                                  oldNode.QueueFree();
                              }
                          }
-                         // Switch back to original
+                         // Switch back to original LOD0 if close enough
                          else if (lod.CurrentLod == 1 && distanceSquared <= thresholdSquared)
                          {
                              if (!IsSameScene(currentNode, lod.OriginalScenePath))
@@ -105,18 +106,15 @@ namespace Systems.Bridge
                                  var oldNode = currentNode;
                                  var oldTransform = oldNode.GlobalTransform;
 
-                                 // Use cached PackedScene
                                  var packed = GetCachedScene(lod.OriginalScenePath);
                                  var originalInstance = packed.Instantiate<Node3D>();
-                                 
-                                 // Prevent entity creation in new node
+
                                  if (originalInstance is Entities.Meshes.Static staticScript)
                                      staticScript.SkipEntityCreation = true;
 
                                  originalInstance.GlobalTransform = oldTransform;
                                  parent.AddChild(originalInstance);
 
-                                 // Update node reference
                                  NodeRef.Update(entity, originalInstance);
                                  lod.CurrentLod = 0;
                                  oldNode.QueueFree();

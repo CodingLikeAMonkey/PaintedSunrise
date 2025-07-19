@@ -18,6 +18,7 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Mesh.Static>();
         Instance.Component<Components.Core.Unique.MouseMode>();
         Instance.Component<Components.Core.Unique.GameState>();
+        Instance.Component<Components.Camera.Camera>();
         Instance.Component<Components.Camera.FreeCam>();
         Instance.Component<Components.Mesh.LOD>();
         Instance.Component<Components.Physics.Gravity>();
@@ -42,6 +43,7 @@ public partial class EcsWorld : Node
         Systems.Bridge.LODSystem.Setup(Instance);
         Systems.Bridge.PhysicsBridge.Setup(Instance);
         Systems.Character.Movement.Setup(Instance);
+        Systems.Bridge.SetCurrentCamera.Setup(Instance);
         // Systems.Debug.PrintPlayerData.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
