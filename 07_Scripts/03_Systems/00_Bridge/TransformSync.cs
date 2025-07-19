@@ -6,6 +6,7 @@ public static class TransformSync {
     public static void Setup(World world) {
         world.System<Components.Core.Transform>()
             .Kind(Ecs.PostUpdate)
+            .Without<Components.Physics.Collider>()
             .Each((Entity entity, ref Components.Core.Transform transform) =>
             {
                 if (Kernel.NodeRef.TryGet(entity, out Node3D node))

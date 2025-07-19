@@ -3,7 +3,7 @@ using Godot;
 
 namespace Entities.Character
 {
-    public partial class Character : CharacterBody3D
+    public partial class Player : CharacterBody3D
     {
         private Entity _characterEntity;
 
@@ -17,6 +17,7 @@ namespace Entities.Character
                     Rotation = (Components.Math.Vec3)GlobalRotation,
                     Scale = (Components.Math.Vec3)Scale
                 })
+                .Add<Components.Character.Player>()
                 .Set(new Components.Character.Character())
                 .Set(new Components.Character.State())
                 .Set(new Components.Character.MovementStats())
