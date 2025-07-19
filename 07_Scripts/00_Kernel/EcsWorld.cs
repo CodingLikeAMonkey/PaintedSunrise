@@ -40,10 +40,9 @@ public partial class EcsWorld : Node
         Systems.Camera.FreeCamSystem.Setup(Instance);
         Systems.Core.Fsm.GameState.Setup(Instance);
         Systems.Bridge.LODSystem.Setup(Instance);
-        // Systems.Debug.PrintStaticMeshes.Setup(Instance);
-        // Systems.Physics.Gravity.Setup(Instance);
-        // Systems.Physics.Movement.Setup(Instance);
-        // Systems.Bridge.TransformSync.Setup(Instance);
+        Systems.Bridge.PhysicsBridge.Setup(Instance);
+        Systems.Character.Movement.Setup(Instance);
+        Systems.Debug.PrintPlayerData.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;
