@@ -7,12 +7,13 @@ namespace Systems.Input
 {
     public static class FreeCamInputSystem
     {
-        public static void Setup(World world)
+        public static void Setup(World world, Entity inputEntity)
         {
             world.System<FreeCam>()
                 .Kind(Ecs.OnUpdate)
                 .Each((ref FreeCam cam) =>
                 {
+                    var inputState = inputEntity.Get<Components.Input.InputState>();
                     var singleton = world.Lookup("Singleton");
                     if (!singleton.IsValid()) return;
 
@@ -21,15 +22,15 @@ namespace Systems.Input
                         return;
 
                     // Build axis inputs
-                    int x =  (Kernel.InputHandler.MoveRight ?  1 : 0)
-                           - (Kernel.InputHandler.MoveLeft  ?  1 : 0);
-                    int y =  (Kernel.InputHandler.MoveUp    ?  1 : 0)
-                           - (Kernel.InputHandler.MoveDown  ?  1 : 0);
-                    int z =  (Kernel.InputHandler.MoveForward ? 1 : 0)
-                           - (Kernel.InputHandler.MoveBackward? 1 : 0);
+                    int x =  (inputState.MoveRight ?  1 : 0)
+                           - (inputState.MoveLeft  ?  1 : 0);
+                    int y =  (inputState.MoveUp    ?  1 : 0)
+                           - (inputState.MoveDown  ?  1 : 0);
+                    int z =  (inputState.MoveForward ? 1 : 0)
+                           - (inputState.MoveBackward? 1 : 0);
 
                     cam.MovementDirection = new Components.Math.Vec3(x, y, z).Normalized();
-                    cam.IsBoosted         = Kernel.InputHandler.Boost;
+                    cam.IsBoosted         = inputState.Boost;
                 });
         }
     }

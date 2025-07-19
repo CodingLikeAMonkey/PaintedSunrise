@@ -5,13 +5,14 @@ namespace Systems.Debug;
 
 public static class PrintMousePosition
 {
-    public static void Setup(World world)
+    public static void Setup(World world, Entity inputEntity)
     {
         world.System()
             .Kind(Ecs.OnUpdate)
             .Iter((Iter iter) =>
             {
-                Log.Info(InputHandler.MousePosition.ToString());
+                var inputState = inputEntity.Get<Components.Input.InputState>();
+                Log.Info(inputState.MousePosition.ToString());
             });
     }
 }

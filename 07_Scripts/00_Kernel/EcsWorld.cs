@@ -7,6 +7,7 @@ public partial class EcsWorld : Node
 {
     public static World Instance { get; private set; }
     private Entity _deltaTimeEntity;
+    public static Entity InputEntity { get; private set; }
 
     public override void _Ready()
     {
@@ -23,30 +24,27 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Mesh.LOD>();
         Instance.Component<Components.Physics.Gravity>();
         Instance.Component<Components.Physics.Velocity>();
+        Instance.Component<Components.Input.InputState>();
 
-
-        // startup entities
-        Instance.Entity("Singleton")
+        InputEntity = Instance.Entity("Singleton")
             .Set(new Components.Core.Unique.GameState())
-            .Set(new Components.Core.Unique.MouseMode());
+            .Set(new Components.Core.Unique.MouseMode())
+            .Set(new Components.Input.InputState());
 
-
-        // Create delta time entity
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new Components.Core.Unique.DeltaTime { Value = 0f });
 
-        // Create systems
         Systems.Core.MouseMode.Setup(Instance);
-        Systems.Input.FreeCamInputSystem.Setup(Instance);
-        Systems.Camera.FreeCamSystem.Setup(Instance);
-        Systems.Core.Fsm.GameState.Setup(Instance);
+        Systems.Input.FreeCamInputSystem.Setup(Instance, InputEntity);
+        Systems.Camera.FreeCamSystem.Setup(Instance, InputEntity);
+        Systems.Core.Fsm.GameState.Setup(Instance, InputEntity);
         Systems.Bridge.LODSystem.Setup(Instance);
         Systems.Bridge.PhysicsBridge.Setup(Instance);
-        Systems.Character.Movement.Setup(Instance);
+        Systems.Character.Movement.Setup(Instance, InputEntity);
         Systems.Bridge.SetCurrentCamera.Setup(Instance);
-        // Systems.Debug.PrintPlayerData.Setup(Instance);
-        Systems.Camera.ThirdPerson.Setup(Instance);
+        Systems.Camera.ThirdPerson.Setup(Instance, InputEntity);
         Systems.Bridge.ThirdPersonCameraBridge.Setup(Instance);
+
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;
@@ -54,10 +52,7 @@ public partial class EcsWorld : Node
 
     public override void _Process(double delta)
     {
-        // Update delta time
         _deltaTimeEntity.Set(new Components.Core.Unique.DeltaTime { Value = (float)delta });
-
-        // Run ECS pipeline
         Instance.Progress();
     }
 }
