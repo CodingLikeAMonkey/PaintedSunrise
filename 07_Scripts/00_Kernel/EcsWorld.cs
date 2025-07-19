@@ -45,6 +45,8 @@ public partial class EcsWorld : Node
         Systems.Character.Movement.Setup(Instance);
         Systems.Bridge.SetCurrentCamera.Setup(Instance);
         // Systems.Debug.PrintPlayerData.Setup(Instance);
+        Systems.Camera.ThirdPerson.Setup(Instance);
+        Systems.Bridge.ThirdPersonCameraBridge.Setup(Instance);
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
         Log.Error = GD.Print;

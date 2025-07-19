@@ -20,6 +20,7 @@ public partial class InputHandler : Node
     public static bool MoveUp { get; private set; }
     public static bool MoveDown { get; private set; }
     public static bool Boost { get; private set; }
+    public static Vector2 RightStickInputDir { get; private set; }
 
     public override void _Input(InputEvent @event)
     {
@@ -54,7 +55,7 @@ public partial class InputHandler : Node
         MoveUp = Input.IsKeyPressed(Key.E);
         MoveDown = Input.IsKeyPressed(Key.Q);
         Boost = Input.IsKeyPressed(Key.Shift);
-        
+
         // These checks run once per frame, avoiding spam from _Input
         LeftPressed = Input.IsActionPressed("left_click");
         LeftReleased = Input.IsActionJustReleased("left_click");
@@ -64,5 +65,10 @@ public partial class InputHandler : Node
         // Reset delta & wheel
         MouseDelta = Vector2.Zero;
         MouseWheel = 0;
+
+        RightStickInputDir = new Vector2(
+        Input.GetActionStrength("look_right") - Input.GetActionStrength("look_left"),
+        Input.GetActionStrength("look_up") - Input.GetActionStrength("look_down")
+);
     }
 }
