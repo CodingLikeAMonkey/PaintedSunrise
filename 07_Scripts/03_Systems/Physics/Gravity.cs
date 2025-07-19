@@ -8,6 +8,7 @@ namespace Systems.Physics
         {
             world.System<Components.Core.Transform, Components.Physics.Velocity, Components.Physics.Gravity>()
                 .Kind(Ecs.OnUpdate)
+                .MultiThreaded()
                 .Iter((Iter it, Field<Components.Core.Transform> transField, Field<Components.Physics.Velocity> veloField, Field<Components.Physics.Gravity> graviField) =>
                 {
                     // Get delta time from singleton entity
