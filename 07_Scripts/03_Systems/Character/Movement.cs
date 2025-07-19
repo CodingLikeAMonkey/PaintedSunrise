@@ -11,7 +11,6 @@ namespace Systems.Character
                 .MultiThreaded()
                 .Iter((Iter it, Field<Components.Character.Player> player, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
-
                     for (int i = 0; i < it.Count(); i++)
                     {
                         ref var velocity = ref v[i];
