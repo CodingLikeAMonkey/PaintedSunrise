@@ -46,9 +46,8 @@ sky = SubResource("Sky_q3hbn")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_okx7s")
-PlayerCharacter = NodePath("CB_Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")

@@ -11,8 +11,12 @@ public partial class ThirdPerson : Node3D
     public override void _Ready()
     {
         entity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new Components.Camera.ThirdPerson
+            .Set(new Components.Camera.ThirdPersonConfig
             {
+            })
+            .Set(new Components.Camera.ThirdPersonState
+            {
+                
             })
             .Set(new Components.Core.Transform
             {

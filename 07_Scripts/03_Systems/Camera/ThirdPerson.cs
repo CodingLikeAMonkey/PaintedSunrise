@@ -6,34 +6,35 @@ public static partial class ThirdPerson
 {
     public static void Setup(World world, Entity inputEntity)
     {
-        world.System<Components.Core.Transform, Components.Camera.ThirdPerson>()
+        world.System<Components.Core.Transform, Components.Camera.ThirdPersonConfig, Components.Camera.ThirdPersonState>()
         .Kind(Ecs.OnUpdate)
-        .Iter((Iter it, Field<Components.Core.Transform> t, Field<Components.Camera.ThirdPerson> c) =>
+        .Iter((Iter it, Field<Components.Core.Transform> t, Field<Components.Camera.ThirdPersonConfig> c, Field<Components.Camera.ThirdPersonState> s) =>
         {
             var inputState = inputEntity.Get<Components.Input.InputState>();
             for (int i = 0; i < it.Count(); i++)
             {
                 ref var transform = ref t[i];
-                ref var camera = ref c[i];
+                ref var config = ref c[i];
+                ref var camState = ref s[i];
 
                 if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
                 {
-                    camera.rotDeg.Y -= inputState.MouseDelta.X * camera.HorizontalMouseSensitivity;
-                    camera.rotDeg.X -= inputState.MouseDelta.Y * camera.VerticalMouseSensitivity;
-                    camera.rotDeg.X = MathUtil.Clamp(camera.rotDeg.X, camera.MaxPitch, camera.MinPitch);
+                    camState.rotationDegrees.Y -= inputState.MouseDelta.X * config.HorizontalMouseSensitivity;
+                    camState.rotationDegrees.X -= inputState.MouseDelta.Y * config.VerticalMouseSensitivity;
+                    camState.rotationDegrees.X = MathUtil.Clamp(camState.rotationDegrees.X, config.MaxPitch, config.MinPitch);
                 }
 
-                camera.lookvector = new Components.Math.Vec2(
+                camState.lookvector = new Components.Math.Vec2(
                     inputState.RightStickInputDir.X,
                     inputState.RightStickInputDir.Y
                 );
 
-                camera.rotDeg.Y -= camera.lookvector.X * camera.HorizontalControllerSensitivity;
-                camera.rotDeg.X -= camera.lookvector.Y * camera.VerticalControllerSensitivity;
-                camera.rotDeg.X = MathUtil.Clamp(camera.rotDeg.X, camera.MaxPitch, camera.MinPitch);
+                camState.rotationDegrees.Y -= camState.lookvector.X * config.HorizontalControllerSensitivity;
+                camState.rotationDegrees.X -= camState.lookvector.Y * config.VerticalControllerSensitivity;
+                camState.rotationDegrees.X = MathUtil.Clamp(camState.rotationDegrees.X, config.MaxPitch, config.MinPitch);
 
-                transform.Rotation.X = camera.rotDeg.X;
-                transform.Rotation.Y = camera.rotDeg.Y;
+                transform.Rotation.X = camState.rotationDegrees.X;
+                transform.Rotation.Y = camState.rotationDegrees.Y;
                 transform.Rotation.Z = 0f;
             }
         });

@@ -1,22 +1,18 @@
 // Camera
 namespace Components.Camera;
-using Components.Math;
 
 
-public struct ThirdPerson
+public struct ThirdPersonConfig
 {
     public float MinPitch;
     public float MaxPitch;
-
-    public Vec3 rotDeg;
-    public Vec2 lookvector;
     public float HorizontalMouseSensitivity;
     public float VerticalMouseSensitivity;
     public float HorizontalControllerSensitivity;
     public float VerticalControllerSensitivity;
 
 
-    public ThirdPerson()
+    public ThirdPersonConfig()
     {
         MinPitch = 35.0f;
         MaxPitch = -90.0f;
@@ -25,5 +21,4 @@ public struct ThirdPerson
         HorizontalControllerSensitivity = 2.0f;
         VerticalControllerSensitivity = 2.0f;
     }
-    
 }
