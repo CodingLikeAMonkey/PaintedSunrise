@@ -19,7 +19,7 @@ script = ExtResource("1_t8742")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("CapsuleShape3D_wguda")
 
-[node name="Character__Visual" type="Node3D" parent="."]
+[node name="Character__Visual" type="Node3D" parent="." groups=["visual_body"]]
 
 [node name="Character__VisualBody" type="MeshInstance3D" parent="Character__Visual"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
