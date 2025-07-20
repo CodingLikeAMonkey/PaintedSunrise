@@ -1,4 +1,3 @@
-using Components.Input;
 using Flecs.NET.Core;
 
 namespace Systems.Character
@@ -12,7 +11,6 @@ namespace Systems.Character
                 .MultiThreaded()
                 .Iter((Iter it, Field<Components.Character.Player> player, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
-                    // Get input state fresh every frame:
                     var inputState = inputEntity.Get<Components.Input.InputState>();
 
                     for (int i = 0; i < it.Count(); i++)
@@ -36,6 +34,5 @@ namespace Systems.Character
                     }
                 });
         }
-
     }
 }
