@@ -158,6 +158,25 @@ namespace Components.Math
             return q.Rotate(v);
         }
 
+        public static Vec3 MoveTowards(Vec3 current, Vec3 target, float maxDistanceDelta)
+        {
+            Vec3 toVector = target - current;
+            float dist = toVector.Length();
+            if (dist <= maxDistanceDelta || dist == 0f)
+            {
+                return target;
+            }
+            return current + toVector / dist * maxDistanceDelta;
+        }
+
+        public static float MoveTowardsF(float current, float target, float maxDelta)
+        {
+            float delta = target - current;
+            if (MathF.Abs(delta) <= maxDelta) return target;
+            return current + MathF.Sign(delta) * maxDelta;
+        }
+
+
         // Swizzles
         public Vector2 XY() => new Vector2(X, Y);
         public Vector2 XZ() => new Vector2(X, Z);

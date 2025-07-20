@@ -58,10 +58,10 @@ namespace Kernel
         public override void _Process(double delta)
         {
             // Update frame input states
-            MoveForward = Input.IsKeyPressed(Key.W);
-            MoveBackward = Input.IsKeyPressed(Key.S);
-            MoveLeft = Input.IsKeyPressed(Key.A);
-            MoveRight = Input.IsKeyPressed(Key.D);
+            MoveForward = Input.IsActionPressed("up");
+            MoveBackward = Input.IsActionPressed("down");
+            MoveLeft = Input.IsActionPressed("left");
+            MoveRight = Input.IsActionPressed("right");
             MoveUp = Input.IsKeyPressed(Key.E);
             MoveDown = Input.IsKeyPressed(Key.Q);
             Boost = Input.IsKeyPressed(Key.Shift);

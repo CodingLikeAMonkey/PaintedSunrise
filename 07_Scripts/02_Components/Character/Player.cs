@@ -4,6 +4,7 @@ namespace Components.Character;
 
 public struct Player
 {
+    public float CurrentRotationY;
     public float WalkInputHoldTime;
     public Vec2 LastInputDirection;
     public bool WasRotatingFromTap;
