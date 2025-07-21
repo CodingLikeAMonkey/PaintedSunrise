@@ -1,3 +1,4 @@
+using Components.Core.Unique;
 using Flecs.NET.Core;
 using Kernel;
 
@@ -13,19 +14,32 @@ namespace Systems.Character
                 .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
                     var inputState = inputEntity.Get<Components.Input.InputState>();
+                    float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
                     for (int i = 0; i < it.Count(); i++)
                     {
                         ref var velocity = ref v[i];
                         ref var character = ref c[i];
                         var stats = s[i];
-                        var player = p[i];
+                        ref var player = ref p[i];
 
                         if (character.IsGrounded)
                         {
 
                             player.HasInput = inputState.LeftStickInputDir.Length() > 0.1f;
-                            Log.Info(inputState.LeftStickInputDir.ToString());
+
+                            if (player.HasInput)
+                            {
+                                player.WalkInputHoldTime += delta;
+                                player.LastInputDirection = inputState.LeftStickInputDir;
+                                player.WasRotatingFromTap = true;
+                                Log.Info(player.LastInputDirection.ToString());
+                            }
+                            else
+                            {
+                                player.WalkInputHoldTime = 0.0f;
+                            }
+
 
                             // var inputDir = new Components.Math.Vec2(
                             //     inputState.MoveRight ? 1 : inputState.MoveLeft ? -1 : 0,
