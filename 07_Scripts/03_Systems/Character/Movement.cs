@@ -42,7 +42,8 @@ namespace Systems.Character
 
                             // cam direciton
                             Components.Math.Vec3 inputVector = new Components.Math.Vec3(player.LastInputDirection.X, 0, player.LastInputDirection.Y);
-                            // var camDir = Components.Math.Quaternion.
+                            // Vector3 direction = (Transform.Basis * inputVec).Normalized();
+                            // Components.Math.Vec3 worldDirection = cameraRotation.Rotate(inputVector).Normalized();
 
 
                             // var inputDir = new Components.Math.Vec2(
