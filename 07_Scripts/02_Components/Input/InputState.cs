@@ -23,5 +23,6 @@ namespace Components.Input
         public bool MoveDown;
         public bool Boost;
         public Components.Math.Vec2 RightStickInputDir;
+        public Components.Math.Vec2 LeftStickInputDir;
     }
 }

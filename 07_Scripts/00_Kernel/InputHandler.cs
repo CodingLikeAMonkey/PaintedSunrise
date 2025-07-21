@@ -25,6 +25,7 @@ namespace Kernel
         private static bool MoveDown;
         private static bool Boost;
         private static Vec2 RightStickInputDir = Vec2.Zero;
+        private static Vec2 LeftStickInputDir = Vec2.Zero;
 
         private Entity? inputEntity;
 
@@ -75,6 +76,10 @@ namespace Kernel
                 Input.GetActionStrength("look_right") - Input.GetActionStrength("look_left"),
                 Input.GetActionStrength("look_up") - Input.GetActionStrength("look_down")
             );
+            LeftStickInputDir = new Vec2(
+                Input.GetActionStrength("right") - Input.GetActionStrength("left"),
+                Input.GetActionStrength("up") - Input.GetActionStrength("down")
+            );
 
             // Update ECS singleton input component with current input states
             if (inputEntity.HasValue)
@@ -97,7 +102,8 @@ namespace Kernel
                     MoveUp = MoveUp,
                     MoveDown = MoveDown,
                     Boost = Boost,
-                    RightStickInputDir = RightStickInputDir
+                    RightStickInputDir = RightStickInputDir,
+                    LeftStickInputDir = LeftStickInputDir
                 };
 
                 inputEntity.Value.Set(state);

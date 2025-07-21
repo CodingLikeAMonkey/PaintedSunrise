@@ -1,4 +1,5 @@
 using Flecs.NET.Core;
+using Kernel;
 
 namespace Systems.Character
 {
@@ -9,7 +10,7 @@ namespace Systems.Character
             world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<Components.Character.Player> player, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
+                .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
                     var inputState = inputEntity.Get<Components.Input.InputState>();
 
@@ -18,18 +19,23 @@ namespace Systems.Character
                         ref var velocity = ref v[i];
                         ref var character = ref c[i];
                         var stats = s[i];
+                        var player = p[i];
 
                         if (character.IsGrounded)
                         {
-                            var inputDir = new Components.Math.Vec2(
-                                inputState.MoveRight ? 1 : inputState.MoveLeft ? -1 : 0,
-                                inputState.MoveBackward ? 1 : inputState.MoveForward ? -1 : 0
-                            ).Normalized();
 
-                            var moveDir = new Components.Math.Vec3(inputDir.X, 0, inputDir.Y);
+                            player.HasInput = inputState.LeftStickInputDir.Length() > 0.1f;
+                            Log.Info(inputState.LeftStickInputDir.ToString());
 
-                            velocity.Value.X = moveDir.X * stats.Speed;
-                            velocity.Value.Z = moveDir.Z * stats.Speed;
+                            // var inputDir = new Components.Math.Vec2(
+                            //     inputState.MoveRight ? 1 : inputState.MoveLeft ? -1 : 0,
+                            //     inputState.MoveBackward ? 1 : inputState.MoveForward ? -1 : 0
+                            // ).Normalized();
+
+                            // var moveDir = new Components.Math.Vec3(inputDir.X, 0, inputDir.Y);
+
+                            // velocity.Value.X = moveDir.X * stats.Speed;
+                            // velocity.Value.Z = moveDir.Z * stats.Speed;
                         }
                     }
                 });
