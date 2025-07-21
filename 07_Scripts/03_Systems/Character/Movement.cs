@@ -25,7 +25,7 @@ namespace Systems.Character
 
                         if (character.IsGrounded)
                         {
-
+                            // last input detection
                             player.HasInput = inputState.LeftStickInputDir.Length() > 0.1f;
 
                             if (player.HasInput)
@@ -39,6 +39,10 @@ namespace Systems.Character
                             {
                                 player.WalkInputHoldTime = 0.0f;
                             }
+
+                            // cam direciton
+                            Components.Math.Vec3 inputVector = new Components.Math.Vec3(player.LastInputDirection.X, 0, player.LastInputDirection.Y);
+                            // var camDir = Components.Math.Quaternion.
 
 
                             // var inputDir = new Components.Math.Vec2(

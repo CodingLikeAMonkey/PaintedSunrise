@@ -163,5 +163,4 @@ namespace Components.Math
         public Vector2 XZ() => new Vector2(X, Z);
         public Vector2 YZ() => new Vector2(Y, Z);
     }
-
 }

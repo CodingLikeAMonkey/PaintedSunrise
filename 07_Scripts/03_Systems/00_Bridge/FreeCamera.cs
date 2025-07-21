@@ -17,7 +17,7 @@ public static class FreeCamera
                     return;
 
                 node.GlobalPosition = t.Position.ToGodot();
-                node.GlobalRotation = t.Rotation.ToGodot();
+                Godot.Quaternion godotQuat = t.Rotation.ToGodot();
             });
 
         // Godot input → ECS update

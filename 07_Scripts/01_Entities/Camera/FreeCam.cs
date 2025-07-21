@@ -11,11 +11,14 @@ public partial class FreeCam : Camera3D
 
     public override void _Ready()
     {
+        // Convert Godot.Vector3 Euler angles (GlobalRotation) to Components.Math.Vec3
+        Vec3 eulerRotation = (Vec3)GlobalRotation;
+
         cameraEntity = Kernel.EcsWorld.Instance.Entity()
             .Set(new Transform
             {
                 Position = (Vec3)GlobalPosition,
-                Rotation = (Vec3)GlobalRotation
+                Rotation = Components.Math.Quaternion.FromEuler(eulerRotation),
             })
             .Set(new Components.Camera.FreeCam
             {
@@ -37,7 +40,11 @@ public partial class FreeCam : Camera3D
         if (!cameraEntity.IsAlive()) return;
 
         ref Transform transform = ref cameraEntity.GetMut<Transform>();
-        GlobalPosition = transform.Position;
-        GlobalRotation = transform.Rotation;
+
+        GlobalPosition = transform.Position; // implicit cast Vec3 -> Godot.Vector3
+
+        // Convert Quaternion back to Euler angles Vec3, then cast to Godot.Vector3
+        Vec3 eulerFromQuat = transform.Rotation.ToEuler();
+        GlobalRotation = (Godot.Vector3)eulerFromQuat;
     }
 }
