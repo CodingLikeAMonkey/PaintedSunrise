@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using Components.Core.Unique;
 using Flecs.NET.Core;
 using Kernel;
@@ -8,13 +9,15 @@ namespace Systems.Character
     {
         public static void Setup(World world, Entity inputEntity)
         {
-            world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character>()
+            var camQuery = world.Query<Components.Camera.ThirdPersonConfig>();
+            world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character, Components.Core.Transform>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
+                .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c, Field<Components.Core.Transform> t) =>
                 {
                     var inputState = inputEntity.Get<Components.Input.InputState>();
                     float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
+                    var cameraTransform = camQuery.First().Get<Components.Core.Transform>();
 
                     for (int i = 0; i < it.Count(); i++)
                     {
@@ -22,6 +25,7 @@ namespace Systems.Character
                         ref var character = ref c[i];
                         var stats = s[i];
                         ref var player = ref p[i];
+                        ref var transform = ref t[i];
 
                         if (character.IsGrounded)
                         {
@@ -33,7 +37,6 @@ namespace Systems.Character
                                 player.WalkInputHoldTime += delta;
                                 player.LastInputDirection = inputState.LeftStickInputDir;
                                 player.WasRotatingFromTap = true;
-                                Log.Info(player.LastInputDirection.ToString());
                             }
                             else
                             {
@@ -42,19 +45,30 @@ namespace Systems.Character
 
                             // cam direciton
                             Components.Math.Vec3 inputVector = new Components.Math.Vec3(player.LastInputDirection.X, 0, player.LastInputDirection.Y);
-                            // Vector3 direction = (Transform.Basis * inputVec).Normalized();
-                            // Components.Math.Vec3 worldDirection = cameraRotation.Rotate(inputVector).Normalized();
+                            // Assuming your Quaternion has components: X, Y, Z, W
+
+                            // Using your Quaternion methods properly
+                            float yaw = cameraTransform.Rotation.ToEuler().Y;
+                            Components.Math.Quaternion yawRotation = Components.Math.Quaternion.FromEuler(new Components.Math.Vec3(0, yaw, 0));
 
 
-                            // var inputDir = new Components.Math.Vec2(
-                            //     inputState.MoveRight ? 1 : inputState.MoveLeft ? -1 : 0,
-                            //     inputState.MoveBackward ? 1 : inputState.MoveForward ? -1 : 0
-                            // ).Normalized();
 
-                            // var moveDir = new Components.Math.Vec3(inputDir.X, 0, inputDir.Y);
+                            Components.Math.Vec3 cameraDirection = yawRotation.Rotate(inputVector).Normalized();
 
-                            // velocity.Value.X = moveDir.X * stats.Speed;
-                            // velocity.Value.Z = moveDir.Z * stats.Speed;
+
+
+                            if (player.WalkInputHoldTime != 0.0f)
+                            {
+                                velocity.Value.X = cameraDirection.X * stats.Speed;
+                                velocity.Value.Z = cameraDirection.Z * stats.Speed;
+                                Log.Info(velocity.Value.ToString());
+                            }
+                            else
+                            {
+                                velocity.Value.X = 0.0f;
+                                velocity.Value.Z = 0.0f;
+                            }
+
                         }
                     }
                 });
