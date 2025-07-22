@@ -125,6 +125,15 @@ public struct Quaternion
         return new Godot.Quaternion(q.X, q.Y, q.Z, q.W);
     }
 
+    public Mat3 ToBasis()
+    {
+        // Assuming you have a Mat3 or equivalent 3x3 matrix struct
+        Vec3 x = this.Rotate(new Vec3(1, 0, 0));
+        Vec3 y = this.Rotate(new Vec3(0, 1, 0));
+        Vec3 z = this.Rotate(new Vec3(0, 0, 1));
+        return new Mat3(x, y, z);
+    }
+
 
 
 }

@@ -29,7 +29,6 @@ namespace Systems.Character
 
                         if (character.IsGrounded)
                         {
-                            // last input detection
                             player.HasInput = inputState.LeftStickInputDir.Length() > 0.1f;
 
                             if (player.HasInput)
@@ -43,17 +42,25 @@ namespace Systems.Character
                                 player.WalkInputHoldTime = 0.0f;
                             }
 
-                            // cam direciton
                             Components.Math.Vec3 inputVector = new Components.Math.Vec3(player.LastInputDirection.X, 0, player.LastInputDirection.Y);
-                            // Assuming your Quaternion has components: X, Y, Z, W
-
-                            // Using your Quaternion methods properly
-                            float yaw = cameraTransform.Rotation.ToEuler().Y;
-                            Components.Math.Quaternion yawRotation = Components.Math.Quaternion.FromEuler(new Components.Math.Vec3(0, yaw, 0));
 
 
+                            // Convert camera basis to a forward-facing direction
+                            var camBasis = cameraTransform.Rotation.ToBasis();
+                            Components.Math.Vec3 forward = new Components.Math.Vec3(camBasis.Z.X, 0, camBasis.Z.Z).Normalized();
+                            Components.Math.Vec3 right = new Components.Math.Vec3(camBasis.X.X, 0, camBasis.X.Z).Normalized();
 
-                            Components.Math.Vec3 cameraDirection = yawRotation.Rotate(inputVector).Normalized();
+                            Components.Math.Vec3 cameraDirection =
+                                (forward * player.LastInputDirection.Y + right * player.LastInputDirection.X).Normalized();
+                            Log.Info(cameraDirection.ToString());
+
+                            // // Optional: calculate yaw like in OOP version
+                            // float targetYaw = Components.Math.Mathf.Atan2(cameraDirection.X, cameraDirection.Z);
+                            // Log.Info("targetYaw: " + targetYaw);
+
+
+
+                            // Components.Math.Vec3 cameraDirection = yawRotation.Rotate(inputVector).Normalized();
 
 
 
@@ -61,7 +68,6 @@ namespace Systems.Character
                             {
                                 velocity.Value.X = cameraDirection.X * stats.Speed;
                                 velocity.Value.Z = cameraDirection.Z * stats.Speed;
-                                Log.Info(velocity.Value.ToString());
                             }
                             else
                             {

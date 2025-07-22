@@ -76,10 +76,11 @@ namespace Kernel
                 Input.GetActionStrength("look_right") - Input.GetActionStrength("look_left"),
                 Input.GetActionStrength("look_up") - Input.GetActionStrength("look_down")
             );
-            LeftStickInputDir = new Vec2(
-                Input.GetActionStrength("right") - Input.GetActionStrength("left"),
-                Input.GetActionStrength("up") - Input.GetActionStrength("down")
-            );
+
+            Vector2 godotVec = Input.GetVector("left", "right", "up", "down");
+            LeftStickInputDir = new Components.Math.Vec2(godotVec.X, godotVec.Y);
+
+
 
             // Update ECS singleton input component with current input states
             if (inputEntity.HasValue)
