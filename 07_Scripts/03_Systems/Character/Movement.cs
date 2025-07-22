@@ -52,7 +52,6 @@ namespace Systems.Character
 
                             Components.Math.Vec3 cameraDirection =
                                 (forward * player.LastInputDirection.Y + right * player.LastInputDirection.X).Normalized();
-                            Log.Info(cameraDirection.ToString());
 
                             // // Optional: calculate yaw like in OOP version
                             // float targetYaw = Components.Math.Mathf.Atan2(cameraDirection.X, cameraDirection.Z);
@@ -64,16 +63,24 @@ namespace Systems.Character
 
 
 
-                            if (player.WalkInputHoldTime != 0.0f)
+                            if (character.IsGrounded)
                             {
-                                velocity.Value.X = cameraDirection.X * stats.Speed;
-                                velocity.Value.Z = cameraDirection.Z * stats.Speed;
+                                if (player.HasInput && player.WalkInputHoldTime > stats.TapThreshold)
+                                {
+                                    float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
+                                    Log.Info(currentSpeed.ToString());
+                                }
                             }
-                            else
-                            {
-                                velocity.Value.X = 0.0f;
-                                velocity.Value.Z = 0.0f;
-                            }
+                            // if (player.WalkInputHoldTime != 0.0f)
+                            // {
+                            //     velocity.Value.X = cameraDirection.X * stats.Speed;
+                            //     velocity.Value.Z = cameraDirection.Z * stats.Speed;
+                            // }
+                            // else
+                            // {
+                            //     velocity.Value.X = 0.0f;
+                            //     velocity.Value.Z = 0.0f;
+                            // }
 
                         }
                     }
