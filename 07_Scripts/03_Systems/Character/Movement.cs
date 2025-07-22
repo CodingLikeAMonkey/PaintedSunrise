@@ -10,10 +10,20 @@ namespace Systems.Character
         public static void Setup(World world, Entity inputEntity)
         {
             var camQuery = world.Query<Components.Camera.ThirdPersonConfig>();
-            world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character, Components.Core.Transform>()
+            world.System<
+            Components.Character.Player,
+            Components.Physics.Velocity,
+            Components.Character.MovementStats,
+            Components.Character.Character,
+            Components.Core.Transform>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c, Field<Components.Core.Transform> t) =>
+                .Iter((Iter it,
+                Field<Components.Character.Player> p,
+                Field<Components.Physics.Velocity> v,
+                Field<Components.Character.MovementStats> s,
+                Field<Components.Character.Character> c,
+                Field<Components.Core.Transform> t) =>
                 {
                     var inputState = inputEntity.Get<Components.Input.InputState>();
                     float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
@@ -26,6 +36,7 @@ namespace Systems.Character
                         var stats = s[i];
                         ref var player = ref p[i];
                         ref var transform = ref t[i];
+
 
                         if (character.IsGrounded)
                         {
@@ -53,35 +64,25 @@ namespace Systems.Character
                             Components.Math.Vec3 cameraDirection =
                                 (forward * player.LastInputDirection.Y + right * player.LastInputDirection.X).Normalized();
 
-                            // // Optional: calculate yaw like in OOP version
-                            // float targetYaw = Components.Math.Mathf.Atan2(cameraDirection.X, cameraDirection.Z);
-                            // Log.Info("targetYaw: " + targetYaw);
-
-
-
-                            // Components.Math.Vec3 cameraDirection = yawRotation.Rotate(inputVector).Normalized();
-
-
 
                             if (character.IsGrounded)
                             {
                                 if (player.HasInput && player.WalkInputHoldTime > stats.TapThreshold)
                                 {
                                     float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
-                                    Log.Info(currentSpeed.ToString());
-                                }
-                            }
-                            // if (player.WalkInputHoldTime != 0.0f)
-                            // {
-                            //     velocity.Value.X = cameraDirection.X * stats.Speed;
-                            //     velocity.Value.Z = cameraDirection.Z * stats.Speed;
-                            // }
-                            // else
-                            // {
-                            //     velocity.Value.X = 0.0f;
-                            //     velocity.Value.Z = 0.0f;
-                            // }
+                                    var targetVelocity = cameraDirection * currentSpeed;
 
+                                    velocity.Value.X = Components.Math.MathUtils.MoveToward(velocity.Value.X, targetVelocity.X, stats.Acceleration * delta);
+                                    velocity.Value.Z = Components.Math.MathUtils.MoveToward(velocity.Value.Z, targetVelocity.Z, stats.Acceleration * delta);
+
+                                }
+                                else
+                                {
+                                    velocity.Value.X = Components.Math.MathUtils.MoveToward(velocity.Value.X, 0, stats.Friction * delta);
+                                    velocity.Value.Z = Components.Math.MathUtils.MoveToward(velocity.Value.Z, 0, stats.Friction * delta);
+                                }
+                                Log.Info(velocity.Value.ToString());
+                            }
                         }
                     }
                 });

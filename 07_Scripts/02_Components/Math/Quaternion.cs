@@ -127,11 +127,21 @@ public struct Quaternion
 
     public Mat3 ToBasis()
     {
-        // Assuming you have a Mat3 or equivalent 3x3 matrix struct
-        Vec3 x = this.Rotate(new Vec3(1, 0, 0));
-        Vec3 y = this.Rotate(new Vec3(0, 1, 0));
-        Vec3 z = this.Rotate(new Vec3(0, 0, 1));
-        return new Mat3(x, y, z);
+        float xx = X * X;
+        float yy = Y * Y;
+        float zz = Z * Z;
+        float xy = X * Y;
+        float xz = X * Z;
+        float yz = Y * Z;
+        float wx = W * X;
+        float wy = W * Y;
+        float wz = W * Z;
+
+        Vec3 right = new Vec3(1f - 2f * (yy + zz), 2f * (xy - wz), 2f * (xz + wy));
+        Vec3 up = new Vec3(2f * (xy + wz), 1f - 2f * (xx + zz), 2f * (yz - wx));
+        Vec3 forward = new Vec3(2f * (xz - wy), 2f * (yz + wx), 1f - 2f * (xx + yy));
+
+        return new Mat3(right, up, forward);
     }
 
 
