@@ -61,6 +61,7 @@ namespace Systems.Character
                             Components.Math.Vec3 forward = new Components.Math.Vec3(camBasis.Z.X, 0, camBasis.Z.Z).Normalized();
                             Components.Math.Vec3 right = new Components.Math.Vec3(camBasis.X.X, 0, camBasis.X.Z).Normalized();
 
+
                             Components.Math.Vec3 cameraDirection =
                                 (forward * player.LastInputDirection.Y + right * player.LastInputDirection.X).Normalized();
 
@@ -70,10 +71,9 @@ namespace Systems.Character
                                 if (player.HasInput && player.WalkInputHoldTime > stats.TapThreshold)
                                 {
                                     float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
-                                    var targetVelocity = cameraDirection * currentSpeed;
 
-                                    velocity.Value.X = Components.Math.MathUtils.MoveToward(velocity.Value.X, targetVelocity.X, stats.Acceleration * delta);
-                                    velocity.Value.Z = Components.Math.MathUtils.MoveToward(velocity.Value.Z, targetVelocity.Z, stats.Acceleration * delta);
+                                    velocity.Value.X = Components.Math.MathUtils.MoveToward(velocity.Value.X, cameraDirection.X * currentSpeed, stats.Acceleration * delta);
+                                    velocity.Value.Z = Components.Math.MathUtils.MoveToward(velocity.Value.Z, cameraDirection.Z * currentSpeed, stats.Acceleration * delta);
 
                                 }
                                 else
@@ -81,8 +81,8 @@ namespace Systems.Character
                                     velocity.Value.X = Components.Math.MathUtils.MoveToward(velocity.Value.X, 0, stats.Friction * delta);
                                     velocity.Value.Z = Components.Math.MathUtils.MoveToward(velocity.Value.Z, 0, stats.Friction * delta);
                                 }
-                                Log.Info(velocity.Value.ToString());
                             }
+                            Log.Info("Rotation: " + cameraTransform.Rotation.ToString()+ " Position: " + cameraTransform.Position.ToString() );
                         }
                     }
                 });
