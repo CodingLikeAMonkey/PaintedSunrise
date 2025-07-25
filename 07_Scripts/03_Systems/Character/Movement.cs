@@ -2,6 +2,7 @@ using Flecs.NET.Core;
 using Components.Math;
 using Kernel;
 using System;
+using Components.Core.Unique;
 namespace Systems.Character
 {
     public static class Movement
@@ -13,9 +14,10 @@ namespace Systems.Character
             world.System<Components.Character.Player, Components.Physics.Velocity, Components.Character.MovementStats, Components.Character.Character>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<Components.Character.Player> player, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
+                .Iter((Iter it, Field<Components.Character.Player> p, Field<Components.Physics.Velocity> v, Field<Components.Character.MovementStats> s, Field<Components.Character.Character> c) =>
                 {
                     var inputState = inputEntity.Get<Components.Input.InputState>();
+                    float delta = world.Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
                     camQuery.Each((Entity camEntity, ref Components.Camera.ThirdPersonConfig camCfg, ref Components.Core.Transform camTransform) =>
                     {
@@ -33,21 +35,34 @@ namespace Systems.Character
                             ref var velocity = ref v[i];
                             ref var character = ref c[i];
                             var stats = s[i];
+                            ref var player = ref p[i];
 
                             if (character.IsGrounded)
                             {
-                                // Get analog stick input
                                 Vec2 inputDir = inputState.LeftStickInputDir;
+                                player.HasInput = inputDir.Length() > 0.1f;
+
+                                if (player.HasInput)
+                                {
+                                    player.WalkInputHoldTime += delta;
+                                    player.LastInputDirection = inputDir;
+                                    player.WasRotatingFromTap = true;
+                                }
+                                else
+                                {
+                                    player.WalkInputHoldTime = 0.0f;
+                                }
 
                                 if (inputDir.LengthSquared() > 0.001f) // Add deadzone threshold
                                 {
+                                    float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
                                     inputDir = inputDir.Normalized();
 
                                     // Convert 2D input to 3D movement direction
                                     Vec3 moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
 
-                                    velocity.Value.X = moveDir.X * stats.Speed;
-                                    velocity.Value.Z = moveDir.Z * stats.Speed;
+                                    velocity.Value.X = moveDir.X * currentSpeed;
+                                    velocity.Value.Z = moveDir.Z * currentSpeed;
                                 }
                                 else
                                 {
