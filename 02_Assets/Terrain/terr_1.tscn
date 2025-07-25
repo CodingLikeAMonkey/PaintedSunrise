@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsod8jthw8a81"]
 
 [ext_resource type="PackedScene" uid="uid://8e6fxswkr5wk" path="res://09_Imports/Meshes/Terrain/terr1.glb" id="1_ctw8c"]
-[ext_resource type="Script" uid="uid://d0wsldeqr0u2q" path="res://07_Scripts/01_Entities/Meshes/MeshStaticEntity.cs" id="2_420ch"]
+[ext_resource type="Script" uid="uid://d0wsldeqr0u2q" path="res://07_Scripts/01_Entities/MeshEntities/MeshStaticEntity.cs" id="2_420ch"]
 
 [node name="terr1" instance=ExtResource("1_ctw8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, -0.000354767, 6.02314e-05)

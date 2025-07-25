@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b116w2w81lkkv"]
 
-[ext_resource type="Script" uid="uid://dhj1n2uafrvhe" path="res://07_Scripts/03_Systems/00_Bridge/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
+[ext_resource type="Script" uid="uid://dhj1n2uafrvhe" path="res://07_Scripts/03_Systems/00_BridgeSystems/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
 [ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
 [ext_resource type="PackedScene" uid="uid://bi8poisav4nwi" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor.tscn" id="4_08m6l"]
@@ -30,8 +30,9 @@ albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bigcu"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
+PlayerCharacter = NodePath("CB_Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")
