@@ -30,7 +30,7 @@ public static partial class ThirdPerson
                 );
 
                 camState.rotationDegrees.Y -= camState.lookvector.X * config.HorizontalControllerSensitivity;
-                camState.rotationDegrees.X -= camState.lookvector.Y * config.VerticalControllerSensitivity;
+                camState.rotationDegrees.X -= (camState.lookvector.Y * config.VerticalControllerSensitivity) * config.InvertVerticalControllerRotation;
                 camState.rotationDegrees.X = MathUtil.Clamp(camState.rotationDegrees.X, config.MaxPitch, config.MinPitch);
 
                 transform.Rotation.X = camState.rotationDegrees.X;

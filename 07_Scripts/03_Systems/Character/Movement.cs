@@ -36,15 +36,24 @@ namespace Systems.Character
 
                             if (character.IsGrounded)
                             {
-                                var inputDir = new Vec2(
-                                    inputState.MoveRight ? 1 : inputState.MoveLeft ? -1 : 0,
-                                    inputState.MoveBackward ? -1 : inputState.MoveForward ? 1 : 0
-                                ).Normalized();
+                                // Get analog stick input
+                                Vec2 inputDir = inputState.LeftStickInputDir;
 
-                                var moveDir = Normalize(right * inputDir.X - forward * inputDir.Y); // Move away from camera when pressing forward
+                                if (inputDir.LengthSquared() > 0.001f) // Add deadzone threshold
+                                {
+                                    inputDir = inputDir.Normalized();
 
-                                velocity.Value.X = moveDir.X * stats.Speed;
-                                velocity.Value.Z = moveDir.Z * stats.Speed;
+                                    // Convert 2D input to 3D movement direction
+                                    Vec3 moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
+
+                                    velocity.Value.X = moveDir.X * stats.Speed;
+                                    velocity.Value.Z = moveDir.Z * stats.Speed;
+                                }
+                                else
+                                {
+                                    velocity.Value.X = 0;
+                                    velocity.Value.Z = 0;
+                                }
                             }
                         }
                     });
