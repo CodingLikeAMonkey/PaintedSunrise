@@ -1,5 +1,7 @@
 using Flecs.NET.Core;
 using Godot;
+using Components.Singleton;
+using Components.Input;
 
 namespace Kernel;
 
@@ -15,35 +17,35 @@ public partial class EcsWorld : Node
         Instance.SetThreads(System.Environment.ProcessorCount);
 
         // Register components
-        Instance.Component<Components.Core.Transform>();
-        Instance.Component<Components.Mesh.Static>();
-        Instance.Component<Components.Core.Unique.MouseMode>();
-        Instance.Component<Components.Core.Unique.GameState>();
-        Instance.Component<Components.Camera.Camera>();
-        Instance.Component<Components.Camera.FreeCam>();
-        Instance.Component<Components.Mesh.LOD>();
-        Instance.Component<Components.Physics.Gravity>();
-        Instance.Component<Components.Physics.Velocity>();
-        Instance.Component<Components.Input.InputState>();
+        Instance.Component<Components.Core.TransformComponent>();
+        Instance.Component<Components.Mesh.MeshStaticComponent>();
+        Instance.Component<SingletonMouseModeComponent>();
+        Instance.Component<SingletonGameStateComponent>();
+        Instance.Component<Components.Camera.CameraComponent>();
+        Instance.Component<Components.Camera.CameraFreeComponent>();
+        Instance.Component<Components.Mesh.MeshLODComponent>();
+        Instance.Component<Components.Physics.PhysicsGravityComponent>();
+        Instance.Component<Components.Physics.PhysicsVelocityComponent>();
+        Instance.Component<Components.Input.InputStateComponent>();
 
         InputEntity = Instance.Entity("Singleton")
-            .Set(new Components.Core.Unique.GameState())
-            .Set(new Components.Core.Unique.MouseMode())
-            .Set(new Components.Input.InputState());
+            .Set(new SingletonGameStateComponent())
+            .Set(new SingletonMouseModeComponent())
+            .Set(new InputStateComponent());
 
         _deltaTimeEntity = Instance.Entity("DeltaTime")
-            .Set(new Components.Core.Unique.DeltaTime { Value = 0f });
+            .Set(new SingletonDeltaTimeComponent { Value = 0f });
 
-        Systems.Core.MouseMode.Setup(Instance);
-        Systems.Input.FreeCamInputSystem.Setup(Instance, InputEntity);
-        Systems.Camera.FreeCamSystem.Setup(Instance, InputEntity);
-        Systems.Core.Fsm.GameState.Setup(Instance, InputEntity);
-        Systems.Bridge.LODSystem.Setup(Instance);
-        Systems.Bridge.PhysicsBridge.Setup(Instance);
-        Systems.Character.Movement.Setup(Instance, InputEntity);
-        Systems.Bridge.SetCurrentCamera.Setup(Instance);
-        Systems.Camera.ThirdPerson.Setup(Instance, InputEntity);
-        Systems.Bridge.ThirdPersonCameraBridge.Setup(Instance);
+        Systems.Core.MouseModeSystem.Setup(Instance);
+        Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
+        Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
+        Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
+        Systems.Bridge.MeshLODBridgeSystem.Setup(Instance);
+        Systems.Bridge.CharacterPhysicsBridgeSystem.Setup(Instance);
+        Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
+        Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
+        Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
+        Systems.Bridge.CameraFreeBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
@@ -52,7 +54,7 @@ public partial class EcsWorld : Node
 
     public override void _Process(double delta)
     {
-        _deltaTimeEntity.Set(new Components.Core.Unique.DeltaTime { Value = (float)delta });
+        _deltaTimeEntity.Set(new SingletonDeltaTimeComponent { Value = (float)delta });
         Instance.Progress();
     }
 }
