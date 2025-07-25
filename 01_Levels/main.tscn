@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=14 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="Script" uid="uid://dhj1n2uafrvhe" path="res://07_Scripts/03_Systems/00_Bridge/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
+[ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
 [ext_resource type="PackedScene" uid="uid://bi8poisav4nwi" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor.tscn" id="4_08m6l"]
 [ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="4_r1qyh"]
 [ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
@@ -29,9 +30,8 @@ albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bigcu"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_okx7s")
-PlayerCharacter = NodePath("CB_Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")
@@ -376,3 +376,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, 0)
 
 [node name="TestingWorld" parent="." instance=ExtResource("7_sewcs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_8rkqs")]
