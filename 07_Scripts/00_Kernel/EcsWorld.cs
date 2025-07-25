@@ -26,7 +26,7 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Mesh.MeshLODComponent>();
         Instance.Component<Components.Physics.PhysicsGravityComponent>();
         Instance.Component<Components.Physics.PhysicsVelocityComponent>();
-        Instance.Component<Components.Input.InputStateComponent>();
+        Instance.Component<InputStateComponent>();
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
@@ -45,7 +45,7 @@ public partial class EcsWorld : Node
         Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
-        Systems.Bridge.CameraFreeBridgeSystem.Setup(Instance);
+        Systems.Bridge.CameraThirdPersonBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;

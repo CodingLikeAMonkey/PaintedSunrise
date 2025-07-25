@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d0witfgo5t0d6" path="res://09_Imports/Meshes/WoodKit/Floors/WoodenFloor__Mesh.glb" id="1_48esh"]
 [ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_8rwni"]
-[ext_resource type="Script" uid="uid://g8qa2vdkv3bl" path="res://07_Scripts/01_Entities/Meshes/Static.cs" id="2_ig2y0"]
+[ext_resource type="Script" uid="uid://d0wsldeqr0u2q" path="res://07_Scripts/01_Entities/Meshes/MeshStaticEntity.cs" id="2_ig2y0"]
 [ext_resource type="Texture2D" uid="uid://bdeb5gbyc25rb" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_diff_4k.png" id="3_ig2y0"]
 [ext_resource type="Texture2D" uid="uid://btdvwka5mqum6" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_nor_gl_4k.png" id="4_m5n3l"]
 [ext_resource type="Texture2D" uid="uid://41tdpoynb2ew" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_rough_4k.png" id="5_cdwd3"]
@@ -13,6 +13,7 @@ data = PackedVector3Array(-1.3591, 0.5316, 0.0905, -1.6533, 0.5, 2, -1.6533, 0.5
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_usicv"]
 render_priority = 0
 shader = ExtResource("2_8rwni")
+shader_parameter/render_backfaces = false
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("3_ig2y0")
 shader_parameter/albedo_texture_size = Vector2i(0, 0)
@@ -28,6 +29,7 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_rotate_degrees = 0.0
 
 [node name="SB_WoodenFloor" instance=ExtResource("1_48esh")]
 script = ExtResource("2_ig2y0")

@@ -19,8 +19,8 @@ public struct CameraThirdPersonConfigComponent
         MaxPitch = -90.0f;
         HorizontalMouseSensitivity = 0.2f;
         VerticalMouseSensitivity = 0.2f;
-        HorizontalControllerSensitivity = 0.8f;
-        VerticalControllerSensitivity = 0.8f;
+        HorizontalControllerSensitivity = 1.0f;
+        VerticalControllerSensitivity = 1.0f;
         InvertVerticalControllerRotation = -1;
     }
 }

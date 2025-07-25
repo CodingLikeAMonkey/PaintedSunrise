@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://du8y0wjj467qp"]
 
-[ext_resource type="Script" uid="uid://dpvs1q4gna1xx" path="res://07_Scripts/01_Entities/Camera/ThirdPerson.cs" id="1_wbtey"]
+[ext_resource type="Script" uid="uid://b2ej4cvhht50w" path="res://07_Scripts/01_Entities/Camera/CamThirdPersonEntity.cs" id="1_wbtey"]
 
 [node name="SA_ThirdPersonCamera" type="Node3D"]
 script = ExtResource("1_wbtey")

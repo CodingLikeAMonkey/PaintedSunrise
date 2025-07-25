@@ -4,7 +4,7 @@ using Components.Camera;
 
 namespace Systems.Bridge
 {
-    public static class ThirdPeCameraThirdPersonBridgeSystemrsonCameraBridgeSystem
+    public static class CameraThirdPersonBridgeSystem
     {
         public static void Setup(World world)
         {
