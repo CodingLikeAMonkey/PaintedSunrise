@@ -8,8 +8,8 @@ namespace Kernel
     public partial class InputHandler : Node
     {
         // Static cached input state properties
-        private static Vec2 MouseDelta = Vec2.Zero;
-        private static Vec2 MousePosition = Vec2.Zero;
+        private static Vec2Component MouseDelta = Vec2Component.Zero;
+        private static Vec2Component MousePosition = Vec2Component.Zero;
         private static int MouseWheel;
         private static bool LeftPressed;
         private static bool LeftReleased;
@@ -24,8 +24,8 @@ namespace Kernel
         private static bool MoveUp;
         private static bool MoveDown;
         private static bool Boost;
-        private static Vec2 RightStickInputDir = Vec2.Zero;
-        private static Vec2 LeftStickInputDir = Vec2.Zero;
+        private static Vec2Component RightStickInputDir = Vec2Component.Zero;
+        private static Vec2Component LeftStickInputDir = Vec2Component.Zero;
 
         private Entity? inputEntity;
 
@@ -39,8 +39,8 @@ namespace Kernel
             switch (@event)
             {
                 case InputEventMouseMotion motion:
-                    MouseDelta = new Vec2(motion.Relative.X, motion.Relative.Y);
-                    MousePosition = new Vec2(motion.Position.X, motion.Position.Y);
+                    MouseDelta = new Vec2Component(motion.Relative.X, motion.Relative.Y);
+                    MousePosition = new Vec2Component(motion.Position.X, motion.Position.Y);
                     break;
 
                 case InputEventMouseButton button:
@@ -72,20 +72,20 @@ namespace Kernel
             EscapePressed = Input.IsActionJustPressed("escape");
             EscapeReleased = Input.IsActionJustReleased("escape");
 
-            RightStickInputDir = new Vec2(
+            RightStickInputDir = new Vec2Component(
                 Input.GetActionStrength("look_right") - Input.GetActionStrength("look_left"),
                 Input.GetActionStrength("look_up") - Input.GetActionStrength("look_down")
             );
 
             Vector2 godotVec = Input.GetVector("left", "right", "up", "down");
-            LeftStickInputDir = new Components.Math.Vec2(godotVec.X, godotVec.Y);
+            LeftStickInputDir = new Components.Math.Vec2Component(godotVec.X, godotVec.Y);
 
 
 
             // Update ECS singleton input component with current input states
             if (inputEntity.HasValue)
             {
-                var state = new InputState
+                var state = new InputStateComponent
                 {
                     MouseDelta = MouseDelta,
                     MousePosition = MousePosition,
@@ -111,7 +111,7 @@ namespace Kernel
             }
 
             // Reset delta & wheel for next frame
-            MouseDelta = Vec2.Zero;
+            MouseDelta = Vec2Component.Zero;
             MouseWheel = 0;
         }
     }

@@ -1,13 +1,15 @@
 using Flecs.NET.Core;
 using Godot;
+using Components.Core;
+using Components.Physics;
 
 namespace Systems.Bridge; 
 public static class TransformSync {
     public static void Setup(World world) {
-        world.System<Components.Core.Transform>()
+        world.System<TransformComponent>()
             .Kind(Ecs.PostUpdate)
-            .Without<Components.Physics.Collider>()
-            .Each((Entity entity, ref Components.Core.Transform transform) =>
+            .Without<PhysicsColliderComponent>()
+            .Each((Entity entity, ref TransformComponent transform) =>
             {
                 // if (Kernel.NodeRef.TryGet(entity, out Node3D node))
                 // {

@@ -1,0 +1,41 @@
+using Godot;
+using Flecs.NET.Core;
+using Components.Camera;
+
+namespace Systems.Bridge
+{
+    public static class CameraThirdPersonBridgeSystem
+    {
+        public static void Setup(World world)
+        {
+            world.System<CameraThirdPersonStateComponent>()
+                .Kind(Ecs.PostUpdate)
+                .Iter((Iter it, Field<CameraThirdPersonStateComponent> camState) =>
+                {
+                    for (int i = 0; i < it.Count(); i++)
+                    {
+                        Entity entity = it.Entity(i);
+
+                        if (!Kernel.CameraNodeRef.TryGet(entity, out Camera3D camNode))
+                            continue;
+
+                        Godot.SpringArm3D springArm = camNode.GetParent<SpringArm3D>();
+                        if (springArm == null)
+                            continue;
+
+                        Godot.Node3D cameraRoot = springArm.GetParent<Node3D>();
+                        if (cameraRoot == null)
+                            continue;
+
+                        Godot.Vector3 rootRot = cameraRoot.RotationDegrees;
+                        rootRot.Y = camState[i].rotationDegrees.Y;  // yaw is rotationDegrees.Y
+                        cameraRoot.RotationDegrees = rootRot;
+
+                        Godot.Vector3 pitchRot = springArm.RotationDegrees;
+                        pitchRot.X = Mathf.Clamp(camState[i].rotationDegrees.X, -90f, 35f); // pitch is rotationDegrees.X
+                        springArm.RotationDegrees = pitchRot;
+                    }
+                });
+        }
+    }
+}

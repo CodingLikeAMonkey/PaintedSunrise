@@ -1,7 +1,7 @@
 using Flecs.NET.Core;
-using Components.Math;
 using Components.Core;
-using System.Runtime.ExceptionServices;
+using Components.Camera;
+using Components.Character;
 
 namespace Systems.Camera;
 
@@ -9,12 +9,12 @@ public static class CameraFollowSystem
 {
     public static void Setup(World world)
     {
-        world.System<Components.Core.Transform, Components.Camera.ThirdPersonState>()
+        world.System<TransformComponent, CameraThirdPersonStateComponent>()
             .Kind(Ecs.OnUpdate)
             .MultiThreaded()
-            .Iter((Iter it, Field<Components.Core.Transform> t, Field<Components.Camera.ThirdPersonState> c) =>
+            .Iter((Iter it, Field<TransformComponent> t, Field<CameraThirdPersonStateComponent> c) =>
             {
-                var playerQuery = world.Query<Components.Character.Player, Components.Core.Transform>();
+                var playerQuery = world.Query<CharacterPlayerComponent, TransformComponent>();
 
                 for (int i = 0; i < it.Count(); i++)
                 {
