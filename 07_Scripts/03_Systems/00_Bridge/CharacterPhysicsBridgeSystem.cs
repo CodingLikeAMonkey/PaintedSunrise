@@ -11,9 +11,9 @@ namespace Systems.Bridge
     {
         public static void Setup(World world)
         {
-            world.System<TransformComponent, PhysicsVelocityComponent, GravityComponent>()
+            world.System<TransformComponent, PhysicsVelocityComponent, PhysicsGravityComponent>()
                 .Kind(Ecs.OnUpdate)
-                .Each((Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity, ref GravityComponent gravity) => 
+                .Each((Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity, ref PhysicsGravityComponent gravity) => 
                 {
                     if (!Kernel.NodeRef.TryGet(entity, out Node3D node))
                     {

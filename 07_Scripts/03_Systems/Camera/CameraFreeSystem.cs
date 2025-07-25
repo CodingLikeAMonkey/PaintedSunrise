@@ -4,7 +4,7 @@ using Components.Math;
 using Components.Core;
 using Components.Camera;
 using Components.Input;
-using Components.Core.Unique;
+using Components.Singleton;
 
 
 namespace Systems.Camera
@@ -32,7 +32,7 @@ namespace Systems.Camera
 
                         if (mouseCaptured)
                         {
-                            transform.Rotation = new Vec3(
+                            transform.Rotation = new Vec3Component(
                                 Clamp(transform.Rotation.X - mouseDelta.Y / 1000f * freeCam.Sensitivity, -MathF.PI / 2, MathF.PI / 2),
                                 transform.Rotation.Y - mouseDelta.X / 1000f * freeCam.Sensitivity,
                                 transform.Rotation.Z
@@ -48,15 +48,15 @@ namespace Systems.Camera
                             );
                         }
 
-                        if (freeCam.MovementDirection != Vec3.Zero)
+                        if (freeCam.MovementDirection != Vec3Component.Zero)
                         {
-                            Quaternion q = Quaternion.FromEuler(transform.Rotation);
-                            Vec3 forward = Vec3.Transform(Vec3.Forward, q);
-                            Vec3 right = Vec3.Transform(Vec3.Right, q);
-                            Vec3 up = Vec3.Transform(Vec3.Up, q);
+                            QuaternionComponent q = QuaternionComponent.FromEuler(transform.Rotation);
+                            Vec3Component forward = Vec3Component.Transform(Vec3Component.Forward, q);
+                            Vec3Component right = Vec3Component.Transform(Vec3Component.Right, q);
+                            Vec3Component up = Vec3Component.Transform(Vec3Component.Up, q);
 
-                            Vec3 md = freeCam.MovementDirection;
-                            Vec3 desired = forward * md.Z + right * md.X + up * md.Y;
+                            Vec3Component md = freeCam.MovementDirection;
+                            Vec3Component desired = forward * md.Z + right * md.X + up * md.Y;
 
                             float speed = freeCam.CurrentVelocity * (freeCam.IsBoosted ? freeCam.BoostMultiplier : 1f);
                             transform.Position += desired * speed * delta;

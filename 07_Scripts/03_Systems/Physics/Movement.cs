@@ -1,13 +1,15 @@
 using Flecs.NET.Core;
+using Components.Core;
+using Components.Physics;
 
 namespace Systems.Physics;
 public static class Movement
 {
     public static void Setup(World world)
     {
-        world.System<Components.Core.Transform, Components.Physics.Velocity>()
+        world.System<TransformComponent, PhysicsVelocityComponent>()
             .Kind(Ecs.OnUpdate)
-            .Iter((Iter it, Field<Components.Core.Transform> transField, Field<Components.Physics.Velocity> veloField) =>
+            .Iter((Iter it, Field<TransformComponent> transField, Field<PhysicsVelocityComponent> veloField) =>
             {
                 // float deltaTime = it.World().Entity("DeltaTime").Get<Components.Core.Unique.DeltaTime>().Value;
 
