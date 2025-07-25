@@ -10,6 +10,7 @@ public struct ThirdPersonConfig
     public float VerticalMouseSensitivity;
     public float HorizontalControllerSensitivity;
     public float VerticalControllerSensitivity;
+    public int InvertVerticalControllerRotation; // should be either 1 or -1
 
 
     public ThirdPersonConfig()
@@ -18,7 +19,8 @@ public struct ThirdPersonConfig
         MaxPitch = -90.0f;
         HorizontalMouseSensitivity = 0.2f;
         VerticalMouseSensitivity = 0.2f;
-        HorizontalControllerSensitivity = 2.0f;
-        VerticalControllerSensitivity = 2.0f;
+        HorizontalControllerSensitivity = 0.8f;
+        VerticalControllerSensitivity = 0.8f;
+        InvertVerticalControllerRotation = -1;
     }
 }

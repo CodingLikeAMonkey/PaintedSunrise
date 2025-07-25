@@ -25,6 +25,7 @@ namespace Kernel
         private static bool MoveDown;
         private static bool Boost;
         private static Vec2 RightStickInputDir = Vec2.Zero;
+        private static Vec2 LeftStickInputDir = Vec2.Zero;
 
         private Entity? inputEntity;
 
@@ -76,6 +77,11 @@ namespace Kernel
                 Input.GetActionStrength("look_up") - Input.GetActionStrength("look_down")
             );
 
+            Vector2 godotVec = Input.GetVector("left", "right", "up", "down");
+            LeftStickInputDir = new Components.Math.Vec2(godotVec.X, godotVec.Y);
+
+
+
             // Update ECS singleton input component with current input states
             if (inputEntity.HasValue)
             {
@@ -97,7 +103,8 @@ namespace Kernel
                     MoveUp = MoveUp,
                     MoveDown = MoveDown,
                     Boost = Boost,
-                    RightStickInputDir = RightStickInputDir
+                    RightStickInputDir = RightStickInputDir,
+                    LeftStickInputDir = LeftStickInputDir
                 };
 
                 inputEntity.Value.Set(state);

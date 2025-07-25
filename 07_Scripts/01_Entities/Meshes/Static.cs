@@ -31,7 +31,7 @@ public partial class Static : Node3D
                .Set(new Components.Core.Transform
                {
                    Position = (Components.Math.Vec3)GlobalPosition,
-                   Rotation = (Components.Math.Vec3)GlobalRotation,
+                   Rotation = Components.Math.Quaternion.FromEuler((Components.Math.Vec3)GlobalRotation),
                    Scale = (Components.Math.Vec3)Scale
                })
                .Set(new Components.Mesh.LOD

@@ -46,8 +46,9 @@ sky = SubResource("Sky_q3hbn")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
+PlayerCharacter = NodePath("CB_Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")
@@ -57,7 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 0.481065, 0.876685, 0, -0.876685, 0.481065, 
 shadow_enabled = true
 
 [node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -137,6 +137,7 @@ LOD1Distance = 100.0
 [node name="WoodenFloor" type="Node3D" parent="."]
 
 [node name="SB_WoodenFloor" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="SB_WoodenFloor2" parent="WoodenFloor" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)

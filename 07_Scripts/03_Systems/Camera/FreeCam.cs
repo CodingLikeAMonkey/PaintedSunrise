@@ -28,12 +28,19 @@ namespace Systems.Camera
 
                         if (mouseCaptured)
                         {
-                            transform.Rotation = new Vec3(
-                                Clamp(transform.Rotation.X - mouseDelta.Y / 1000f * freeCam.Sensitivity, -MathF.PI / 2, MathF.PI / 2),
-                                transform.Rotation.Y - mouseDelta.X / 1000f * freeCam.Sensitivity,
-                                transform.Rotation.Z
-                            );
+                            float pitch = -mouseDelta.Y / 1000f * freeCam.Sensitivity;
+                            float yaw = -mouseDelta.X / 1000f * freeCam.Sensitivity;
+
+                            Quaternion deltaPitch = Quaternion.FromAxisAngle(Vec3.Right, pitch);
+                            Quaternion deltaYaw = Quaternion.FromAxisAngle(Vec3.Up, yaw);
+
+                            transform.Rotation = deltaYaw * transform.Rotation;   // Yaw applied first (world space)
+                            transform.Rotation = transform.Rotation * deltaPitch;  // Pitch applied after (local space)
+
+                            // Optional: Normalize to avoid floating point drift
+                            transform.Rotation = transform.Rotation.Normalized();
                         }
+
 
                         if (mouseWheel != 0)
                         {
@@ -46,10 +53,10 @@ namespace Systems.Camera
 
                         if (freeCam.MovementDirection != Vec3.Zero)
                         {
-                            Quaternion q = Quaternion.FromEuler(transform.Rotation);
-                            Vec3 forward = Vec3.Transform(Vec3.Forward, q);
-                            Vec3 right = Vec3.Transform(Vec3.Right, q);
-                            Vec3 up = Vec3.Transform(Vec3.Up, q);
+                            Quaternion q = transform.Rotation;
+                            Vec3 forward = q.Rotate(Vec3.Forward);
+                            Vec3 right = q.Rotate(Vec3.Right);
+                            Vec3 up = q.Rotate(Vec3.Up);
 
                             Vec3 md = freeCam.MovementDirection;
                             Vec3 desired = forward * md.Z + right * md.X + up * md.Y;

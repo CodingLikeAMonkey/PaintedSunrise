@@ -12,7 +12,7 @@ public static class TransformSync {
                 if (Kernel.NodeRef.TryGet(entity, out Node3D node))
                 {
                     node.GlobalPosition = (Godot.Vector3)transform.Position;
-                    node.GlobalRotation = (Godot.Vector3)transform.Rotation;
+                    node.GlobalRotation = (Godot.Vector3)transform.Rotation.ToEuler();
                     node.Scale = (Godot.Vector3)transform.Scale;
                 }
             });
