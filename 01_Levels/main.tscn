@@ -32,7 +32,7 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
-PlayerCharacter = NodePath("CB_Player")
+PlayerCharacter = NodePath("CB_Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")

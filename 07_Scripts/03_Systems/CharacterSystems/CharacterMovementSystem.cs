@@ -7,6 +7,7 @@ using Components.Core;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
+using Kernel;
 
 namespace Systems.Character
 {
@@ -15,8 +16,7 @@ namespace Systems.Character
         public static void Setup(World world, Entity inputEntity)
         {
             var camQuery = world.Query<CameraThirdPersonConfigComponent, TransformComponent>();
-            float GhostBodyYaw = 0.0f; // Radians
-            Vec3Component GhostBodyRotation;
+            // float GhostBodyYaw = 0.0f; // Radians
 
             world.System<CharacterPlayerComponent, PhysicsVelocityComponent, CharacterMovementStatsComponent, CharacterComponent, InputDeadZoneComponent>()
                 .Kind(Ecs.OnUpdate)
@@ -61,14 +61,24 @@ namespace Systems.Character
                                     player.WalkInputHoldTime = 0.0f;
                                 }
 
+                                // Convert 2D input to 3D movement direction
+                                Vec3Component moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
+
+                                // Apply body rotation
+                                if (player.HasInput || player.WasRotatingFromTap)
+                                {
+                                    float targetYaw = MathUtilComponent.Atan2(moveDir.X, moveDir.Z);
+                                    character.GhostBodyYaw = MathUtilComponent.LerpAngle(character.GhostBodyYaw, targetYaw, stats.TurnSpeed * delta);
+                                    float angleDiff = MathUtilComponent.Abs(MathUtilComponent.PosMod(character.GhostBodyYaw - targetYaw + MathF.PI, MathF.Tau) - MathF.PI);
+                                    if (!player.HasInput && angleDiff < 0.05f)
+                                        player.WasRotatingFromTap = false;
+                                }
+
                                 // Apply movement
                                 if (inputDir.LengthSquared() > inputDeadZone.Value)
                                 {
                                     float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
                                     inputDir = inputDir.Normalized();
-
-                                    // Convert 2D input to 3D movement direction
-                                    Vec3Component moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
 
                                     velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * currentSpeed, stats.Acceleration * delta);
                                     velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * currentSpeed, stats.Acceleration * delta);
