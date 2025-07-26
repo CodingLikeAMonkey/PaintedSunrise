@@ -14,23 +14,21 @@ public partial class CamThirdPersonEntity : Node3D
     public override void _Ready()
     {
         entity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new CameraThirdPersonConfigComponent
-            {
-            })
-            .Set(new CameraThirdPersonStateComponent
-            {
-                
-            })
             .Set(new TransformComponent
             {
                 Position = (Vec3Component)GlobalPosition,
-                Rotation = (Vec3Component)GlobalRotation,   
+                Rotation = (Vec3Component)GlobalRotation,
                 Scale = (Vec3Component)Scale
             })
             .Set(new CameraComponent
             {
                 IsPreferred = true
-            });
+            })
+            .Set(new CameraThirdPersonConfigComponent {})
+
+
+            .Add<CameraThirdPersonStateComponent>();
+
             Kernel.NodeRef.Register(entity, this);
 
             // Find Camera3D child and register it with same entity

@@ -18,16 +18,7 @@ public partial class CamFreeEntity : Camera3D
                 Position = (Vec3Component)GlobalPosition,
                 Rotation = (Vec3Component)GlobalRotation
             })
-            .Set(new CameraFreeComponent
-            {
-                Sensitivity = 3.0f,
-                DefaultVelocity = 5.0f,
-                SpeedScale = 1.17f,
-                BoostMultiplier = 3.0f,
-                MaxSpeed = 1000f,
-                MinSpeed = 0.2f,
-                CurrentVelocity = 5.0f
-            })
+            .Set(new CameraFreeComponent{})
             .Add<CameraComponent>();
 
         Kernel.CameraNodeRef.Register(cameraEntity, this);

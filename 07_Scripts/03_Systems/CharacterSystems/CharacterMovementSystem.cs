@@ -15,11 +15,13 @@ namespace Systems.Character
         public static void Setup(World world, Entity inputEntity)
         {
             var camQuery = world.Query<CameraThirdPersonConfigComponent, TransformComponent>();
+            float GhostBodyYaw = 0.0f; // Radians
+            Vec3Component GhostBodyRotation;
 
-            world.System<CharacterPlayerComponent, PhysicsVelocityComponent, CharacterMovementStatsComponent, CharacterComponent>()
+            world.System<CharacterPlayerComponent, PhysicsVelocityComponent, CharacterMovementStatsComponent, CharacterComponent, InputDeadZoneComponent>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<CharacterPlayerComponent> p, Field<PhysicsVelocityComponent> v, Field<CharacterMovementStatsComponent> s, Field<CharacterComponent> c) =>
+                .Iter((Iter it, Field<CharacterPlayerComponent> p, Field<PhysicsVelocityComponent> v, Field<CharacterMovementStatsComponent> s, Field<CharacterComponent> c, Field<InputDeadZoneComponent> idz) =>
                 {
                     var inputState = inputEntity.Get<InputStateComponent>();
                     float delta = world.Entity("DeltaTime").Get<SingletonDeltaTimeComponent>().Value;
@@ -41,6 +43,7 @@ namespace Systems.Character
                             ref var character = ref c[i];
                             var stats = s[i];
                             ref var player = ref p[i];
+                            var inputDeadZone = idz[i];
 
                             if (character.IsGrounded)
                             {
@@ -58,7 +61,8 @@ namespace Systems.Character
                                     player.WalkInputHoldTime = 0.0f;
                                 }
 
-                                if (inputDir.LengthSquared() > 0.001f) // Add deadzone threshold
+                                // Apply movement
+                                if (inputDir.LengthSquared() > inputDeadZone.Value)
                                 {
                                     float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
                                     inputDir = inputDir.Normalized();
@@ -104,15 +108,15 @@ namespace Systems.Character
 
         private static Vec3Component Normalize(Vec3Component v)
         {
-            float length = (float)System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+            float length = (float)Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
             return length > 0 ? v / length : new Vec3Component(0, 0, 0);
         }
 
         private static float MoveToward(float current, float target, float maxDelta)
         {
-            if (System.Math.Abs(target - current) <= maxDelta)
+            if (Math.Abs(target - current) <= maxDelta)
                 return target;
-            return current + System.Math.Sign(target - current) * maxDelta;
+            return current + Math.Sign(target - current) * maxDelta;
         }
         private static float DegreesToRadians(float degrees)
         {
