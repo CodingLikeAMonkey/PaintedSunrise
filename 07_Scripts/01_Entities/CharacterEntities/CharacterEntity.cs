@@ -22,10 +22,10 @@ namespace Entities.Character
                     Rotation = (Vec3Component)GlobalRotation,
                     Scale = (Vec3Component)Scale
                 })
-                .Set(new CharacterStateComponent { })
-                .Set(new CharacterMovementStatsComponent { })
-                .Set(new PhysicsGravityComponent { })
-                .Set(new InputDeadZoneComponent { })
+                .Set(new CharacterStateComponent {})
+                .Set(new CharacterMovementStatsComponent {})
+                .Set(new PhysicsGravityComponent {})
+                .Set(new InputDeadZoneComponent {})
 
                 .Add<CharacterComponent>()
                 .Add<PhysicsVelocityComponent>()

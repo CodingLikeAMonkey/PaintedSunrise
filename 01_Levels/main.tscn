@@ -30,8 +30,9 @@ albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bigcu"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
+PlayerCharacter = NodePath("CB_Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oycwn")
