@@ -62,7 +62,16 @@ namespace Systems.Character
                                 }
 
                                 // Convert 2D input to 3D movement direction
-                                Vec3Component moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
+                                Vec3Component moveDir = default;
+                                if (player.HasInput)
+                                {
+                                    moveDir = Normalize(right * inputDir.X + forward * inputDir.Y);
+                                    player.LastMoveDir = moveDir;
+                                }
+                                else
+                                {
+                                    moveDir = player.LastMoveDir;
+                                }
 
                                 // Apply body rotation
                                 if (player.HasInput || player.WasRotatingFromTap)

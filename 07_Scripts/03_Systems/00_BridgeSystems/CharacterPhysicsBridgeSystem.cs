@@ -39,18 +39,15 @@ namespace Systems.Bridge
                         ref var character = ref entity.GetMut<CharacterComponent>();
                         character.IsGrounded = body.IsOnFloor();
 
-                        Node3D visual;
 
-                        // Access child node "%Player__Visual"
                         foreach (Node child in body.GetChildren())
                         {
                             if (child is Node3D node3D && node3D.IsInGroup("visual_body"))
                             {
-                                visual = node3D;
+                                Node3D visual = node3D;
                                 // Apply yaw rotation (around Y-axis)
-                                Vector3 rotation = visual.Rotation;
-                                rotation.Y = character.GhostBodyYaw;
-                                visual.Rotation = rotation;
+                                visual.Rotation = new Vector3(0, character.GhostBodyYaw, 0);
+                                GD.Print($"Visual local Y: {visual.Rotation.Y}, global Y: {visual.GlobalRotation.Y}, ghost Y: {character.GhostBodyYaw}");
                                 break;
                             }
                         }

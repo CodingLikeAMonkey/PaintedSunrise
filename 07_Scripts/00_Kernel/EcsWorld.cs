@@ -40,12 +40,13 @@ public partial class EcsWorld : Node
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
-        Systems.Bridge.MeshLODBridgeSystem.Setup(Instance);
-        Systems.Bridge.CharacterPhysicsBridgeSystem.Setup(Instance);
         Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
-        Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
+        // Bridge Systems
+        Systems.Bridge.MeshLODBridgeSystem.Setup(Instance);
         Systems.Bridge.CameraThirdPersonBridgeSystem.Setup(Instance);
+        Systems.Bridge.CharacterPhysicsBridgeSystem.Setup(Instance);
+        Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
