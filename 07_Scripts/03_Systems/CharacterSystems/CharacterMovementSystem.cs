@@ -66,13 +66,13 @@ namespace Systems.Character
                                     // Convert 2D input to 3D movement direction
                                     Vec3Component moveDir = Normalize(right * inputDir.X + forward * inputDir.Y); // Stick up = move away from camera
 
-                                    velocity.Value.X = moveDir.X * currentSpeed;
-                                    velocity.Value.Z = moveDir.Z * currentSpeed;
+                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * currentSpeed, stats.Acceleration * delta);
+                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * currentSpeed, stats.Acceleration * delta);
                                 }
                                 else
                                 {
-                                    velocity.Value.X = 0;
-                                    velocity.Value.Z = 0;
+                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, 0, stats.Friction * delta);
+                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, 0, stats.Friction * delta);
                                 }
                             }
                         }
