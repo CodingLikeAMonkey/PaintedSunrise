@@ -6,6 +6,8 @@ using Components.Mesh;
 using Components.Core;
 using Components.Camera;
 using Entities.Meshes;
+using Components.Time;
+using Components.Singleton;
 
 namespace Systems.Bridge
 {
@@ -33,97 +35,121 @@ namespace Systems.Bridge
         public static void Setup(World world)
         {
             world.System<TransformComponent, MeshLODComponent>()
-                 .Kind(Ecs.PostUpdate)
-                 .Iter((Iter it, Field<TransformComponent> transField, Field<MeshLODComponent> lodField) =>
-                 {
-                     Entity? cachedCameraEntity = null;
-                     TransformComponent cachedCameraTransform = default;
+                .Kind(Ecs.PostUpdate)
+                .Iter((Iter it, Field<TransformComponent> transField, Field<MeshLODComponent> lodField) =>
+                {
+                    float delta = world.Entity("DeltaTime").Get<SingletonDeltaTimeComponent>().Value;
 
-                     // Cache active camera entity & transform once per system iteration
-                     if (cachedCameraEntity == null)
-                     {
-                         var cameraQuery = it.World().QueryBuilder<TransformComponent>()
-                             .With< CameraCurrentComponent>()
-                             .Build();
+                    Entity? cachedCameraEntity = null;
+                    TransformComponent cachedCameraTransform = default;
 
-                         cameraQuery.Each((Entity entity, ref TransformComponent transform) =>
-                         {
-                             cachedCameraEntity = entity;
-                             cachedCameraTransform = transform;
-                         });
+                    // Cache active camera entity & transform once per system iteration
+                    var cameraQuery = it.World().QueryBuilder<TransformComponent>()
+                        .With<CameraCurrentComponent>()
+                        .Build();
 
-                         if (cachedCameraEntity == null)
-                         {
-                             Log.PrintError("LOD System: No active camera found.");
-                             return;
-                         }
-                     }
+                    cameraQuery.Each((Entity entity, ref TransformComponent transform) =>
+                    {
+                        cachedCameraEntity = entity;
+                        cachedCameraTransform = transform;
+                    });
 
-                     // Iterate over all entities with Transform and LOD components
-                     foreach (int i in it)
-                     {
-                         ref TransformComponent trans = ref transField[i];
-                         ref MeshLODComponent lod = ref lodField[i];
-                         Entity entity = it.Entity(i);
+                    foreach (int i in it)
+                    {
+                        ref TransformComponent trans = ref transField[i];
+                        ref MeshLODComponent lod = ref lodField[i];
+                        Entity entity = it.Entity(i);
 
-                         if (!NodeRef.TryGet(entity, out Node3D currentNode))
-                         {
-                             Log.PrintError("LOD System: No node associated with entity");
-                             continue;
-                         }
+                        // Create timer if missing
+                        if (!entity.Has<TimerComponent>())
+                        {
+                            entity.Set(new TimerComponent(duration: 2.0f));
+                            continue;
+                        }
 
-                         float distanceSquared = trans.Position.DistanceSquaredTo(cachedCameraTransform.Position);
-                         float thresholdSquared = lod.CameraDistance * lod.CameraDistance;
+                        var timer = entity.Get<TimerComponent>();
 
-                         // Switch to LOD1 if too far
-                         if (lod.CurrentLod == 0 && distanceSquared > thresholdSquared)
-                         {
-                             string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(lod.OriginalScenePath);
-                             if (!IsSameScene(currentNode, lod1Path))
-                             {
-                                 var parent = currentNode.GetParent();
-                                 var oldNode = currentNode;
-                                 var oldTransform = oldNode.GlobalTransform;
+                        // If still running, update and skip LOD logic
+                        if (timer.IsRunning)
+                        {
+                            timer.Elapsed += delta;
 
-                                 var packed = GetCachedScene(lod1Path);
-                                 var lod1Instance = packed.Instantiate<Node3D>();
+                            if (timer.Elapsed >= timer.Duration)
+                            {
+                                timer.Elapsed = timer.Duration;
+                                timer.IsRunning = false;
+                            }
 
-                                 if (lod1Instance is MeshStaticEntity staticScript)
-                                     staticScript.SkipEntityCreation = true;
+                            entity.Set(timer);
+                            continue;
+                        }
 
-                                 lod1Instance.GlobalTransform = oldTransform;
-                                 parent.AddChild(lod1Instance);
+                        // Timer finished, only show error once per entity
+                        if (!timer.ErrorShown && cachedCameraEntity == null)
+                        {
+                            Log.PrintError("LOD System: No active camera found.");
+                            timer.ErrorShown = true;
+                            entity.Set(timer);
+                            continue;
+                        }
 
-                                 NodeRef.Update(entity, lod1Instance);
-                                 lod.CurrentLod = 1;
-                                 oldNode.QueueFree();
-                             }
-                         }
-                         // Switch back to original LOD0 if close enough
-                         else if (lod.CurrentLod == 1 && distanceSquared <= thresholdSquared)
-                         {
-                             if (!IsSameScene(currentNode, lod.OriginalScenePath))
-                             {
-                                 var parent = currentNode.GetParent();
-                                 var oldNode = currentNode;
-                                 var oldTransform = oldNode.GlobalTransform;
+                        // Always update timer if modified
+                        entity.Set(timer);
 
-                                 var packed = GetCachedScene(lod.OriginalScenePath);
-                                 var originalInstance = packed.Instantiate<Node3D>();
+                        if (!NodeRef.TryGet(entity, out Node3D currentNode))
+                        {
+                            Log.PrintError("LOD System: No node associated with entity");
+                            continue;
+                        }
 
-                                 if (originalInstance is MeshStaticEntity staticScript)
-                                     staticScript.SkipEntityCreation = true;
+                        float distanceSquared = trans.Position.DistanceSquaredTo(cachedCameraTransform.Position);
+                        float thresholdSquared = lod.CameraDistance * lod.CameraDistance;
 
-                                 originalInstance.GlobalTransform = oldTransform;
-                                 parent.AddChild(originalInstance);
+                        // Switch to LOD1 if too far
+                        if (lod.CurrentLod == 0 && distanceSquared > thresholdSquared)
+                        {
+                            string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(lod.OriginalScenePath);
+                            if (!IsSameScene(currentNode, lod1Path))
+                            {
+                                var parent = currentNode.GetParent();
+                                var oldNode = currentNode;
+                                var oldTransform = oldNode.GlobalTransform;
+                                var packed = GetCachedScene(lod1Path);
+                                var lod1Instance = packed.Instantiate<Node3D>();
 
-                                 NodeRef.Update(entity, originalInstance);
-                                 lod.CurrentLod = 0;
-                                 oldNode.QueueFree();
-                             }
-                         }
-                     }
-                 });
+                                if (lod1Instance is MeshStaticEntity staticScript)
+                                    staticScript.SkipEntityCreation = true;
+
+                                lod1Instance.GlobalTransform = oldTransform;
+                                parent.AddChild(lod1Instance);
+                                NodeRef.Update(entity, lod1Instance);
+                                lod.CurrentLod = 1;
+                                oldNode.QueueFree();
+                            }
+                        }
+                        // Switch back to LOD0 if close enough
+                        else if (lod.CurrentLod == 1 && distanceSquared <= thresholdSquared)
+                        {
+                            if (!IsSameScene(currentNode, lod.OriginalScenePath))
+                            {
+                                var parent = currentNode.GetParent();
+                                var oldNode = currentNode;
+                                var oldTransform = oldNode.GlobalTransform;
+                                var packed = GetCachedScene(lod.OriginalScenePath);
+                                var originalInstance = packed.Instantiate<Node3D>();
+
+                                if (originalInstance is MeshStaticEntity staticScript)
+                                    staticScript.SkipEntityCreation = true;
+
+                                originalInstance.GlobalTransform = oldTransform;
+                                parent.AddChild(originalInstance);
+                                NodeRef.Update(entity, originalInstance);
+                                lod.CurrentLod = 0;
+                                oldNode.QueueFree();
+                            }
+                        }
+                    }
+                });
         }
     }
 }
