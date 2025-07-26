@@ -37,12 +37,10 @@ namespace Entities.Character
 
             Kernel.NodeRef.Register(characterEntity, this);
 
-            // Find the child node with group "visual_body" and create a separate ECS entity for it
             foreach (Node child in GetChildren())
             {
                 if (child is Node3D node3D && node3D.IsInGroup("visual_body"))
                 {
-                    // Create ECS entity for visual body
                     visualBodyEntity = world
                         .Entity()
                         .Set(new TransformComponent
@@ -54,7 +52,7 @@ namespace Entities.Character
 
                     Kernel.NodeRef.Register(visualBodyEntity, node3D);
 
-                    break; // Stop after first visual_body found
+                    break;
                 }
             }
         }

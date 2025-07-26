@@ -45,9 +45,7 @@ namespace Systems.Bridge
                             if (child is Node3D node3D && node3D.IsInGroup("visual_body"))
                             {
                                 Node3D visual = node3D;
-                                // Apply yaw rotation (around Y-axis)
                                 visual.Rotation = new Vector3(0, character.GhostBodyYaw, 0);
-                                GD.Print($"Visual local Y: {visual.Rotation.Y}, global Y: {visual.GlobalRotation.Y}, ghost Y: {character.GhostBodyYaw}");
                                 break;
                             }
                         }
