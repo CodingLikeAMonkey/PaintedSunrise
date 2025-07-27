@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6m1wapjg54v"]
+
+[ext_resource type="PackedScene" uid="uid://bts51bqntxue0" path="res://09_Imports/Meshes/Characters/default_humanoid.glb" id="1_o7d6j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7d6j"]
+albedo_color = Color(0.734888, 0.603446, 0.524398, 1)
+
+[node name="Rig_DefaultHumanoid" instance=ExtResource("1_o7d6j")]
+
+[node name="HumanoidMaster" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o7d6j")
