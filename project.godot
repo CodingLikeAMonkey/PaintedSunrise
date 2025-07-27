@@ -110,4 +110,5 @@ up={
 
 [layer_names]
 
-3d_physics/layer_2="selectable"
+3d_physics/layer_1="world"
+3d_physics/layer_2="camera"

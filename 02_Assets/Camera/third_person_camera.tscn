@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b0xmwjbhjgvfr" path="res://07_Scripts/01_Entities/CameraEntities/CamThirdPersonEntity.cs" id="1_wbtey"]
 
 [node name="SA_ThirdPersonCamera" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 script = ExtResource("1_wbtey")
 
 [node name="ThirdPersonCamera__SpringArm" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-spring_length = 7.0
+collision_mask = 2
+spring_length = 2.5
 
 [node name="ThirdPersonCamera__Camera" type="Camera3D" parent="ThirdPersonCamera__SpringArm"]
