@@ -7,7 +7,7 @@ using Components.Core;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
-using Kernel;
+using Components.GDAP;
 
 namespace Systems.Character
 {
@@ -18,10 +18,25 @@ namespace Systems.Character
             var camQuery = world.Query<CameraThirdPersonConfigComponent, TransformComponent>();
             // float GhostBodyYaw = 0.0f; // Radians
 
-            world.System<CharacterPlayerComponent, PhysicsVelocityComponent, CharacterMovementStatsComponent, CharacterComponent, InputDeadZoneComponent>()
+            world.System<
+            CharacterPlayerComponent,
+            PhysicsVelocityComponent,
+            CharacterMovementStatsComponent,
+            CharacterComponent,
+            InputDeadZoneComponent,
+            DecisionIdleComponent,
+            DecisionRunComponent>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
-                .Iter((Iter it, Field<CharacterPlayerComponent> p, Field<PhysicsVelocityComponent> v, Field<CharacterMovementStatsComponent> s, Field<CharacterComponent> c, Field<InputDeadZoneComponent> idz) =>
+                .Iter((
+                    Iter it,
+                    Field<CharacterPlayerComponent> p,
+                    Field<PhysicsVelocityComponent> v,
+                    Field<CharacterMovementStatsComponent> s,
+                    Field<CharacterComponent> c,
+                    Field<InputDeadZoneComponent> idz,
+                    Field<DecisionIdleComponent> idle,
+                    Field<DecisionRunComponent> run) =>
                 {
                     var inputState = inputEntity.Get<InputStateComponent>();
                     float delta = world.Entity("DeltaTime").Get<SingletonDeltaTimeComponent>().Value;

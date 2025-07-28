@@ -1,4 +1,4 @@
-namespace Components.DAE_Components;
+namespace Components.GDAP;
 
 public struct ActionIdleComponent
 {

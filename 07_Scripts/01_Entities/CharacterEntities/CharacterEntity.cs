@@ -5,6 +5,7 @@ using Components.Math;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
+using Components.GDAP;
 
 namespace Entities.Character
 {
@@ -26,14 +27,17 @@ namespace Entities.Character
                     Rotation = (Vec3Component)GlobalRotation,
                     Scale = (Vec3Component)Scale
                 })
-                // .Set(new CharacterStateComponent { })
                 .Set(new CharacterMovementStatsComponent { })
                 .Set(new PhysicsGravityComponent { })
                 .Set(new InputDeadZoneComponent { })
 
                 .Add<CharacterComponent>()
                 .Add<PhysicsVelocityComponent>()
-                .Add<PhysicsColliderComponent>();
+                .Add<PhysicsColliderComponent>()
+
+                // DAE
+                .Add<DecisionIdleComponent>() .Add<ActionIdleComponent>()
+                .Add<DecisionRunComponent>() .Add<ActionRunComponent>();
 
             Kernel.NodeRef.Register(characterEntity, this);
 
