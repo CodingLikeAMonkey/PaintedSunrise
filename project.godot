@@ -44,7 +44,9 @@ folder_colors={
 
 [global_group]
 
-visual_body=""
+visual_body="The visual body inside any character entity. May rotate freely in the direction of movement."
+humanoid_animation_tree="The main animation tree for character archetype 'humanoid'."
+humanoid_animation_player="The main animation player for character archetype 'humanoid'."
 
 [input]
 

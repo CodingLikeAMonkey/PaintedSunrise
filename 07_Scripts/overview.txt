@@ -1,0 +1,18 @@
+
+------------------------
+GDAP
+Goal - Decision - Action - Presentation
+
+- The 4 communicational layers driving NPC and character actions
+- Goal describes the primary (and secondary) long term goal that the NPC wants to achieve
+- Decisions are the actual steps that the character desires to do in the moment to achieve said goal
+- Actions validate or enforce (tag only) what is currently possible and what to perform
+- Presentation is the lowest and simplest layer, it simply executes media, such as animation, vfx, audio, shaders etc.
+
+Note:
+- These 4 layers describe a communication and validation structure
+- They themselves do NOT represent core systems or enforece anything apart from applying and passing components
+- Movement, Hit-Hurtboxes, Interactions and other systems are handled in their respective domains
+- The player character is a partial participent of GDAP. Instead of artifical goals, the input of the player must be interpreted and mapped to the most suitable Decisions.
+This is to ensure, that the character system remains modular, stable and scalable and that the player can choose any number of creatures, be it huamoid, animalistic or anything else.
+------------------------

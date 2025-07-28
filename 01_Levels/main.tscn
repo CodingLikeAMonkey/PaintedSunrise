@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=15 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="Script" uid="uid://dx58c0133g1in" path="res://07_Scripts/03_Systems/00_BridgeSystems/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
 [ext_resource type="PackedScene" uid="uid://c8wx67xdjhigk" path="res://02_Assets/UI/ui.tscn" id="3_8rkqs"]
 [ext_resource type="PackedScene" uid="uid://bi8poisav4nwi" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor.tscn" id="4_08m6l"]
 [ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="4_r1qyh"]
+[ext_resource type="PackedScene" uid="uid://bbbb4rvjasrs" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--broken_planks.tscn" id="5_sl5kb"]
 [ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
 [ext_resource type="PackedScene" uid="uid://binum1ak3gvs5" path="res://02_Assets/Characters/character.tscn" id="31_5ffyk"]
 
@@ -81,8 +82,110 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
 [node name="SB_WoodenFloor8" parent="Node3D" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 
-[node name="SB_WoodenFloor9" parent="Node3D" instance=ExtResource("4_08m6l")]
+[node name="SM_WoodenFloor--Broken-Planks" parent="Node3D" instance=ExtResource("5_sl5kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="SM_WoodenFloor--Broken-Planks2" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="SM_WoodenFloor--Broken-Planks3" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 20)
+
+[node name="SM_WoodenFloor--Broken-Planks4" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 24)
+
+[node name="SM_WoodenFloor--Broken-Planks5" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 28)
+
+[node name="SM_WoodenFloor--Broken-Planks6" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 32)
+
+[node name="SM_WoodenFloor--Broken-Planks7" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 36)
+
+[node name="SM_WoodenFloor--Broken-Planks8" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+
+[node name="SM_WoodenFloor--Broken-Planks9" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 16)
+
+[node name="SM_WoodenFloor--Broken-Planks10" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 20)
+
+[node name="SM_WoodenFloor--Broken-Planks11" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 24)
+
+[node name="SM_WoodenFloor--Broken-Planks12" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 28)
+
+[node name="SM_WoodenFloor--Broken-Planks13" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 32)
+
+[node name="SM_WoodenFloor--Broken-Planks14" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 36)
+
+[node name="SM_WoodenFloor--Broken-Planks15" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="SM_WoodenFloor--Broken-Planks16" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 16)
+
+[node name="SM_WoodenFloor--Broken-Planks17" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 20)
+
+[node name="SM_WoodenFloor--Broken-Planks18" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 24)
+
+[node name="SM_WoodenFloor--Broken-Planks19" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 28)
+
+[node name="SM_WoodenFloor--Broken-Planks20" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 32)
+
+[node name="SM_WoodenFloor--Broken-Planks21" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 36)
+
+[node name="SM_WoodenFloor--Broken-Planks22" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+
+[node name="SM_WoodenFloor--Broken-Planks23" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
+
+[node name="SM_WoodenFloor--Broken-Planks24" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+
+[node name="SM_WoodenFloor--Broken-Planks25" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 24)
+
+[node name="SM_WoodenFloor--Broken-Planks26" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 28)
+
+[node name="SM_WoodenFloor--Broken-Planks27" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 32)
+
+[node name="SM_WoodenFloor--Broken-Planks28" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 36)
+
+[node name="SM_WoodenFloor--Broken-Planks29" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+
+[node name="SM_WoodenFloor--Broken-Planks30" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 16)
+
+[node name="SM_WoodenFloor--Broken-Planks31" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 20)
+
+[node name="SM_WoodenFloor--Broken-Planks32" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 24)
+
+[node name="SM_WoodenFloor--Broken-Planks33" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 28)
+
+[node name="SM_WoodenFloor--Broken-Planks34" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 32)
+
+[node name="SM_WoodenFloor--Broken-Planks35" parent="Node3D" instance=ExtResource("5_sl5kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 36)
 
 [node name="SB_WoodenFloor10" parent="Node3D" instance=ExtResource("4_08m6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
