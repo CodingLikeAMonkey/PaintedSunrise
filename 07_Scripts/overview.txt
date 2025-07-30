@@ -14,5 +14,5 @@ Note:
 - They themselves do NOT represent core systems or enforece anything apart from applying and passing components
 - Movement, Hit-Hurtboxes, Interactions and other systems are handled in their respective domains
 - The player character is a partial participent of GDAP. Instead of artifical goals, the input of the player must be interpreted and mapped to the most suitable Decisions.
-This is to ensure, that the character system remains modular, stable and scalable and that the player can choose any number of creatures, be it huamoid, animalistic or anything else.
+  This is to ensure, that the character system remains modular, stable and scalable and that the player can choose any number of creatures, be it huamoid, animalistic or anything else.
 ------------------------
