@@ -10,6 +10,7 @@ public struct CharacterMovementStatsComponent
     public float Friction;
     public float TurnSpeed;
     public float JumpImpulse;
+    public float CurrentSpeed;
 
     public CharacterMovementStatsComponent()
     {
@@ -21,5 +22,6 @@ public struct CharacterMovementStatsComponent
         Friction = 50.0f;
         TurnSpeed = 10.0f;
         JumpImpulse = 5.0f;
+        CurrentSpeed = 0.0f;
     }
 }

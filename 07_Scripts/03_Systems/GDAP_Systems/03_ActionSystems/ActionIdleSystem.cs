@@ -3,6 +3,7 @@ using Components.Character;
 using Components.Physics;
 using Components.Math;
 using Components.GDAP;
+using Components.State;
 
 namespace Systems.GDAP;
 
@@ -25,6 +26,7 @@ public static class ActionIdleSystem
                     if (character.IsGrounded && velocity.Value == Vec3Component.Zero)
                     {
                         entity.Add<ActionIdleComponent>();
+                        entity.Add<StateCharacterIdle>();
                     }
                     else
                     {

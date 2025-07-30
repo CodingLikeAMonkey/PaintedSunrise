@@ -56,7 +56,7 @@ namespace Systems.Character
                         {
                             ref var velocity = ref v[i];
                             ref var character = ref c[i];
-                            var stats = s[i];
+                            ref var stats = ref s[i];
                             ref var player = ref p[i];
                             var inputDeadZone = idz[i];
 
@@ -101,11 +101,18 @@ namespace Systems.Character
                                 // Apply movement
                                 if (inputDir.LengthSquared() > inputDeadZone.Value)
                                 {
-                                    float currentSpeed = (inputState.LeftStickInputDir.Length() < stats.WalkThreshold) ? stats.WalkSpeed : stats.Speed;
+                                    if (inputState.LeftStickInputDir.Length() < stats.WalkThreshold)
+                                    {
+                                        stats.CurrentSpeed = stats.WalkSpeed;
+                                    }
+                                    else
+                                    {
+                                        stats.CurrentSpeed = stats.Speed;
+                                    }
                                     inputDir = inputDir.Normalized();
 
-                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * currentSpeed, stats.Acceleration * delta);
-                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * currentSpeed, stats.Acceleration * delta);
+                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * stats.CurrentSpeed, stats.Acceleration * delta);
+                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * stats.CurrentSpeed, stats.Acceleration * delta);
                                 }
                                 else
                                 {
