@@ -4,8 +4,8 @@ using Components.Singleton;
 using Components.Input;
 using Components.GDAP;
 using Systems.GDAP;
-using Components.State;
 using Systems.Core;
+using Systems.Debug;
 
 namespace Kernel;
 
@@ -34,15 +34,6 @@ public partial class EcsWorld : Node
         // DAE
         Instance.Component<DecisionIdleComponent>(); Instance.Component<ActionIdleComponent>(); Instance.Component<PresentationIdleComponent>();
 
-        // MutuallyExclusiveComponentsSystem.RegisterGroup(
-        //     Instance,
-        //     "StatesCharacter",
-        //     typeof(StateCharacterIdle),
-        //     typeof(StateCharacterWalk),
-        //     typeof(StateCharacterFall),
-        //     typeof(StateCharacterRun)
-        // );
-
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
             .Set(new SingletonMouseModeComponent())
@@ -51,7 +42,7 @@ public partial class EcsWorld : Node
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
 
-        Systems.Core.MouseModeSystem.Setup(Instance);
+        MouseModeSystem.Setup(Instance);
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
@@ -61,9 +52,11 @@ public partial class EcsWorld : Node
 
         // DAE
         DecisionIdleSystem.Setup(Instance); ActionIdleSystem.Setup(Instance);
-        ActionFallsSystem.Setup(Instance);
-        Systems.Debug.DebugPrintCharacterComponentsSystem.Setup(Instance);
+        ActionFallSystem.Setup(Instance);
         ActionWalkSystem.Setup(Instance);
+        ActionRunSystem.Setup(Instance);
+
+        DebugPrintCharacterStateSystem.Setup(Instance);
 
 
         // Bridge Systems

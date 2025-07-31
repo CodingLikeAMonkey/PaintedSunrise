@@ -4,6 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Flecs.NET" Version="4.0.4-build.548" />
     <PackageReference Include="Flecs.NET.Release" Version="4.0.3" />
   </ItemGroup>
 </Project>

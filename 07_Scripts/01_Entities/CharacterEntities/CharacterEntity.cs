@@ -32,6 +32,7 @@ namespace Entities.Character
                 .Set(new InputDeadZoneComponent { })
 
                 .Add<CharacterComponent>()
+                .Add<CharacterStateComponent>()
                 .Add<PhysicsVelocityComponent>()
                 .Add<PhysicsColliderComponent>()
 

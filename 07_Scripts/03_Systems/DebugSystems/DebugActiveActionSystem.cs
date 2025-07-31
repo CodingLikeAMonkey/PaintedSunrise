@@ -1,6 +1,6 @@
 using Flecs.NET.Core;
 using Components.GDAP;
-using Components.State;
+using Components.Character;
 using Kernel;
 
 namespace Systems.Debug;
@@ -9,15 +9,15 @@ public static class DebugActiveActionSystem
 {
     public static void Setup(World world)
     {
-        world.System<StateCharacterIdle>()
+        world.System<CharacterStateComponent>()
             .Kind(Ecs.OnUpdate)
             .MultiThreaded()
-            .Iter((Iter it, Field<StateCharacterIdle> sI) =>
+            .Iter((Iter it, Field<CharacterStateComponent> cs) =>
             {
                 for (int i = 0; i < it.Count(); i++)
                 {
                     Entity entity = it.Entity(i);
-                    var actionIdle = sI[i];
+                    var actionIdle = cs[i];
                 }
 
             });
