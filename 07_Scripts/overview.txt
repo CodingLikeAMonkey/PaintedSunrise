@@ -16,3 +16,13 @@ Note:
 - The player character is a partial participent of GDAP. Instead of artifical goals, the input of the player must be interpreted and mapped to the most suitable Decisions.
   This is to ensure, that the character system remains modular, stable and scalable and that the player can choose any number of creatures, be it huamoid, animalistic or anything else.
 ------------------------
+
+Systems Analysis:
+- CameraFreeSystem = applies movement to free camera, little input detection
+CameraThirdPerson = complex input detection and applies rotation to third perosn camera
+- jump system = detects jump intup, compared character states and applys velocity
+- movement system (player) = detects complex input handling and applies movement to player
+- character stte component = compares generic data, such as velocity, on ground etc. to toggle any and all character state enum (no other system does this)
+- game state system = for now only detects click input and toggle game mode (decides wht game mode currently is running)
+- mouse mode system = maps godot mouse mode enum to component mouse mode enum (no actual toggle or decison logic, very dumb system)
+- input camera free system = more complex input detection to reduce complexity of free cam system

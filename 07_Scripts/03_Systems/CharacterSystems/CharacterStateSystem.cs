@@ -2,6 +2,7 @@ using Flecs.NET.Core;
 using Components.Character;
 using Components.Physics;
 using Components.Math;
+using Kernel;
 namespace Systems.Character;
 public static class CharacterStateSystem
 {
@@ -18,7 +19,6 @@ public static class CharacterStateSystem
                     var velocity = v[i];
                     var character = c[i];
                     var movementStats = ms[i];
-
                     // grounded
                     if (character.IsGrounded)
                     {

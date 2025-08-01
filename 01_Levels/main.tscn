@@ -50,9 +50,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_08m6l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bigcu")
 
-[node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 173.82, -8)
-
 [node name="C3_FreeCam" parent="." instance=ExtResource("4_r1qyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6, 0)
 
@@ -480,3 +477,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_8rkqs")]
+
+[node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99644, 20.1356, -7.62239)
