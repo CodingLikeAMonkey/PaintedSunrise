@@ -7,7 +7,6 @@ using Components.Core;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
-using Components.GDAP;
 
 namespace Systems.Character
 {
@@ -23,9 +22,7 @@ namespace Systems.Character
             PhysicsVelocityComponent,
             CharacterMovementStatsComponent,
             CharacterComponent,
-            InputDeadZoneComponent,
-            DecisionIdleComponent,
-            DecisionRunComponent>()
+            InputDeadZoneComponent>()
                 .Kind(Ecs.OnUpdate)
                 .MultiThreaded()
                 .Iter((
@@ -34,9 +31,7 @@ namespace Systems.Character
                     Field<PhysicsVelocityComponent> v,
                     Field<CharacterMovementStatsComponent> s,
                     Field<CharacterComponent> c,
-                    Field<InputDeadZoneComponent> idz,
-                    Field<DecisionIdleComponent> idle,
-                    Field<DecisionRunComponent> run) =>
+                    Field<InputDeadZoneComponent> idz) =>
                 {
                     var inputState = inputEntity.Get<InputStateComponent>();
                     float delta = world.Entity("DeltaTime").Get<SingletonDeltaTimeComponent>().Value;

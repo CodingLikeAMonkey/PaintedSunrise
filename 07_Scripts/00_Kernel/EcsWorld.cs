@@ -2,10 +2,9 @@ using Flecs.NET.Core;
 using Godot;
 using Components.Singleton;
 using Components.Input;
-using Components.GDAP;
-using Systems.GDAP;
-using Components.State;
 using Systems.Core;
+using Systems.Debug;
+using Systems.Character;
 
 namespace Kernel;
 
@@ -31,17 +30,6 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Physics.PhysicsGravityComponent>();
         Instance.Component<Components.Physics.PhysicsVelocityComponent>();
         Instance.Component<InputStateComponent>();
-        // DAE
-        Instance.Component<DecisionIdleComponent>(); Instance.Component<ActionIdleComponent>(); Instance.Component<PresentationIdleComponent>();
-
-        // MutuallyExclusiveComponentsSystem.RegisterGroup(
-        //     Instance,
-        //     "StatesCharacter",
-        //     typeof(StateCharacterIdle),
-        //     typeof(StateCharacterWalk),
-        //     typeof(StateCharacterFall),
-        //     typeof(StateCharacterRun)
-        // );
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
@@ -51,19 +39,16 @@ public partial class EcsWorld : Node
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
 
-        Systems.Core.MouseModeSystem.Setup(Instance);
+        MouseModeSystem.Setup(Instance);
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
-        Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
+        CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
-        // Systems.Debug.DebugActiveActionSystem.Setup(Instance);
+        CharacterStateSystem.Setup(Instance);
+        CharacterJumpSystem.Setup(Instance, InputEntity);
 
-        // DAE
-        DecisionIdleSystem.Setup(Instance); ActionIdleSystem.Setup(Instance);
-        ActionFallsSystem.Setup(Instance);
-        Systems.Debug.DebugPrintCharacterComponentsSystem.Setup(Instance);
-        ActionWalkSystem.Setup(Instance);
+        DebugPrintCharacterStateSystem.Setup(Instance);
 
 
         // Bridge Systems

@@ -24,6 +24,7 @@ namespace Kernel
         private static bool MoveUp;
         private static bool MoveDown;
         private static bool Boost;
+        private static bool Jump;
         private static Vec2Component RightStickInputDir = Vec2Component.Zero;
         private static Vec2Component LeftStickInputDir = Vec2Component.Zero;
 
@@ -66,6 +67,7 @@ namespace Kernel
             MoveUp = Input.IsKeyPressed(Key.E);
             MoveDown = Input.IsKeyPressed(Key.Q);
             Boost = Input.IsKeyPressed(Key.Shift);
+            Jump = Input.IsActionPressed("jump");
 
             LeftPressed = Input.IsActionPressed("left_click");
             LeftReleased = Input.IsActionJustReleased("left_click");
@@ -103,6 +105,7 @@ namespace Kernel
                     MoveUp = MoveUp,
                     MoveDown = MoveDown,
                     Boost = Boost,
+                    Jump = Jump,
                     RightStickInputDir = RightStickInputDir,
                     LeftStickInputDir = LeftStickInputDir
                 };

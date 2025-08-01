@@ -5,7 +5,6 @@ using Components.Math;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
-using Components.GDAP;
 
 namespace Entities.Character
 {
@@ -30,14 +29,12 @@ namespace Entities.Character
                 .Set(new CharacterMovementStatsComponent { })
                 .Set(new PhysicsGravityComponent { })
                 .Set(new InputDeadZoneComponent { })
+                .Set(new CharacterStateComponent{})
 
                 .Add<CharacterComponent>()
+                .Add<CharacterStateComponent>()
                 .Add<PhysicsVelocityComponent>()
-                .Add<PhysicsColliderComponent>()
-
-                // DAE
-                .Add<DecisionIdleComponent>() .Add<ActionIdleComponent>()
-                .Add<DecisionRunComponent>() .Add<ActionRunComponent>();
+                .Add<PhysicsColliderComponent>();
 
             Kernel.NodeRef.Register(characterEntity, this);
 

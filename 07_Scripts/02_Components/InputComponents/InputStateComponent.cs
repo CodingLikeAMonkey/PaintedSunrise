@@ -20,6 +20,7 @@ namespace Components.Input
         public bool MoveUp;
         public bool MoveDown;
         public bool Boost;
+        public bool Jump;
         public Vec2Component RightStickInputDir;
         public Vec2Component LeftStickInputDir;
     }
