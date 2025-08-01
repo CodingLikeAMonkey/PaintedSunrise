@@ -68,25 +68,26 @@ export_presets.cfg
 # *.png
 # *.jpg
 # *.jpeg
-# *.bmp
-# *.tga
 # *.psd
 # *.gif
 # *.exr
-
 # *.wav
 # *.mp3
 # *.ogg
-# *.flac
-
 # *.fbx
 # *.obj
-# *.dae
 # *.glb
 # *.gltf
 # *.blend
-
 # *.zip
+
+# *.bmp
+# *.tga
+
+# *.flac
+
+# *.dae
+
 # *.rar
 # *.7z
 # *.tar
