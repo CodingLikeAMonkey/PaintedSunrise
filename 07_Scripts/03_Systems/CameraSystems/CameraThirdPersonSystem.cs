@@ -11,11 +11,17 @@ namespace Systems.Camera
         {
             world.System<TransformComponent, CameraThirdPersonStateComponent>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref TransformComponent transform, ref CameraThirdPersonStateComponent camState) =>
+                .MultiThreaded()
+                .Iter((Iter it, Field<TransformComponent> t, Field<CameraThirdPersonStateComponent> c) =>
                 {
-                    transform.Rotation.X = camState.rotationDegrees.X;
-                    transform.Rotation.Y = camState.rotationDegrees.Y;
-                    transform.Rotation.Z = 0f;
+                    for (int i = 0; i < it.Count(); i++)
+                    {
+                        ref var transform = ref t[i];
+                        var camState = c[i];
+                        transform.Rotation.X = camState.rotationDegrees.X;
+                        transform.Rotation.Y = camState.rotationDegrees.Y;
+                        transform.Rotation.Z = 0f;
+                    }
                 });
         }
     }
