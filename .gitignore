@@ -65,32 +65,33 @@ export_presets.cfg
 *.import
 
 # Ignore large asset types (add or remove as needed)
-*.png
-*.jpg
-*.jpeg
-*.bmp
-*.tga
-*.psd
-*.gif
-*.exr
+# *.png
+# *.jpg
+# *.jpeg
+# *.psd
+# *.gif
+# *.exr
+# *.wav
+# *.mp3
+# *.ogg
+# *.fbx
+# *.obj
+# *.glb
+# *.gltf
+# *.blend
+# *.zip
 
-*.wav
-*.mp3
-*.ogg
-*.flac
+# *.bmp
+# *.tga
 
-*.fbx
-*.obj
-*.dae
-*.glb
-*.gltf
-*.blend
+# *.flac
 
-*.zip
-*.rar
-*.7z
-*.tar
-*.gz
+# *.dae
+
+# *.rar
+# *.7z
+# *.tar
+# *.gz
 
 # Ignore user/editor configs (optional)
 # *.cfg
