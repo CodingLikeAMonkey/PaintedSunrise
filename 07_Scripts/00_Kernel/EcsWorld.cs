@@ -5,6 +5,7 @@ using Components.Input;
 using Systems.Core;
 using Systems.Debug;
 using Systems.Character;
+using Systems.Input;
 
 namespace Kernel;
 
@@ -40,11 +41,12 @@ public partial class EcsWorld : Node
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
 
         MouseModeSystem.Setup(Instance);
+        InputCameraThirdPersonSystem.Setup(Instance, InputEntity);
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
         CharacterMovementSystem.Setup(Instance, InputEntity);
-        Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
+        Systems.Camera.CameraThirdPersonSystem.Setup(Instance);
         CharacterStateSystem.Setup(Instance);
         CharacterJumpSystem.Setup(Instance, InputEntity);
 
