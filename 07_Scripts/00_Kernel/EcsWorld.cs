@@ -2,8 +2,6 @@ using Flecs.NET.Core;
 using Godot;
 using Components.Singleton;
 using Components.Input;
-using Components.GDAP;
-using Systems.GDAP;
 using Systems.Core;
 using Systems.Debug;
 
@@ -31,8 +29,6 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Physics.PhysicsGravityComponent>();
         Instance.Component<Components.Physics.PhysicsVelocityComponent>();
         Instance.Component<InputStateComponent>();
-        // DAE
-        Instance.Component<DecisionIdleComponent>(); Instance.Component<ActionIdleComponent>(); Instance.Component<PresentationIdleComponent>();
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
@@ -48,13 +44,7 @@ public partial class EcsWorld : Node
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
         Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
-        // Systems.Debug.DebugActiveActionSystem.Setup(Instance);
-
-        // DAE
-        DecisionIdleSystem.Setup(Instance); ActionIdleSystem.Setup(Instance);
-        ActionFallSystem.Setup(Instance);
-        ActionWalkSystem.Setup(Instance);
-        ActionRunSystem.Setup(Instance);
+        CharacterStateSystem.Setup(Instance);
 
         DebugPrintCharacterStateSystem.Setup(Instance);
 

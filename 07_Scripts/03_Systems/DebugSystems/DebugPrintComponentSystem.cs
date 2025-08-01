@@ -2,8 +2,6 @@ using Flecs.NET.Core;
 using System.Collections.Generic;
 using Kernel;
 using Components.Character;
-using Components.GDAP;
-using Components.Core;
 
 namespace Systems.Debug
 {
@@ -29,7 +27,7 @@ namespace Systems.Debug
             var attachedComponents = new List<string>();
 
             // Check known component types (add more as needed)
-            // if (entity.Has<StateCharacterIdle>()) attachedComponents.Add(nameof(StateCharacterIdle));
+            // if (entity.Has<ActionIdleComponent>()) attachedComponents.Add(nameof(ActionIdleComponent));
             // if (entity.Has<StateCharacterFall>()) attachedComponents.Add(nameof(StateCharacterFall));
             // if (entity.Has<StateCharacterWalk>()) attachedComponents.Add(nameof(StateCharacterWalk));
             // if (entity.Has<StateCharacterRun>()) attachedComponents.Add(nameof(StateCharacterRun));

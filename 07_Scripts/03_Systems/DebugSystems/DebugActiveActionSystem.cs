@@ -1,5 +1,4 @@
 using Flecs.NET.Core;
-using Components.GDAP;
 using Components.Character;
 using Kernel;
 
