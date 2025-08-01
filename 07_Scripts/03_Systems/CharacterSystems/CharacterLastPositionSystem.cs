@@ -47,7 +47,6 @@ public static class CharacterLastPositonSystem
                             entity.Set(timer);
                         }
                     }
-
                 }
             });
     }
