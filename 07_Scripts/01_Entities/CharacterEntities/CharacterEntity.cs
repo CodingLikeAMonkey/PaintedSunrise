@@ -34,7 +34,8 @@ namespace Entities.Character
                 .Add<CharacterComponent>()
                 .Add<CharacterStateComponent>()
                 .Add<PhysicsVelocityComponent>()
-                .Add<PhysicsColliderComponent>();
+                .Add<PhysicsColliderComponent>()
+                .Add<CharacterLastPositionComponent>();
 
             Kernel.NodeRef.Register(characterEntity, this);
 

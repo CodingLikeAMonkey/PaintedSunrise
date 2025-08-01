@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgwaoyoq5f26h"]
+[gd_scene load_steps=3 format=3 uid="uid://hb03lwvsqesa"]
 
-[ext_resource type="Script" uid="uid://c15kipvkfh8sj" path="res://07_Scripts/01_Entities/CharacterEntities/CharacterLastPositionEntity.cs" id="1_6srot"]
+[ext_resource type="Script" path="res://07_Scripts/01_Entities/CharacterEntities/CharacterLastPositionEntity.cs" id="1_6srot"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_an7tn"]
 

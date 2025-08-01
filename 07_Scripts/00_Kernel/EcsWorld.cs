@@ -49,8 +49,9 @@ public partial class EcsWorld : Node
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance);
         CharacterStateSystem.Setup(Instance);
         CharacterJumpSystem.Setup(Instance, InputEntity);
+        CharacterLastPositonSystem.Setup(Instance);
 
-        DebugPrintCharacterStateSystem.Setup(Instance);
+        // DebugPrintCharacterStateSystem.Setup(Instance);
 
 
         // Bridge Systems
