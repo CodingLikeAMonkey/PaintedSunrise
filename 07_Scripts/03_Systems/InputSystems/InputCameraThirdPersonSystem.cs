@@ -12,33 +12,39 @@ namespace Systems.Input
         {
             world.System<CameraThirdPersonStateComponent, CameraThirdPersonConfigComponent>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref CameraThirdPersonStateComponent camState, ref CameraThirdPersonConfigComponent config) =>
+                .MultiThreaded()
+                .Iter((Iter it, Field<CameraThirdPersonStateComponent> ct, Field<CameraThirdPersonConfigComponent> conf) =>
                 {
                     var inputState = inputEntity.Get<InputStateComponent>();
 
-                    // --- Mouse Input ---
-                    if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
+                    for (int i = 0; i < it.Count(); i++)
                     {
-                        camState.rotationDegrees.Y -= inputState.MouseDelta.X * config.HorizontalMouseSensitivity;
-                        camState.rotationDegrees.X -= inputState.MouseDelta.Y * config.VerticalMouseSensitivity;
+                        ref var camState = ref ct[i];
+                        var config = conf[i];
+                        // --- Mouse Input ---
+                        if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
+                        {
+                            camState.rotationDegrees.Y -= inputState.MouseDelta.X * config.HorizontalMouseSensitivity;
+                            camState.rotationDegrees.X -= inputState.MouseDelta.Y * config.VerticalMouseSensitivity;
+                        }
+
+                        // --- Controller Input ---
+                        camState.lookvector = new Vec2Component(
+                            inputState.RightStickInputDir.X,
+                            inputState.RightStickInputDir.Y
+                        );
+
+                        camState.rotationDegrees.Y -= camState.lookvector.X * config.HorizontalControllerSensitivity;
+                        camState.rotationDegrees.X -= (camState.lookvector.Y * config.VerticalControllerSensitivity)
+                                                      * config.InvertVerticalControllerRotation;
+
+                        // Clamp Pitch (X)
+                        camState.rotationDegrees.X = MathUtilComponent.Clamp(
+                            camState.rotationDegrees.X,
+                            config.MaxPitch,
+                            config.MinPitch
+                        );
                     }
-
-                    // --- Controller Input ---
-                    camState.lookvector = new Vec2Component(
-                        inputState.RightStickInputDir.X,
-                        inputState.RightStickInputDir.Y
-                    );
-
-                    camState.rotationDegrees.Y -= camState.lookvector.X * config.HorizontalControllerSensitivity;
-                    camState.rotationDegrees.X -= (camState.lookvector.Y * config.VerticalControllerSensitivity)
-                                                  * config.InvertVerticalControllerRotation;
-
-                    // Clamp Pitch (X)
-                    camState.rotationDegrees.X = MathUtilComponent.Clamp(
-                        camState.rotationDegrees.X,
-                        config.MaxPitch,
-                        config.MinPitch
-                    );
                 });
         }
     }
