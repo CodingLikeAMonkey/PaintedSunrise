@@ -4,6 +4,7 @@ using Components.Singleton;
 using Components.Input;
 using Systems.Core;
 using Systems.Debug;
+using Systems.Character;
 
 namespace Kernel;
 
@@ -42,9 +43,10 @@ public partial class EcsWorld : Node
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
-        Systems.Character.CharacterMovementSystem.Setup(Instance, InputEntity);
+        CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance, InputEntity);
         CharacterStateSystem.Setup(Instance);
+        CharacterJumpSystem.Setup(Instance, InputEntity);
 
         DebugPrintCharacterStateSystem.Setup(Instance);
 

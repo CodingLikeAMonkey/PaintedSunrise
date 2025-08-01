@@ -2,7 +2,7 @@ using Flecs.NET.Core;
 using Components.Character;
 using Components.Physics;
 using Components.Math;
-
+namespace Systems.Character;
 public static class CharacterStateSystem
 {
     public static void Setup(World world)
