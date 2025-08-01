@@ -1,5 +1,4 @@
 using Flecs.NET.Core;
-using Components.Math;
 using Components.Core;
 using Components.Camera;
 
