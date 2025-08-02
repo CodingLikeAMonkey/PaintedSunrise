@@ -13,11 +13,11 @@
         </MainMenu__Option>
 
         <MainMenu__Option flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Option is-type='label'>Options</MainMenu__Option>
+            <MainMenu__Label is-type='label'>Options</MainMenu__Label>
         </MainMenu__Option>
 
         <MainMenu__Option flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Option is-type='label'>Quit game</MainMenu__Option>
+            <MainMenu__Label is-type='label'>Quit game</MainMenu__Label>
         </MainMenu__Option>
     </MainMenu__OptionsContainer>
 </MainMenu>
