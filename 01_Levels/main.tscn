@@ -1,25 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=16 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="Script" uid="uid://dx58c0133g1in" path="res://07_Scripts/03_Systems/00_BridgeSystems/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
+[ext_resource type="Environment" uid="uid://cluu8ilt6r3ip" path="res://08_Resources/Lighting/high_end_environment.tres" id="2_sl5kb"]
+[ext_resource type="CompositorEffect" uid="uid://detdis3hq874f" path="res://NewCloudsGD.tres" id="3_sbbp5"]
 [ext_resource type="PackedScene" uid="uid://bi8poisav4nwi" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor.tscn" id="4_08m6l"]
 [ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="4_r1qyh"]
 [ext_resource type="PackedScene" uid="uid://bbbb4rvjasrs" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--broken_planks.tscn" id="5_sl5kb"]
 [ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
 [ext_resource type="PackedScene" uid="uid://1lsbe87avcha" path="res://02_Assets/UI/ui_interactive.tscn" id="8_sl5kb"]
+[ext_resource type="Script" uid="uid://bxlm4e5qfb7uu" path="res://addons/SunshineClouds2/SunshineCloudEffector.gd" id="10_t8wct"]
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://addons/SunshineClouds2/SunshineCloudsDriver.gd" id="11_ysjqr"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eo7o3"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_q3hbn"]
-sky_material = SubResource("ProceduralSkyMaterial_eo7o3")
-
-[sub_resource type="Environment" id="Environment_oycwn"]
-background_mode = 2
-sky = SubResource("Sky_q3hbn")
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="Compositor" id="Compositor_ab6k4"]
+compositor_effects = Array[CompositorEffect]([ExtResource("3_sbbp5")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bigcu"]
 size = Vector2(100, 100)
@@ -35,10 +29,11 @@ script = ExtResource("1_okx7s")
 PlayerCharacter = NodePath("CB_Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_oycwn")
+environment = ExtResource("2_sl5kb")
+compositor = SubResource("Compositor_ab6k4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.481065, 0.876685, 0, -0.876685, 0.481065, 0, 1.75407, 0)
+transform = Transform3D(1, 0, 0, 0, 0.481065, 0.876685, 0, -0.876685, 0.481065, 0, 27.7541, 0)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -480,3 +475,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99644, 20.1356, -7.62239)
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="UI_Interactive" parent="CanvasLayer2" instance=ExtResource("8_sl5kb")]
+
+[node name="SunshineCloudsEffector" type="Node3D" parent="."]
+script = ExtResource("10_t8wct")
+metadata/_custom_type_script = "uid://bxlm4e5qfb7uu"
+
+[node name="SunshineCloudsDriverGD" type="Node" parent="." node_paths=PackedStringArray("tracked_directional_lights")]
+script = ExtResource("11_ysjqr")
+update_continuously = true
+clouds_resource = ExtResource("3_sbbp5")
+ambience_sample_environment = ExtResource("2_sl5kb")
+tracked_directional_lights = [NodePath("../DirectionalLight3D")]
+tracked_directional_light_shadow_steps = Array[int]([12])
+metadata/_custom_type_script = "uid://djusduuxf0voj"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cbygktrtql47s"]
+[gd_scene load_steps=28 format=3 uid="uid://cbygktrtql47s"]
 
 [ext_resource type="PackedScene" uid="uid://bopqbh8cxbpbm" path="res://02_Assets/Greyblock/arch--point.tscn" id="1_0stw3"]
 [ext_resource type="PackedScene" uid="uid://dglju1y20of1q" path="res://02_Assets/Greyblock/arch--round.tscn" id="2_1c08x"]
@@ -26,19 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://bpubyu52ownxs" path="res://02_Assets/Greyblock/path--medium_b.tscn" id="24_h2udg"]
 [ext_resource type="PackedScene" uid="uid://biep7nm0cte0e" path="res://02_Assets/Greyblock/path--short_a.tscn" id="25_jyduc"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gqf2t"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_e822c"]
-sky_material = SubResource("ProceduralSkyMaterial_gqf2t")
-
-[sub_resource type="Environment" id="Environment_h5kda"]
-background_mode = 2
-sky = SubResource("Sky_e822c")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kc0us"]
 render_priority = 0
 shader = ExtResource("14_mvqf0")
@@ -64,13 +51,6 @@ shader_parameter/uv1_rotate_degrees = 0.0
 data = PackedVector3Array(-13.355, 0, 0, -13.355, 0, -1, -6.9, 4.01, -1, -13.355, 0, -1, -13.355, 0, 0, 1, 0, 0, -6.1, 4.17, -1, -6.9, 4.01, -1, -13.355, 0, -1, -6.9, 4.01, 0, -6.9, 4.01, -1, -6.1, 4.17, -1, -6.9, 4.01, -1, -6.9, 4.01, 0, -13.355, 0, 0, -13.355, 0, 0, -6.9, 4.01, 0, -6.1, 4.17, 0, -6.1, 4.17, -1, -6.1, 4.17, 0, -6.9, 4.01, 0, 1, 0, 0, 1, 0, -1, -13.355, 0, -1, -13.355, 0, -1, 1, 0, -1, -6.1, 4.17, -1, -6.1, 4.17, 0, 1, 0, 0, -13.355, 0, 0, 1, 0, -1, 1, 0, 0, -6.1, 4.17, 0, -6.1, 4.17, 0, -6.1, 4.17, -1, 1, 0, -1)
 
 [node name="TestingWorld" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h5kda")
 
 [node name="SM_Arch--Point" parent="." instance=ExtResource("1_0stw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)

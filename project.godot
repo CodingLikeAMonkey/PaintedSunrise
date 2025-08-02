@@ -13,6 +13,8 @@ config_version=5
 config/name="PaintedSunrise"
 run/main_scene="uid://b116w2w81lkkv"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/fullsize=false
 config/icon="res://03_Textures/icon.svg"
 
 [autoload]
@@ -21,6 +23,10 @@ EcsWorld="*res://07_Scripts/00_Kernel/EcsWorld.cs"
 InputHandler="*res://07_Scripts/00_Kernel/InputHandler.cs"
 Utility="*res://07_Scripts/00_Kernel/Utility.cs"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/vsync/vsync_mode=0
@@ -28,6 +34,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="PaintedSunrise"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SunshineClouds2/plugin.cfg")
 
 [file_customization]
 

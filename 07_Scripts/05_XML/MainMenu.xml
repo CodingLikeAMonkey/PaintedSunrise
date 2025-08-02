@@ -1,23 +1,23 @@
 <MainMenu is-type='ui-container' flex='row' justify-content='center' align-items='center'>
-    <MainMenu__OptionsContainer max-width='1000' flex='column' row-gap='2rem'>
-        <MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Label is-type='label'>New Game</MainMenu__Label>
-        </MainMenu__Option>
+	<MainMenu__OptionsContainer max-width='1000' flex='column' row-gap='2rem'>
+		<MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
+			<MainMenu__Label is-type='label'>New Game</MainMenu__Label>
+		</MainMenu__Option>
 
-        <MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Label is-type='label'>Continue</MainMenu__Label>
-        </MainMenu__Option>
+		<MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
+			<MainMenu__Label is-type='label'>Continue</MainMenu__Label>
+		</MainMenu__Option>
 
-        <MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Label is-type='label'>Load Game</MainMenu__Label>
-        </MainMenu__Option>
+		<MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
+			<MainMenu__Label is-type='label'>Load Game</MainMenu__Label>
+		</MainMenu__Option>
 
-        <MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Label is-type='label'>Options</MainMenu__Label>
-        </MainMenu__Option>
+		<MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
+			<MainMenu__Label is-type='label'>Options</MainMenu__Label>
+		</MainMenu__Option>
 
-        <MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
-            <MainMenu__Label is-type='label'>Quit game</MainMenu__Label>
-        </MainMenu__Option>
-    </MainMenu__OptionsContainer>
+		<MainMenu__Option is-type='ui-interactable' flex='row' justify-content='center' align-items='center' padding='1rem'>
+			<MainMenu__Label is-type='label'>Quit game</MainMenu__Label>
+		</MainMenu__Option>
+	</MainMenu__OptionsContainer>
 </MainMenu>
