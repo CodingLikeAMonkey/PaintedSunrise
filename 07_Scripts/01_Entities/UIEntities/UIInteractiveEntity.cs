@@ -24,8 +24,7 @@ public partial class UIInteractiveEntity : Control
                 Width = Size.X,
                 Height = Size.Y
             })
-            .Add<UIInteractiveComponent>()
-            .Add<UIInteractionEventComponent>();
+            .Add<UIInteractiveComponent>();
 
         Kernel.NodeRef<Control>.Register(entity, this);
     }

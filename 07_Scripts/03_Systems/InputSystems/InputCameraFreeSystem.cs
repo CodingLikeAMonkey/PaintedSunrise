@@ -13,26 +13,32 @@ namespace Systems.Input
         {
             world.System<CameraFreeComponent>()
                 .Kind(Ecs.OnUpdate)
-                .Each((ref CameraFreeComponent cam) =>
+                .MultiThreaded()
+                .Iter((Iter it, Field<CameraFreeComponent> cf) =>
                 {
-                    var inputState = inputEntity.Get<InputStateComponent>();
-                    var singleton = world.Lookup("Singleton");
-                    if (!singleton.IsValid()) return;
+                    for (int i = 0; i < it.Count(); i++)
+                    {
+                        ref var cam = ref cf[i];
 
-                    var gameState = singleton.Get<SingletonGameStateComponent>();
-                    if (gameState.CurrentGameState != GameStateEnum.Gameplay)
-                        return;
+                        var inputState = inputEntity.Get<InputStateComponent>();
+                        var singleton = world.Lookup("Singleton");
+                        if (!singleton.IsValid()) return;
 
-                    // Build axis inputs
-                    int x =  (inputState.MoveRight ?  1 : 0)
-                           - (inputState.MoveLeft  ?  1 : 0);
-                    int y =  (inputState.MoveUp    ?  1 : 0)
-                           - (inputState.MoveDown  ?  1 : 0);
-                    int z =  (inputState.MoveForward ? 1 : 0)
-                           - (inputState.MoveBackward? 1 : 0);
+                        var gameState = singleton.Get<SingletonGameStateComponent>();
+                        if (gameState.CurrentGameState != GameStateEnum.Gameplay)
+                            return;
 
-                    cam.MovementDirection = new Vec3Component(x, y, z).Normalized();
-                    cam.IsBoosted         = inputState.Boost;
+                        // Build axis inputs
+                        int x = (inputState.MoveRight ? 1 : 0)
+                               - (inputState.MoveLeft ? 1 : 0);
+                        int y = (inputState.MoveUp ? 1 : 0)
+                               - (inputState.MoveDown ? 1 : 0);
+                        int z = (inputState.MoveForward ? 1 : 0)
+                               - (inputState.MoveBackward ? 1 : 0);
+
+                        cam.MovementDirection = new Vec3Component(x, y, z).Normalized();
+                        cam.IsBoosted = inputState.Boost;
+                    }
                 });
         }
     }

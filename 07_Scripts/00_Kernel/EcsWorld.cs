@@ -6,6 +6,8 @@ using Systems.Core;
 using Systems.Debug;
 using Systems.Character;
 using Systems.Input;
+using Components.UI;
+using Systems.UI;
 
 namespace Kernel;
 
@@ -31,6 +33,9 @@ public partial class EcsWorld : Node
         Instance.Component<Components.Physics.PhysicsGravityComponent>();
         Instance.Component<Components.Physics.PhysicsVelocityComponent>();
         Instance.Component<InputStateComponent>();
+        Instance.Component<UIBoundingBoxComponent>();
+        Instance.Component<UIInteractionEventComponent>();
+        Instance.Component<UIInteractiveComponent>();
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
@@ -44,12 +49,13 @@ public partial class EcsWorld : Node
         InputCameraThirdPersonSystem.Setup(Instance, InputEntity);
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
-        Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
+        // Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
         CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance);
         CharacterStateSystem.Setup(Instance);
         CharacterJumpSystem.Setup(Instance, InputEntity);
         CharacterLastPositonSystem.Setup(Instance);
+        UIInteractiveSystem.Setup(Instance, InputEntity);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);
 

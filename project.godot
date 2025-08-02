@@ -21,10 +21,6 @@ EcsWorld="*res://07_Scripts/00_Kernel/EcsWorld.cs"
 InputHandler="*res://07_Scripts/00_Kernel/InputHandler.cs"
 Utility="*res://07_Scripts/00_Kernel/Utility.cs"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/vsync/vsync_mode=0
