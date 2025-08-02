@@ -1,21 +1,29 @@
 using Godot;
 using System;
+using System.IO;
 
 namespace Kernel;
 
 public partial class Utility : Node
 {
-    // public static string GetBaseLODPath(string scenePath)
-    // {
-    //     string fileName = scenePath.GetFile();
-    //     string baseName = fileName.Split("--")[0];
-    //     string directory = scenePath.GetBaseDir();
-    //     return $"{directory}/LODs/{baseName}--LOD1.tscn";
-    // }
+
+    public static string GetRootPath()
+    {
+        string binFolder = AppContext.BaseDirectory;
+        string projectRoot = Path.GetFullPath(Path.Combine(binFolder, "..", "..", "..", "..", ".."));
+
+        return projectRoot;
+    }
+
+    public static string GetPath(string localPath)
+    {
+        string absolutePath = Path.GetFullPath(Path.Combine(GetRootPath(), localPath));
+        return absolutePath;
+    }
 
     public static string GetUnifiedLOD1Path(string scenePath)
     {
-        string fileName = scenePath.GetFile(); 
+        string fileName = scenePath.GetFile();
         string baseName = fileName.Split("--")[0];
 
         if (baseName.EndsWith(".tscn"))
@@ -32,6 +40,14 @@ public partial class Utility : Node
     {
         return $"{scenePath}--LOD1.tscn";
     }
+
+// public static string GetBaseLODPath(string scenePath)
+    // {
+    //     string fileName = scenePath.GetFile();
+    //     string baseName = fileName.Split("--")[0];
+    //     string directory = scenePath.GetBaseDir();
+    //     return $"{directory}/LODs/{baseName}--LOD1.tscn";
+    // }
 
     // old version, expects a unique LOD1 per modifier
 
