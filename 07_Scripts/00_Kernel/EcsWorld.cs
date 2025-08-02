@@ -49,7 +49,7 @@ public partial class EcsWorld : Node
         InputCameraThirdPersonSystem.Setup(Instance, InputEntity);
         Systems.Input.InputCameraFreeSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraFreeSystem.Setup(Instance, InputEntity);
-        // Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
+        Systems.Core.Fsm.GameStateSystem.Setup(Instance, InputEntity);
         CharacterMovementSystem.Setup(Instance, InputEntity);
         Systems.Camera.CameraThirdPersonSystem.Setup(Instance);
         CharacterStateSystem.Setup(Instance);
@@ -57,6 +57,7 @@ public partial class EcsWorld : Node
         CharacterLastPositonSystem.Setup(Instance);
         UIInteractiveSystem.Setup(Instance, InputEntity);
         DebugUIInteractiveStats.Setup(Instance);
+        // DebugGameStateSystem.Setup(Instance);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);
 

@@ -5,11 +5,13 @@ using Components.Core;
 using Components.Math;
 using Components.UI;
 
-public partial class UIInteractiveEntity : MarginContainer
+public partial class UIInteractiveEntity : Control
 {
     private Entity entity;
     public override void _Ready()
     {
+        SizeFlagsHorizontal = (int)SizeFlags.ShrinkBegin;
+        SizeFlagsVertical   = (int)SizeFlags.ShrinkBegin;
         var world = Kernel.EcsWorld.Instance;
         entity = world
         .Entity()
@@ -26,7 +28,7 @@ public partial class UIInteractiveEntity : MarginContainer
             })
             .Add<UIInteractiveComponent>();
 
-        Kernel.NodeRef<MarginContainer>.Register(entity, this);
+        Kernel.NodeRef<Control>.Register(entity, this);
     }
 
 }

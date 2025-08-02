@@ -1,6 +1,8 @@
 using Flecs.NET.Core;
 using Components.Singleton;
 using Components.Input;
+using Components.UI;
+using Kernel;
 
 namespace Systems.Core.Fsm;
 
@@ -19,13 +21,25 @@ public partial class GameStateSystem
                 var gameState = gs[i];
                 ref var mouseMode = ref mm[i];
 
-                if (inputState.LeftPressed)
+                if (inputState.LeftReleased)
                 {
-                    gameState.CurrentGameState = GameStateEnum.Gameplay;
-                    mouseMode.CurrentMouseMode = MouseModeEnum.Captured;
+                    bool anyHovered = false;
+                    var query = world.Query<UIInteractiveComponent>();
+
+                    query.Each((ref UIInteractiveComponent interactiveComponent) =>
+                        {
+                            if (interactiveComponent.Hover)
+                                anyHovered = true;
+                        });
+
+                    if (!anyHovered)
+                    {
+                        gameState.CurrentGameState = GameStateEnum.Gameplay;
+                        mouseMode.CurrentMouseMode = MouseModeEnum.Captured;
+                    }
                 }
 
-                if (inputState.EscapePressed)
+                if (inputState.EscapePressed && gameState.CurrentGameState == GameStateEnum.Gameplay)
                 {
                     gameState.CurrentGameState = GameStateEnum.Debug;
                     mouseMode.CurrentMouseMode = MouseModeEnum.Visible;

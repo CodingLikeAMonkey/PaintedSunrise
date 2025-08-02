@@ -1,25 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://1lsbe87avcha"]
+[gd_scene load_steps=2 format=3 uid="uid://1lsbe87avcha"]
 
 [ext_resource type="Script" uid="uid://cncpte0tsnaqe" path="res://07_Scripts/01_Entities/UIEntities/UIInteractiveEntity.cs" id="1_5pewa"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5pewa"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lj665"]
-noise = SubResource("FastNoiseLite_5pewa")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_c3yi5"]
-diffuse_texture = SubResource("NoiseTexture2D_lj665")
-
-[node name="UI_Interactive" type="MarginContainer"]
-anchors_preset = -1
-anchor_right = 0.245
-anchor_bottom = 0.424
-offset_right = 229.76
-offset_bottom = 237.248
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UI_Interactive" type="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 138.0
+offset_bottom = 77.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_5pewa")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Interactive__Buton" type="Label" parent="MarginContainer"]
 layout_mode = 2
-texture = SubResource("CanvasTexture_c3yi5")
+theme_override_font_sizes/font_size = 32
+text = "Button"
