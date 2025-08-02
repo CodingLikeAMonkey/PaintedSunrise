@@ -21,7 +21,7 @@ public partial class CamFreeEntity : Camera3D
             .Set(new CameraFreeComponent{})
             .Add<CameraComponent>();
 
-        Kernel.CameraNodeRef.Register(cameraEntity, this);
+        Kernel.NodeRef<Camera3D>.Register(cameraEntity, this);
     }
 
     public override void _Process(double delta)

@@ -37,7 +37,7 @@ namespace Entities.Character
                 .Add<PhysicsColliderComponent>()
                 .Add<CharacterLastPositionComponent>();
 
-            Kernel.NodeRef.Register(characterEntity, this);
+            Kernel.NodeRef<Node3D>.Register(characterEntity, this);
 
             foreach (Node child in GetChildren())
             {
@@ -52,7 +52,7 @@ namespace Entities.Character
                             Scale = (Vec3Component)node3D.Scale
                         });
 
-                    Kernel.NodeRef.Register(visualBodyEntity, node3D);
+                    Kernel.NodeRef<Node3D>.Register(visualBodyEntity, node3D);
 
                     break;
                 }

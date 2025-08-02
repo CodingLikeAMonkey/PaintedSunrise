@@ -12,7 +12,7 @@ namespace Systems.Bridge
                 .Kind(Ecs.PostUpdate)
                 .Each((Entity entity, ref CameraComponent camera) =>
                 {
-                    if (Kernel.CameraNodeRef.TryGet(entity, out Camera3D camNode))
+                    if (Kernel.NodeRef<Camera3D>.TryGet(entity, out Camera3D camNode))
                     {
                         if (camera.IsPreferred  == true)
                         {

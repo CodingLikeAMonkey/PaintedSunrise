@@ -40,7 +40,7 @@ namespace Systems.Bridge
 
         public void AssignPlayer(Node3D characterNode)
         {
-            if (Kernel.NodeRef.TryGetFromNode(characterNode, out Entity entity))
+            if (Kernel.NodeRef<Node3D>.TryGetFromNode(characterNode, out Entity entity))
             {
                 entity.Add<CharacterPlayerComponent>();
                 _playerEntity = entity;

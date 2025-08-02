@@ -20,10 +20,10 @@ public partial class MeshStaticEntity : Node3D
      public override void _Ready()
     {
         // ALWAYS register the node, even if skipping entity creation
-        if (!Kernel.NodeRef.TryGetFromNode(this, out _))
+        if (!Kernel.NodeRef<Node3D>.TryGetFromNode(this, out _))
         {
             _entity = Kernel.EcsWorld.Instance.Entity();
-            Kernel.NodeRef.Register(_entity, this);
+            Kernel.NodeRef<Node3D>.Register(_entity, this);
             // GD.Print($"Registered node {Name} with entity {_entity.Id}");
         }
 
@@ -46,9 +46,9 @@ public partial class MeshStaticEntity : Node3D
 
     public override void _ExitTree()
     {
-        if (Kernel.NodeRef.TryGetFromNode(this, out Entity entity))
+        if (Kernel.NodeRef<Node3D>.TryGetFromNode(this, out Entity entity))
         {
-            Kernel.NodeRef.Unregister(entity);
+            Kernel.NodeRef<Node3D>.Unregister(entity);
             // GD.Print($"Unregistered entity {entity.Id}");
         }
     }

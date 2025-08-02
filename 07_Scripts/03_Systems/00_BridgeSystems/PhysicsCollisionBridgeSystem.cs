@@ -15,7 +15,7 @@ public static class PhysicsCollisionBridgeSystem
         .Kind(Ecs.OnUpdate)
         .Each((ref Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity, ref PhysicsColliderComponent collider) =>
         {
-            if (!Kernel.NodeRef.TryGet(entity, out Node3D node)) return;
+            if (!Kernel.NodeRef<Node3D>.TryGet(entity, out Node3D node)) return;
             
             if (node is CharacterBody3D characterBody)
             {
