@@ -16,7 +16,7 @@ public static class CameraFreeBridgeSystem
             .Kind(Ecs.PostUpdate)
             .Each((Entity entity, ref Components.Core.TransformComponent t, ref CameraFreeComponent free) =>
             {
-                if (!Kernel.CameraNodeRef.TryGet(entity, out var node)) 
+                if (!Kernel.NodeRef<Camera3D>.TryGet(entity, out var node)) 
                     return;
 
                 node.GlobalPosition = t.Position.ToGodot();

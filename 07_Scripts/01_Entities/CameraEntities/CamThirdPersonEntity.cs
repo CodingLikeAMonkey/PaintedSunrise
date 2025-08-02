@@ -29,14 +29,14 @@ public partial class CamThirdPersonEntity : Node3D
 
             .Add<CameraThirdPersonStateComponent>();
 
-            Kernel.NodeRef.Register(entity, this);
+            Kernel.NodeRef<Node3D>.Register(entity, this);
 
             // Find Camera3D child and register it with same entity
             var camNode = GetNodeOrNull<Camera3D>("ThirdPersonCamera__SpringArm/ThirdPersonCamera__Camera"); // adjust path as needed
             if (camNode != null)
             {
                 GD.Print(camNode.Name);
-                Kernel.CameraNodeRef.Register(entity, camNode); // You need a CameraNodeRef similar to NodeRef, or reuse NodeRef if you want
+                Kernel.NodeRef<Camera3D>.Register(entity, camNode); // You need a CameraNodeRef similar to NodeRef, or reuse NodeRef if you want
             };
     }
 }

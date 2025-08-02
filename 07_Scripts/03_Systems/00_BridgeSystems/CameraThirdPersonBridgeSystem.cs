@@ -16,7 +16,7 @@ namespace Systems.Bridge
                     {
                         Entity entity = it.Entity(i);
 
-                        if (!Kernel.CameraNodeRef.TryGet(entity, out Camera3D camNode))
+                        if (!Kernel.NodeRef<Camera3D>.TryGet(entity, out Camera3D camNode))
                             continue;
 
                         Godot.SpringArm3D springArm = camNode.GetParent<SpringArm3D>();

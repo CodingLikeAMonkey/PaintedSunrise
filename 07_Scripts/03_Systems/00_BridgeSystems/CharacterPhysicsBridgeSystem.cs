@@ -15,7 +15,7 @@ namespace Systems.Bridge
                 .Kind(Ecs.OnUpdate)
                 .Each((Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity, ref PhysicsGravityComponent gravity) =>
                 {
-                    if (!Kernel.NodeRef.TryGet(entity, out Node3D node))
+                    if (!Kernel.NodeRef<Node3D>.TryGet(entity, out Node3D node))
                     {
                         return;
                     }

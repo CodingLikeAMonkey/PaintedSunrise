@@ -5,44 +5,42 @@ using Godot;
 
 namespace Kernel
 {
-    public static class NodeRef
+    public static class NodeRef<T> where T : Node
     {
-        private static readonly Dictionary<Entity, Node3D> EntityToNode = new();
-        private static readonly Dictionary<Node3D, Entity> NodeToEntity = new();
+        private static readonly Dictionary<Entity, T> EntityToNode = new();
+        private static readonly Dictionary<T, Entity> NodeToEntity = new();
 
-        public static void Register(Entity entity, Node3D node)
+        public static void Register(Entity entity, T node)
         {
             if (entity.IsAlive())
             {
                 EntityToNode[entity] = node;
                 NodeToEntity[node] = entity;
-                // GD.Print($"NodeRef: Registered entity {entity.Id} with {node.Name}");
             }
         }
-        
+
         public static void Unregister(Entity entity)
         {
-            if (EntityToNode.TryGetValue(entity, out Node3D node))
+            if (EntityToNode.TryGetValue(entity, out T node))
             {
                 EntityToNode.Remove(entity);
                 NodeToEntity.Remove(node);
-                // GD.Print($"NodeRef: Unregistered entity {entity.Id}");
             }
         }
-        
-        public static bool TryGet(Entity entity, out Node3D node) => 
+
+        public static bool TryGet(Entity entity, out T node) =>
             EntityToNode.TryGetValue(entity, out node);
-            
-        public static bool TryGetFromNode(Node3D node, out Entity entity) => 
+
+        public static bool TryGetFromNode(T node, out Entity entity) =>
             NodeToEntity.TryGetValue(node, out entity);
-        
-        public static void Update(Entity entity, Node3D newNode)
+
+        public static void Update(Entity entity, T newNode)
         {
-            if (EntityToNode.TryGetValue(entity, out Node3D oldNode))
+            if (EntityToNode.TryGetValue(entity, out T oldNode))
             {
                 NodeToEntity.Remove(oldNode);
             }
-            
+
             EntityToNode[entity] = newNode;
             NodeToEntity[newNode] = entity;
         }

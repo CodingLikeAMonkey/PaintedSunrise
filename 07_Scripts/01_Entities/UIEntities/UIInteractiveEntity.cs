@@ -27,7 +27,7 @@ public partial class UIInteractiveEntity : Control
             .Add<UIInteractiveComponent>()
             .Add<UIInteractionEventComponent>();
 
-        Kernel.ControlNodeRef.Register(entity, this);
+        Kernel.NodeRef<Control>.Register(entity, this);
     }
 
 }

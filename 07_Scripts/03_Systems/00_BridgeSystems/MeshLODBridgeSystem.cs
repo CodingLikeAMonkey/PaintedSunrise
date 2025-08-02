@@ -96,7 +96,7 @@ namespace Systems.Bridge
                         // Always update timer if modified
                         entity.Set(timer);
 
-                        if (!NodeRef.TryGet(entity, out Node3D currentNode))
+                        if (!NodeRef<Node3D>.TryGet(entity, out Node3D currentNode))
                         {
                             Log.PrintError("LOD System: No node associated with entity");
                             continue;
@@ -122,7 +122,7 @@ namespace Systems.Bridge
 
                                 lod1Instance.GlobalTransform = oldTransform;
                                 parent.AddChild(lod1Instance);
-                                NodeRef.Update(entity, lod1Instance);
+                                NodeRef<Node3D>.Update(entity, lod1Instance);
                                 lod.CurrentLod = 1;
                                 oldNode.QueueFree();
                             }
@@ -143,7 +143,7 @@ namespace Systems.Bridge
 
                                 originalInstance.GlobalTransform = oldTransform;
                                 parent.AddChild(originalInstance);
-                                NodeRef.Update(entity, originalInstance);
+                                NodeRef<Node3D>.Update(entity, originalInstance);
                                 lod.CurrentLod = 0;
                                 oldNode.QueueFree();
                             }
