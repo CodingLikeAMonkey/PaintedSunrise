@@ -55,65 +55,74 @@ namespace Systems.Character
                             ref var player = ref p[i];
                             var inputDeadZone = idz[i];
 
+                            Vec2Component inputDir = inputState.LeftStickInputDir;
+                            player.HasInput = inputDir.Length() > 0.1f;
+
+                            if (player.HasInput)
+                            {
+                                player.WalkInputHoldTime += delta;
+                                player.LastInputDirection = inputDir;
+                                player.WasRotatingFromTap = true;
+                            }
+                            else
+                            {
+                                player.WalkInputHoldTime = 0.0f;
+                            }
+
                             if (character.IsGrounded)
                             {
-                                Vec2Component inputDir = inputState.LeftStickInputDir;
-                                player.HasInput = inputDir.Length() > 0.1f;
+                                stats.CurrentAcceleration = stats.Acceleration;
+                                stats.CurrentTurnSpeed = stats.TurnSpeed;
+                            }
+                            else
+                            {
+                                stats.CurrentAcceleration = stats.AirAcceleration;
+                                stats.CurrentTurnSpeed = stats.AirTurnSpeed;
+                            }
 
-                                if (player.HasInput)
+                            // Convert 2D input to 3D movement direction
+                            Vec3Component moveDir = default;
+                            if (player.HasInput)
+                            {
+                                moveDir = Normalize(right * inputDir.X + forward * inputDir.Y);
+                                player.LastMoveDir = moveDir;
+                            }
+                            else
+                            {
+                                moveDir = player.LastMoveDir;
+                            }
+
+                            // Apply body rotation
+                            if (player.HasInput || player.WasRotatingFromTap)
+                            {
+                                float targetYaw = MathUtilComponent.Atan2(moveDir.X, moveDir.Z);
+                                character.GhostBodyYaw = MathUtilComponent.LerpAngle(character.GhostBodyYaw, targetYaw, stats.CurrentTurnSpeed * delta);
+                                float angleDiff = MathUtilComponent.Abs(MathUtilComponent.PosMod(character.GhostBodyYaw - targetYaw + MathF.PI, MathF.Tau) - MathF.PI);
+                                if (!player.HasInput && angleDiff < 0.05f)
+                                    player.WasRotatingFromTap = false;
+                            }
+
+                            // Apply movement
+                            if (inputDir.LengthSquared() > inputDeadZone.Value)
+                            {
+                                if (inputState.LeftStickInputDir.Length() < stats.WalkThreshold)
                                 {
-                                    player.WalkInputHoldTime += delta;
-                                    player.LastInputDirection = inputDir;
-                                    player.WasRotatingFromTap = true;
+                                    stats.CurrentSpeed = stats.WalkSpeed;
                                 }
                                 else
                                 {
-                                    player.WalkInputHoldTime = 0.0f;
+                                    stats.CurrentSpeed = stats.Speed;
                                 }
 
-                                // Convert 2D input to 3D movement direction
-                                Vec3Component moveDir = default;
-                                if (player.HasInput)
-                                {
-                                    moveDir = Normalize(right * inputDir.X + forward * inputDir.Y);
-                                    player.LastMoveDir = moveDir;
-                                }
-                                else
-                                {
-                                    moveDir = player.LastMoveDir;
-                                }
+                                inputDir = inputDir.Normalized();
 
-                                // Apply body rotation
-                                if (player.HasInput || player.WasRotatingFromTap)
-                                {
-                                    float targetYaw = MathUtilComponent.Atan2(moveDir.X, moveDir.Z);
-                                    character.GhostBodyYaw = MathUtilComponent.LerpAngle(character.GhostBodyYaw, targetYaw, stats.TurnSpeed * delta);
-                                    float angleDiff = MathUtilComponent.Abs(MathUtilComponent.PosMod(character.GhostBodyYaw - targetYaw + MathF.PI, MathF.Tau) - MathF.PI);
-                                    if (!player.HasInput && angleDiff < 0.05f)
-                                        player.WasRotatingFromTap = false;
-                                }
-
-                                // Apply movement
-                                if (inputDir.LengthSquared() > inputDeadZone.Value)
-                                {
-                                    if (inputState.LeftStickInputDir.Length() < stats.WalkThreshold)
-                                    {
-                                        stats.CurrentSpeed = stats.WalkSpeed;
-                                    }
-                                    else
-                                    {
-                                        stats.CurrentSpeed = stats.Speed;
-                                    }
-                                    inputDir = inputDir.Normalized();
-
-                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * stats.CurrentSpeed, stats.Acceleration * delta);
-                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * stats.CurrentSpeed, stats.Acceleration * delta);
-                                }
-                                else
-                                {
-                                    velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, 0, stats.Friction * delta);
-                                    velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, 0, stats.Friction * delta);
-                                }
+                                velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, moveDir.X * stats.CurrentSpeed, stats.CurrentAcceleration * delta);
+                                velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, moveDir.Z * stats.CurrentSpeed, stats.CurrentAcceleration * delta);
+                            }
+                            else
+                            {
+                                velocity.Value.X = MathUtilComponent.MoveToward(velocity.Value.X, 0, stats.Friction * delta);
+                                velocity.Value.Z = MathUtilComponent.MoveToward(velocity.Value.Z, 0, stats.Friction * delta);
                             }
                         }
                     });
