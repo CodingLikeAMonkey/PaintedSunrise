@@ -10,6 +10,8 @@ using Components.UI;
 using Systems.UI;
 using Components.XML;
 using Systems.XML;
+using Classes.UI;
+
 
 namespace Kernel;
 
@@ -51,9 +53,10 @@ public partial class EcsWorld : Node
 
         Entity mainMenuXML = Instance.Entity()
             .Set(new XMLFileComponent
-            { 
-                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml") 
-            });
+            {
+                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml")
+            })
+            .Add<ParsedUIComponent>();
 
         MouseModeSystem.Setup(Instance);
         InputCameraThirdPersonSystem.Setup(Instance, InputEntity);
@@ -68,6 +71,7 @@ public partial class EcsWorld : Node
         UIInteractiveSystem.Setup(Instance, InputEntity);
         DebugUIInteractiveStats.Setup(Instance);
         XMLParserSystem.Setup(Instance);
+        // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);
