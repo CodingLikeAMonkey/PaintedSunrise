@@ -56,6 +56,7 @@ public partial class EcsWorld : Node
         CharacterJumpSystem.Setup(Instance, InputEntity);
         CharacterLastPositonSystem.Setup(Instance);
         UIInteractiveSystem.Setup(Instance, InputEntity);
+        DebugUIInteractiveStats.Setup(Instance);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);
 

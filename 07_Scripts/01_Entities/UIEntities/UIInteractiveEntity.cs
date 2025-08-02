@@ -5,7 +5,7 @@ using Components.Core;
 using Components.Math;
 using Components.UI;
 
-public partial class UIInteractiveEntity : Control
+public partial class UIInteractiveEntity : MarginContainer
 {
     private Entity entity;
     public override void _Ready()
@@ -26,7 +26,7 @@ public partial class UIInteractiveEntity : Control
             })
             .Add<UIInteractiveComponent>();
 
-        Kernel.NodeRef<Control>.Register(entity, this);
+        Kernel.NodeRef<MarginContainer>.Register(entity, this);
     }
 
 }

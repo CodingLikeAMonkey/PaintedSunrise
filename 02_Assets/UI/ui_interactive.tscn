@@ -10,18 +10,16 @@ noise = SubResource("FastNoiseLite_5pewa")
 [sub_resource type="CanvasTexture" id="CanvasTexture_c3yi5"]
 diffuse_texture = SubResource("NoiseTexture2D_lj665")
 
-[node name="UI_Interactive" type="Control"]
-layout_mode = 3
+[node name="UI_Interactive" type="MarginContainer"]
+anchors_preset = -1
 anchor_right = 0.245
 anchor_bottom = 0.424
-offset_right = -0.23999
-offset_bottom = 0.247986
+offset_right = 229.76
+offset_bottom = 237.248
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5pewa")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-offset_right = 512.0
-offset_bottom = 512.0
+layout_mode = 2
 texture = SubResource("CanvasTexture_c3yi5")
