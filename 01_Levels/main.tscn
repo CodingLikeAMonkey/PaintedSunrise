@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1lsbe87avcha" path="res://02_Assets/UI/ui_interactive.tscn" id="8_sl5kb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bigcu"]
-size = Vector2(100, 100)
+size = Vector2(10000, 10000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08m6l"]
 albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
@@ -466,7 +466,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99644, 20.1356, -7.62239)
 [node name="UI_Interactive" parent="CanvasLayer2" instance=ExtResource("8_sl5kb")]
 
 [node name="SunAndMoon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 22, 0)
+transform = Transform3D(1, 0, 0, 0, -0.965926, -0.258819, 0, 0.258819, -0.965926, 0, 22, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="SunAndMoon"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
