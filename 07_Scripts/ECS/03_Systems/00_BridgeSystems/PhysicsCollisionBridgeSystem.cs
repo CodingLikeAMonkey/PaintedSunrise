@@ -11,9 +11,9 @@ public static class PhysicsCollisionBridgeSystem
 {
     public static void Setup(World world)
 {
-    world.System<Entity, TransformComponent, PhysicsVelocityComponent, PhysicsColliderComponent>()
+    world.System<Entity, TransformComponent, PhysicsVelocityComponent>()
         .Kind(Ecs.OnUpdate)
-        .Each((ref Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity, ref PhysicsColliderComponent collider) =>
+        .Each((ref Entity entity, ref TransformComponent transform, ref PhysicsVelocityComponent velocity) =>
         {
             if (!Kernel.NodeRef<Node3D>.TryGet(entity, out Node3D node)) return;
             

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://1lsbe87avcha"]
 
-[ext_resource type="Script" uid="uid://cncpte0tsnaqe" path="res://07_Scripts/01_Entities/UIEntities/UIInteractiveEntity.cs" id="1_5pewa"]
+[ext_resource type="Script" uid="uid://cncpte0tsnaqe" path="res://07_Scripts/ECS/01_Entities/UIEntities/UIInteractiveEntity.cs" id="1_5pewa"]
 
 [node name="UI_Interactive" type="Control"]
 custom_minimum_size = Vector2(10, 10)

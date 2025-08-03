@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CRS_CharacterMovementStats" load_steps=2 format=3 uid="uid://6feri3idfikq"]
+
+[ext_resource type="Script" uid="uid://bouydl0f2jehi" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CharacterResourceScripts/CRS_CharacterMovementStats.cs" id="1_n8m5r"]
+
+[resource]
+script = ExtResource("1_n8m5r")
+WalkThreshold = 0.7
+TapThreshold = 0.06
+Speed = 3.0
+WalkSpeed = 1.2
+Acceleration = 25.0
+Friction = 35.0
+TurnSpeed = 10.0
+JumpImpulse = 5.0
+AirAcceleration = 0.05
+AirTurnSpeed = 0.1
+metadata/_custom_type_script = "uid://bouydl0f2jehi"

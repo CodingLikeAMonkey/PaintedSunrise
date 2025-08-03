@@ -11,6 +11,7 @@ using Systems.UI;
 using Components.XML;
 using Systems.XML;
 using Classes.UI;
+using System.Diagnostics;
 
 
 namespace Kernel;
@@ -54,7 +55,7 @@ public partial class EcsWorld : Node
         Entity mainMenuXML = Instance.Entity()
             .Set(new XMLFileComponent
             {
-                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml")
+                FilePath = Kernel.Utility.GetPath("07_Scripts/XML/MainMenu.xml")
             })
             .Add<ParsedUIComponent>();
 
@@ -75,6 +76,7 @@ public partial class EcsWorld : Node
         // DebugGameStateSystem.Setup(Instance);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);
+        // DebugPrintPlayerDataSystem.Setup(Instance);
 
 
         // Bridge Systems

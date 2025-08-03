@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CRS_InputDeadZone" load_steps=2 format=3 uid="uid://bf1vmxa3116j8"]
+
+[ext_resource type="Script" uid="uid://dn5qlwsyd8td2" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/InputResourceScripts/CRS_InputDeadZone.cs" id="1_miwak"]
+
+[resource]
+script = ExtResource("1_miwak")
+InputDeadzone = 0.001
+metadata/_custom_type_script = "uid://dn5qlwsyd8td2"

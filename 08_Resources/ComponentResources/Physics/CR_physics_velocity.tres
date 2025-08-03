@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CRS_PhysicsVelocity" load_steps=2 format=3 uid="uid://cbby68nndyimo"]
+
+[ext_resource type="Script" uid="uid://bkpolx2i7huu5" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/PhysicsResourceScripts/CRS_PhysicsVelocity.cs" id="1_s3us7"]
+
+[resource]
+script = ExtResource("1_s3us7")
+metadata/_custom_type_script = "uid://bkpolx2i7huu5"

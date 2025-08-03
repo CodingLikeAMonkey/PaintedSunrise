@@ -5,5 +5,5 @@ using System;
 [GlobalClass]
 public abstract partial class ComponentResource : Resource
 {
-    public abstract void ApplyToEntity(Entity entity);
+    public abstract void ApplyToEntity(Entity entity, Node3D ownerNode);
 }

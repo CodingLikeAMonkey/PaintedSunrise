@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CRS_CharacterLastPosition" load_steps=2 format=3 uid="uid://dydvmnk3cgku5"]
+
+[ext_resource type="Script" uid="uid://bof7j3ecqs6e0" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CharacterResourceScripts/CRS_CharacterLastPosition.cs" id="1_4gwiv"]
+
+[resource]
+script = ExtResource("1_4gwiv")
+metadata/_custom_type_script = "uid://bof7j3ecqs6e0"

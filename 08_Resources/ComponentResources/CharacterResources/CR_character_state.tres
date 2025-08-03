@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CRS_CharacterState" load_steps=2 format=3 uid="uid://cnin2v4pcnfax"]
+
+[ext_resource type="Script" uid="uid://ctjvhcqy6hdj3" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CharacterResourceScripts/CRS_CharacterState.cs" id="1_8ijdh"]
+
+[resource]
+script = ExtResource("1_8ijdh")
+metadata/_custom_type_script = "uid://ctjvhcqy6hdj3"

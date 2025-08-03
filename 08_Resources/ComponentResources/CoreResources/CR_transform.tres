@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CRS_Transform" load_steps=2 format=3 uid="uid://dghe3dgmv7e1s"]
+
+[ext_resource type="Script" uid="uid://c3q42486llf7e" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CoreResourceScripts/CRS_Transform.cs" id="1_dxe5o"]
+
+[resource]
+script = ExtResource("1_dxe5o")
+Position = Vector3(4.996, 0, 0)
+Rotation = Vector3(0, 20.136, -7.622)
+Scale = Vector3(1, 1, 1)
+metadata/_custom_type_script = "uid://c3q42486llf7e"

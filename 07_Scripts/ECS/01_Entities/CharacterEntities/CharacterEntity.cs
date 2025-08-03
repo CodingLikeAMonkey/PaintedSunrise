@@ -10,6 +10,7 @@ namespace Entities.Character
 {
     public partial class CharacterEntity : CharacterBody3D
     {
+        [Export] public ComponentResource[] Components;
         private Entity characterEntity;
         private Entity visualBodyEntity;
 
@@ -17,25 +18,12 @@ namespace Entities.Character
         {
             var world = Kernel.EcsWorld.Instance;
 
-            // Create main character ECS entity
-            characterEntity = world
-                .Entity()
-                .Set(new TransformComponent
-                {
-                    Position = (Vec3Component)GlobalPosition,
-                    Rotation = (Vec3Component)GlobalRotation,
-                    Scale = (Vec3Component)Scale
-                })
-                .Set(new CharacterMovementStatsComponent { })
-                .Set(new PhysicsGravityComponent { })
-                .Set(new InputDeadZoneComponent { })
-                .Set(new CharacterStateComponent{})
+            characterEntity = world.Entity();
 
-                .Add<CharacterComponent>()
-                .Add<CharacterStateComponent>()
-                .Add<PhysicsVelocityComponent>()
-                .Add<PhysicsColliderComponent>()
-                .Add<CharacterLastPositionComponent>();
+            foreach (var comp in Components)
+            {
+                comp?.ApplyToEntity(characterEntity, this);
+            }
 
             Kernel.NodeRef<Node3D>.Register(characterEntity, this);
 

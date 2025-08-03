@@ -50,10 +50,11 @@ folder_colors={
 "res://06_Audio/": "teal",
 "res://07_Scripts/": "orange",
 "res://07_Scripts/00_Kernel/": "orange",
-"res://07_Scripts/01_Entities/": "orange",
-"res://07_Scripts/02_Components/": "orange",
-"res://07_Scripts/03_Systems/": "orange",
-"res://09_Imports/": "gray"
+"res://07_Scripts/ECS/01_Entities/": "orange",
+"res://07_Scripts/ECS/02_Components/": "orange",
+"res://07_Scripts/ECS/03_Systems/": "orange",
+"res://09_Imports/": "gray",
+"res://addons/": "gray"
 }
 
 [global_group]

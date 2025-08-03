@@ -3,7 +3,7 @@ using Flecs.NET.Core;
 using Components.Character;
 
 [GlobalClass]
-public partial class ComponentResourceCharacterMovementStats : ComponentResource
+public partial class CRS_CharacterMovementStats : ComponentResource
 {
     [Export] public float WalkThreshold = 0.7f;
     [Export] public float TapThreshold = 0.06f;
@@ -16,7 +16,7 @@ public partial class ComponentResourceCharacterMovementStats : ComponentResource
     [Export] public float AirAcceleration = 0.05f;
     [Export] public float AirTurnSpeed = 0.1f;
 
-    public override void ApplyToEntity(Entity entity)
+    public override void ApplyToEntity(Entity entity, Node3D ownerNode)
     {
         var data = new CharacterMovementStatsComponent
         {
