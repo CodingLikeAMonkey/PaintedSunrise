@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ycyhg47qupe3"]
+[gd_scene load_steps=5 format=3 uid="uid://ycyhg47qupe3"]
 
 [ext_resource type="Script" uid="uid://cyv7ah0st2bod" path="res://07_Scripts/ECS/01_Entities/CameraEntities/CamFreeEntity.cs" id="1_7tsl6"]
+[ext_resource type="Resource" uid="uid://cfkkd261qy5c2" path="res://08_Resources/ComponentResources/CameraResources/CR_camera_free.tres" id="3_tu7cu"]
+[ext_resource type="Resource" uid="uid://dghe3dgmv7e1s" path="res://08_Resources/ComponentResources/CoreResources/CR_transform.tres" id="3_w2kc3"]
+[ext_resource type="Resource" uid="uid://dyotddjktbe0q" path="res://08_Resources/ComponentResources/CameraResources/CR_camera.tres" id="4_8vrak"]
 
 [node name="FreeCam" type="Camera3D"]
 script = ExtResource("1_7tsl6")
+Components = Array[Object]([ExtResource("3_tu7cu"), ExtResource("3_w2kc3"), ExtResource("4_8vrak")])

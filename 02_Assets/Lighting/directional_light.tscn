@@ -20,6 +20,32 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 light_color = Color(0.267441, 0.312057, 0.318126, 1)
 
+[node name="DirectionalLight__Fill" type="Node3D" parent="."]
+
+[node name="DirectionLight__FilRight" type="DirectionalLight3D" parent="DirectionalLight__Fill"]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.671997, 0.68367, 0.703125, 1)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="DirectionLight__FilLeft" type="DirectionalLight3D" parent="DirectionalLight__Fill"]
+transform = Transform3D(4.37114e-08, -4.37114e-08, -1, -1, 1.91069e-15, -4.37114e-08, 3.82137e-15, 1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.671997, 0.68367, 0.703125, 1)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="DirectionLight__FilForward" type="DirectionalLight3D" parent="DirectionalLight__Fill"]
+transform = Transform3D(1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, -4.37114e-08, 4.37114e-08, 8.74228e-08, -1, 0, 0, 0)
+light_color = Color(0.671997, 0.68367, 0.703125, 1)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="DirectionLight__FilBack" type="DirectionalLight3D" parent="DirectionalLight__Fill"]
+transform = Transform3D(1.91069e-15, 1, 1.06581e-14, -1, 1.91069e-15, -4.37114e-08, -4.37114e-08, -1.06581e-14, 1, 0, 0, 0)
+light_color = Color(0.671997, 0.68367, 0.703125, 1)
+light_energy = 0.2
+shadow_enabled = true
+
 [node name="DirectonalLight__IndicatorSun" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_83hgu")

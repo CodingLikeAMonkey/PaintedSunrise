@@ -8,18 +8,18 @@ namespace Entities.Camera;
 
 public partial class CamFreeEntity : Camera3D
 {
+    [Export] public ComponentResource[] Components;
+
     private Entity cameraEntity;
 
     public override void _Ready()
     {
-        cameraEntity = Kernel.EcsWorld.Instance.Entity()
-            .Set(new TransformComponent
-            {
-                Position = (Vec3Component)GlobalPosition,
-                Rotation = (Vec3Component)GlobalRotation
-            })
-            .Set(new CameraFreeComponent{})
-            .Add<CameraComponent>();
+        cameraEntity = Kernel.EcsWorld.Instance.Entity();
+            // .Add<CameraComponent>();
+        foreach (var comp in Components)
+        {
+            comp?.ApplyToEntity(cameraEntity, this);
+        }
 
         Kernel.NodeRef<Camera3D>.Register(cameraEntity, this);
     }

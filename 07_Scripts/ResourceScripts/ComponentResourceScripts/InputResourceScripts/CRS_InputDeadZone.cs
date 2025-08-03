@@ -6,7 +6,7 @@ using System;
 [GlobalClass]
 public partial class CRS_InputDeadZone : ComponentResource
 {
-    [Export] public float InputDeadzone = 0.001f;
+    [Export] private float InputDeadzone = 0.001f;
 
 
     public override void ApplyToEntity(Entity entity, Node3D ownerNode)

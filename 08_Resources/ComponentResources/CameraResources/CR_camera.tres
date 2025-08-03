@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CRS_Camera" load_steps=2 format=3 uid="uid://dyotddjktbe0q"]
+
+[ext_resource type="Script" uid="uid://daiqsmyrxaqd3" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CameraResourceScripts/CRS_Camera.cs" id="1_5eyht"]
+
+[resource]
+script = ExtResource("1_5eyht")
+IsPreferred = false
+metadata/_custom_type_script = "uid://daiqsmyrxaqd3"

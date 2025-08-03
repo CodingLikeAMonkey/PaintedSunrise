@@ -35,7 +35,7 @@ group_uniforms clouds;
 	uniform vec3 clouds_top_color : source_color = vec3(0.463, 0.482, 0.577);
 	uniform vec3 clouds_middle_color : source_color = vec3(0.423, 0.452, 0.455);
 	uniform vec3 clouds_bottom_color : source_color = vec3(0.433, 0.482, 0.495);
-	uniform float clouds_speed : hint_range(0.0, 20.0, 0.01) = 2.0;
+	uniform float clouds_speed : hint_range(0.0, 20.0, 0.01) = 5.0;
 	uniform float clouds_direction : hint_range(-0.5, 0.5, 0.0) = 0.2;
 	uniform float clouds_scale : hint_range(0.0, 4.0, 0.01) = 1.06;
 	uniform float clouds_cutoff : hint_range(0.0, 1.0, 0.01) = 0.1;

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CRS_CameraFree" load_steps=2 format=3 uid="uid://cfkkd261qy5c2"]
+
+[ext_resource type="Script" uid="uid://crfasvkixxpr8" path="res://07_Scripts/ResourceScripts/ComponentResourceScripts/CameraResourceScripts/CRS_CameraFree.cs" id="1_yatrc"]
+
+[resource]
+script = ExtResource("1_yatrc")
+Sensitivity = 3.0
+DefaultVelocity = 5.0
+SpeedScale = 1.17
+BoostMultiplier = 3.0
+MaxSpeed = 1000.0
+MinSpeed = 0.2
+CurrentVelocity = 5.0
+metadata/_custom_type_script = "uid://crfasvkixxpr8"

@@ -4,7 +4,4 @@
 
 [resource]
 script = ExtResource("1_dxe5o")
-Position = Vector3(4.996, 0, 0)
-Rotation = Vector3(0, 20.136, -7.622)
-Scale = Vector3(1, 1, 1)
 metadata/_custom_type_script = "uid://c3q42486llf7e"
