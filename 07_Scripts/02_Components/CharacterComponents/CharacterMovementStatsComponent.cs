@@ -31,6 +31,5 @@ public struct CharacterMovementStatsComponent
         CurrentSpeed = 0.0f;
         CurrentTurnSpeed = 0.0f;
         CurrentAcceleration = 0.0f;
-
     }
 }
