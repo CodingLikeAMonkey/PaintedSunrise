@@ -11,6 +11,8 @@ using Systems.UI;
 using Components.XML;
 using Systems.XML;
 using Classes.UI;
+using Systems.Time;
+using System.Diagnostics;
 
 
 namespace Kernel;
@@ -41,11 +43,21 @@ public partial class EcsWorld : Node
         Instance.Component<UIInteractionEventComponent>();
         Instance.Component<UIInteractiveComponent>();
         Instance.Component<XMLFileComponent>();
+        Instance.Component<SingletonDayTimeComponent>();
+
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
             .Set(new SingletonMouseModeComponent())
             .Set(new InputStateComponent());
+
+        Entity dayTimeEntity = Instance.Entity("DayTime")
+            .Set(new SingletonDayTimeComponent
+            {
+                Day = 1,
+                Hour = 0.0f,
+                TimeScale = 1f
+            });
 
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
@@ -71,6 +83,8 @@ public partial class EcsWorld : Node
         UIInteractiveSystem.Setup(Instance, InputEntity);
         DebugUIInteractiveStats.Setup(Instance);
         XMLParserSystem.Setup(Instance);
+        DayTimeSystem.Setup(Instance);
+        DebugDayTime.Setup(Instance);
         // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
 
