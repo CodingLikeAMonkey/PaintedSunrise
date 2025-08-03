@@ -27,7 +27,7 @@ PlayerCharacter = NodePath("Player")
 environment = ExtResource("2_sl5kb")
 
 [node name="DirectionalLight" parent="." instance=ExtResource("9_ea1k5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 0, 22, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_bigcu")

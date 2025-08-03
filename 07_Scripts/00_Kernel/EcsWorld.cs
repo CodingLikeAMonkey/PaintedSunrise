@@ -13,6 +13,8 @@ using Systems.XML;
 using Classes.UI;
 using Systems.Time;
 using System.Diagnostics;
+using Ssytems.Lighting;
+using Systems.Bridge;
 
 
 namespace Kernel;
@@ -84,7 +86,8 @@ public partial class EcsWorld : Node
         DebugUIInteractiveStats.Setup(Instance);
         XMLParserSystem.Setup(Instance);
         DayTimeSystem.Setup(Instance);
-        DebugDayTime.Setup(Instance);
+        LightingDayNightSystem.Setup(Instance, dayTimeEntity);
+        // DebugDayTime.Setup(Instance);
         // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
 
@@ -92,10 +95,11 @@ public partial class EcsWorld : Node
 
 
         // Bridge Systems
-        Systems.Bridge.MeshLODBridgeSystem.Setup(Instance);
-        Systems.Bridge.CameraThirdPersonBridgeSystem.Setup(Instance);
-        Systems.Bridge.CharacterPhysicsBridgeSystem.Setup(Instance);
-        Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
+        MeshLODBridgeSystem.Setup(Instance);
+        CameraThirdPersonBridgeSystem.Setup(Instance);
+        CharacterPhysicsBridgeSystem.Setup(Instance);
+        CameraSetCurrentBridgeSystem.Setup(Instance);
+        LightingDayNightBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;

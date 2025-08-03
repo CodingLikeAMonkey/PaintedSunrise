@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cqr47u87ifgtl"]
 
 [ext_resource type="Shader" uid="uid://dkbqoogiigh8v" path="res://04_Shaders/skybox.gdshader" id="1_aacdj"]
-[ext_resource type="Texture2D" uid="uid://d2ukrjbk4oapn" path="res://03_Textures/Skyboxes/NightSkyHDRI009_4K-HDR.exr" id="2_qgugn"]
+[ext_resource type="Texture2D" uid="uid://21448adumte0" path="res://03_Textures/Skyboxes/NightSkyHDRI004_4K-HDR.exr" id="2_qgugn"]
 
 [resource]
 shader = ExtResource("1_aacdj")

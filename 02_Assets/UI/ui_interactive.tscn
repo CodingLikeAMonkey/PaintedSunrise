@@ -6,8 +6,8 @@
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 138.0
-offset_bottom = 77.0
+offset_right = 342.0
+offset_bottom = 61.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_5pewa")
@@ -24,4 +24,4 @@ theme_override_constants/margin_bottom = 16
 [node name="Interactive__Buton" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Button"
+text = "Button langer button"

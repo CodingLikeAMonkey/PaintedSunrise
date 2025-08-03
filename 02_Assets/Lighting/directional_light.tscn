@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbkci0dn5lt0v"]
+[gd_scene load_steps=5 format=3 uid="uid://dbkci0dn5lt0v"]
+
+[ext_resource type="Script" uid="uid://c5jipv7ydfslp" path="res://07_Scripts/ECS/01_Entities/LighitngEntities/DirectionalLightEntity.cs" id="1_xld4v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83hgu"]
 albedo_color = Color(0, 0.03125, 1, 1)
@@ -11,9 +13,11 @@ bottom_radius = 0.05
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="DirectionalLight" type="Node3D"]
+script = ExtResource("1_xld4v")
 
 [node name="DirectionalLight__Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.960938, 0.819432, 0.76825, 1)
 shadow_enabled = true
 
 [node name="DirectionalLight__Moon" type="DirectionalLight3D" parent="."]
