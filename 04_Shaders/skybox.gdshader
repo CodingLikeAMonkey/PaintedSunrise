@@ -48,6 +48,8 @@ group_uniforms stars;
 	// Stars should be at black background
 	uniform sampler2D stars_texture : filter_linear_mipmap, hint_default_black;
 	uniform float stars_speed : hint_range( 0.0, 20.0, 0.01 ) = 1.0;
+	uniform float stars_scale : hint_range(0.1, 3.0, 0.01) = 1.0;
+	uniform float stars_opacity : hint_range(0.1, 1.0, 0.01) = 1.0;
 
 group_uniforms settings;
 	uniform float overwritten_time = 0.0;
@@ -230,21 +232,27 @@ void sky()
 	}
 
 	//////////////////// STARS /////////////////////////////////////////////////////////////////
-	vec2 _sky_uv = EYEDIR.xz / sqrt( EYEDIR.y );
+	vec2 _sky_uv = EYEDIR.xz / sqrt( abs(EYEDIR.y) + 0.001);
+
 	if( EYEDIR.y > -0.01 && LIGHT0_DIRECTION.y < 0.0  )
 	{
-		// Stars UV rotation
-		float _stars_speed_cos = cos( stars_speed * time * 0.005 );
-		float _stars_speed_sin = sin( stars_speed * time * 0.005 );
+		// Calculate stars UVs using spherical coordinates
+		float lon = atan(EYEDIR.x, EYEDIR.z);
+		float lat = asin(clamp(EYEDIR.y, -1.0, 1.0));
 		vec2 _stars_uv = vec2(
-			_sky_uv.x * _stars_speed_cos - _sky_uv.y * _stars_speed_sin,
-			_sky_uv.x * _stars_speed_sin + _sky_uv.y * _stars_speed_cos
+			lon / (2.0 * PI) + 0.5,
+			0.5 - lat / PI
 		);
-		// Stars texture
-		vec3 _stars_color = texture( stars_texture, _stars_uv ).rgb * -LIGHT0_DIRECTION.y;
+
+		float rotation = stars_speed * time * 0.005;
+		_stars_uv.x += rotation / (2.0 * PI);
+		_stars_uv *= stars_scale;
+		_stars_uv = fract(_stars_uv);
+
+		vec3 _stars_color = texture(stars_texture, _stars_uv).rgb * -LIGHT0_DIRECTION.y;
 		// Hiding stars behind the moon
 		_stars_color *= 1.0 - _moon_amount;
-		COLOR += _stars_color;
+		COLOR += _stars_color * stars_opacity;
 	}
 
 	//////////////////// CLOUDS ////////////////////////////////////////////////////////////////

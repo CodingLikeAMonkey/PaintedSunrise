@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqr47u87ifgtl"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cqr47u87ifgtl"]
 
 [ext_resource type="Shader" uid="uid://dkbqoogiigh8v" path="res://04_Shaders/skybox.gdshader" id="1_aacdj"]
+[ext_resource type="Texture2D" uid="uid://hlsjw41w434l" path="res://03_Textures/Skyboxes/NightSkyHDRI014_4K-HDR.exr" id="2_qgugn"]
 
 [resource]
 shader = ExtResource("1_aacdj")
@@ -27,8 +28,11 @@ shader_parameter/clouds_speed = 2.0
 shader_parameter/clouds_direction = 0.2
 shader_parameter/clouds_scale = 1.06
 shader_parameter/clouds_cutoff = 0.1
-shader_parameter/clouds_fuzziness = 0.5
-shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_fuzziness = 0.86
+shader_parameter/clouds_weight = 0.11
 shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_texture = ExtResource("2_qgugn")
 shader_parameter/stars_speed = 1.0
+shader_parameter/stars_scale = 1.0
+shader_parameter/stars_opacity = 0.3
 shader_parameter/overwritten_time = 0.0
