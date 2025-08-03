@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1dmg7t3k7sst" path="res://09_Imports/Meshes/WoodKit/Floors/WoodenFloor__Mesh--Broken-Planks.glb" id="1_afw17"]
 [ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_d72a4"]
-[ext_resource type="Script" uid="uid://btu7vlfikuebb" path="res://07_Scripts/01_Entities/MeshEntities/MeshStaticEntity.cs" id="2_nthf6"]
+[ext_resource type="Script" uid="uid://btu7vlfikuebb" path="res://07_Scripts/ECS/01_Entities/MeshEntities/MeshStaticEntity.cs" id="2_nthf6"]
 [ext_resource type="Texture2D" uid="uid://bdeb5gbyc25rb" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_diff_4k.png" id="3_nthf6"]
 [ext_resource type="Texture2D" uid="uid://btdvwka5mqum6" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_nor_gl_4k.png" id="4_ho60o"]
 [ext_resource type="Texture2D" uid="uid://41tdpoynb2ew" path="res://03_Textures/wood_floor_deck_4k/wood_floor_deck_rough_4k.png" id="5_amryy"]

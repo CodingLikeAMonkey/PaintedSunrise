@@ -66,7 +66,7 @@ public partial class EcsWorld : Node
         Entity mainMenuXML = Instance.Entity()
             .Set(new XMLFileComponent
             {
-                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml")
+                FilePath = Kernel.Utility.GetPath("07_Scripts/XML/MainMenu.xml")
             })
             .Add<ParsedUIComponent>();
 
