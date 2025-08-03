@@ -1,7 +1,19 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cqr47u87ifgtl"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cqr47u87ifgtl"]
 
 [ext_resource type="Shader" uid="uid://dkbqoogiigh8v" path="res://04_Shaders/skybox.gdshader" id="1_aacdj"]
 [ext_resource type="Texture2D" uid="uid://21448adumte0" path="res://03_Textures/Skyboxes/NightSkyHDRI004_4K-HDR.exr" id="2_qgugn"]
+
+[sub_resource type="Gradient" id="Gradient_qgugn"]
+colors = PackedColorArray(0.811765, 0.803922, 0.807843, 1, 0.0520833, 0.0478787, 0.049981, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nfdgh"]
+noise_type = 3
+seed = 310
+frequency = 0.1451
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y2crn"]
+color_ramp = SubResource("Gradient_qgugn")
+noise = SubResource("FastNoiseLite_nfdgh")
 
 [resource]
 shader = ExtResource("1_aacdj")
@@ -20,6 +32,10 @@ shader_parameter/sun_blur = 10.0
 shader_parameter/moon_color = Color(0.812, 0.804, 0.808, 1)
 shader_parameter/moon_size = 0.06
 shader_parameter/moon_blur = 0.1
+shader_parameter/moon_noise_texture = SubResource("NoiseTexture2D_y2crn")
+shader_parameter/moon_crater_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/moon_noise_scale = 0.19
+shader_parameter/moon_noise_intensity = 0.65
 shader_parameter/clouds_edge_color = Color(0.577, 0.616, 0.646, 1)
 shader_parameter/clouds_top_color = Color(0.463, 0.482, 0.577, 1)
 shader_parameter/clouds_middle_color = Color(0.423, 0.452, 0.455, 1)

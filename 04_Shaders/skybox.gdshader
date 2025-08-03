@@ -26,6 +26,12 @@ group_uniforms moon; // Second DirectionalLight3D will be the moon
 	uniform float moon_size : hint_range(0.01, 1.0) = 0.06;
 	uniform float moon_blur : hint_range(0.01, 10.0) = 0.1;
 
+group_uniforms moon_noise;
+    uniform sampler2D moon_noise_texture : source_color, filter_linear_mipmap, repeat_disable;
+    uniform vec3 moon_crater_color : source_color = vec3(0.2, 0.2, 0.2);
+    uniform float moon_noise_scale : hint_range(0.1, 10.0, 0.01) = 2.0;
+    uniform float moon_noise_intensity : hint_range(0.0, 1.0, 0.01) = 0.5;
+
 group_uniforms clouds;
 	// Replaced by noise functions, unncomment if you want to use graphical textures
 //	uniform sampler2D clouds_top_texture : filter_linear_mipmap, hint_default_black;
@@ -182,7 +188,7 @@ void sky()
 		COLOR = mix(COLOR, _horizon_color, _horizon_amount);
 	}
 
-	//////////////////// MOON //////////////////////////////////////////////////////////////////////
+		//////////////////// MOON //////////////////////////////////////////////////////////////////////
 	float _moon_amount = 0.0;
 	if(LIGHT1_ENABLED)
 	{
@@ -195,14 +201,30 @@ void sky()
 		{
 			// Moon illumination depending on the position of the sun
 			float _moon_intersect = sphere_intersect(EYEDIR, LIGHT1_DIRECTION, _moon_size);
-			vec3 _moon_normal = normalize(LIGHT1_DIRECTION - EYEDIR * _moon_intersect);
+			vec3 moon_normal = normalize(LIGHT1_DIRECTION - EYEDIR * _moon_intersect);
 			// Power on the result gives a better effect
-			float _moon_n_dot_l = pow(clamp(dot(_moon_normal, -LIGHT0_DIRECTION), 0.05, 1.0), 2);
+			float _moon_n_dot_l = pow(clamp(dot(moon_normal, -LIGHT0_DIRECTION), 0.05, 1.0), 2);
+
+			// Calculate spherical UVs for the moon
+			float lon = atan(moon_normal.z, moon_normal.x);
+			float lat = acos(clamp(moon_normal.y, -1.0, 1.0));
+			vec2 moon_uv = vec2(
+				lon / (2.0 * PI) + 0.5,
+				lat / PI
+			);
+
+			// Sample the crater noise
+			float moon_noise = texture(moon_noise_texture, moon_uv * moon_noise_scale).r;
+			vec3 noisy_moon = mix(moon_color, moon_crater_color, moon_noise * moon_noise_intensity);
+
 			// Hiding the moon behind the horizon
 			_moon_amount *= 1.0 - _horizon_amount;
-			COLOR = mix(COLOR, moon_color, _moon_n_dot_l * _moon_amount);
+
+			// Apply to moon disc with phase lighting
+			COLOR = mix(COLOR, noisy_moon, _moon_n_dot_l * _moon_amount);
 		}
 	}
+
 
 	//////////////////// SUN ///////////////////////////////////////////////////////////////////////
 	float _sun_distance = 0.0;
