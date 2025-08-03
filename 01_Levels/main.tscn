@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=13 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="Script" uid="uid://dx58c0133g1in" path="res://07_Scripts/03_Systems/00_BridgeSystems/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bbbb4rvjasrs" path="res://02_Assets/StaticBody/WoodKit/Floors/wooden_floor--broken_planks.tscn" id="5_sl5kb"]
 [ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
 [ext_resource type="PackedScene" uid="uid://1lsbe87avcha" path="res://02_Assets/UI/ui_interactive.tscn" id="8_sl5kb"]
+[ext_resource type="PackedScene" uid="uid://dbkci0dn5lt0v" path="res://02_Assets/Lighting/directional_light.tscn" id="9_ea1k5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bigcu"]
-size = Vector2(10000, 10000)
+size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08m6l"]
 albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
@@ -20,10 +21,13 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
-PlayerCharacter = NodePath("CB_Player")
+PlayerCharacter = NodePath("Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_sl5kb")
+
+[node name="DirectionalLight" parent="." instance=ExtResource("9_ea1k5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_bigcu")
@@ -34,7 +38,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_08m6l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bigcu")
 
-[node name="C3_FreeCam" parent="." instance=ExtResource("4_r1qyh")]
+[node name="FreeCam" parent="." instance=ExtResource("4_r1qyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -458,20 +462,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
 [node name="TestingWorld" parent="." instance=ExtResource("7_sewcs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 
-[node name="CB_Player" parent="." instance=ExtResource("2_bm2k4")]
+[node name="Player" parent="." instance=ExtResource("2_bm2k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99644, 20.1356, -7.62239)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="UI_Interactive" parent="CanvasLayer2" instance=ExtResource("8_sl5kb")]
-
-[node name="SunAndMoon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.965926, -0.258819, 0, 0.258819, -0.965926, 0, 22, 0)
-
-[node name="Sun" type="DirectionalLight3D" parent="SunAndMoon"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shadow_enabled = true
-
-[node name="MoonLight" type="DirectionalLight3D" parent="SunAndMoon"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-light_color = Color(0.267441, 0.312057, 0.318126, 1)
