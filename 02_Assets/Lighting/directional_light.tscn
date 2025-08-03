@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbkci0dn5lt0v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83hgu"]
+albedo_color = Color(0, 0.03125, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xld4v"]
+top_radius = 0.002
+bottom_radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_355nr"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="DirectionalLight" type="Node3D"]
+
+[node name="DirectionLight__Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="DirectionLight__Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.267441, 0.312057, 0.318126, 1)
+
+[node name="DirectonalLight__IndicatorSun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_83hgu")
+mesh = SubResource("CylinderMesh_xld4v")
+
+[node name="DirectonalLight__IndicatorMoon" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_355nr")
+mesh = SubResource("CylinderMesh_xld4v")

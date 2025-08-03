@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cyv7ah0st2bod" path="res://07_Scripts/01_Entities/CameraEntities/CamFreeEntity.cs" id="1_7tsl6"]
 
-[node name="C3_FreeCam" type="Camera3D"]
+[node name="FreeCam" type="Camera3D"]
 script = ExtResource("1_7tsl6")
