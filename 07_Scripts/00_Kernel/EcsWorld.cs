@@ -11,6 +11,10 @@ using Systems.UI;
 using Components.XML;
 using Systems.XML;
 using Classes.UI;
+using Systems.Time;
+using System.Diagnostics;
+using Ssytems.Lighting;
+using Systems.Bridge;
 
 
 namespace Kernel;
@@ -41,11 +45,21 @@ public partial class EcsWorld : Node
         Instance.Component<UIInteractionEventComponent>();
         Instance.Component<UIInteractiveComponent>();
         Instance.Component<XMLFileComponent>();
+        Instance.Component<SingletonDayTimeComponent>();
+
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
             .Set(new SingletonMouseModeComponent())
             .Set(new InputStateComponent());
+
+        Entity dayTimeEntity = Instance.Entity("DayTime")
+            .Set(new SingletonDayTimeComponent
+            {
+                Day = 1,
+                Hour = 0.0f,
+                TimeScale = 1f
+            });
 
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
@@ -54,7 +68,7 @@ public partial class EcsWorld : Node
         Entity mainMenuXML = Instance.Entity()
             .Set(new XMLFileComponent
             {
-                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml")
+                FilePath = Kernel.Utility.GetPath("07_Scripts/XML/MainMenu.xml")
             })
             .Add<ParsedUIComponent>();
 
@@ -71,6 +85,9 @@ public partial class EcsWorld : Node
         UIInteractiveSystem.Setup(Instance, InputEntity);
         DebugUIInteractiveStats.Setup(Instance);
         XMLParserSystem.Setup(Instance);
+        DayTimeSystem.Setup(Instance);
+        LightingDayNightSystem.Setup(Instance, dayTimeEntity);
+        // DebugDayTime.Setup(Instance);
         // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
 
@@ -78,10 +95,11 @@ public partial class EcsWorld : Node
 
 
         // Bridge Systems
-        Systems.Bridge.MeshLODBridgeSystem.Setup(Instance);
-        Systems.Bridge.CameraThirdPersonBridgeSystem.Setup(Instance);
-        Systems.Bridge.CharacterPhysicsBridgeSystem.Setup(Instance);
-        Systems.Bridge.CameraSetCurrentBridgeSystem.Setup(Instance);
+        MeshLODBridgeSystem.Setup(Instance);
+        CameraThirdPersonBridgeSystem.Setup(Instance);
+        CharacterPhysicsBridgeSystem.Setup(Instance);
+        CameraSetCurrentBridgeSystem.Setup(Instance);
+        LightingDayNightBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
