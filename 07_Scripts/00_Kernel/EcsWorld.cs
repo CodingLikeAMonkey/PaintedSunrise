@@ -8,6 +8,10 @@ using Systems.Character;
 using Systems.Input;
 using Components.UI;
 using Systems.UI;
+using Components.XML;
+using Systems.XML;
+using Classes.UI;
+
 
 namespace Kernel;
 
@@ -36,6 +40,7 @@ public partial class EcsWorld : Node
         Instance.Component<UIBoundingBoxComponent>();
         Instance.Component<UIInteractionEventComponent>();
         Instance.Component<UIInteractiveComponent>();
+        Instance.Component<XMLFileComponent>();
 
         InputEntity = Instance.Entity("Singleton")
             .Set(new SingletonGameStateComponent())
@@ -44,6 +49,14 @@ public partial class EcsWorld : Node
 
         _deltaTimeEntity = Instance.Entity("DeltaTime")
             .Set(new SingletonDeltaTimeComponent { Value = 0f });
+
+
+        Entity mainMenuXML = Instance.Entity()
+            .Set(new XMLFileComponent
+            {
+                FilePath = Kernel.Utility.GetPath("07_Scripts/05_XML/MainMenu.xml")
+            })
+            .Add<ParsedUIComponent>();
 
         MouseModeSystem.Setup(Instance);
         InputCameraThirdPersonSystem.Setup(Instance, InputEntity);
@@ -57,6 +70,8 @@ public partial class EcsWorld : Node
         CharacterLastPositonSystem.Setup(Instance);
         UIInteractiveSystem.Setup(Instance, InputEntity);
         DebugUIInteractiveStats.Setup(Instance);
+        XMLParserSystem.Setup(Instance);
+        // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
 
         // DebugPrintCharacterStateSystem.Setup(Instance);

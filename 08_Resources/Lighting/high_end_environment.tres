@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cluu8ilt6r3ip"]
+
+[ext_resource type="Material" uid="uid://cqr47u87ifgtl" path="res://08_Resources/Skyboxes/skybox.tres" id="1_mgqhr"]
+
+[sub_resource type="Sky" id="Sky_vtqjo"]
+sky_material = ExtResource("1_mgqhr")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_vtqjo")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_density = 0.0041
+volumetric_fog_density = 0.0085
+volumetric_fog_albedo = Color(0.549322, 0.619065, 0.662563, 1)
