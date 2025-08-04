@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b116w2w81lkkv"]
+[gd_scene load_steps=16 format=3 uid="uid://b116w2w81lkkv"]
 
 [ext_resource type="Script" uid="uid://dx58c0133g1in" path="res://07_Scripts/ECS/03_Systems/00_BridgeSystems/PlayerAssignmentBridgeSystem.cs" id="1_okx7s"]
 [ext_resource type="PackedScene" uid="uid://fafdjk43iv12" path="res://02_Assets/Characters/player.tscn" id="2_bm2k4"]
@@ -9,15 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://cbygktrtql47s" path="res://01_Levels/testing_world.tscn" id="7_sewcs"]
 [ext_resource type="PackedScene" uid="uid://1lsbe87avcha" path="res://02_Assets/UI/ui_interactive.tscn" id="8_sl5kb"]
 [ext_resource type="PackedScene" uid="uid://dbkci0dn5lt0v" path="res://02_Assets/Lighting/directional_light.tscn" id="9_ea1k5"]
+[ext_resource type="PackedScene" uid="uid://ce0obf1jki4hs" path="res://02_Assets/StaticBody/Cliffs/cliff.tscn" id="10_ybqa6"]
+[ext_resource type="PackedScene" uid="uid://bsy0wl20r6wef" path="res://01_Levels/lvl_swamp.tscn" id="11_sbbp5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bigcu"]
-size = Vector2(100, 100)
+size = Vector2(1000, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08m6l"]
 albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bigcu"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sbbp5"]
+data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("PlayerCharacter")]
 script = ExtResource("1_okx7s")
@@ -27,7 +32,7 @@ PlayerCharacter = NodePath("Player")
 environment = ExtResource("2_sl5kb")
 
 [node name="DirectionalLight" parent="." instance=ExtResource("9_ea1k5")]
-transform = Transform3D(1, 0, 0, 0, -0.34202, -0.939692, 0, 0.939692, -0.34202, 0, 22, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_bigcu")
@@ -38,8 +43,173 @@ surface_material_override/0 = SubResource("StandardMaterial3D_08m6l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bigcu")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_sbbp5")
+
+[node name="SM_Cliff" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(3.21254, 0, 0, 0, 3.21254, 0, 0, 0, 3.21254, -15.1563, -3.73471, 90.5889)
+
+[node name="SM_Cliff7" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(2.27161, 0, -2.27161, 0, 3.21254, 0, 2.27161, 0, 2.27161, 0.516706, -3.73471, 105.667)
+
+[node name="SM_Cliff8" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.443133, 0, -1.65379, 0, 1.71213, 0, 1.65379, 0, 0.443133, -1.72508, -5.39529, 124.788)
+
+[node name="SM_Cliff9" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.436479, 0, -1.62896, 0, 1.68643, 0, 1.62896, 0, -0.436479, 1.8444, 0, 118.243)
+
+[node name="SM_Cliff10" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.24442, 0, -2.15541, 0, 2.48885, 0, 2.15541, 0, -1.24442, 18.2302, -3.21727, 105.669)
+
+[node name="SM_Cliff11" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.75988, 0, -1.75988, 0, 2.48885, 0, 1.75988, 0, -1.75988, 1.84717, -3.21727, 132.757)
+
+[node name="SM_Cliff12" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.644161, 0, -2.40404, 0, 2.48885, 0, 2.40404, 0, -0.644161, -5.66392, -3.21727, 146.364)
+
+[node name="SM_Cliff14" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -5.57201, 0, 149.922)
+
+[node name="SM_Cliff15" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-2.71446, 0, -0.727337, 0, 2.81022, 0, 0.727337, 0, -2.71446, -4.20991, -4.88965, 154.966)
+
+[node name="SM_Cliff16" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-2.71446, 0, 0.727337, 0, 2.81022, 0, -0.727337, 0, -2.71446, -25.1983, -4.88965, 155.161)
+
+[node name="SM_Cliff17" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -23.5677, 0, 151.528)
+
+[node name="SM_Cliff18" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.82474, 0.174744, 1.5801, 0.208907, 2.41094, -0.0253761, -1.57594, 0.117263, -1.83291, -25.39, -5.23083, 144.509)
+
+[node name="SM_Cliff19" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -32.5175, 0, 141.064)
+
+[node name="SM_Cliff20" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.664629, 0, 2.48043, 0, 2.56793, 0, -2.48043, 0, 0.664629, -34.0782, 21.5244, 135.563)
+
+[node name="SM_Cliff21" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.624412, 0, 2.33034, 0, 2.41254, 0, -2.33034, 0, 0.624412, -31.7118, -3.24122, 129.717)
+
+[node name="SM_Cliff22" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.491018, 0, 1.8325, 0, 1.89715, 0, -1.8325, 0, -0.491018, -32.3866, 12.7354, 122.557)
+
+[node name="SM_Cliff23" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.65, 0, 1.12583, 0, 1.3, 0, -1.12583, 0, -0.65, -34.9218, 0, 116.096)
+
+[node name="SM_Cliff24" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -39.5558, 0, 112.266)
+
+[node name="SM_Cliff25" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.35916, 0, 0.364186, 0, 1.40711, 0, -0.364186, 0, -1.35916, -51.4409, -1.44453, 106.696)
+
+[node name="SM_Cliff2" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(3.10308, 0, -0.831468, 0, 3.21254, 0, 0.831468, 0, 3.10308, -34.4315, -3.73471, 95.6396)
+
+[node name="SM_Cliff3" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.908581, 0, -0.908581, 0, 1.28493, 0, 0.908581, 0, 0.908581, -11.6191, -0.769628, 102.707)
+
+[node name="SM_Cliff4" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -16.4662, 0, 97.8596)
+
+[node name="SM_Cliff165" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.56827, 0, -0.905439, 0, 1.81088, 0, 0.905439, 0, 1.56827, -22.5284, -1.26017, 94.3596)
+
+[node name="SM_Cliff191" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.13799, 0, 0.558408, 0, 1.26762, 0, -0.558408, 0, 1.13799, -20.0304, -2.88611, 102.874)
+
+[node name="SM_Cliff6" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.43288, 0, -4.27033e-08, 0, 1.43288, 0, 4.27033e-08, 0, 1.43288, -30.0322, 0, 95.1856)
+
+[node name="SM_Cliff32" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.4, 0, -4.17232e-08, 0, 1.4, 0, 4.17232e-08, 0, 1.4, -40.6787, 0, 94.8596)
+
+[node name="SM_Cliff33" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.941388, 0, -0.337325, 0, 1, 0, 0.337325, 0, 0.941388, -43.4372, 0, 92.1003)
+
+[node name="SM_Cliff34" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.894435, 0, -0.447197, 0, 1, 0, 0.447197, 0, 0.894435, -50.1733, 0, 89.6866)
+
+[node name="SM_Cliff35" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.779239, 0, -0.626726, 0, 1, 0, 0.626726, 0, 0.779239, -56.6995, 0, 85.2228)
+
+[node name="SM_Cliff97" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.87868, 5.40228, 108.121)
+
+[node name="SM_Cliff98" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 7.89658, 5.40228, 113.589)
+
+[node name="SM_Cliff100" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.24442, 0, -2.15541, 0, 2.48885, 0, 2.15541, 0, -1.24442, 11.0736, 10.2282, 118.064)
+
+[node name="SM_Cliff102" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.644161, 0, -2.40404, 0, 2.48885, 0, 2.40404, 0, -0.644161, -5.66392, 10.2282, 146.364)
+
+[node name="SM_Cliff104" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.35511, 0, -2.34713, 0, 2.71023, 0, 2.34713, 0, -1.35511, -0.698642, 7.46985, 152.769)
+
+[node name="SM_Cliff105" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-2.71446, 0, -0.727337, 0, 2.81022, 0, 0.727337, 0, -2.71446, -4.20991, 10.2919, 154.966)
+
+[node name="SM_Cliff106" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-2.71446, 0, 0.727337, 0, 2.81022, 0, -0.727337, 0, -2.71446, -25.1983, 10.2919, 155.161)
+
+[node name="SM_Cliff107" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -23.5677, 5.40228, 151.528)
+
+[node name="SM_Cliff108" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.71127, 0, 1.71127, 0, 2.4201, 0, -1.71127, 0, -1.71127, -27.5677, 9.23818, 144.6)
+
+[node name="SM_Cliff109" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -32.5175, 5.40228, 141.064)
+
+[node name="SM_Cliff110" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.506824, 0, 1.89149, 0, 1.95822, 0, -1.89149, 0, 0.506824, -35.0702, 13.1009, 139.265)
+
+[node name="SM_Cliff111" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.0920261, 0, 1.76066, 0, 1.76307, 0, -1.76066, 0, -0.0920261, -31.2895, 9.49905, 136.659)
+
+[node name="SM_Cliff112" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.655089, 0.0871757, 1.5755, 0.0785545, 1.70557, -0.0617099, -1.57595, 0.0487782, -0.657976, -29.7068, -2.20145, 119.695)
+
+[node name="SM_Cliff113" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-0.9, 0, 1.55884, 0, 1.8, 0, -1.55884, 0, -0.9, -36.3382, 10.2308, 114.735)
+
+[node name="SM_Cliff114" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(-1.21859, 0, 0.703553, 0, 1.40711, 0, -0.703553, 0, -1.21859, -41.1874, 6.15705, 110.626)
+
+[node name="SM_Cliff163" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(2.27161, 0, -2.27161, 0, 3.21254, 0, 2.27161, 0, 2.27161, -54.4248, 13.6203, 86.3303)
+
+[node name="SM_Cliff164" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.908581, 0, -0.908581, 0, 1.28493, 0, 0.908581, 0, 0.908581, -17.0706, 6.17191, 97.2552)
+
+[node name="SM_Cliff166" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.32671, 0, -3.95391e-08, 0, 1.32671, 0, 3.95391e-08, 0, 1.32671, -29.5905, 10.5138, 92.8596)
+
+[node name="SM_Cliff167" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1.44, 0, -4.29153e-08, 0, 1.44, 0, 4.29153e-08, 0, 1.44, -35.6787, 10.4023, 91.8596)
+
+[node name="SM_Cliff168" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.941388, 0, -0.337325, 0, 1, 0, 0.337325, 0, 0.941388, -43.4372, 5.40228, 92.1003)
+
+[node name="SM_Cliff169" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.894435, 0, -0.447197, 0, 1, 0, 0.447197, 0, 0.894435, -50.1733, 5.40228, 89.6866)
+
+[node name="SM_Cliff170" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.779239, 0, -0.626726, 0, 1, 0, 0.626726, 0, 0.779239, -56.6995, 5.40228, 85.2228)
+
+[node name="SM_Cliff171" parent="MeshInstance3D" instance=ExtResource("10_ybqa6")]
+transform = Transform3D(0.779239, 0, -0.626726, 0, 1, 0, 0.626726, 0, 0.779239, -62.6937, 5.40228, 80.4017)
+
+[node name="FreeCam" parent="MeshInstance3D" instance=ExtResource("4_r1qyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 106)
+
 [node name="FreeCam" parent="." instance=ExtResource("4_r1qyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6, 0)
+current = true
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -463,8 +633,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_bm2k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99644, 20.1356, -7.62239)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.996, 20.1356, -57.6224)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="UI_Interactive" parent="CanvasLayer2" instance=ExtResource("8_sl5kb")]
+
+[node name="SM_Cliff" parent="." instance=ExtResource("10_ybqa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27)
+
+[node name="LVL_Swamp" parent="." instance=ExtResource("11_sbbp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127, 12, -90)

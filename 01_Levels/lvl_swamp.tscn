@@ -1,0 +1,1268 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsy0wl20r6wef"]
+
+[ext_resource type="PackedScene" uid="uid://ce0obf1jki4hs" path="res://02_Assets/StaticBody/Cliffs/cliff.tscn" id="1_p7qqm"]
+[ext_resource type="PackedScene" uid="uid://b7xu2btcnmkug" path="res://02_Assets/StaticBody/Ground/ground.tscn" id="2_athbo"]
+[ext_resource type="PackedScene" uid="uid://ycyhg47qupe3" path="res://02_Assets/Camera/free_cam.tscn" id="2_yockm"]
+
+[node name="LVL_Swamp" type="Node3D"]
+
+[node name="FreeCam" parent="." instance=ExtResource("2_yockm")]
+
+[node name="cliff_container" type="Node3D" parent="."]
+
+[node name="SM_Cliff" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.21254, 0, 0, 0, 3.21254, 0, 0, 0, 3.21254, -15.1563, -3.73471, -15.4111)
+
+[node name="SM_Cliff7" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.27161, 0, -2.27161, 0, 3.21254, 0, 2.27161, 0, 2.27161, 0.516706, -3.73471, -0.333062)
+
+[node name="SM_Cliff8" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.443133, 0, -1.65379, 0, 1.71213, 0, 1.65379, 0, 0.443133, -1.72508, -5.39529, 18.7882)
+
+[node name="SM_Cliff9" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.436479, 0, -1.62896, 0, 1.68643, 0, 1.62896, 0, -0.436479, 1.8444, 0, 12.2431)
+
+[node name="SM_Cliff10" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.24442, 0, -2.15541, 0, 2.48885, 0, 2.15541, 0, -1.24442, 18.2302, -3.21727, -0.331063)
+
+[node name="SM_Cliff11" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.75988, 0, -1.75988, 0, 2.48885, 0, 1.75988, 0, -1.75988, 1.84717, -3.21727, 26.7569)
+
+[node name="SM_Cliff12" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.644161, 0, -2.40404, 0, 2.48885, 0, 2.40404, 0, -0.644161, -5.66392, -3.21727, 40.3644)
+
+[node name="SM_Cliff14" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -5.57201, 0, 43.9223)
+
+[node name="SM_Cliff15" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.71446, 0, -0.727337, 0, 2.81022, 0, 0.727337, 0, -2.71446, -4.20991, -4.88965, 48.9662)
+
+[node name="SM_Cliff16" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.71446, 0, 0.727337, 0, 2.81022, 0, -0.727337, 0, -2.71446, -25.1983, -4.88965, 49.1609)
+
+[node name="SM_Cliff17" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -23.5677, 0, 45.5277)
+
+[node name="SM_Cliff18" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.82474, 0.174744, 1.5801, 0.208907, 2.41094, -0.0253761, -1.57594, 0.117263, -1.83291, -25.39, -5.23083, 38.5092)
+
+[node name="SM_Cliff19" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -34.8136, 0.845207, 39.7612)
+
+[node name="SM_Cliff20" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.664629, 0, 2.48043, 0, 2.56793, 0, -2.48043, 0, 0.664629, -34.0782, 21.5244, 29.5627)
+
+[node name="SM_Cliff21" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.624412, 0, 2.33034, 0, 2.41254, 0, -2.33034, 0, 0.624412, -34.0079, -2.39601, 28.4146)
+
+[node name="SM_Cliff22" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.491018, 0, 1.8325, 0, 1.89715, 0, -1.8325, 0, -0.491018, -34.6827, 13.5806, 21.2547)
+
+[node name="SM_Cliff23" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.65, 0, 1.12583, 0, 1.3, 0, -1.12583, 0, -0.65, -37.2179, 0.845207, 14.7929)
+
+[node name="SM_Cliff24" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -43.9083, 0.637245, 13.4348)
+
+[node name="SM_Cliff25" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.35916, 0, 0.364186, 0, 1.40711, 0, -0.364186, 0, -1.35916, -53.4323, -0.746553, 5.07638)
+
+[node name="SM_Cliff26" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.40711, 0, 8.387e-08, 0, 1.40711, 0, -8.387e-08, 0, -1.40711, -62.9464, -0.746553, 5.34128)
+
+[node name="SM_Cliff27" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.8357, 0, 0.759824, 0, 2.93573, 0, -0.759824, 0, -2.8357, -57.5954, -0.295201, 14.3874)
+
+[node name="SM_Cliff31" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.85916, 0, 2.27201, 0, 2.93573, 0, -2.27201, 0, -1.85916, -118.013, -1.14041, -38.0297)
+
+[node name="SM_Cliff38" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.44295, 0, 2.55665, 0, 2.93573, 0, -2.55665, 0, -1.44295, -131.325, -1.14041, -54.2977)
+
+[node name="SM_Cliff40" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.0685, -0.176583, 0.863629, -0.193001, 1.37104, 0.0415464, -0.860108, -0.088283, -1.0822, -48.5277, 1.4928, -11.5172)
+
+[node name="SM_Cliff45" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.16735, -0.101853, 1.21393, -0.0949269, 1.6838, 0.0499925, -1.21449, -0.0337099, -1.17072, -59.9098, 1.17103, -14.5314)
+
+[node name="SM_Cliff46" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.11834, 0, 1.45183, 0, 1.83262, 0, -1.45183, 0, -1.11834, -70.4328, -1.33812, -23.3063)
+
+[node name="SM_Cliff48" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.65533, 0, 0.926556, 0, 2.81235, 0, -0.926556, 0, -2.65533, -179.422, -4.8954, -4.60431)
+
+[node name="SM_Cliff49" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.990729, 0, -0.135854, 0, 1, 0, 0.135854, 0, -0.990729, -117.482, 0, -42.8457)
+
+[node name="SM_Cliff51" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.956707, 0, -0.291053, 0, 1, 0, 0.291053, 0, -0.956707, -128.851, 0, -38.7229)
+
+[node name="SM_Cliff54" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.887292, 1.12293e-08, -0.461206, 1.06403e-08, 1, 3.87736e-09, 0.461206, -1.467e-09, -0.887292, -150.342, 0, -32.7262)
+
+[node name="SM_Cliff56" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.75555, 3.72936e-09, -2.06378, 4.47424e-09, 2.70946, 1.09012e-09, 2.06378, -2.70169e-09, -1.75555, -119.414, -2.63856, 47.6172)
+
+[node name="SM_Cliff57" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.78734, -0.172984, -0.850424, -0.185467, 4.86152, 0.0551814, 0.847789, 0.0867146, -4.79014, -98.0342, -9.25025, 57.9406)
+
+[node name="SM_Cliff58" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.79366, 0.466548, -0.689166, 0.493043, 4.83786, -0.15437, 0.670467, -0.221933, -4.81383, -131.277, -9.25025, 65.1612)
+
+[node name="SM_Cliff59" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.23529, -1.14661e-07, 1.00235, -1.15369e-07, 4.35229, 1.03888e-08, -1.00235, -1.64606e-08, -4.23529, -155.794, 6.69946, 82.9355)
+
+[node name="SM_Cliff60" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.98793, -1.43912e-07, 1.7432, -1.45509e-07, 4.35229, 2.64264e-08, -1.7432, -3.40658e-08, -3.98793, -184.736, -12.5862, 74.1789)
+
+[node name="SM_Cliff70" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.20768, -8.09098e-08, 1.62704, -9.04095e-08, 2.02627, 3.36554e-08, -1.62704, -5.25374e-08, -1.20768, -276.972, -3.04036, 32.9006)
+
+[node name="SM_Cliff71" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -285.406, -3.04036, 21.7777)
+
+[node name="SM_Cliff72" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.20768, -8.09098e-08, 1.62704, -9.04095e-08, 2.02627, 3.36554e-08, -1.62704, -5.25374e-08, -1.20768, -292.779, -3.04036, 9.43852)
+
+[node name="SM_Cliff73" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -301.212, -3.04036, -1.68434)
+
+[node name="SM_Cliff74" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -305.657, -3.04036, -13.7858)
+
+[node name="SM_Cliff75" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.759347, -8.7374e-08, 1.8786, -1.01406e-07, 2.02627, 5.32528e-08, -1.8786, -7.40592e-08, -0.759347, -311.995, -3.04036, -28.4771)
+
+[node name="SM_Cliff77" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.2, -5.82313e-08, 1.63271, -9.06574e-08, 2.02627, 1.38899e-07, -1.63271, -1.55309e-07, 1.2, -304.793, -3.04036, -49.5058)
+
+[node name="SM_Cliff85" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.98822, 2.25516e-09, 0.390794, -3.63716e-08, 2.02627, 1.73353e-07, -0.390794, -1.77113e-07, 1.98822, -222.367, -3.04036, -124.963)
+
+[node name="SM_Cliff2" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.10308, 0, -0.831468, 0, 3.21254, 0, 0.831468, 0, 3.10308, -33.9656, -3.73471, -12.7025)
+
+[node name="SM_Cliff3" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.908581, 0, -0.908581, 0, 1.28493, 0, 0.908581, 0, 0.908581, -11.6191, -0.769628, -3.29336)
+
+[node name="SM_Cliff4" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -16.4662, 0, -8.14042)
+
+[node name="SM_Cliff165" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.56827, 0, -0.905439, 0, 1.81088, 0, 0.905439, 0, 1.56827, -22.5284, -1.26017, -11.6404)
+
+[node name="SM_Cliff191" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.13799, 0, 0.558408, 0, 1.26762, 0, -0.558408, 0, 1.13799, -20.0304, -2.88611, -3.12552)
+
+[node name="SM_Cliff6" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.43288, 0, -4.27033e-08, 0, 1.43288, 0, 4.27033e-08, 0, 1.43288, -29.5662, 0, -13.1564)
+
+[node name="SM_Cliff32" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.4, 0, -4.17232e-08, 0, 1.4, 0, 4.17232e-08, 0, 1.4, -40.2127, 0, -13.4824)
+
+[node name="SM_Cliff33" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.941388, 0, -0.337325, 0, 1, 0, 0.337325, 0, 0.941388, -41.4442, -7.62939e-06, -20.2718)
+
+[node name="SM_Cliff34" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.26045, 0, -1.13017, 0, 2.52723, 0, 1.13017, 0, 2.26045, -46.2057, -0.870821, -27.5518)
+
+[node name="SM_Cliff36" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.19197, 0, -1.76295, 0, 2.81296, 0, 1.76295, 0, 2.19197, -59.3573, 26.872, -33.6647)
+
+[node name="SM_Cliff37" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.880361, 0, -0.474303, 0, 1, 0, 0.474303, 0, 0.880361, -65.0911, -0.251503, -35.5593)
+
+[node name="SM_Cliff41" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.898242, 0, -0.4395, 0, 1, 0, 0.4395, 0, 0.898242, -70.3354, -0.251503, -38.3848)
+
+[node name="SM_Cliff42" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.85323, 0, -2.63649, 0, 4.66888, 0, 2.63649, 0, 3.85323, -62.1335, -2.37304, -33.9624)
+
+[node name="SM_Cliff43" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.52725, 0, -1.75789, 0, 2.32867, 0, 1.75789, 0, 1.52725, -82.8749, -1.71093, -46.3472)
+
+[node name="SM_Cliff44" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.43796, 0, -1.83166, 0, 2.32867, 0, 1.83166, 0, 1.43796, -97.6627, -1.71091, -49.8904)
+
+[node name="SM_Cliff61" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.366079, -1.25317e-08, -0.930584, 6.2951e-09, 1, -1.09901e-08, 0.930584, -1.83488e-09, 0.366079, -92.7047, 0, -52.6274)
+
+[node name="SM_Cliff62" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.08876, -5.4316e-08, -1.90978, 2.43378e-08, 2.83022, -5.38758e-08, 1.90978, 2.33388e-08, 2.08876, -143.144, 0, -67.1894)
+
+[node name="SM_Cliff63" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.42003, -4.67935e-08, -1.35011, 1.81819e-08, 1.95941, -4.87879e-08, 1.35011, 2.28298e-08, 1.42003, -119.574, -10.4803, -121.794)
+
+[node name="SM_Cliff64" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.276743, -5.64665e-08, -2.44449, 2.22687e-08, 2.46011, -5.43062e-08, 2.44449, -1.60183e-08, 0.276743, -89.4999, 3.92175, -70.4207)
+
+[node name="SM_Cliff65" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.658801, -4.13268e-08, -2.37026, 1.90237e-08, 2.46011, -3.76059e-08, 2.37026, -8.2583e-09, 0.658801, -91.8136, 3.92175, -88.4156)
+
+[node name="SM_Cliff66" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.436937, -1.7768e-08, -1.21484, 8.7142e-09, 1.29102, -1.57481e-08, 1.21484, -2.87015e-09, 0.436937, -98.7568, -0.524062, -93.5715)
+
+[node name="SM_Cliff67" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.957203, -1.52949e-08, -1.78592, 8.39804e-09, 2.02627, -1.28522e-08, 1.78592, -1.33061e-09, 0.957203, -88.7101, -3.04036, -90.3087)
+
+[node name="SM_Cliff68" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.16074, -4.72013e-08, -3.22726, 2.31496e-08, 3.42965, -4.18353e-08, 3.22726, -7.62466e-09, 1.16074, -82.9694, 0.857891, -88.6892)
+
+[node name="SM_Cliff87" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.03721, 6.14249e-08, -1.59308, -4.82826e-08, 3.42965, 4.01876e-08, 1.59308, -1.31616e-08, 3.03721, -108.074, 0.857889, -125.025)
+
+[node name="SM_Cliff88" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.85921, 4.21768e-08, -0.805669, -3.44502e-08, 2.02627, 2.65758e-08, 0.805669, -1.06869e-08, 1.85921, -122.879, -3.04036, -132.803)
+
+[node name="SM_Cliff89" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.95703, 5.31118e-08, -0.525154, -4.67119e-08, 2.02627, 3.08518e-08, 0.525154, -1.76911e-08, 1.95703, -136.95, -3.04036, -137.307)
+
+[node name="SM_Cliff90" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.85921, 4.21768e-08, -0.805669, -3.44502e-08, 2.02627, 2.65758e-08, 0.805669, -1.06869e-08, 1.85921, -149.917, -3.04036, -142.617)
+
+[node name="SM_Cliff97" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.87868, 5.40228, 2.12132)
+
+[node name="SM_Cliff98" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 7.89658, 5.40228, 7.58871)
+
+[node name="SM_Cliff100" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.24442, 0, -2.15541, 0, 2.48885, 0, 2.15541, 0, -1.24442, 11.0736, 10.2282, 12.0645)
+
+[node name="SM_Cliff102" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.644161, 0, -2.40404, 0, 2.48885, 0, 2.40404, 0, -0.644161, -5.66392, 10.2282, 40.3644)
+
+[node name="SM_Cliff104" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.35511, 0, -2.34713, 0, 2.71023, 0, 2.34713, 0, -1.35511, -0.698642, 7.46985, 46.7691)
+
+[node name="SM_Cliff105" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.71446, 0, -0.727337, 0, 2.81022, 0, 0.727337, 0, -2.71446, -4.20991, 10.2919, 48.9662)
+
+[node name="SM_Cliff106" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.71446, 0, 0.727337, 0, 2.81022, 0, -0.727337, 0, -2.71446, -25.1983, 10.2919, 49.1609)
+
+[node name="SM_Cliff107" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -23.5677, 5.40228, 45.5277)
+
+[node name="SM_Cliff108" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.71127, 0, 1.71127, 0, 2.4201, 0, -1.71127, 0, -1.71127, -27.5677, 9.23818, 38.5995)
+
+[node name="SM_Cliff109" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -34.8136, 6.24749, 39.7612)
+
+[node name="SM_Cliff110" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.506824, 0, 1.89149, 0, 1.95822, 0, -1.89149, 0, 0.506824, -37.3664, 13.9461, 37.9622)
+
+[node name="SM_Cliff111" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.0920261, 0, 1.76066, 0, 1.76307, 0, -1.76066, 0, -0.0920261, -33.5856, 10.3443, 35.3564)
+
+[node name="SM_Cliff112" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.655089, 0.0871757, 1.5755, 0.0785545, 1.70557, -0.0617099, -1.57595, 0.0487782, -0.657976, -32.0029, -1.35625, 18.3922)
+
+[node name="SM_Cliff113" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.31174, 0, 1.2278, 0, 1.79671, 0, -1.2278, 0, -1.31174, -37.8841, 10.2308, 12.473)
+
+[node name="SM_Cliff114" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21859, 0, 0.703553, 0, 1.40711, 0, -0.703553, 0, -1.21859, -44.3025, 6.57292, 9.12643)
+
+[node name="SM_Cliff116" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.40711, 0, 8.387e-08, 0, 1.40711, 0, -8.387e-08, 0, -1.40711, -62.9464, 6.85502, 5.34128)
+
+[node name="SM_Cliff117" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.8357, 0, 0.759824, 0, 2.93573, 0, -0.759824, 0, -2.8357, -55.8019, 15.7301, 13.1963)
+
+[node name="SM_Cliff121" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.85916, 0, 2.27201, 0, 2.93573, 0, -2.27201, 0, -1.85916, -118.013, 14.7192, -38.0297)
+
+[node name="SM_Cliff124" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.6481, 0, 2.31456, 0, 2.84138, 0, -2.31456, 0, -1.6481, -110.009, -0.821835, -23.4718)
+
+[node name="SM_Cliff126" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.845298, 0, 1.09736, 0, 1.38518, 0, -1.09736, 0, -0.845298, -62.6325, 9.62964, -23.7326)
+
+[node name="SM_Cliff127" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.12421, 0, -1.8431, 0, 2.81235, 0, 1.8431, 0, -2.12421, -156.373, -4.70901, -9.15555)
+
+[node name="SM_Cliff129" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.990729, 0, -0.135854, 0, 1, 0, 0.135854, 0, -0.990729, -117.482, 5.40228, -42.8457)
+
+[node name="SM_Cliff131" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.956707, 0, -0.291053, 0, 1, 0, 0.291053, 0, -0.956707, -128.851, 5.40228, -38.7229)
+
+[node name="SM_Cliff134" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.887292, 1.12293e-08, -0.461206, 1.06403e-08, 1, 3.87736e-09, 0.461206, -1.467e-09, -0.887292, -150.342, 5.40228, -32.7262)
+
+[node name="SM_Cliff136" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.966792, 1.69933e-09, -0.255563, 1.65134e-09, 1, 4.02338e-10, 0.255563, -3.30438e-11, -0.966792, -162.568, 5.40228, -25.516)
+
+[node name="SM_Cliff137" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.984235, -1.69149e-08, 0.176862, -1.72506e-08, 1, -3.60138e-10, -0.176862, -3.40543e-09, -0.984235, -169.36, 5.40228, -25.307)
+
+[node name="SM_Cliff139" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.65087, -6.89309e-08, -0.560412, -7.18216e-08, 2.70946, 6.46743e-09, 0.560412, 2.11829e-08, -2.65087, -154.457, -9.31945, 68.2576)
+
+[node name="SM_Cliff140" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.76855, -1.6529e-07, 0.965755, -1.62662e-07, 4.86537, 2.95418e-08, -0.965755, -3.33391e-09, -4.76855, -209.891, -10.7615, 80.809)
+
+[node name="SM_Cliff141" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.20768, -8.09098e-08, 1.62704, -9.04095e-08, 2.02627, 3.36554e-08, -1.62704, -5.25374e-08, -1.20768, -276.972, 7.9061, 32.9006)
+
+[node name="SM_Cliff142" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -285.406, 7.9061, 21.7777)
+
+[node name="SM_Cliff144" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -301.212, 7.9061, -1.68434)
+
+[node name="SM_Cliff145" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.89743, -8.60473e-08, 1.81669, -9.86995e-08, 2.02627, 4.72169e-08, -1.81669, -6.75789e-08, -0.89743, -305.657, 7.9061, -13.7858)
+
+[node name="SM_Cliff146" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.759347, -8.7374e-08, 1.8786, -1.01406e-07, 2.02627, 5.32528e-08, -1.8786, -7.40592e-08, -0.759347, -311.995, 7.9061, -28.4771)
+
+[node name="SM_Cliff147" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.23618, -5.6726e-08, 1.6055, -8.94679e-08, 2.02627, 1.4048e-07, -1.6055, -1.56593e-07, 1.23618, -312.283, 7.9061, -40.5758)
+
+[node name="SM_Cliff154" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.50633, -4.34784e-08, 1.35526, -7.85296e-08, 2.02627, 1.52289e-07, -1.35526, -1.65736e-07, 1.50633, -249.262, 7.9061, -117.384)
+
+[node name="SM_Cliff155" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.015, 1.00787e-08, 0.213384, -2.86167e-08, 2.02627, 1.74523e-07, -0.213384, -1.76567e-07, 2.015, -238.247, 7.9061, -122.948)
+
+[node name="SM_Cliff156" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.98822, 2.25516e-09, 0.390794, -3.63716e-08, 2.02627, 1.73353e-07, -0.390794, -1.77113e-07, 1.98822, -222.367, 7.9061, -124.963)
+
+[node name="SM_Cliff161" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.98822, 2.25516e-09, 0.390794, -3.63716e-08, 2.02627, 1.73353e-07, -0.390794, -1.77113e-07, 1.98822, -162.45, 7.9061, -147.432)
+
+[node name="SM_Cliff163" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.27161, 0, -2.27161, 0, 3.21254, 0, 2.27161, 0, 2.27161, -53.0814, 13.3689, -21.364)
+
+[node name="SM_Cliff164" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.908581, 0, -0.908581, 0, 1.28493, 0, 0.908581, 0, 0.908581, -17.0706, 6.17191, -8.74484)
+
+[node name="SM_Cliff166" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.32671, 0, -3.95391e-08, 0, 1.32671, 0, 3.95391e-08, 0, 1.32671, -29.1245, 10.5138, -15.4824)
+
+[node name="SM_Cliff167" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.44, 0, -4.29153e-08, 0, 1.44, 0, 4.29153e-08, 0, 1.44, -33.6857, 10.4023, -20.5125)
+
+[node name="SM_Cliff168" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.941388, 0, -0.337325, 0, 1, 0, 0.337325, 0, 0.941388, -41.4442, 5.40227, -20.2718)
+
+[node name="SM_Cliff170" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.96932, 0, -1.58388, 0, 2.52723, 0, 1.58388, 0, 1.96932, -62.699, 12.782, -38.8328)
+
+[node name="SM_Cliff171" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.96932, 0, -1.58388, 0, 2.52723, 0, 1.58388, 0, 1.96932, -74.8062, 33.3536, -48.6875)
+
+[node name="SM_Cliff179" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.0971773, 0, -3.84702, 0, 3.84825, 0, 3.84702, 0, -0.0971773, -85.0173, -0.848751, -66.2834)
+
+[node name="SM_Cliff181" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.73972, 0, -2.7024, 0, 3.84825, 0, 2.7024, 0, 2.73972, -72.3654, 27.358, -57.7924)
+
+[node name="SM_Cliff172" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.880361, 0, -0.474303, 0, 1, 0, 0.474303, 0, 0.880361, -65.0911, 5.15078, -35.5593)
+
+[node name="SM_Cliff175" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.52725, 0, -1.75789, 0, 2.32867, 0, 1.75789, 0, 1.52725, -86.4308, 10.8692, -36.9626)
+
+[node name="SM_Cliff183" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.92386, 0, -2.2144, 0, 2.93339, 0, 2.2144, 0, 1.92386, -80.2534, 10.8692, -42.8614)
+
+[node name="SM_Cliff176" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.617503, 0, -0.786569, 0, 1, 0, 0.786569, 0, 0.617503, -89.8833, 5.40228, -46.1487)
+
+[node name="SM_Cliff47" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.63556, -0.0801388, -0.406478, -0.0949269, 1.6838, 0.0499925, 0.403281, 0.0713313, -1.63676, -72.9757, 0.582376, 30.0758)
+
+[node name="SM_Cliff50" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.81655, 0, -0.242122, 0, 1.83262, 0, 0.242122, 0, -1.81655, -85.8377, -1.92677, 34.7982)
+
+[node name="SM_Cliff35" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.762995, 0, 0.646404, 0, 1, 0, -0.646404, 0, 0.762995, -68.7093, -0.588661, 11.2151)
+
+[node name="SM_Cliff39" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.10934, 0, 1.39197, 0, 2.52723, 0, -1.39197, 0, 2.10934, -77.3948, -1.45947, 11.6964)
+
+[node name="SM_Cliff52" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.62301, 0, 1.01613, 0, 2.81296, 0, -1.01613, 0, 2.62301, -89.2667, 26.2833, 20.0265)
+
+[node name="SM_Cliff53" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.851076, 0, 0.525041, 0, 1, 0, -0.525041, 0, 0.851076, -93.7755, -0.840157, 24.0436)
+
+[node name="SM_Cliff55" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.829885, 0, 0.557933, 0, 1, 0, -0.557933, 0, 0.829885, -98.8454, -0.840157, 27.1712)
+
+[node name="SM_Cliff96" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.21041, 0, 2.01765, 0, 4.66888, 0, -2.01765, 0, 4.21041, -90.9133, -2.96169, 22.2814)
+
+[node name="SM_Cliff99" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.28612, 0, 0.443093, 0, 2.32867, 0, -0.443093, 0, 2.28612, -112.013, -2.29958, 34.0461)
+
+[node name="SM_Cliff101" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.98891, -7.8575e-09, -0.148517, 6.2951e-09, 1, -1.09901e-08, 0.148517, 9.93327e-09, 0.98891, -122.368, -0.588654, 39.4161)
+
+[node name="SM_Cliff128" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.37304, 0, -0.183008, 0, 1.38518, 0, 0.183008, 0, -1.37304, -82.3049, 9.04098, 27.8307)
+
+[node name="SM_Cliff169" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.1033, 0, 0.830656, 0, 3.21254, 0, -0.830656, 0, 3.1033, -75.4762, 12.7802, 20.7454)
+
+[node name="SM_Cliff173" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.762995, 0, 0.646404, 0, 1, 0, -0.646404, 0, 0.762995, -68.7093, 4.81362, 11.2151)
+
+[node name="SM_Cliff174" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.35658, 0, 0.912922, 0, 2.52723, 0, -0.912922, 0, 2.35658, -95.4134, 12.1933, 20.3347)
+
+[node name="SM_Cliff192" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.851076, 0, 0.525041, 0, 1, 0, -0.525041, 0, 0.851076, -93.7755, 4.56212, 24.0436)
+
+[node name="SM_Cliff193" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.989977, 0, 0.14123, 0, 1, 0, -0.14123, 0, 0.989977, -115.346, 4.81363, 40.2139)
+
+[node name="SM_Cliff103" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.63556, -0.0801388, -0.406478, -0.0949269, 1.6838, 0.0499925, 0.403281, 0.0713313, -1.63676, -116.471, 0.582376, -8.46183)
+
+[node name="SM_Cliff115" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.81655, 0, -0.242122, 0, 1.83262, 0, 0.242122, 0, -1.81655, -129.333, -1.92677, -3.73945)
+
+[node name="SM_Cliff118" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.762995, 0, 0.646404, 0, 1, 0, -0.646404, 0, 0.762995, -112.204, -0.588661, -27.3225)
+
+[node name="SM_Cliff119" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.10934, 0, 1.39197, 0, 2.52723, 0, -1.39197, 0, 2.10934, -120.89, -1.45947, -26.8412)
+
+[node name="SM_Cliff120" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.62301, 0, 1.01613, 0, 2.81296, 0, -1.01613, 0, 2.62301, -132.762, 26.2833, -18.5111)
+
+[node name="SM_Cliff122" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.851076, 0, 0.525041, 0, 1, 0, -0.525041, 0, 0.851076, -137.27, -0.840157, -14.4941)
+
+[node name="SM_Cliff123" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.829885, 0, 0.557933, 0, 1, 0, -0.557933, 0, 0.829885, -142.34, -0.840157, -11.3664)
+
+[node name="SM_Cliff125" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.21041, 0, 2.01765, 0, 4.66888, 0, -2.01765, 0, 4.21041, -134.408, -2.96169, -16.2563)
+
+[node name="SM_Cliff130" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.28612, 0, 0.443093, 0, 2.32867, 0, -0.443093, 0, 2.28612, -155.508, -2.29958, -4.49156)
+
+[node name="SM_Cliff132" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.98891, -7.8575e-09, -0.148517, 6.2951e-09, 1, -1.09901e-08, 0.148517, 9.93327e-09, 0.98891, -165.863, -0.588654, 0.87846)
+
+[node name="SM_Cliff133" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.37304, 0, -0.183008, 0, 1.38518, 0, 0.183008, 0, -1.37304, -125.8, 9.04098, -10.7069)
+
+[node name="SM_Cliff194" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.1033, 0, 0.830656, 0, 3.21254, 0, -0.830656, 0, 3.1033, -118.971, 12.7802, -17.7923)
+
+[node name="SM_Cliff195" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.762995, 0, 0.646404, 0, 1, 0, -0.646404, 0, 0.762995, -112.204, 4.81362, -27.3225)
+
+[node name="SM_Cliff196" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.35658, 0, 0.912922, 0, 2.52723, 0, -0.912922, 0, 2.35658, -138.908, 12.1933, -18.2029)
+
+[node name="SM_Cliff197" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.851076, 0, 0.525041, 0, 1, 0, -0.525041, 0, 0.851076, -137.27, 4.56212, -14.4941)
+
+[node name="SM_Cliff69" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.19503, 0, -2.75548, 0, 3.5229, 0, 2.75548, 0, 2.19503, -180.758, -2.09123, -21.6777)
+
+[node name="SM_Cliff76" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.19092, 0, 0.147408, 0, 1.20001, 0, -0.147408, 0, 1.19092, -181.471, -0.722729, -15.9072)
+
+[node name="SM_Cliff78" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.15254, 0, 0.334168, 0, 1.20001, 0, -0.334168, 0, 1.15254, -167.764, -0.722729, -20.6752)
+
+[node name="SM_Cliff79" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.07193, -1.34972e-08, 0.539429, 1.27684e-08, 1.20001, 4.65287e-09, -0.539429, 1.58341e-09, 1.07193, -141.883, -0.722729, -27.5322)
+
+[node name="SM_Cliff135" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.94111, 0, -2.80321, 0, 3.40968, 0, 2.80321, 0, 1.94111, -190.133, -1.70894, -39.2718)
+
+[node name="SM_Cliff138" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.19092, 0, 0.147408, 0, 1.20001, 0, -0.147408, 0, 1.19092, -181.471, 5.76005, -15.9072)
+
+[node name="SM_Cliff143" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.15254, 0, 0.334168, 0, 1.20001, 0, -0.334168, 0, 1.15254, -167.764, 5.76005, -20.6752)
+
+[node name="SM_Cliff148" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.07193, -1.34972e-08, 0.539429, 1.27684e-08, 1.20001, 4.65287e-09, -0.539429, 1.58341e-09, 1.07193, -141.883, 5.76005, -27.5322)
+
+[node name="SM_Cliff149" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.96887, 0.0972823, 0.461956, -0.113913, 2.02058, 0.0599913, -0.458139, -0.0843285, 1.97036, -182.143, -0.0238736, -57.1805)
+
+[node name="SM_Cliff150" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.1835, 0, 0.261913, 0, 2.19915, 0, -0.261913, 0, 2.1835, -166.636, -3.03487, -62.6444)
+
+[node name="SM_Cliff151" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.925702, 0, -0.763606, 0, 1.20001, 0, 0.763606, 0, -0.925702, -187.559, -1.42913, -34.6167)
+
+[node name="SM_Cliff152" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.55293, 0, -1.637, 0, 3.0327, 0, 1.637, 0, -2.55293, -177.13, -2.47411, -35.0574)
+
+[node name="SM_Cliff153" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.16337, 0, -1.17795, 0, 3.37557, 0, 1.17795, 0, -3.16337, -162.754, 30.8175, -44.8658)
+
+[node name="SM_Cliff157" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.02948, 0, -0.616595, 0, 1.20001, 0, 0.616595, 0, -1.02948, -157.28, -1.73092, -49.6148)
+
+[node name="SM_Cliff158" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.00457, 0, -0.656396, 0, 1.20001, 0, 0.656396, 0, -1.00457, -151.148, -1.73092, -53.2878)
+
+[node name="SM_Cliff159" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.08386, 0, -2.35468, 0, 5.6027, 0, 2.35468, 0, -5.08386, -160.743, -4.27679, -47.5455)
+
+[node name="SM_Cliff160" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.6504, 0, 0.197968, 0, 1.66223, 0, -0.197968, 0, 1.6504, -170.984, 10.1265, -54.3397)
+
+[node name="SM_Cliff199" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.73674, 0, -0.947832, 0, 3.85508, 0, 0.947832, 0, -3.73674, -179.29, 14.6136, -45.9455)
+
+[node name="SM_Cliff200" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.925702, 0, -0.763606, 0, 1.20001, 0, 0.763606, 0, -0.925702, -187.559, 5.05365, -34.6167)
+
+[node name="SM_Cliff201" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.84205, 0, -1.0583, 0, 3.0327, 0, 1.0583, 0, -2.84205, -155.373, 13.9094, -45.1388)
+
+[node name="SM_Cliff202" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.02948, 0, -0.616595, 0, 1.20001, 0, 0.616595, 0, -1.02948, -157.28, 4.75185, -49.6148)
+
+[node name="SM_Cliff198" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.989977, 0, 0.14123, 0, 1, 0, -0.14123, 0, 0.989977, -158.841, 4.81363, 1.67628)
+
+[node name="SM_Cliff177" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.366079, -1.25317e-08, -0.930584, 6.2951e-09, 1, -1.09901e-08, 0.930584, -1.83488e-09, 0.366079, -92.7047, 5.40228, -52.6274)
+
+[node name="SM_Cliff178" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.2308, -2.74885e-08, -0.888037, 1.30512e-08, 1.51772, -2.88911e-08, 0.888037, 1.57928e-08, 1.2308, -114.996, -1.48584, -116.616)
+
+[node name="SM_Cliff180" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.14523, -2.96327e-08, -1.28283, 1.16862e-08, 1.29102, -2.8499e-08, 1.28283, -8.40615e-09, 0.14523, -93.4204, -2.42343, -80.9585)
+
+[node name="SM_Cliff184" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.16074, -4.72013e-08, -3.22726, 2.31496e-08, 3.42965, -4.18353e-08, 3.22726, -7.62466e-09, 1.16074, -82.9694, 19.3858, -88.6892)
+
+[node name="SM_Cliff185" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.62016, -2.58881e-08, -3.02285, 1.42145e-08, 3.42965, -2.17535e-08, 3.02285, -2.25218e-09, 1.62016, -103.405, -5.90197, -108.466)
+
+[node name="SM_Cliff186" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.03721, 6.14249e-08, -1.59308, -4.82826e-08, 3.42965, 4.01876e-08, 1.59308, -1.31616e-08, 3.03721, -105.524, 19.3858, -134.545)
+
+[node name="SM_Cliff187" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.14689, 7.13883e-08, -1.36367, -5.83104e-08, 3.42965, 4.49821e-08, 1.36367, -1.80885e-08, 3.14689, -132.326, 19.3858, -138.466)
+
+[node name="SM_Cliff188" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.95703, 5.31118e-08, -0.525154, -4.67119e-08, 2.02627, 3.08518e-08, 0.525154, -1.76911e-08, 1.95703, -136.95, 7.9061, -137.307)
+
+[node name="SM_Cliff189" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.85921, 4.21768e-08, -0.805669, -3.44502e-08, 2.02627, 2.65758e-08, 0.805669, -1.06869e-08, 1.85921, -149.917, 7.9061, -142.617)
+
+[node name="SM_Cliff258" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.2388, 7.34732e-08, -1.4035, -6.00133e-08, 3.52982, 4.62958e-08, 1.4035, -1.86168e-08, 3.2388, -149.917, 24.5223, -142.617)
+
+[node name="SM_Cliff190" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.95703, 5.31118e-08, -0.525154, -4.67119e-08, 2.02627, 3.08518e-08, 0.525154, -1.76911e-08, 1.95703, -163.989, 7.9061, -147.12)
+
+[node name="SM_Cliff80" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.11635, 2.97362e-08, 1.61029, 1.81819e-08, 1.95941, -4.87879e-08, -1.61029, 4.27386e-08, 1.11635, -267.889, -6.27238, -74.5953)
+
+[node name="SM_Cliff81" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.13345, -1.11206e-10, 0.618081, 8.7142e-09, 1.29102, -1.5748e-08, -0.618081, 1.79979e-08, 1.13345, -243.193, 3.6839, -99.4948)
+
+[node name="SM_Cliff91" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.10843, -2.24264e-08, 3.2456, -4.82826e-08, 3.42965, 4.01876e-08, -3.2456, -5.86797e-08, 1.10843, -272.845, 5.06585, -85.4643)
+
+[node name="SM_Cliff92" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.511, -1.70289e-08, 1.96078, -3.44502e-08, 2.02627, 2.65758e-08, -1.96078, -4.00388e-08, 0.511, -278.261, 1.16761, -69.6412)
+
+[node name="SM_Cliff93" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.2188, -2.56273e-08, 2.01442, -4.67119e-08, 2.02627, 3.08518e-08, -2.01442, -4.97702e-08, 0.2188, -280.553, 1.16761, -55.0456)
+
+[node name="SM_Cliff94" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.511, -1.70289e-08, 1.96078, -3.44502e-08, 2.02627, 2.65758e-08, -1.96078, -4.00388e-08, 0.511, -283.812, 1.16761, -41.4177)
+
+[node name="SM_Cliff162" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.691095, -1.75364e-07, 1.90477, -3.63716e-08, 2.02627, 1.73353e-07, -1.90477, 2.49345e-08, -0.691095, -286.648, 12.1141, -28.2952)
+
+[node name="SM_Cliff182" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.68877, 1.98218e-08, 1.35243, 1.30512e-08, 1.51772, -2.88911e-08, -1.35243, 2.47412e-08, 0.68877, -263.474, 2.72213, -79.9135)
+
+[node name="SM_Cliff203" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.73861, 1.74481e-09, 2.06459, 1.42145e-08, 3.42965, -2.17535e-08, -2.06459, 2.59273e-08, 2.73861, -257.198, -1.694, -92.6171)
+
+[node name="SM_Cliff204" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.10843, -2.24264e-08, 3.2456, -4.82826e-08, 3.42965, 4.01876e-08, -3.2456, -5.86797e-08, 1.10843, -282.644, 23.5938, -86.5243)
+
+[node name="SM_Cliff205" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.864916, -2.8823e-08, 3.3188, -5.83104e-08, 3.42965, 4.49821e-08, -3.3188, -6.77695e-08, 0.864916, -282.408, 23.5938, -59.4374)
+
+[node name="SM_Cliff206" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.2188, -2.56273e-08, 2.01442, -4.67119e-08, 2.02627, 3.08518e-08, -2.01442, -4.97702e-08, 0.2188, -280.553, 12.1141, -55.0456)
+
+[node name="SM_Cliff207" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.511, -1.70289e-08, 1.96078, -3.44502e-08, 2.02627, 2.65758e-08, -1.96078, -4.00388e-08, 0.511, -283.812, 12.1141, -41.4177)
+
+[node name="SM_Cliff208" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.2188, -2.56273e-08, 2.01442, -4.67119e-08, 2.02627, 3.08518e-08, -2.01442, -4.97702e-08, 0.2188, -286.104, 12.1141, -26.822)
+
+[node name="SM_Cliff82" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.6323, 4.21353e-08, 1.08392, 1.81819e-08, 1.95941, -4.87879e-08, -1.08392, -3.0585e-08, -1.6323, -247.963, -6.27238, 53.2175)
+
+[node name="SM_Cliff83" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.640627, 1.79966e-08, 1.12086, 8.7142e-09, 1.29102, -1.5748e-08, -1.12086, -2.48777e-10, -0.640627, -273.351, 3.6839, 29.0248)
+
+[node name="SM_Cliff95" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.26712, -5.82194e-08, 1.0433, -4.82826e-08, 3.42965, 4.01876e-08, -1.0433, 2.35955e-08, -3.26712, -258.73, 5.06585, 58.3908)
+
+[node name="SM_Cliff209" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.9706, -3.96902e-08, 0.471682, -3.44502e-08, 2.02627, 2.65758e-08, -0.471682, 1.78263e-08, -1.9706, -242.802, 1.16761, 63.489)
+
+[node name="SM_Cliff210" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.01839, -4.92477e-08, 0.178468, -4.67119e-08, 2.02627, 3.08518e-08, -0.178468, 2.66176e-08, -2.01839, -228.164, 1.16761, 65.489)
+
+[node name="SM_Cliff211" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.9706, -3.96902e-08, 0.471682, -3.44502e-08, 2.02627, 2.65758e-08, -0.471682, 1.78263e-08, -1.9706, -214.473, 1.16761, 68.4738)
+
+[node name="SM_Cliff212" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.89056, 2.84368e-08, -0.729052, -3.63716e-08, 2.02627, 1.73353e-07, 0.729052, 1.7483e-07, -1.89056, -201.297, 12.1141, 71.0474)
+
+[node name="SM_Cliff213" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.36593, 2.43398e-08, 0.661584, 1.30512e-08, 1.51772, -2.88911e-08, -0.661584, -2.03126e-08, -1.36593, -253.368, 2.72213, 48.9106)
+
+[node name="SM_Cliff214" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.11895, 2.58872e-08, 2.69677, 1.42145e-08, 3.42965, -2.17535e-08, -2.69677, -2.263e-09, -2.11895, -266.195, -1.694, 42.8896)
+
+[node name="SM_Cliff215" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.26712, -5.82194e-08, 1.0433, -4.82826e-08, 3.42965, 4.01876e-08, -1.0433, 2.35955e-08, -3.26712, -259.594, 23.5938, 68.2082)
+
+[node name="SM_Cliff216" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.33544, -6.71795e-08, 0.798366, -5.83104e-08, 3.42965, 4.49821e-08, -0.798366, 3.01727e-08, -3.33544, -232.517, 23.5938, 67.4305)
+
+[node name="SM_Cliff217" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.01839, -4.92477e-08, 0.178468, -4.67119e-08, 2.02627, 3.08518e-08, -0.178468, 2.66176e-08, -2.01839, -228.164, 12.1141, 65.489)
+
+[node name="SM_Cliff218" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.9706, -3.96902e-08, 0.471682, -3.44502e-08, 2.02627, 2.65758e-08, -0.471682, 1.78263e-08, -1.9706, -214.473, 12.1141, 68.4738)
+
+[node name="SM_Cliff219" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.01839, -4.92477e-08, 0.178468, -4.67119e-08, 2.02627, 3.08518e-08, -0.178468, 2.66176e-08, -2.01839, -199.835, 12.1141, 70.4738)
+
+[node name="SM_Cliff84" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.92475, 8.72504e-09, -0.366887, 1.81819e-08, 1.95941, -4.87879e-08, 0.366887, -5.13294e-08, -1.92475, -192.515, -6.27238, -133.226)
+
+[node name="SM_Cliff86" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.2418, 1.26889e-08, 0.353081, 8.7142e-09, 1.29102, -1.5748e-08, -0.353081, -1.27644e-08, -1.2418, -227.581, 3.6839, -132.761)
+
+[node name="SM_Cliff220" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.06481, -2.51094e-08, -1.5393, -4.82826e-08, 3.42965, 4.01876e-08, 1.5393, 5.75827e-08, -3.06481, -196.593, 5.06585, -121.997)
+
+[node name="SM_Cliff221" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.73836, -1.59008e-08, -1.04109, -3.44502e-08, 2.02627, 2.65758e-08, 1.04109, 4.05001e-08, -1.73836, -181.642, 1.16761, -129.493)
+
+[node name="SM_Cliff222" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.56745, -1.65833e-08, -1.28408, -4.67119e-08, 2.02627, 3.08518e-08, 1.28408, 5.3468e-08, -1.56745, -169.781, 1.16761, -138.302)
+
+[node name="SM_Cliff223" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.73836, -1.59008e-08, -1.04109, -3.44502e-08, 2.02627, 2.65758e-08, 1.04109, 4.05001e-08, -1.73836, -157.908, 1.16761, -145.744)
+
+[node name="SM_Cliff224" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.841373, 1.42599e-07, -1.84332, -3.63716e-08, 2.02627, 1.73353e-07, 1.84332, 1.0507e-07, -0.841373, -146.69, 12.1141, -153.12)
+
+[node name="SM_Cliff225" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.43899, 3.19021e-09, -0.482458, 1.30512e-08, 1.51772, -2.88911e-08, 0.482458, -3.15413e-08, -1.43899, -199.39, 2.72213, -132.524)
+
+[node name="SM_Cliff226" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.690331, -1.84471e-08, -3.35946, 1.42145e-08, 3.42965, -2.17535e-08, 3.35946, -1.83022e-08, -0.690331, -246.545, -2.85968, -108.972)
+
+[node name="SM_Cliff227" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.78055, -6.63614e-08, 1.12129, -5.55141e-08, 3.94333, 4.62067e-08, -1.12129, 2.85138e-08, -3.78055, -161.998, -16.7306, -146.302)
+
+[node name="SM_Cliff228" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.94234, -2.69135e-08, -1.76214, -5.83104e-08, 3.42965, 4.49821e-08, 1.76214, 6.85503e-08, -2.94234, -171.535, 23.5938, -133.869)
+
+[node name="SM_Cliff229" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.56745, -1.65833e-08, -1.28408, -4.67119e-08, 2.02627, 3.08518e-08, 1.28408, 5.3468e-08, -1.56745, -169.781, 12.1141, -138.302)
+
+[node name="SM_Cliff230" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.73836, -1.59008e-08, -1.04109, -3.44502e-08, 2.02627, 2.65758e-08, 1.04109, 4.05001e-08, -1.73836, -157.908, 12.1141, -145.744)
+
+[node name="SM_Cliff231" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.56745, -1.65833e-08, -1.28408, -4.67119e-08, 2.02627, 3.08518e-08, 1.28408, 5.3468e-08, -1.56745, -146.047, 12.1141, -154.552)
+
+[node name="SM_Cliff232" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.4722, 1.15267e-07, -2.3133, -9.61833e-08, 4.17223, 6.3526e-08, 2.3133, 4.61704e-10, 3.4722, -108.192, 47.4871, -132.862)
+
+[node name="SM_Cliff233" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.09662, 8.93215e-08, -2.79615, -7.09356e-08, 4.17223, 5.47215e-08, 2.79615, 6.92546e-09, 3.09662, -129.994, 47.4871, -151.76)
+
+[node name="SM_Cliff234" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.13623, 1.21034e-07, -0.546896, -7.48918e-08, 4.17223, 3.56946e-07, 0.546896, -3.4405e-07, 4.13623, -151.272, 70.0266, -169.408)
+
+[node name="SM_Cliff235" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.4722, 1.15267e-07, -2.3133, -9.61833e-08, 4.17223, 6.3526e-08, 2.3133, 4.61704e-10, 3.4722, -108.192, 70.0266, -132.862)
+
+[node name="SM_Cliff236" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.09662, 8.93215e-08, -2.79615, -7.09356e-08, 4.17223, 5.47215e-08, 2.79615, 6.92546e-09, 3.09662, -129.994, 70.0266, -151.76)
+
+[node name="SM_Cliff237" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.4722, 1.15267e-07, -2.3133, -9.61833e-08, 4.17223, 6.3526e-08, 2.3133, 4.61704e-10, 3.4722, -154.48, 70.0266, -169.813)
+
+[node name="SM_Cliff238" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.99666, 5.08239e-08, 0.55174, 3.74378e-08, 4.03456, -1.00458e-07, -0.55174, -9.43942e-08, -3.99666, -219.282, 40.8321, -161.491)
+
+[node name="SM_Cliff239" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.20573, -8.78144e-08, -1.3491, -1.07973e-07, 6.35068, 8.32932e-08, 1.3491, 1.04329e-07, -6.20573, -228.079, -1.31662, -137.48)
+
+[node name="SM_Cliff255" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.81962, -5.39404e-08, -3.4313, -1.14862e-07, 6.75587, 8.86076e-08, 3.4313, 1.34666e-07, -5.81962, -244.879, 50.494, -137.333)
+
+[node name="SM_Cliff249" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.14573, -1.05928e-07, 1.40607, -9.0694e-08, 5.33437, 6.99636e-08, -1.40607, 4.35837e-08, -5.14573, -197.418, 38.2293, -145.803)
+
+[node name="SM_Cliff256" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.28803, -9.91083e-08, 0.70163, -9.0694e-08, 5.33437, 6.99636e-08, -0.70163, 5.74268e-08, -5.28803, -197.418, 4.26239, -145.803)
+
+[node name="SM_Cliff250" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.32609, -9.44501e-08, 0.297123, -9.0694e-08, 5.33437, 6.99636e-08, -0.297123, 6.48034e-08, -5.32609, -161.901, 38.2293, -142.238)
+
+[node name="SM_Cliff240" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.90359, -6.75633e-08, -1.47294, -9.61833e-08, 4.17223, 6.3526e-08, 1.47294, 9.33916e-08, -3.90359, -171.587, 56.1516, -156.423)
+
+[node name="SM_Cliff241" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.077, -5.76918e-08, -0.886321, -7.09356e-08, 4.17223, 5.47215e-08, 0.886321, 6.85415e-08, -4.077, -143.524, 56.1516, -163.123)
+
+[node name="SM_Cliff242" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.85534, 2.09009e-07, -3.04212, -7.48917e-08, 4.17223, 3.56946e-07, 3.04212, 2.98889e-07, -2.85534, -116.781, 78.6911, -170.126)
+
+[node name="SM_Cliff243" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.12509, 2.69948e-08, 0.00638157, 2.68734e-08, 3.12509, -5.94889e-08, -0.00638157, -5.94339e-08, -3.12509, -233.158, 59.3524, -164.649)
+
+[node name="SM_Cliff244" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.90072, -9.76489e-08, -1.50019, -1.20065e-07, 7.06191, 9.26214e-08, 1.50019, 1.16013e-07, -6.90072, -177.346, 102.329, -159.657)
+
+[node name="SM_Cliff277" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.70344, -1.43105e-07, 2.22136, -1.20065e-07, 7.06191, 9.26214e-08, -2.22136, 5.01527e-08, -6.70344, -135.38, 102.329, -157.664)
+
+[node name="SM_Cliff248" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-7.05064, -1.14644e-07, -0.39876, -1.20065e-07, 7.06191, 9.26214e-08, 0.39876, 9.92533e-08, -7.05064, -207.355, 60.4216, -158.756)
+
+[node name="SM_Cliff252" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.74725, -8.7376e-08, -2.08449, -1.20065e-07, 7.06191, 9.26214e-08, 2.08449, 1.23935e-07, -6.74725, -227.92, 98.7797, -150.959)
+
+[node name="SM_Cliff254" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.26669, -0.848079, -5.56297, -0.895544, 6.99461, -0.379468, 5.55553, 0.47619, -4.33358, -264.555, 10.3193, -113.424)
+
+[node name="SM_Cliff253" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-7.19473, -1.42706e-08, -8.23848, -1.85964e-07, 10.9379, 1.43457e-07, 8.23848, 2.34433e-07, -7.19473, -278.465, 9.69868, -135.52)
+
+[node name="SM_Cliff245" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.90359, -6.75633e-08, -1.47294, -9.61833e-08, 4.17223, 6.3526e-08, 1.47294, 9.33916e-08, -3.90359, -159.4, 78.6911, -146.179)
+
+[node name="SM_Cliff251" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.11059, -1.05642e-07, 0.714531, -9.61833e-08, 4.17223, 6.3526e-08, -0.714531, 4.61153e-08, -4.11059, -195.033, 78.6911, -147.585)
+
+[node name="SM_Cliff385" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.47124, -9.27899e-08, 1.39327, -3.63716e-08, 2.02627, 1.73353e-07, -1.39327, -1.50878e-07, 1.47124, -305.865, -3.04036, -57.6818)
+
+[node name="SM_Cliff386" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.548343, -1.25355e-07, 1.95066, -7.85296e-08, 2.02627, 1.52289e-07, -1.95066, -1.16811e-07, 0.548343, -324.541, 7.9061, -36.8967)
+
+[node name="SM_Cliff387" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.58872, -8.58863e-08, 1.25767, -2.86167e-08, 2.02627, 1.74523e-07, -1.25767, -1.54599e-07, 1.58872, -318.208, 7.9061, -47.4885)
+
+[node name="SM_Cliff388" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.47124, -9.27899e-08, 1.39327, -3.63716e-08, 2.02627, 1.73353e-07, -1.39327, -1.50878e-07, 1.47124, -305.865, 7.9061, -57.6818)
+
+[node name="SM_Cliff389" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.0824274, 4.79798e-08, 1.95767, 1.81819e-08, 1.95941, -4.87879e-08, -1.95767, 2.02181e-08, 0.0824274, -317.404, -6.27238, 9.22093)
+
+[node name="SM_Cliff390" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.627378, 9.52884e-09, 1.12833, 8.7142e-09, 1.29102, -1.5748e-08, -1.12833, 1.52689e-08, 0.627378, -309.848, 3.6839, -25.0246)
+
+[node name="SM_Cliff391" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.798599, -5.03255e-08, 3.33538, -4.82826e-08, 3.42965, 4.01876e-08, -3.33538, -3.75977e-08, -0.798599, -327.404, 5.06585, 2.68613)
+
+[node name="SM_Cliff392" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.141037, 2.99789e-08, 1.51115, 1.30512e-08, 1.51772, -2.88911e-08, -1.51115, 1.031e-08, -0.141037, -316.517, 2.72213, 2.36658)
+
+[node name="SM_Cliff393" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.21045, 1.53368e-08, 3.20895, 1.42145e-08, 3.42965, -2.17535e-08, -3.20895, 2.09774e-08, 1.21045, -318.006, -1.694, -11.7245)
+
+[node name="SM_Cliff394" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.798599, -5.03255e-08, 3.33538, -4.82826e-08, 3.42965, 4.01876e-08, -3.33538, -3.75977e-08, -0.798599, -336.251, 23.5938, 7.0291)
+
+[node name="SM_Cliff395" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.43038, -2.00706e-08, -1.33914, 1.81818e-08, 1.95941, -4.87879e-08, 1.33914, -4.80416e-08, -1.43038, -285.056, -6.27238, -80.6253)
+
+[node name="SM_Cliff396" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.23818, 3.89831e-09, -0.365569, 8.7142e-09, 1.29102, -1.5748e-08, 0.365569, -1.7571e-08, -1.23818, -314.44, 3.6839, -61.4838)
+
+[node name="SM_Cliff397" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.958092, -1.4168e-08, -1.17708, 1.30512e-08, 1.51772, -2.88911e-08, 1.17708, -2.83601e-08, -0.958092, -290.491, 2.72213, -76.3558)
+
+[node name="SM_Cliff398" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.2128, -2.53745e-08, -3.20806, 1.42145e-08, 3.42965, -2.17535e-08, 3.20806, -5.60358e-09, 1.2128, -317.748, -2.85968, -31.2415)
+
+[node name="SM_Cliff399" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.67244, -7.51942e-09, -1.67061, 3.74378e-08, 4.03456, -1.00458e-07, 1.67061, -1.06943e-07, -3.67244, -322.788, 40.8321, -90.1996)
+
+[node name="SM_Cliff400" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.52294, -1.84281e-08, -4.45804, -1.07973e-07, 6.35068, 8.32932e-08, 4.45804, 1.35116e-07, -4.52294, -317.385, -1.31662, -65.2055)
+
+[node name="SM_Cliff401" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.08338, 2.64178e-08, -6.01121, -1.14862e-07, 6.75587, 8.86076e-08, 6.01121, 1.42642e-07, -3.08338, -331.503, 50.494, -56.0992)
+
+[node name="SM_Cliff402" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.84387, -5.30491e-08, -2.23439, -9.0694e-08, 5.33437, 6.99636e-08, 2.23439, 1.01519e-07, -4.84387, -295.924, 4.26239, -88.6324)
+
+[node name="SM_Cliff403" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.64432, -8.96466e-09, -1.66547, 2.68734e-08, 3.12509, -5.94889e-08, 1.66547, -6.46586e-08, -2.64432, -336.203, 59.3524, -85.4492)
+
+[node name="SM_Cliff404" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.74505, -4.38145e-08, -4.10669, -1.20065e-07, 7.06191, 9.26214e-08, 4.10669, 1.45171e-07, -5.74505, -311.246, 60.4216, -94.2653)
+
+[node name="SM_Cliff405" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.58737, -7.57531e-09, -5.36904, -1.20065e-07, 7.06191, 9.26215e-08, 5.36904, 1.5145e-07, -4.58737, -324.457, 98.7797, -76.6815)
+
+[node name="SM_Cliff406" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.635307, -0.462082, -7.01808, -0.895544, 6.99461, -0.379468, 6.97602, 0.855847, -0.687851, -335.347, 10.3193, -25.3746)
+
+[node name="SM_Cliff407" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.67522, 1.13283e-07, -10.8088, -1.85964e-07, 10.9379, 1.43457e-07, 10.8088, 2.05741e-07, -1.67522, -358.916, 9.69868, -36.6093)
+
+[node name="SM_Cliff408" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.85575, -6.46181e-08, -1.59395, -9.61833e-08, 4.17223, 6.35261e-08, 1.59395, 9.5453e-08, -3.85575, -294.862, 78.6911, -91.4127)
+
+[node name="SM_Cliff257" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.42757, -5.26392e-08, -0.21832, -5.61892e-08, 2.43737, 3.71112e-08, 0.21832, 4.19949e-08, -2.42757, -176.73, 79.9959, -139.196)
+
+[node name="SM_Cliff246" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.077, -5.76918e-08, -0.886321, -7.09356e-08, 4.17223, 5.47215e-08, 0.886321, 6.85415e-08, -4.077, -143.524, 78.6911, -163.123)
+
+[node name="SM_Cliff247" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.90359, -6.75633e-08, -1.47294, -9.61833e-08, 4.17223, 6.3526e-08, 1.47294, 9.33916e-08, -3.90359, -114.582, 78.6911, -172.496)
+
+[node name="SM_Cliff259" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.92264, -2.02157e-08, 0.639689, -3.63716e-08, 2.02627, 1.73353e-07, -0.639689, -1.7597e-07, 1.92264, -116.693, -3.04036, -110.372)
+
+[node name="SM_Cliff260" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.92264, -2.02157e-08, 0.639689, -3.63716e-08, 2.02627, 1.73353e-07, -0.639689, -1.7597e-07, 1.92264, -116.693, 7.9061, -110.372)
+
+[node name="SM_Cliff261" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.92264, -2.02157e-08, 0.639689, -3.63716e-08, 2.02627, 1.73353e-07, -0.639689, -1.7597e-07, 1.92264, -60.1072, 7.9061, -140.256)
+
+[node name="SM_Cliff262" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.94634, 4.04817e-08, -0.563477, -3.44502e-08, 2.02627, 2.65758e-08, 0.563477, -1.59474e-08, 1.94634, -47.0657, 7.9061, -137.068)
+
+[node name="SM_Cliff263" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.39059, 7.05203e-08, -0.981592, -6.00133e-08, 3.52982, 4.62958e-08, 0.981592, -2.77808e-08, 3.39059, -47.0657, 24.5223, -137.068)
+
+[node name="SM_Cliff264" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00782, 5.04406e-08, -0.272823, -4.67119e-08, 2.02627, 3.08518e-08, 0.272823, -2.42814e-08, 2.00782, -61.5945, 7.9061, -139.751)
+
+[node name="SM_Cliff265" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.86271, 2.14761e-09, -0.607929, 1.81818e-08, 1.95941, -4.87879e-08, 0.607929, -5.20213e-08, -1.86271, -88.1287, -6.27238, -122.353)
+
+[node name="SM_Cliff266" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.27654, 1.09684e-08, 0.192808, 8.7142e-09, 1.29102, -1.5748e-08, -0.192808, -1.427e-08, -1.27654, -122.853, 3.6839, -117.446)
+
+[node name="SM_Cliff267" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.84495, -1.7607e-08, -1.9154, -4.82826e-08, 3.42965, 4.01876e-08, 1.9154, 6.03012e-08, -2.84495, -90.7504, 5.06585, -110.698)
+
+[node name="SM_Cliff268" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.59236, -1.06383e-08, -1.25306, -3.44502e-08, 2.02627, 2.65758e-08, 1.25306, 4.21891e-08, -1.59236, -76.8711, 1.16761, -120.029)
+
+[node name="SM_Cliff269" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.39202, -9.6714e-09, -1.47243, -4.67119e-08, 2.02627, 3.08518e-08, 1.47243, 5.51389e-08, -1.39202, -66.2219, 1.16761, -130.27)
+
+[node name="SM_Cliff270" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.59236, -1.06383e-08, -1.25306, -3.44502e-08, 2.02627, 2.65758e-08, 1.25306, 4.21891e-08, -1.59236, -55.3884, 1.16761, -139.157)
+
+[node name="SM_Cliff271" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.600906, 1.54768e-07, -1.93511, -3.63716e-08, 2.02627, 1.73353e-07, 1.93511, 8.61447e-08, -0.600906, -45.1963, 12.1141, -147.895)
+
+[node name="SM_Cliff272" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.36622, -8.34021e-10, -0.660987, 1.30512e-08, 1.51772, -2.88911e-08, 0.660987, -3.16912e-08, -1.36622, -94.86, 2.72213, -120.785)
+
+[node name="SM_Cliff273" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.69522, -1.80063e-08, -2.12093, -5.83104e-08, 3.42965, 4.49821e-08, 2.12093, 7.14091e-08, -2.69522, -67.3999, 23.5938, -125.651)
+
+[node name="SM_Cliff274" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.39202, -9.6714e-09, -1.47243, -4.67119e-08, 2.02627, 3.08518e-08, 1.47243, 5.51389e-08, -1.39202, -66.2219, 12.1141, -130.27)
+
+[node name="SM_Cliff275" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.59236, -1.06383e-08, -1.25306, -3.44502e-08, 2.02627, 2.65758e-08, 1.25306, 4.21891e-08, -1.59236, -55.3884, 12.1141, -139.157)
+
+[node name="SM_Cliff276" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.39202, -9.6714e-09, -1.47243, -4.67119e-08, 2.02627, 3.08518e-08, 1.47243, 5.51389e-08, -1.39202, -44.7392, 12.1141, -149.398)
+
+[node name="SM_Cliff278" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.42611, 8.94788e-08, -2.38103, -7.09356e-08, 4.17223, 5.47215e-08, 2.38103, -4.45372e-09, 3.42611, -28.4617, 47.4871, -148.663)
+
+[node name="SM_Cliff279" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.17219, 7.64424e-08, -0.018133, -7.48918e-08, 4.17223, 3.56946e-07, 0.018133, -3.56618e-07, 4.17219, -51.8054, 70.0266, -163.471)
+
+[node name="SM_Cliff281" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.42611, 8.94788e-08, -2.38103, -7.09356e-08, 4.17223, 5.47215e-08, 2.38103, -4.45372e-09, 3.42611, -28.4617, 70.0266, -148.663)
+
+[node name="SM_Cliff282" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.73744, 1.14396e-07, -1.85447, -9.61834e-08, 4.17223, 6.35261e-08, 1.85447, -1.41545e-08, 3.73744, -55.0392, 70.0266, -163.466)
+
+[node name="SM_Cliff283" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.03436, 3.84475e-08, 0.0406302, 3.74378e-08, 4.03456, -1.00458e-07, -0.0406302, -1.00076e-07, -4.03436, -118.263, 40.8321, -146.996)
+
+[node name="SM_Cliff284" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.28246, -9.95484e-08, 0.742402, -9.0694e-08, 5.33437, 6.99636e-08, -0.742402, 5.66606e-08, -5.28246, -94.5869, 38.2293, -134.207)
+
+[node name="SM_Cliff285" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.33431, -9.10288e-08, 0.0256041, -9.0694e-08, 5.33437, 6.99636e-08, -0.0256041, 6.95275e-08, -5.33431, -94.5869, 4.26239, -134.207)
+
+[node name="SM_Cliff286" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-5.32079, -8.5473e-08, -0.380464, -9.0694e-08, 5.33437, 6.99636e-08, 0.380464, 7.6254e-08, -5.32079, -58.9044, 38.2293, -135.173)
+
+[node name="SM_Cliff287" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.68537, -5.51789e-08, -1.95592, -9.61833e-08, 4.17223, 6.3526e-08, 1.95592, 1.01203e-07, -3.68537, -70.3106, 56.1516, -148.016)
+
+[node name="SM_Cliff288" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.93175, -4.85373e-08, -1.39601, -7.09356e-08, 4.17223, 5.47215e-08, 1.39601, 7.53022e-08, -3.93175, -43.3232, 56.1516, -158.219)
+
+[node name="SM_Cliff290" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.10068, 1.92426e-08, -0.389838, 2.68734e-08, 3.12509, -5.94889e-08, 0.389838, -6.23765e-08, -3.10068, -132.428, 59.3524, -148.37)
+
+[node name="SM_Cliff291" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.65487, -8.2154e-08, -2.36289, -1.20065e-07, 7.06191, 9.26214e-08, 2.36289, 1.27456e-07, -6.65487, -76.433, 102.329, -150.494)
+
+[node name="SM_Cliff292" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-6.9432, -1.01136e-07, -1.28935, -1.20065e-07, 7.06191, 9.26214e-08, 1.28935, 1.12986e-07, -6.9432, -106.085, 60.4216, -145.795)
+
+[node name="SM_Cliff293" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.68537, -5.51789e-08, -1.95592, -9.61833e-08, 4.17223, 6.3526e-08, 1.95592, 1.01203e-07, -3.68537, -56.9239, 78.6911, -139.399)
+
+[node name="SM_Cliff294" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-4.16801, -9.89433e-08, 0.187665, -9.61833e-08, 4.17223, 6.35261e-08, -0.187665, 5.91354e-08, -4.16801, -92.4476, 78.6911, -136.276)
+
+[node name="SM_Cliff295" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.38031, -4.68908e-08, -0.524303, -5.61891e-08, 2.43737, 3.71112e-08, 0.524303, 4.83292e-08, -2.38031, -73.2284, 79.9959, -130.275)
+
+[node name="SM_Cliff296" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.93175, -4.85373e-08, -1.39601, -7.09356e-08, 4.17223, 5.47215e-08, 1.39601, 7.53022e-08, -3.93175, -43.3232, 78.6911, -158.219)
+
+[node name="SM_Cliff280" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.80392, -1.11332e-07, 0.922835, -3.63716e-08, 2.02627, 1.73353e-07, -0.922835, 1.37766e-07, -1.80392, -203.07, -3.04036, 90.5698)
+
+[node name="SM_Cliff289" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.280585, 5.08886e-08, 1.93921, 1.81818e-08, 1.95941, -4.87879e-08, -1.93921, 1.10081e-08, -0.280585, -281.875, -10.4804, 24.4933)
+
+[node name="SM_Cliff297" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.40092, -5.64042e-08, 3.13049, -4.82826e-08, 3.42965, 4.01876e-08, -3.13049, -2.76553e-08, -1.40092, -292.91, 0.857889, 19.918)
+
+[node name="SM_Cliff298" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.962435, -3.97498e-08, 1.78311, -3.44502e-08, 2.02627, 2.65758e-08, -1.78311, -1.76932e-08, -0.962435, -286.089, -3.04036, 35.188)
+
+[node name="SM_Cliff299" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21282, -5.26743e-08, 1.62322, -4.67119e-08, 2.02627, 3.08518e-08, -1.62322, -1.8954e-08, -1.21282, -277.819, -3.04036, 47.431)
+
+[node name="SM_Cliff300" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.962435, -3.97498e-08, 1.78311, -3.44502e-08, 2.02627, 2.65758e-08, -1.78311, -1.76932e-08, -0.962435, -270.915, -3.04036, 59.6241)
+
+[node name="SM_Cliff301" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.02189, -6.83603e-08, -0.133052, -7.85296e-08, 2.02627, 1.52289e-07, 0.133052, 1.57117e-07, -2.02189, -177.249, 7.9061, 101.252)
+
+[node name="SM_Cliff302" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.71521, -1.17141e-07, 1.07879, -2.86167e-08, 2.02627, 1.74523e-07, -1.07879, 1.32497e-07, -1.71521, -189.346, 7.9061, 98.8102)
+
+[node name="SM_Cliff303" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.80392, -1.11332e-07, 0.922835, -3.63716e-08, 2.02627, 1.73353e-07, -0.922835, 1.37766e-07, -1.80392, -203.07, 7.9061, 90.5698)
+
+[node name="SM_Cliff304" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.80392, -1.11332e-07, 0.922835, -3.63716e-08, 2.02627, 1.73353e-07, -0.922835, 1.37766e-07, -1.80392, -264.047, 7.9061, 71.1599)
+
+[node name="SM_Cliff305" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.417729, 3.13674e-08, 1.4591, 1.30512e-08, 1.51772, -2.88911e-08, -1.4591, 4.59529e-09, -0.417729, -282.27, -1.48584, 17.5931)
+
+[node name="SM_Cliff306" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.40092, -5.64042e-08, 3.13049, -4.82826e-08, 3.42965, 4.01876e-08, -3.13049, -2.76553e-08, -1.40092, -300.803, 19.3858, 25.8203)
+
+[node name="SM_Cliff307" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.62901, -6.72803e-08, 3.01809, -5.83104e-08, 3.42965, 4.49821e-08, -3.01809, -2.99474e-08, -1.62901, -282.169, 19.3858, 45.4808)
+
+[node name="SM_Cliff308" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21282, -5.26743e-08, 1.62322, -4.67119e-08, 2.02627, 3.08518e-08, -1.62322, -1.8954e-08, -1.21282, -277.819, 7.9061, 47.431)
+
+[node name="SM_Cliff309" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.962435, -3.97498e-08, 1.78311, -3.44502e-08, 2.02627, 2.65758e-08, -1.78311, -1.76932e-08, -0.962435, -270.915, 7.9061, 59.6241)
+
+[node name="SM_Cliff310" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.67659, -6.92452e-08, 3.10623, -6.00133e-08, 3.52982, 4.62958e-08, -3.10623, -3.0822e-08, -1.67659, -270.915, 24.5223, 59.6241)
+
+[node name="SM_Cliff311" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21282, -5.26743e-08, 1.62322, -4.67119e-08, 2.02627, 3.08518e-08, -1.62322, -1.8954e-08, -1.21282, -262.645, 7.9061, 71.8671)
+
+[node name="SM_Cliff312" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.73926, -3.86071e-08, -0.902357, 1.81818e-08, 1.95941, -4.87879e-08, 0.902357, 3.49331e-08, 1.73926, -231.637, -6.27238, 78.5955)
+
+[node name="SM_Cliff313" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.757294, -1.78658e-08, -1.04558, 8.7142e-09, 1.29102, -1.5748e-08, 1.04558, 2.18003e-09, 0.757294, -203.797, 3.6839, 99.9218)
+
+[node name="SM_Cliff314" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.36026, 5.53487e-08, -0.686403, -4.82826e-08, 3.42965, 4.01876e-08, 0.686403, -2.97113e-08, 3.36026, -221.487, 5.06585, 72.2958)
+
+[node name="SM_Cliff315" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00986, 3.75463e-08, -0.257327, -3.44502e-08, 2.02627, 2.65758e-08, 0.257327, -2.19856e-08, 2.00986, -237.87, 1.16761, 68.9377)
+
+[node name="SM_Cliff316" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02589, 4.61044e-08, 0.0393233, -4.67119e-08, 2.02627, 3.08518e-08, -0.0393233, -3.17525e-08, 2.02589, -252.639, 1.16761, 68.5213)
+
+[node name="SM_Cliff317" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00986, 3.75463e-08, -0.257327, -3.44502e-08, 2.02627, 2.65758e-08, 0.257327, -2.19856e-08, 2.00986, -266.571, 1.16761, 67.024)
+
+[node name="SM_Cliff318" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.80134, -4.70477e-08, 0.927867, -3.63716e-08, 2.02627, 1.73353e-07, -0.927867, -1.70765e-07, 1.80134, -279.948, 12.1141, 65.8804)
+
+[node name="SM_Cliff319" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.42908, -2.20176e-08, -0.511067, 1.30512e-08, 1.51772, -2.88911e-08, 0.511067, 2.28091e-08, 1.42908, -225.8, 2.72213, 82.2971)
+
+[node name="SM_Cliff320" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.27683, 6.97795e-08, -3.21961, -5.55141e-08, 3.94333, 4.62067e-08, 3.21961, 1.86465e-08, 2.27683, -263.703, -16.7306, 69.9922)
+
+[node name="SM_Cliff321" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.40188, 6.35507e-08, -0.43555, -5.83104e-08, 3.42965, 4.49821e-08, 0.43555, -3.72128e-08, 3.40188, -248.519, 23.5938, 66.1235)
+
+[node name="SM_Cliff322" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02589, 4.61044e-08, 0.0393233, -4.67119e-08, 2.02627, 3.08518e-08, -0.0393233, -3.17525e-08, 2.02589, -252.639, 12.1141, 68.5213)
+
+[node name="SM_Cliff323" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00986, 3.75463e-08, -0.257327, -3.44502e-08, 2.02627, 2.65758e-08, 0.257327, -2.19856e-08, 2.00986, -266.571, 12.1141, 67.024)
+
+[node name="SM_Cliff324" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02589, 4.61044e-08, 0.0393233, -4.67119e-08, 2.02627, 3.08518e-08, -0.0393233, -3.17525e-08, 2.02589, -281.34, 12.1141, 66.6076)
+
+[node name="SM_Cliff325" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.29718, -9.02819e-08, 3.96546, -9.61834e-08, 4.17223, 6.35261e-08, -3.96546, -7.16657e-08, -1.29718, -297.665, 47.4871, 26.1492)
+
+[node name="SM_Cliff326" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.703407, -6.58974e-08, 4.11251, -7.09356e-08, 4.17223, 5.47215e-08, -4.11251, -6.06945e-08, -0.703407, -292.226, 47.4871, 54.4835)
+
+[node name="SM_Cliff327" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.9116, -3.07923e-07, 2.98832, -7.48918e-08, 4.17223, 3.56946e-07, -2.98832, 1.95455e-07, -2.9116, -286.423, 70.0266, 81.5119)
+
+[node name="SM_Cliff328" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.29718, -9.02819e-08, 3.96546, -9.61834e-08, 4.17223, 6.35261e-08, -3.96546, -7.16657e-08, -1.29718, -297.665, 70.0266, 26.1492)
+
+[node name="SM_Cliff329" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-0.703407, -6.58974e-08, 4.11251, -7.09356e-08, 4.17223, 5.47215e-08, -4.11251, -6.06945e-08, -0.703407, -292.226, 70.0266, 54.4835)
+
+[node name="SM_Cliff330" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.29718, -9.02819e-08, 3.96546, -9.61834e-08, 4.17223, 6.35261e-08, -3.96546, -7.16657e-08, -1.29718, -284.153, 70.0266, 83.8149)
+
+[node name="SM_Cliff331" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.79894, -9.83242e-08, -2.90579, 3.74378e-08, 4.03456, -1.00458e-07, 2.90579, 4.27281e-08, 2.79894, -228.09, 40.8321, 117.362)
+
+[node name="SM_Cliff332" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(5.71048, 1.33534e-07, -2.77877, -1.07973e-07, 6.35068, 8.32932e-08, 2.77877, -2.76523e-08, 5.71048, -206.325, -1.31662, 103.938)
+
+[node name="SM_Cliff333" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(6.69513, 1.25685e-07, -0.90391, -1.14862e-07, 6.75587, 8.86076e-08, 0.90391, -7.24428e-08, 6.69513, -193.034, 50.494, 114.215)
+
+[node name="SM_Cliff334" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.1733, 1.1019e-07, -4.28785, -9.0694e-08, 5.33437, 6.99636e-08, 4.28785, 3.12813e-08, 3.1733, -235.564, 38.2293, 91.5109)
+
+[node name="SM_Cliff335" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.72087, 1.13395e-07, -3.82239, -9.0694e-08, 5.33437, 6.99636e-08, 3.82239, 1.61859e-08, 3.72087, -235.564, 4.26239, 91.5109)
+
+[node name="SM_Cliff336" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.001, 1.14298e-07, -3.5281, -9.0694e-08, 5.33437, 6.99636e-08, 3.5281, 7.50848e-09, 4.001, -261.266, 38.2293, 66.7395)
+
+[node name="SM_Cliff337" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.97825, 1.10856e-07, -1.25739, -9.61833e-08, 4.17223, 6.3526e-08, 1.25739, -3.15856e-08, 3.97825, -262.43, 56.1516, 83.8767)
+
+[node name="SM_Cliff338" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.75164, 8.77283e-08, -1.82558, -7.09356e-08, 4.17223, 5.47215e-08, 1.82558, -1.81668e-08, 3.75164, -288.623, 56.1516, 71.781)
+
+[node name="SM_Cliff339" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.12531, 2.06673e-08, 0.623966, -7.48917e-08, 4.17223, 3.56946e-07, -0.623966, -3.64132e-07, 4.12531, -313.967, 78.6911, 60.7409)
+
+[node name="SM_Cliff340" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.45149, -5.79753e-08, -1.93815, 2.68734e-08, 3.12509, -5.94889e-08, 1.93815, 2.99996e-08, 2.45149, -219.14, 59.3524, 128.427)
+
+[node name="SM_Cliff341" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(6.35001, 1.48489e-07, -3.08997, -1.20065e-07, 7.06191, 9.26214e-08, 3.08997, -3.07492e-08, 6.35001, -259.905, 102.329, 89.9798)
+
+[node name="SM_Cliff342" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.8929, 1.43464e-07, -5.89202, -1.20065e-07, 7.06191, 9.26214e-08, 5.89202, 4.91172e-08, 3.8929, -291.646, 102.329, 62.4543)
+
+[node name="SM_Cliff343" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(5.78647, 1.51474e-07, -4.04812, -1.20065e-07, 7.06191, 9.26214e-08, 4.04812, -7.06791e-09, 5.78647, -235.769, 60.4216, 107.835)
+
+[node name="SM_Cliff344" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(6.59087, 1.45317e-07, -2.53594, -1.20065e-07, 7.06191, 9.26215e-08, 2.53594, -4.33279e-08, 6.59087, -214.788, 98.7798, 114.43)
+
+[node name="SM_Cliff345" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.97825, 1.10856e-07, -1.25739, -9.61833e-08, 4.17223, 6.3526e-08, 1.25739, -3.15856e-08, 3.97825, -265.668, 78.6911, 68.289)
+
+[node name="SM_Cliff346" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.78776, 1.11531e-07, -3.10418, -9.61833e-08, 4.17223, 6.35261e-08, 3.10418, 2.9115e-08, 2.78776, -238.54, 78.6911, 91.4357)
+
+[node name="SM_Cliff347" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.04243, 6.7337e-08, -1.33013, -5.61891e-08, 2.43737, 3.71112e-08, 1.33013, -4.34241e-10, 2.04243, -247.732, 79.9959, 73.5221)
+
+[node name="SM_Cliff348" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.75164, 8.77283e-08, -1.82558, -7.09356e-08, 4.17223, 5.47215e-08, 1.82558, -1.81668e-08, 3.75164, -288.623, 78.6911, 71.781)
+
+[node name="SM_Cliff349" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.97825, 1.10856e-07, -1.25739, -9.61833e-08, 4.17223, 6.3526e-08, 1.25739, -3.15856e-08, 3.97825, -317.162, 78.6911, 61.2431)
+
+[node name="SM_Cliff350" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.90635, -9.29689e-08, 0.686706, -3.63716e-08, 2.02627, 1.73353e-07, -0.686706, 1.50768e-07, -1.90635, -277.074, -3.04036, 13.737)
+
+[node name="SM_Cliff351" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.90635, -9.29689e-08, 0.686706, -3.63716e-08, 2.02627, 1.73353e-07, -0.686706, 1.50768e-07, -1.90635, -277.074, 7.9061, 13.737)
+
+[node name="SM_Cliff352" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.90635, -9.29689e-08, 0.686706, -3.63716e-08, 2.02627, 1.73353e-07, -0.686706, 1.50768e-07, -1.90635, -340.02, 7.9061, 2.21381)
+
+[node name="SM_Cliff353" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.18072, -4.1672e-08, 1.64672, -3.44502e-08, 2.02627, 2.65758e-08, -1.64672, -1.25113e-08, -1.18072, -348.295, 7.9061, -8.35831)
+
+[node name="SM_Cliff354" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-2.05684, -7.25938e-08, 2.86863, -6.00133e-08, 3.52982, 4.62958e-08, -2.86863, -2.17951e-08, -2.05684, -348.295, 24.5223, -8.35831)
+
+[node name="SM_Cliff355" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.40881, -5.46521e-08, 1.45637, -4.67119e-08, 2.02627, 3.08518e-08, -1.45637, -1.21236e-08, -1.40881, -338.539, 7.9061, 2.73747)
+
+[node name="SM_Cliff356" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.83962, -3.38671e-08, -0.67459, 1.81819e-08, 1.95941, -4.87879e-08, 0.67459, 3.95455e-08, 1.83962, -306.929, -6.27238, 5.48074)
+
+[node name="SM_Cliff357" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(0.883733, -1.74453e-08, -0.941146, 8.7142e-09, 1.29102, -1.5748e-08, 0.941146, 4.42728e-09, 0.883733, -276.61, 3.6839, 23.1057)
+
+[node name="SM_Cliff358" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.42017, 5.11357e-08, -0.254883, -4.82826e-08, 3.42965, 4.01876e-08, 0.254883, -3.64882e-08, 3.42017, -297.659, 5.06585, -2.05486)
+
+[node name="SM_Cliff359" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02627, 3.44562e-08, -0.000459969, -3.44502e-08, 2.02627, 2.65758e-08, 0.000459969, -2.65679e-08, 2.02627, -314.336, 1.16761, -3.30896)
+
+[node name="SM_Cliff360" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00456, 4.17072e-08, 0.295828, -4.67119e-08, 2.02627, 3.08518e-08, -0.295828, -3.73409e-08, 2.00456, -329.039, 1.16761, -1.84969)
+
+[node name="SM_Cliff361" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02627, 3.44562e-08, -0.000459969, -3.44502e-08, 2.02627, 2.65758e-08, 0.000459969, -2.65679e-08, 2.02627, -343.048, 1.16761, -1.56885)
+
+[node name="SM_Cliff362" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.66918, -6.8316e-08, 1.14874, -3.63716e-08, 2.02627, 1.73353e-07, -1.14874, -1.63423e-07, 1.66918, -356.462, 12.1141, -1.00745)
+
+[node name="SM_Cliff363" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(1.48234, -1.89485e-08, -0.325778, 1.30512e-08, 1.51772, -2.88911e-08, 0.325778, 2.54162e-08, 1.48234, -300.67, 2.72213, 8.41254)
+
+[node name="SM_Cliff364" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.42965, 5.83205e-08, -0.000778198, -5.83104e-08, 3.42965, 4.49821e-08, 0.000778198, -4.49688e-08, 3.42965, -325.256, 23.5938, -4.75053)
+
+[node name="SM_Cliff365" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00456, 4.17072e-08, 0.295828, -4.67119e-08, 2.02627, 3.08518e-08, -0.295828, -3.73409e-08, 2.00456, -329.039, 12.1141, -1.84969)
+
+[node name="SM_Cliff366" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.02627, 3.44562e-08, -0.000459969, -3.44502e-08, 2.02627, 2.65758e-08, 0.000459969, -2.65679e-08, 2.02627, -343.048, 12.1141, -1.56885)
+
+[node name="SM_Cliff367" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.00456, 4.17072e-08, 0.295828, -4.67119e-08, 2.02627, 3.08518e-08, -0.295828, -3.73409e-08, 2.00456, -357.75, 12.1141, -0.109604)
+
+[node name="SM_Cliff368" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21908, -7.306e-08, 3.99016, -7.09356e-08, 4.17223, 5.47215e-08, -3.99016, -5.1851e-08, -1.21908, -370.085, 47.4871, -10.7559)
+
+[node name="SM_Cliff369" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-3.26694, -2.80661e-07, 2.59511, -7.48918e-08, 4.17223, 3.56946e-07, -2.59511, 2.32914e-07, -3.26694, -360.904, 70.0266, 15.3189)
+
+[node name="SM_Cliff370" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.21908, -7.306e-08, 3.99016, -7.09356e-08, 4.17223, 5.47215e-08, -3.99016, -5.1851e-08, -1.21908, -370.085, 70.0266, -10.7559)
+
+[node name="SM_Cliff371" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(-1.78942, -9.86386e-08, 3.76902, -9.61834e-08, 4.17223, 6.35261e-08, -3.76902, -5.96424e-08, -1.78942, -358.36, 70.0266, 17.3156)
+
+[node name="SM_Cliff372" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.14473, -9.21143e-08, -2.52753, 3.74378e-08, 4.03456, -1.00458e-07, 2.52753, 5.48479e-08, 3.14473, -298.496, 40.8321, 43.4843)
+
+[node name="SM_Cliff373" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.69127, 1.13266e-07, -3.85098, -9.0694e-08, 5.33437, 6.99636e-08, 3.85098, 1.70602e-08, 3.69127, -309.187, 38.2293, 18.7899)
+
+[node name="SM_Cliff374" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.17542, 1.14532e-07, -3.31985, -9.0694e-08, 5.33437, 6.99636e-08, 3.31985, 1.68024e-09, 4.17542, -309.187, 4.26239, 18.7899)
+
+[node name="SM_Cliff375" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.41598, 1.14327e-07, -2.99243, -9.0694e-08, 5.33437, 6.99636e-08, 2.99243, -7.04163e-09, 4.41598, -337.821, 38.2293, -2.52362)
+
+[node name="SM_Cliff376" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.10556, 1.05958e-07, -0.742924, -9.61833e-08, 4.17223, 6.35261e-08, 0.742924, -4.5384e-08, 4.10556, -336.804, 56.1516, 14.623)
+
+[node name="SM_Cliff377" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.9528, 8.47175e-08, -1.33526, -7.09356e-08, 4.17223, 5.47215e-08, 1.33526, -2.91416e-08, 3.9528, -364.319, 56.1516, 5.94537)
+
+[node name="SM_Cliff378" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.67741, -5.37045e-08, -1.61174, 2.68734e-08, 3.12509, -5.94889e-08, 1.61174, 3.71071e-08, 2.67741, -288.216, 59.3524, 53.3257)
+
+[node name="SM_Cliff379" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(6.69049, 1.43393e-07, -2.26005, -1.20065e-07, 7.06191, 9.26214e-08, 2.26005, -4.93251e-08, 6.69049, -333.526, 102.329, 20.3568)
+
+[node name="SM_Cliff380" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(6.25297, 1.49356e-07, -3.28191, -1.20065e-07, 7.06191, 9.26214e-08, 3.28191, -2.62133e-08, 6.25297, -307.321, 60.4216, 35.0077)
+
+[node name="SM_Cliff381" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(4.10556, 1.05958e-07, -0.742924, -9.61833e-08, 4.17223, 6.35261e-08, 0.742924, -4.5384e-08, 4.10556, -341.991, 78.6911, -0.428513)
+
+[node name="SM_Cliff382" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.15879, 1.14322e-07, -2.72573, -9.61833e-08, 4.17223, 6.3526e-08, 2.72573, 1.47413e-08, 3.15879, -312.148, 78.6911, 19.0925)
+
+[node name="SM_Cliff383" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(2.19458, 6.67387e-08, -1.06047, -5.61892e-08, 2.43737, 3.71112e-08, 1.06047, -8.96706e-09, 2.19458, -323.537, 79.9959, 2.48858)
+
+[node name="SM_Cliff384" parent="cliff_container" instance=ExtResource("1_p7qqm")]
+transform = Transform3D(3.9528, 8.47175e-08, -1.33526, -7.09356e-08, 4.17223, 5.47215e-08, 1.33526, -2.91416e-08, 3.9528, -364.319, 78.6911, 5.94537)
+
+[node name="SB_Ground" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-10.361, -1.83736e-07, 0.578002, -1.7643e-07, 10.3771, 1.36102e-07, -0.578002, 1.26064e-07, -10.361, -274.913, -1.19062, 16.2565)
+
+[node name="SB_Ground2" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-12.005, 0.788098, 4.07265, 0.650023, 12.6735, -0.536363, -4.09696, -0.298525, -12.0189, -255.336, -1.26549, -43.4827)
+
+[node name="SB_Ground3" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-8.83756, -0.20947, 9.12034, 0.301532, 12.6845, 0.583511, -9.11776, 0.622519, -8.82077, -212.424, -3.24621, -123.067)
+
+[node name="SB_Ground4" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-8.65306, 0.227181, 9.29516, 0.365456, 12.6961, 0.0299062, -9.29075, 0.287822, -8.656, -158.958, -4.03007, -45.9354)
+
+[node name="SB_Ground5" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-8.78952, -0.00872458, 9.16905, 0.320467, 12.6934, 0.31928, -9.16345, 0.452287, -8.78372, -123.584, -3.22989, -138.463)
+
+[node name="SB_Ground6" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.38002, 0.167948, 6.02588, -0.0147361, 8.07631, -0.238253, -6.0282, -0.169632, -5.37737, -226.763, -1.93147, 53.0467)
+
+[node name="SB_Ground9" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.38002, 0.167948, 6.02588, -0.0147361, 8.07631, -0.238253, -6.0282, -0.169632, -5.37737, -177.265, -0.135958, 59.5752)
+
+[node name="SB_Ground10" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-9.09454, 1.15157, 10.6134, 0.563497, 13.9748, -1.03344, -10.6608, -0.243721, -9.10871, -211.77, -3.98078, 4.52482)
+
+[node name="SB_Ground11" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.38002, 0.167948, 6.02588, -0.0147361, 8.07631, -0.238253, -6.0282, -0.169632, -5.37737, -297.049, -1.93147, -27.3511)
+
+[node name="SB_Ground7" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-4.68159, 0.146145, 5.24359, -0.0128231, 7.02784, -0.207323, -5.24561, -0.14761, -4.67928, -197.228, -3.83127, 6.16476)
+
+[node name="SB_Ground8" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -144.817, -1.18535, 27.1608)
+
+[node name="SB_Ground12" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -101.281, -1.18534, -4.32465)
+
+[node name="SB_Ground13" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -47.7236, -1.18534, -12.923)
+
+[node name="SB_Ground14" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -5.75718, -1.18534, 14.2642)
+
+[node name="SB_Ground15" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -69.0961, -1.18533, -35.484)
+
+[node name="SB_Ground16" parent="." instance=ExtResource("2_athbo")]
+transform = Transform3D(-5.05873, 0.157918, 5.666, -0.013856, 7.59398, -0.224024, -5.66818, -0.159501, -5.05623, -102.531, -1.18533, -79.6904)

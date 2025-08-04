@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.IO;
+using Entities.Meshes;
 
 namespace Kernel;
 
@@ -19,6 +20,28 @@ public partial class Utility : Node
     {
         string absolutePath = Path.GetFullPath(Path.Combine(GetRootPath(), localPath));
         return absolutePath;
+    }
+
+    public static string GetOriginalScenePath(Node node)
+    {
+        // Use the resource path if explicitly set
+        if (node is MeshStaticEntity meshEntity && 
+            !string.IsNullOrEmpty(meshEntity.OriginalSceneResourcePath))
+        {
+            return meshEntity.OriginalSceneResourcePath;
+        }
+
+        // Traverse ownership hierarchy
+        Node current = node;
+        while (current != null)
+        {
+            if (!string.IsNullOrEmpty(current.SceneFilePath))
+            {
+                return current.SceneFilePath;
+            }
+            current = current.Owner;
+        }
+        return node.SceneFilePath;
     }
 
     public static string GetUnifiedLOD1Path(string scenePath)
