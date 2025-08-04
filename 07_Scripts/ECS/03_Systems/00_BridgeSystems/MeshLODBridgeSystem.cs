@@ -40,18 +40,18 @@ namespace Systems.Bridge
                 {
                     float delta = world.Entity("DeltaTime").Get<SingletonDeltaTimeComponent>().Value;
 
-                    Entity? cachedCameraEntity = null;
-                    TransformComponent cachedCameraTransform = default;
-
                     // Cache active camera entity & transform once per system iteration
+                    TransformComponent cachedCameraTransform = default;
+                    bool hasCamera = false;
+
                     var cameraQuery = it.World().QueryBuilder<TransformComponent>()
                         .With<CameraCurrentComponent>()
                         .Build();
 
                     cameraQuery.Each((Entity entity, ref TransformComponent transform) =>
                     {
-                        cachedCameraEntity = entity;
                         cachedCameraTransform = transform;
+                        hasCamera = true;
                     });
 
                     foreach (int i in it)
@@ -69,7 +69,7 @@ namespace Systems.Bridge
 
                         var timer = entity.Get<TimerComponent>();
 
-                        // If still running, update and skip LOD logic
+                        // Update timer
                         if (timer.IsRunning)
                         {
                             timer.Elapsed += delta;
@@ -84,8 +84,8 @@ namespace Systems.Bridge
                             continue;
                         }
 
-                        // Timer finished, only show error once per entity
-                        if (!timer.ErrorShown && cachedCameraEntity == null)
+                        // Timer finished, check for camera
+                        if (!timer.ErrorShown && !hasCamera)
                         {
                             Log.PrintError("LOD System: No active camera found.");
                             timer.ErrorShown = true;
@@ -96,19 +96,36 @@ namespace Systems.Bridge
                         // Always update timer if modified
                         entity.Set(timer);
 
+                        // Ensure Node3D exists
                         if (!NodeRef<Node3D>.TryGet(entity, out Node3D currentNode))
                         {
                             Log.PrintError("LOD System: No node associated with entity");
                             continue;
                         }
 
+                        // If entity marked as "no LOD", skip
+                        if (lod.CurrentLod == -1)
+                            continue;
+
                         float distanceSquared = trans.Position.DistanceSquaredTo(cachedCameraTransform.Position);
                         float thresholdSquared = lod.CameraDistance * lod.CameraDistance;
+
+                        // Compute LOD1 path
+                        string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(lod.OriginalScenePath);
+
+                        // Check if LOD1 exists before switching
+                        bool lod1Exists = FileAccess.FileExists(lod1Path);
+
+                        if (!lod1Exists)
+                        {
+                            // Mark entity as no LOD and skip forever
+                            lod.CurrentLod = -1;
+                            continue;
+                        }
 
                         // Switch to LOD1 if too far
                         if (lod.CurrentLod == 0 && distanceSquared > thresholdSquared)
                         {
-                            string lod1Path = Kernel.Utility.GetUnifiedLOD1Path(lod.OriginalScenePath);
                             if (!IsSameScene(currentNode, lod1Path))
                             {
                                 var parent = currentNode.GetParent();
