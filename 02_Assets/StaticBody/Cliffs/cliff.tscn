@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce0obf1jki4hs"]
+
+[ext_resource type="PackedScene" uid="uid://byt2hxpjlvghb" path="res://09_Imports/Meshes/Cliffs/cliff.glb" id="1_ur8kk"]
+[ext_resource type="Script" uid="uid://btu7vlfikuebb" path="res://07_Scripts/ECS/01_Entities/MeshEntities/MeshStaticEntity.cs" id="2_1ehog"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="3_td8wb"]
+[ext_resource type="Texture2D" uid="uid://dxi5fiv7jhf4d" path="res://03_Textures/Cliff/Rock031_4K-PNG_Color.png" id="4_stxjl"]
+[ext_resource type="Texture2D" uid="uid://dtwsihsqo8jjd" path="res://03_Textures/Cliff/Rock031_4K-PNG_NormalGL.png" id="5_34mxm"]
+[ext_resource type="Texture2D" uid="uid://bt047ra472sv2" path="res://03_Textures/Cliff/Rock031_4K-PNG_Roughness.png" id="6_ri3s1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vknre"]
+render_priority = 0
+shader = ExtResource("3_td8wb")
+shader_parameter/render_backfaces = false
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_stxjl")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("6_ri3s1")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("5_34mxm")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_rotate_degrees = 0.0
+
+[node name="SB_Cliff" instance=ExtResource("1_ur8kk")]
+script = ExtResource("2_1ehog")
+
+[node name="Cliff__Mesh" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_vknre")

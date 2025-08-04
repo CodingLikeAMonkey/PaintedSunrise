@@ -10,9 +10,7 @@ using Components.UI;
 using Systems.UI;
 using Components.XML;
 using Systems.XML;
-using Classes.UI;
 using Systems.Time;
-using System.Diagnostics;
 using Ssytems.Lighting;
 using Systems.Bridge;
 
@@ -95,7 +93,7 @@ public partial class EcsWorld : Node
 
 
         // Bridge Systems
-        MeshLODBridgeSystem.Setup(Instance);
+        // MeshLODBridgeSystem.Setup(Instance);
         CameraThirdPersonBridgeSystem.Setup(Instance);
         CharacterPhysicsBridgeSystem.Setup(Instance);
         CameraSetCurrentBridgeSystem.Setup(Instance);

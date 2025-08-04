@@ -9,6 +9,7 @@ namespace Entities.Meshes;
 public partial class MeshStaticEntity : Node3D
 {
     // Base mesh properties
+     [Export] public string OriginalSceneResourcePath { get; set; } = "";
     [Export] public float LOD1Distance { get; set; } = 60.0f;
     [Export] public string MeshType = "Environment";
     [Export] public bool CastShadows = true;
@@ -28,6 +29,11 @@ public partial class MeshStaticEntity : Node3D
         }
 
         if (SkipEntityCreation) return;
+
+        // Determine original scene path
+        string originalPath = !string.IsNullOrEmpty(OriginalSceneResourcePath) 
+            ? OriginalSceneResourcePath 
+            : GetOriginalScenePath();
         
         // Set components only for primary entities
         _entity.Set(new MeshStaticEntity { MeshType = MeshType })
@@ -42,6 +48,21 @@ public partial class MeshStaticEntity : Node3D
                    OriginalScenePath = SceneFilePath,
                    CameraDistance = LOD1Distance
                });
+    }
+
+    private string GetOriginalScenePath()
+    {
+        // Traverse up the ownership hierarchy to find the original scene
+        Node current = this;
+        while (current != null)
+        {
+            if (!string.IsNullOrEmpty(current.SceneFilePath))
+            {
+                return current.SceneFilePath;
+            }
+            current = current.Owner;
+        }
+        return SceneFilePath; // Fallback
     }
 
     public override void _ExitTree()

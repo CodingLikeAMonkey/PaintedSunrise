@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7xu2btcnmkug"]
+
+[ext_resource type="PackedScene" uid="uid://cspa86fgwvbcj" path="res://09_Imports/Meshes/Ground/ground.glb" id="1_34p7d"]
+[ext_resource type="Shader" uid="uid://crx3vm4l5n2iu" path="res://04_Shaders/pbr_shader.gdshader" id="2_s87p0"]
+[ext_resource type="Texture2D" uid="uid://cjnxjl8pv7vs2" path="res://03_Textures/Ground078/Ground078_4K-PNG_Color.png" id="3_umwwt"]
+[ext_resource type="Texture2D" uid="uid://dme0h80t7vw71" path="res://03_Textures/Ground078/Ground078_4K-PNG_NormalGL.png" id="4_ocsen"]
+[ext_resource type="Texture2D" uid="uid://bikk8iwra1l8f" path="res://03_Textures/Ground078/Ground078_4K-PNG_Roughness.png" id="5_igqm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k7rr"]
+render_priority = 0
+shader = ExtResource("2_s87p0")
+shader_parameter/render_backfaces = false
+shader_parameter/albedo = Color(0.177806, 0.200521, 0.150391, 1)
+shader_parameter/texture_albedo = ExtResource("3_umwwt")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("5_igqm3")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("4_ocsen")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(2, 4, 2)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_rotate_degrees = 0.0
+
+[node name="SB_Ground" instance=ExtResource("1_34p7d")]
+
+[node name="Ground" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_4k7rr")
