@@ -8,11 +8,7 @@ sky_material = ExtResource("1_mgqhr")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_vtqjo")
-tonemap_mode = 2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
+tonemap_mode = 3
 sdfgi_use_occlusion = true
 glow_enabled = true
 fog_density = 0.0041

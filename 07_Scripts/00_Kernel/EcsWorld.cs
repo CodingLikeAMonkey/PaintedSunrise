@@ -55,7 +55,7 @@ public partial class EcsWorld : Node
             .Set(new SingletonDayTimeComponent
             {
                 Day = 1,
-                Hour = 0.0f,
+                Hour = 16.0f,
                 TimeScale = 1f
             });
 
