@@ -26,6 +26,21 @@ group_uniforms moon; // Second DirectionalLight3D will be the moon
 	uniform float moon_size : hint_range(0.01, 1.0) = 0.06;
 	uniform float moon_blur : hint_range(0.01, 10.0) = 0.1;
 
+
+// NEW: Control strengths
+uniform float moon_normal_strength    : hint_range(-10.0, 10.0) = 1.0;
+uniform float moon_roughness_strength : hint_range(0.0, 1.0) = 1.0;
+
+// NEW: Optional moon texture toggle and slot
+uniform bool use_moon_texture = false;
+uniform sampler2D moon_texture : filter_linear_mipmap, repeat_enable;
+uniform sampler2D moon_normal_texture  : filter_linear_mipmap, repeat_enable;
+uniform sampler2D moon_roughness_texture : filter_linear_mipmap, repeat_enable;
+
+// NEW: UV transform for moon texture (no hint_range on vec2)
+uniform vec2 moon_tex_scale = vec2(1.0, 1.0);
+uniform vec2 moon_tex_offset = vec2(0.0, 0.0);
+
 group_uniforms moon_noise;
     uniform sampler2D moon_noise_texture : source_color, filter_linear_mipmap, repeat_disable;
     uniform vec3 moon_crater_color : source_color = vec3(0.2, 0.2, 0.2);
@@ -188,42 +203,54 @@ void sky()
 		COLOR = mix(COLOR, _horizon_color, _horizon_amount);
 	}
 
-		//////////////////// MOON //////////////////////////////////////////////////////////////////////
-	float _moon_amount = 0.0;
-	if(LIGHT1_ENABLED)
-	{
-		// Bigger moon near the horizon
-		float _moon_size = moon_size + cos(LIGHT1_DIRECTION.y * PI) * moon_size * 0.25;
-		float _moon_distance = distance(EYEDIR, LIGHT1_DIRECTION) / _moon_size;
-		// Finding moon disc and edge blur
-		_moon_amount = clamp((1.0 - _moon_distance) / moon_blur, 0.0, 1.0);
-		if(_moon_amount > 0.0)
-		{
-			// Moon illumination depending on the position of the sun
-			float _moon_intersect = sphere_intersect(EYEDIR, LIGHT1_DIRECTION, _moon_size);
-			vec3 moon_normal = normalize(LIGHT1_DIRECTION - EYEDIR * _moon_intersect);
-			// Power on the result gives a better effect
-			float _moon_n_dot_l = pow(clamp(dot(moon_normal, -LIGHT0_DIRECTION), 0.05, 1.0), 2);
+//////////////////// MOON //////////////////////////////////////////////////////////////////////
+float _moon_amount = 0.0;
+if (LIGHT1_ENABLED) {
+    float _moon_size     = moon_size + cos(LIGHT1_DIRECTION.y * PI) * moon_size * 0.25;
+    float _moon_distance = distance(EYEDIR, LIGHT1_DIRECTION) / _moon_size;
+    _moon_amount = clamp((1.0 - _moon_distance) / moon_blur, 0.0, 1.0);
 
-			// Calculate spherical UVs for the moon
-			float lon = atan(moon_normal.z, moon_normal.x);
-			float lat = acos(clamp(moon_normal.y, -1.0, 1.0));
-			vec2 moon_uv = vec2(
-				lon / (2.0 * PI) + 0.5,
-				lat / PI
-			);
+    if (_moon_amount > 0.0) {
+        // compute intersection & base normal
+        float _moon_intersect = sphere_intersect(EYEDIR, LIGHT1_DIRECTION, _moon_size);
+        vec3 base_normal = normalize(LIGHT1_DIRECTION - EYEDIR * _moon_intersect);
 
-			// Sample the crater noise
-			float moon_noise = texture(moon_noise_texture, moon_uv * moon_noise_scale).r;
-			vec3 noisy_moon = mix(moon_color, moon_crater_color, moon_noise * moon_noise_intensity);
+        // spherical UVs [0,1]x[0,1]
+        float lon = atan(base_normal.z, base_normal.x);
+        float lat = acos(clamp(base_normal.y, -1.0, 1.0));
+        vec2 moon_uv = vec2(lon / (2.0 * PI) + 0.5,
+                            lat / PI);
 
-			// Hiding the moon behind the horizon
-			_moon_amount *= 1.0 - _horizon_amount;
+        // apply UV scale/offset
+        vec2 uv = moon_uv * moon_tex_scale + moon_tex_offset;
 
-			// Apply to moon disc with phase lighting
-			COLOR = mix(COLOR, noisy_moon, _moon_n_dot_l * _moon_amount);
-		}
-	}
+        // perturb normal from normal map (apply strength)
+        vec3 sampled_n = texture(moon_normal_texture, uv).rgb * 2.0 - 1.0;
+        vec3 perturbed_normal = normalize(base_normal + sampled_n * moon_normal_strength);
+
+        // standard lambert‐style dot, then modulate by roughness (with strength)
+        float NdotL = clamp(dot(perturbed_normal, -LIGHT0_DIRECTION), 0.05, 1.0);
+        float roughness = texture(moon_roughness_texture, uv).r * moon_roughness_strength;
+        float lighting = pow(NdotL, 2.0) * (1.0 - roughness * 0.5);
+
+        // pick color: texture vs noise
+        vec3 moon_col;
+        if (use_moon_texture) {
+            moon_col = texture(moon_texture, uv).rgb * moon_color;
+        } else {
+            float noise = texture(moon_noise_texture, moon_uv * moon_noise_scale).r;
+            moon_col = mix(moon_color, moon_crater_color, noise * moon_noise_intensity);
+        }
+
+        // fade at edge & behind horizon
+        float fade = lighting * _moon_amount * (1.0 - _horizon_amount);
+        COLOR = mix(COLOR, moon_col, fade);
+    }
+}
+
+
+
+
 
 
 	//////////////////// SUN ///////////////////////////////////////////////////////////////////////

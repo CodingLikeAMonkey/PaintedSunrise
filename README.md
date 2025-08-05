@@ -8,5 +8,6 @@ flecs ECS https://github.com/SanderMertens/flecs by https://github.com/SanderMer
 Sunshine Clouds 2 https://github.com/Bonkahe/SunshineClouds2 by https://github.com/Bonkahe und MIT LIcence
 ### Textures
 Wood Floor Deck https://polyhaven.com/a/wood_floor_deck by https://polyhaven.com/all?a=Dimitrios%20Savva under https://polyhaven.com/license
+Moon by https://3dtextures.me/2025/02/18/moon-002/
 ###Shaders
 Stylized sky with procedural sun and moon by https://godotshaders.com/author/krzmig/
