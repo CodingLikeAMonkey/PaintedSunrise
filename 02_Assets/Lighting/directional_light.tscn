@@ -16,12 +16,12 @@ albedo_color = Color(1, 0, 0, 1)
 script = ExtResource("1_xld4v")
 
 [node name="DirectionalLight__Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_color = Color(0.960938, 0.819432, 0.76825, 1)
 shadow_enabled = true
 
 [node name="DirectionalLight__Moon" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-1, -3.82137e-15, -8.74228e-08, -8.74228e-08, 4.37114e-08, 1, 0, 1, -4.37114e-08, 0, 0, 0)
 light_color = Color(0.267441, 0.312057, 0.318126, 1)
 
 [node name="DirectionalLight_Fill" type="Node3D" parent="."]
@@ -49,11 +49,11 @@ light_color = Color(0.677524, 0.688598, 0.690104, 1)
 light_energy = 0.2
 
 [node name="DirectonalLight__IndicatorSun" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 8.74228e-08, -1, 0)
 material_override = SubResource("StandardMaterial3D_83hgu")
 mesh = SubResource("CylinderMesh_xld4v")
 
 [node name="DirectonalLight__IndicatorMoon" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, -8.74228e-08, 1, 0)
 material_override = SubResource("StandardMaterial3D_355nr")
 mesh = SubResource("CylinderMesh_xld4v")
