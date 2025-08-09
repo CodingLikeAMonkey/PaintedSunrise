@@ -5,6 +5,7 @@ using Components.Math;
 using Components.Character;
 using Components.Physics;
 using Components.Input;
+using Components.Animation;
 
 namespace Entities.Character
 {
@@ -29,13 +30,14 @@ namespace Entities.Character
                 .Set(new CharacterMovementStatsComponent { })
                 .Set(new PhysicsGravityComponent { })
                 .Set(new InputDeadZoneComponent { })
-                .Set(new CharacterStateComponent{})
+                .Set(new CharacterStateComponent { })
 
                 .Add<CharacterComponent>()
                 .Add<CharacterStateComponent>()
                 .Add<PhysicsVelocityComponent>()
                 .Add<PhysicsColliderComponent>()
-                .Add<CharacterLastPositionComponent>();
+                .Add<CharacterLastPositionComponent>()
+                .Add<AnimationComponent>();
 
             Kernel.NodeRef<Node3D>.Register(characterEntity, this);
 

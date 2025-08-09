@@ -102,10 +102,10 @@ states/humanoid_animation_library_run/position = Vector2(632.667, 152.333)
 states/humanoid_animation_library_walk/node = SubResource("AnimationNodeAnimation_lw23s")
 states/humanoid_animation_library_walk/position = Vector2(338, 153)
 transitions = ["Start", "humanoid_animation_library_idle", SubResource("AnimationNodeStateMachineTransition_52aeb"), "humanoid_animation_library_idle", "humanoid_animation_library_walk", SubResource("AnimationNodeStateMachineTransition_gmxaa"), "humanoid_animation_library_walk", "humanoid_animation_library_idle", SubResource("AnimationNodeStateMachineTransition_u7onv"), "humanoid_animation_library_walk", "humanoid_animation_library_run", SubResource("AnimationNodeStateMachineTransition_ixr0j"), "humanoid_animation_library_run", "humanoid_animation_library_walk", SubResource("AnimationNodeStateMachineTransition_t5v0y"), "humanoid_animation_library_idle", "humanoid_animation_library_jump", SubResource("AnimationNodeStateMachineTransition_se8jr"), "humanoid_animation_library_jump", "humanoid_animation_library_fall", SubResource("AnimationNodeStateMachineTransition_bhrgk"), "humanoid_animation_library_fall", "humanoid_animation_library_land", SubResource("AnimationNodeStateMachineTransition_mfu4v"), "humanoid_animation_library_land", "humanoid_animation_library_idle", SubResource("AnimationNodeStateMachineTransition_ue36h"), "humanoid_animation_library_walk", "humanoid_animation_library_jump", SubResource("AnimationNodeStateMachineTransition_qnlka"), "humanoid_animation_library_run", "humanoid_animation_library_jump", SubResource("AnimationNodeStateMachineTransition_lw23s"), "humanoid_animation_library_idle", "humanoid_animation_library_fall", SubResource("AnimationNodeStateMachineTransition_nts18"), "humanoid_animation_library_walk", "humanoid_animation_library_fall", SubResource("AnimationNodeStateMachineTransition_1mi1l"), "humanoid_animation_library_run", "humanoid_animation_library_fall", SubResource("AnimationNodeStateMachineTransition_ap1o1")]
-graph_offset = Vector2(-373, -167)
+graph_offset = Vector2(-477, -217)
 
 [resource]
-graph_offset = Vector2(-608.191, 49.8314)
+graph_offset = Vector2(-580, -79.3333)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_lw23s")
 nodes/StateMachine/position = Vector2(-213.333, 93.3333)
 node_connections = [&"output", 0, &"StateMachine"]
