@@ -44,8 +44,7 @@ namespace Systems.Bridge
                         {
                             if (child is Node3D node3D && node3D.IsInGroup("visual_body"))
                             {
-                                Node3D visual = node3D;
-                                visual.Rotation = new Vector3(0, character.GhostBodyYaw, 0);
+                                node3D.Rotation = new Vector3(0, character.GhostBodyYaw, 0);
                                 break;
                             }
                         }

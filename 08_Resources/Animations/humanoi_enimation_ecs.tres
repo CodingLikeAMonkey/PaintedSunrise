@@ -1,0 +1,20 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=4 format=3 uid="uid://bpyy4odchp2mu"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ypvo"]
+animation = &"humanoid_animation_library/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0xiol"]
+animation = &"humanoid_animation_library/run"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_i4m3v"]
+
+[resource]
+graph_offset = Vector2(-655.818, -151.974)
+nodes/AnimA/node = SubResource("AnimationNodeAnimation_8ypvo")
+nodes/AnimA/position = Vector2(-346.667, 0)
+nodes/AnimB/node = SubResource("AnimationNodeAnimation_0xiol")
+nodes/AnimB/position = Vector2(-346.667, 200)
+nodes/AnimBlend/node = SubResource("AnimationNodeBlend2_i4m3v")
+nodes/AnimBlend/position = Vector2(93.3333, 26.6667)
+nodes/output/position = Vector2(440, 53.3333)
+node_connections = [&"AnimBlend", 0, &"AnimA", &"AnimBlend", 1, &"AnimB", &"output", 0, &"AnimBlend"]

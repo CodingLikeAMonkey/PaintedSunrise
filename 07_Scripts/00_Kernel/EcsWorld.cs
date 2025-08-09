@@ -13,6 +13,8 @@ using Systems.XML;
 using Systems.Time;
 using Ssytems.Lighting;
 using Systems.Bridge;
+using Components.Animation;
+using Systems.Animation;
 
 
 namespace Kernel;
@@ -44,6 +46,7 @@ public partial class EcsWorld : Node
         Instance.Component<UIInteractiveComponent>();
         Instance.Component<XMLFileComponent>();
         Instance.Component<SingletonDayTimeComponent>();
+        Instance.Component<AnimationComponent>();
 
 
         InputEntity = Instance.Entity("Singleton")
@@ -85,6 +88,7 @@ public partial class EcsWorld : Node
         XMLParserSystem.Setup(Instance);
         DayTimeSystem.Setup(Instance);
         LightingDayNightSystem.Setup(Instance, dayTimeEntity);
+        AnimationCharacterStateMachineSystem.Setup(Instance);
         // DebugDayTime.Setup(Instance);
         // DebugUINodeParsed.Setup(Instance);
         // DebugGameStateSystem.Setup(Instance);
@@ -98,6 +102,7 @@ public partial class EcsWorld : Node
         CharacterPhysicsBridgeSystem.Setup(Instance);
         CameraSetCurrentBridgeSystem.Setup(Instance);
         LightingDayNightBridgeSystem.Setup(Instance);
+        AnimationTreeBridgeSystem.Setup(Instance);
 
         Log.Info = GD.Print;
         Log.Warn = GD.Print;
